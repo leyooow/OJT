@@ -13,13 +13,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { LandingComponent } from './component/landing/landing.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { HotToastModule } from '@ngneat/hot-toast';
+import { FacultyDashboardComponent } from './component/faculty-dashboard/faculty-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    LandingComponent
+    LandingComponent,
+    FacultyDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +39,11 @@ import { LandingComponent } from './component/landing/landing.component';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
+    HotToastModule.forRoot(),
 
 
   ],

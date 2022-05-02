@@ -1,6 +1,6 @@
 <div class="form-container mat-elevation-z5">
     <h1>Login</h1>
-    <form [formGroup]="loginForm">
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
         <mat-form-field>
             <input matInput placeholder="Email Address" formControlName="email">
             <mat-error *ngIf="email?.errors?.['required']"> Email is Required!</mat-error>
@@ -16,6 +16,6 @@
             </button>
         </div>
         
-        <span class="center margin-top">Register as a faculty <a routerLink="register" class="sign-up-link">Register!</a></span>
+        <span class="center margin-top">Register as a faculty <a routerLink="/register" class="sign-up-link">Register!</a></span>
     </form>
 </div>
