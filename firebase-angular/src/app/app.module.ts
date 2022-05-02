@@ -30,6 +30,9 @@ import { FormsModule } from '@angular/forms';
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     FormsModule,
+ 
+  
+
     
   ],
   providers: [],
