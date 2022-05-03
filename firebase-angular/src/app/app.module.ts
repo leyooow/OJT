@@ -22,6 +22,7 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { FacultyDashboardComponent } from './component/faculty-dashboard/faculty-dashboard.component';
 import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashb
     RegisterComponent,
     LandingComponent,
     FacultyDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
