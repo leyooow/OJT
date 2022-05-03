@@ -11,6 +11,7 @@ import {
   redirectLoggedInTo,
 } from '@angular/fire/auth-guard'
 import { user } from '@angular/fire/auth';
+import { ProfileComponent } from './component/profile/profile.component';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['/login'])
 
@@ -39,6 +40,9 @@ const routes: Routes = [
   component: AdminDashboardComponent,
   ...canActivate(redirectToLogin) 
  },
+ {path: 'profile', 
+ component: ProfileComponent,
+ ...canActivate(redirectToLogin) },
 
 
 ];

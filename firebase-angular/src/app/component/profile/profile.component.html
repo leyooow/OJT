@@ -1,1 +1,17 @@
-<p>profile works!</p>
+<div class="form-container mat-elevation-z5 text-center" *ngIf="user$ | async as user">
+    <h1 class="form-title">User Profile</h1>
+    <div class="profile-image">
+        <img 
+        width="120"
+        height="120" 
+        [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'" 
+        >
+        <button mat-mini-fab (click)="inputField.click()">
+            <mat-icon>edit</mat-icon>
+        </button>
+        </div>
+
+            <input #inputField type="file" hidden (change)="uploadImage($event, user)" />
+        
+        
+</div>

@@ -56,6 +56,7 @@ export class RegisterComponent implements OnInit {
     if(!this.signUpForm.valid) return
 
     const { firstname, lastname, employeeId, email, password } = this.signUpForm.value
+    
     this.authService.signUp(firstname, lastname, employeeId, email, password).pipe(
       this.toast.observe({
         success:'Successfully Registered',
