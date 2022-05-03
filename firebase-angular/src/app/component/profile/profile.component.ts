@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { HotToastService } from '@ngneat/hot-toast';
 import { User } from 'firebase/auth';
@@ -14,6 +15,15 @@ import { ImageUploadService } from 'src/app/services/image-upload.service';
 export class ProfileComponent implements OnInit {
 
   user$ = this.authService.currentUser$
+
+  profileForm = new FormGroup({
+    uid : new FormControl(''),
+    displayName : new FormControl(''),
+    firstName : new FormControl(''),
+    lastName : new FormControl(''),
+    employeeId : new FormControl(''),
+    
+  })
 
   constructor(private authService : AuthenticationService,
      private imageUploadService: ImageUploadService,
@@ -32,5 +42,7 @@ export class ProfileComponent implements OnInit {
       }), concatMap((photoURL) => this.authService.updateProfile({photoURL}))
     ).subscribe()
   }
+
+  saveProfile(){}
 
 }
