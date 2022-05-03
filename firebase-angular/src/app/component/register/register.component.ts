@@ -62,12 +62,12 @@ export class RegisterComponent implements OnInit {
 
     if (!this.signUpForm.valid) return
 
-    const {employeeId, firstname, lastname, email, password } = this.signUpForm.value
+    const {employeeId,  firstname, lastname, email, password } = this.signUpForm.value
 
     this.authService.signUp( email, password)
     .pipe(
 
-      switchMap(({ user: { uid } }) => this.usersService.addUser({ uid, firstName: firstname, lastName: lastname, employeeId:employeeId, email, displayName: firstname + ' ' + lastname, })
+      switchMap(({ user: { uid } }) => this.usersService.addUser({ uid,  firstName: firstname, lastName: lastname, employeeId:employeeId, email, displayName: firstname + ' ' + lastname, })
       ),
 
     

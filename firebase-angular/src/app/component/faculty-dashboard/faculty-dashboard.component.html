@@ -9,7 +9,7 @@
           <img  height="150" width="150" 
           [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'"
           ><br/><br/>
-          <strong *ngIf="user$ | async as user" > {{user.displayName}}</strong>
+          <strong *ngIf="user$ | async as user" > {{user.firstName}} {{ user.lastName}}</strong>
         </a>
   
         <hr class="text-success">

@@ -5,6 +5,7 @@ import { HotToastService } from '@ngneat/hot-toast';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { User } from 'firebase/auth';
 import { concatMap } from 'rxjs';
+import { ProfileUser } from 'src/app/models/user-profile';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ImageUploadService } from 'src/app/services/image-upload.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -18,7 +19,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class ProfileComponent implements OnInit {
 
-  user$ = this.authService.currentUser$
+  user$ = this.usersService.currentUserProfile$
 
   profileForm = new FormGroup({
     uid: new FormControl(''),
@@ -42,17 +43,28 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  uploadImage(event: any, user: User) {
+  uploadImage(event: any, user: ProfileUser) {
     this.imageUploadService.uploadImage(event.target.files[0], `images/profile/${user.uid}`).pipe(
       this.toast.observe({
         success: 'Image Uploaded',
         loading: 'Uploading...',
         error: 'There was an error in uploading',
 
-      }), concatMap((photoURL) => this.authService.updateProfile({ photoURL }))
+      }), concatMap((photoURL) => this.usersService.updateUser({ uid: user.uid, photoURL }))
     ).subscribe()
   }
 
-  saveProfile() { }
+  saveProfile() {
+
+    const profileData = this.profileForm.value
+    this.usersService.updateUser(profileData).pipe(
+      this.toast.observe({
+        success: 'Data has been updated.',
+        loading: 'Updating data... ',
+        error: 'There was an error in updating the data.' 
+      })
+    ).subscribe()
+
+   }
 
 }
