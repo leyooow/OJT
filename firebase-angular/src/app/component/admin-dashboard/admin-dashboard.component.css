@@ -1,0 +1,78 @@
+img
+{
+    border-radius: 50%;
+}
+.sidebar
+{
+    min-height: 100vh;
+    overflow: hidden;
+}
+.sidebar a 
+{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    display: block;
+    cursor: pointer;
+}
+.sidebar a:hover
+{
+    color: maroon;
+    transform: scale(1.02);
+}
+strong
+{
+    color: maroon; 
+}
+
+/* modal */
+.jw-modal-wrapper
+{
+    display: none;
+   
+}
+.jw-modal-background
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    
+
+    background-color: #000;
+    opacity: 0.75;
+
+    z-index: 900;
+}
+.jw-modal
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+
+    width: 400px;
+    height: 400px;
+
+    overflow: auto;
+
+    z-index: 1000;
+}
+.jw-modal-body
+{
+    padding: 20px;
+    background: #fff;
+
+    margin: 40px;
+}
+body.jw-modal-open
+{
+    overflow: hidden;
+}

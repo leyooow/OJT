@@ -16,7 +16,10 @@ export class AuthenticationService {
   ) { }
 
   login(username: string, password: string) {
-    return from(signInWithEmailAndPassword(this.auth, username, password))
+    
+    return  from(signInWithEmailAndPassword(this.auth, username, password))
+    
+   
 
   }
 
@@ -24,7 +27,8 @@ export class AuthenticationService {
     email: string, password: string) {
 
     return from(createUserWithEmailAndPassword(this.auth, email, password)
-    ).pipe(switchMap(({ user }) => updateProfile(user, { displayName: firstName}))) 
+    ).pipe(switchMap(({ user }) => updateProfile(user, { displayName: firstName + ' ' + lastname})))
+    
   }
   
 

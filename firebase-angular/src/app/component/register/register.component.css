@@ -1,4 +1,6 @@
-sign-up-link{
+.sign-up-link{
     font-size: 1.2rem;
     margin-left: 8px;
+    text-decoration: none;
+    color: rgb(78, 153, 75);
 }

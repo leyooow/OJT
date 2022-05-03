@@ -43,11 +43,11 @@
         <!-- password matching error -->
          <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">Password should match!</mat-error>
         <div class="center margin-top">
-            <button mat-raised-button color="primary" type="submit">
+            <button mat-raised-button color="warn" type="submit">
                 Register
             </button>
         </div>
         
-        <span class="center margin-top">Already have an account? <a routerLink="/login" class="sign-up-link">Login!</a></span>
+        <span class="center margin-top">Already have an account? <a routerLink="/login" class="sign-up-link">Login</a></span>
     </form>
 </div>

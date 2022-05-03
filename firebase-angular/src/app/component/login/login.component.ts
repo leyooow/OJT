@@ -1,3 +1,4 @@
+import { CoreEnvironment } from '@angular/compiler/src/compiler_facade_interface';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService : AuthenticationService, 
     private router : Router,
-    private toast : HotToastService, ) { }
+    private toast : HotToastService,) { }
 
   ngOnInit(): void {
   }
@@ -33,10 +34,12 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
+
+    // const { username, password2 } = this.loginForm.value
+
     if (!this.loginForm.valid){
       return
     }
-    
     
     const { email, password } = this.loginForm.value
     this.authService.login(email, password).pipe(
@@ -46,7 +49,14 @@ export class LoginComponent implements OnInit {
         error: 'Ther was an error'
       })
     ).subscribe(() =>{
-      this.router.navigate(['/faculty-dashboard']);
+      if(email == "admin@gmail.com" && password == 'admin123'){
+        this.router.navigate(['/admin-dashboard']);
+      }else{
+        this.router.navigate(['/faculty-dashboard']);
+      }
+      
     })
+    
+    
   }
 }

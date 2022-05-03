@@ -7,7 +7,7 @@
   
         <a class="p-3  text-success text-center">
           <img src="/assets/admin.jpg" height="150" width="150"><br/><br/>
-          <strong *ngIf="user$ | async as user" > {{user.email}}</strong>
+          <strong *ngIf="user$ | async as user" > {{user.displayName}}</strong>
         </a>
   
         <hr class="text-success">

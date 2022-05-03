@@ -1,1 +1,117 @@
-<p>admin-dashboard works!</p>
+
+ 
+
+<div class="container-fluid p-0 m-0 " >
+
+    <div class="row">
+    
+        <!-- sidebar -->
+        <div class="col-sm-3 bg-light sidebar pe-0 p-3">
+    
+            <a class="p-3  text-success text-center">
+                <img src="/assets/admin.jpg"  height="150" width="150"><br/><br/>
+                <strong *ngIf="user$ | async as user" > {{user.displayName}}</strong>
+            </a>
+    
+            <hr class="text-success">
+
+            <a class="p-3" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-plus-fill me-3" viewBox="0 0 16 16">
+                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                    <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                  </svg>
+                Registration Request
+            </a>
+    
+            <a class="p-3" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-lines-fill me-3" viewBox="0 0 16 16">
+                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+                  </svg>
+                Faculty List
+            </a>
+    
+
+            <!-- <hr>
+    
+            <a class="p-3" >
+                <svg class="btn btn-warning text-center" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-left me-3" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                  </svg>
+                Signout
+            </a> -->
+
+            <!-- <script>
+                function openModal() {
+                    document.getElementById('modal-1').style.display = "box";
+                    document.body.classList.add('jw-modal-open');
+            
+                }
+            
+                function closeModal() {
+                    document.getElementById('modal-1').style.display = "box";
+                    document.body.classList.remove('jw-modal-open');
+            
+                }
+            </script> -->
+            
+        </div>
+    
+        <!-- body -->
+        <div class="col-sm-8 bg-white">
+    
+            <!-- <app-faculty-list *ngIf="faculty_list"></app-faculty-list>
+            <app-registration-request *ngIf="registration_request"></app-registration-request> -->
+    
+        </div>
+    
+    </div>
+    
+    </div>
+
+    <!-- modal functions -->
+
+   
+
+
+<!-- modal -->
+    <!-- <div class="jw-modal-wrapper" id="modal-1">
+
+        <div class="jw-modal">
+           
+            <div class="jw-modal-body">
+                <div class="title">
+                    <h3>Signout</h3>
+                    </div> <hr>
+                <p>Are you sure you want to signout?</p>
+                <div class="col">
+                     <button class="logout-modal-btn m-4" (click)="signout()" >logout</button>
+                     <button class="cancel-modal-btn m-4">Cancel</button>
+                </div>
+                
+            </div>
+        </div>
+    
+        <div class="jw-modal-background"></div>
+    
+    </div> -->
+
+<div class="modal fade" #signoutModal id="signoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Signout</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+          
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to signout?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>

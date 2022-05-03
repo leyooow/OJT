@@ -5,15 +5,40 @@ import { FacultyDashboardComponent } from './component/faculty-dashboard/faculty
 import { LandingComponent } from './component/landing/landing.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
+import {
+  canActivate,
+  redirectUnauthorizedTo,
+  redirectLoggedInTo,
+} from '@angular/fire/auth-guard'
+import { user } from '@angular/fire/auth';
+
+const redirectToLogin = () => redirectUnauthorizedTo(['/login'])
+
+
+// const redirectToDashboard = () => {
+  
+//   redirectLoggedInTo(['/faculty-dashboard'])
+// }
+
 
 const routes: Routes = [
 
   {path: '', redirectTo: 'landing' ,pathMatch : 'full'},
   {path: 'landing', component: LandingComponent },
-  {path: 'login', component: LoginComponent },
+  {path: 'login', 
+  component: LoginComponent,
+  
+ },
   {path: 'register', component: RegisterComponent },
-  {path: 'faculty-dashboard', component: FacultyDashboardComponent },
-  {path: 'admin-dashboard', component: AdminDashboardComponent },
+
+  {path: 'faculty-dashboard', 
+  component: FacultyDashboardComponent,
+  ...canActivate(redirectToLogin) 
+},
+  {path: 'admin-dashboard', 
+  component: AdminDashboardComponent,
+ },
+
 
 ];
 
