@@ -27,7 +27,8 @@
 </div>
 
 <mat-menu #userMenu="matMenu">
-    <button mat-menu-item routerLink="/profile">Edit Profile</button>
-    <button mat-menu-item (click)="dashboard()">Dashboard</button>
-    <button mat-menu-item (click)="logout()">Logout</button>
+    
+    <button mat-menu-item routerLink="/profile"> <mat-icon>edit</mat-icon>Edit Profile</button>
+    <button mat-menu-item (click)="dashboard()"><mat-icon>dashboard</mat-icon>Dashboard</button>
+    <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon>Logout</button>
 </mat-menu>
