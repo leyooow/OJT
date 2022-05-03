@@ -6,6 +6,9 @@ import {
   ValidationErrors, 
   ValidatorFn, 
   Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 
 export function passwordsMatchValidator() :  ValidatorFn {
@@ -41,12 +44,28 @@ export class RegisterComponent implements OnInit {
     confirmPassword: new FormControl('', Validators.required),
   }, {validators: passwordsMatchValidator() })
 
-  constructor() { }
+  constructor(private authService : AuthenticationService, 
+    private router : Router,
+    private toast : HotToastService,  ) { }
 
   ngOnInit(): void {
   }
 
   submit(){
+
+    if(!this.signUpForm.valid) return
+
+    const { firstname, lastname, employeeId, email, password } = this.signUpForm.value
+    this.authService.signUp(firstname, lastname, employeeId, email, password).pipe(
+      this.toast.observe({
+        success:'Successfully Registered',
+        loading: 'Checking..',
+        error: ({ message }) => `${message}`
+      })
+    ).subscribe(() => {
+      this.router.navigate(['/faculty-dashboard'])
+    })
+
 
   }
 
