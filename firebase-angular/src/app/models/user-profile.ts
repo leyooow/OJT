@@ -6,4 +6,5 @@ export interface ProfileUser {
     firstName?: string
     lastName?: string
     employeeId?: string
+    
 }
