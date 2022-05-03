@@ -1,70 +1,51 @@
 <div class="form-container mat-elevation-z5 text-center" *ngIf="user$ | async as user">
-    <h1 class="form-title">User Profile</h1>
-    <div class="profile-image">
-        <img 
-        width="120"
-        height="120" 
-        [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'" 
-        >
-        <button mat-mini-fab (click)="inputField.click()">
-            <mat-icon>edit</mat-icon>
-        </button>
-        </div>
+  <h1 class="form-title">User Profile</h1>
+  <div class="profile-image">
+    <img width="120" height="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
+    <button mat-mini-fab (click)="inputField.click()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
 
-            <input #inputField type="file" hidden (change)="uploadImage($event, user)" />
-        
-        
-            <form class="margin-top" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
-            
-
-                    <!-- firstname -->
-                  <mat-form-field>
-                    <input
-                      type="text"
-                      matInput
-                      formControlName="firstName"
-                      placeholder="First Name"
-                    />
-
-                    <!-- lastname -->
-                  </mat-form-field>
-                  <mat-form-field>
-                    <input
-                      type="text"
-                      matInput
-                      formControlName="lastName"
-                      placeholder="Last Name"
-                    />
-                  </mat-form-field>
-                
-            
-               
-                    <!-- display-name -->
-                  <mat-form-field>
-                    <input
-                      type="text"
-                      matInput
-                      formControlName="displayName"
-                      placeholder="Display Name"
-                    />
-                  </mat-form-field>
-
-                  <!-- employee-id -->
-                  <mat-form-field>
-                    <input
-                      type="number"
-                      matInput
-                      formControlName="phone"
-                      placeholder="Employee ID"
-                    />
-                  </mat-form-field>
-                
+  <input #inputField type="file" hidden (change)="uploadImage($event, user)" />
 
 
-            
-                <button type="submit" class="margin-top" mat-raised-button color="warn">
-                  Save
-                </button>
-              </form>
-        
+  <form class="margin-top" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+
+
+
+
+     <!-- employee-id -->
+     <mat-form-field>
+      <input type="text" matInput formControlName="employeeId" placeholder="Employee ID" />
+    </mat-form-field>
+
+    <!-- display-name -->
+    <!-- <mat-form-field>
+      <input type="text" matInput formControlName="displayName" placeholder="Display Name" />
+    </mat-form-field> -->
+
+    <!-- firstname -->
+    <mat-form-field>
+      <input type="text" matInput formControlName="firstName" placeholder="First Name" />
+
+      <!-- lastname -->
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" matInput formControlName="lastName" placeholder="Last Name" />
+    </mat-form-field>
+
+
+
+
+   
+
+
+
+
+    <button type="submit" class="margin-top" mat-raised-button color="warn">
+      Save
+    </button>
+  </form>
+
 </div>

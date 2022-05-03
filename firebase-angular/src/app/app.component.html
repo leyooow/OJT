@@ -1,7 +1,7 @@
 <mat-toolbar color="">
     Faculty Management System
      
-    <ng-container *ngIf="authService.currentUser$ | async as user; else loginButton">
+    <ng-container *ngIf="user$ | async as user; else loginButton">
         <button mat-button [mat-menu-trigger-for]="userMenu">
             <img class="profile-image-toolbar" 
             width="30" height="30" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'" >

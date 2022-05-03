@@ -14,6 +14,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UsersService } from 'src/app/services/users.service';
 
 
+
 export function passwordsMatchValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
 
@@ -51,7 +52,8 @@ export class RegisterComponent implements OnInit {
     private authService: AuthenticationService,
     private router: Router,
     private toast: HotToastService,
-    private usersService: UsersService) { }
+    private usersService: UsersService,
+    ) { }
 
   ngOnInit(): void {
   }
@@ -60,16 +62,15 @@ export class RegisterComponent implements OnInit {
 
     if (!this.signUpForm.valid) return
 
-    const { firstname, lastname, employeeId, email, password } = this.signUpForm.value
+    const {employeeId, firstname, lastname, email, password } = this.signUpForm.value
 
     this.authService.signUp( email, password)
     .pipe(
 
-//       switchMap(({ user: { uid } }) =>
-//           this.usersService.addUser({
-//   uid, email, displayName: firstname + lastname,
-// })
-//         ),
+      switchMap(({ user: { uid } }) => this.usersService.addUser({ uid, firstName: firstname, lastName: lastname, employeeId:employeeId, email, displayName: firstname + ' ' + lastname, })
+      ),
+
+    
 
       this.toast.observe({
         success: 'Successfully Registered',
