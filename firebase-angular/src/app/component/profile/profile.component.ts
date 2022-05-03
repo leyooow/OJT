@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { HotToastService } from '@ngneat/hot-toast';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -33,7 +34,8 @@ export class ProfileComponent implements OnInit {
   constructor(private authService: AuthenticationService,
     private imageUploadService: ImageUploadService,
     private toast: HotToastService,
-    private usersService: UsersService) { }
+    private usersService: UsersService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.usersService.currentUserProfile$.pipe(
@@ -64,7 +66,7 @@ export class ProfileComponent implements OnInit {
         error: 'There was an error in updating the data.' 
       })
     ).subscribe()
-
+        this.router.navigate(['/faculty-dashboard'])
    }
 
 }

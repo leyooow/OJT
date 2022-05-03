@@ -78,7 +78,10 @@ export class RegisterComponent implements OnInit {
         error: ({ message }) => `${message}`
       })
     ).subscribe(() => {
-      this.router.navigate(['/faculty-dashboard'])
+      this.router.navigate(['/login'])
+      this.authService.logout().subscribe(() => {
+        this.router.navigate(['/login'])
+      })
     })
 
 
