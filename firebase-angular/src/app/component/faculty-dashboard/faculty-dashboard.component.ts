@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-faculty-dashboard',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FacultyDashboardComponent implements OnInit {
 
-  constructor() { }
+  user$ = this.authService.currentUser$
+
+  constructor(private authService : AuthenticationService) { }
 
   ngOnInit(): void {
   }

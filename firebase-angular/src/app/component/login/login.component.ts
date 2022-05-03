@@ -36,6 +36,8 @@ export class LoginComponent implements OnInit {
     if (!this.loginForm.valid){
       return
     }
+    
+    
     const { email, password } = this.loginForm.value
     this.authService.login(email, password).pipe(
       this.toast.observe({
