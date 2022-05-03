@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, authState } from '@angular/fire/auth'
+import { Auth, authState, user } from '@angular/fire/auth'
 import { Router } from '@angular/router';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from '@firebase/auth';
 import { from, switchMap } from 'rxjs';
@@ -10,6 +10,7 @@ import { from, switchMap } from 'rxjs';
 export class AuthenticationService {
 
   currentUser$ = authState(this.auth)
+
 
   constructor(private auth: Auth,
     private router: Router

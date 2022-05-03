@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { user } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
 
@@ -18,5 +19,9 @@ export class AppComponent {
     this.authService.logout().subscribe(() => {
       this.router.navigate([''])
     })
+  }
+
+  dashboard(){
+    this.router.navigate(['/faculty-dashboard'])
   }
 }
