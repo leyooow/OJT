@@ -6,7 +6,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .form-container{
     display: block;
-    max-width: 30%;
+    max-width: 40%;
     margin: auto;
 
     background: #61618a;

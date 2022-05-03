@@ -24,11 +24,10 @@ export class AuthenticationService {
 
   }
 
-  signUp(firstName: string, lastname: string, employeeId: string,
-    email: string, password: string) {
+  signUp(email: string, password: string) {
 
     return from(createUserWithEmailAndPassword(this.auth, email, password)
-    ).pipe(switchMap(({ user }) => updateProfile(user, { displayName: firstName + ' ' + lastname})))
+    )
     
   }
   
