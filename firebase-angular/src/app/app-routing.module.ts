@@ -22,10 +22,10 @@ import { WorkExperienceFormComponent } from './component/forms/work-experience-f
 const redirectToLogin = () => redirectUnauthorizedTo(['/login'])
 
 
-// const redirectToDashboard = () => {
+const redirectToDashboard = () => {
   
-//   redirectLoggedInTo(['/faculty-dashboard'])
-// }
+  redirectLoggedInTo(['/faculty-dashboard'])
+}
 
 
 const routes: Routes = [
@@ -34,9 +34,10 @@ const routes: Routes = [
   {path: 'landing', component: LandingComponent },
   {path: 'login', 
   component: LoginComponent,
-  
- },
-  {path: 'register', component: RegisterComponent },
+  },
+
+  {path: 'register', component: RegisterComponent, 
+   },
 
   {path: 'faculty-dashboard', 
   component: FacultyDashboardComponent,

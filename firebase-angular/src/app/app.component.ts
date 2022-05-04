@@ -57,7 +57,7 @@ export class AppComponent {
 
     const userID = getAuth().currentUser?.uid
 
-    if(userID == 'wHVdJzT0zwXpEMamSGobwrdlQJn2'){
+    if(userID == 'mpVepQYe0xSLA1hA21fwcdIeiyQ2'){
       return
     }else{
       this.router.navigate(['/profile'])
