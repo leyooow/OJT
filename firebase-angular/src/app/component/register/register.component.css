@@ -4,3 +4,7 @@
     text-decoration: none;
     color: rgb(226, 90, 90);
 }
+
+mat-form-field{
+    color:white;
+}

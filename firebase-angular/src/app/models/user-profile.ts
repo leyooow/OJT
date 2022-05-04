@@ -7,6 +7,8 @@ export interface ProfileUser {
     lastName?: string
     employeeId?: string
     phoneNumber?:string
+    nameExtension?: string
+    dateOfBirth?: string
     
     
 }

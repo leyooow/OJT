@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -28,6 +30,9 @@ import { EducationalBackgroundFormComponent } from './component/forms/educationa
 import { PersonalInfoFormComponent } from './component/forms/personal-info-form/personal-info-form.component';
 import { TrainingFormComponent } from './component/forms/training-form/training-form.component';
 import { WorkExperienceFormComponent } from './component/forms/work-experience-form/work-experience-form.component';
+import { MatNativeDateModule, } from '@angular/material/core';
+
+
 
 @NgModule({
   declarations: [
@@ -60,6 +65,9 @@ import { WorkExperienceFormComponent } from './component/forms/work-experience-f
     provideStorage(() => getStorage()),
     HotToastModule.forRoot(),
     MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    
 
 
   ],
