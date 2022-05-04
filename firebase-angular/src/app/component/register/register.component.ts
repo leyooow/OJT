@@ -69,7 +69,7 @@ export class RegisterComponent implements OnInit {
 
       switchMap(({ user: { uid } }) => this.usersService.addUser(
         { uid,  firstName: firstname, 
-          lastName: lastname, employeeId:employeeId, 
+          lastName: lastname, employeeId: employeeId, 
           email, displayName: firstname + ' ' + lastname, })
       ),
 

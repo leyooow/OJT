@@ -28,7 +28,28 @@
 
 <mat-menu #userMenu="matMenu">
     
-    <button mat-menu-item routerLink="/profile"> <mat-icon>edit</mat-icon>Edit Profile</button>
+    <button #editProfile id="editProfile" mat-menu-item (click)="profile()"> <mat-icon>edit</mat-icon>Edit Profile</button>
     <button mat-menu-item (click)="dashboard()"><mat-icon>dashboard</mat-icon>Dashboard</button>
-    <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon>Logout</button>
+    <button mat-menu-item (click)="openModal()"><mat-icon>logout</mat-icon>Signout</button>
 </mat-menu>
+
+<div class="modal fade" #sigoutModal id="sigoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3  class="modal-title" id="exampleModalLabel"><strong>Signout</strong></h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+  
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to signout?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="logout()">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>

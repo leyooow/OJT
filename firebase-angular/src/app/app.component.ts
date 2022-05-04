@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { getAuth, user } from '@angular/fire/auth';
 import { doc, Firestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import * as bootstrap from 'bootstrap';
+import { Modal } from 'bootstrap';
 import { AuthenticationService } from './services/authentication.service';
 import { UsersService } from './services/users.service';
 
@@ -13,6 +15,7 @@ import { UsersService } from './services/users.service';
 export class AppComponent {
 
   user$ = this.usersService.currentUserProfile$
+  testModal : Modal |undefined
 
   constructor(
     private authService : AuthenticationService,
@@ -21,6 +24,15 @@ export class AppComponent {
     private firestore : Firestore,    
     ){
 
+  }
+
+  ngOnInit(): void {
+    const userID = getAuth().currentUser?.uid
+    if(userID == 'wHVdJzT0zwXpEMamSGobwrdlQJn2'){
+      
+     
+    }
+    
   }
 
   logout(){
@@ -40,4 +52,25 @@ export class AppComponent {
     }
     
   }
+
+  profile(){
+
+    const userID = getAuth().currentUser?.uid
+
+    if(userID == 'wHVdJzT0zwXpEMamSGobwrdlQJn2'){
+      return
+    }else{
+      this.router.navigate(['/profile'])
+    }
+  }
+
+  openModal(){
+    this.testModal = new bootstrap.Modal(document.getElementById('sigoutModal')!,{
+      keyboard: false
+    })
+    this.testModal.show()
+    
+  }
+
+  
 }

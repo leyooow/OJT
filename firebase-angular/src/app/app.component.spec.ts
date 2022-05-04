@@ -32,4 +32,12 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('firebase-angular app is running!');
   });
+
+  openModal(){
+    this.testModal = new bootstrap.Modal(document.getElementById('testModal')!,{
+      keyboard: false
+    })
+    this.testModal.show()
+    
+  }
 });
