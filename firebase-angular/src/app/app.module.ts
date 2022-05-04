@@ -23,6 +23,11 @@ import { HotToastModule } from '@ngneat/hot-toast';
 import { FacultyDashboardComponent } from './component/faculty-dashboard/faculty-dashboard.component';
 import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import { CivilServiceFormComponent } from './component/forms/civil-service-form/civil-service-form.component';
+import { EducationalBackgroundFormComponent } from './component/forms/educational-background-form/educational-background-form.component';
+import { PersonalInfoFormComponent } from './component/forms/personal-info-form/personal-info-form.component';
+import { TrainingFormComponent } from './component/forms/training-form/training-form.component';
+import { WorkExperienceFormComponent } from './component/forms/work-experience-form/work-experience-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,12 @@ import { ProfileComponent } from './component/profile/profile.component';
     LandingComponent,
     FacultyDashboardComponent,
     AdminDashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    PersonalInfoFormComponent,
+    EducationalBackgroundFormComponent,
+    CivilServiceFormComponent,
+    WorkExperienceFormComponent,
+    TrainingFormComponent
   ],
   imports: [
     BrowserModule,

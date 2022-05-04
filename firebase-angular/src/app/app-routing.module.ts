@@ -12,6 +12,12 @@ import {
 } from '@angular/fire/auth-guard'
 import { user } from '@angular/fire/auth';
 import { ProfileComponent } from './component/profile/profile.component';
+import { PersonalInfoFormComponent } from './component/forms/personal-info-form/personal-info-form.component';
+import { CivilServiceFormComponent } from './component/forms/civil-service-form/civil-service-form.component';
+import { EducationalBackgroundFormComponent } from './component/forms/educational-background-form/educational-background-form.component';
+import { TrainingFormComponent } from './component/forms/training-form/training-form.component';
+import { WorkExperienceFormComponent } from './component/forms/work-experience-form/work-experience-form.component';
+
 
 const redirectToLogin = () => redirectUnauthorizedTo(['/login'])
 
@@ -44,6 +50,25 @@ const routes: Routes = [
  component: ProfileComponent,
  ...canActivate(redirectToLogin) },
 
+ {path: 'personal-info-form', 
+ component: PersonalInfoFormComponent,
+ ...canActivate(redirectToLogin) },
+
+ {path: 'educational-background-form', 
+ component: EducationalBackgroundFormComponent,
+ ...canActivate(redirectToLogin) },
+
+ {path: 'civil-service-form', 
+ component: CivilServiceFormComponent,
+ ...canActivate(redirectToLogin) },
+
+ {path: 'work-experience-form', 
+ component: WorkExperienceFormComponent,
+ ...canActivate(redirectToLogin) },
+
+ {path: 'training-form', 
+ component: TrainingFormComponent,
+ ...canActivate(redirectToLogin) },
 
 ];
 
