@@ -28,7 +28,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     const userID = getAuth().currentUser?.uid
-    if(userID == 'wHVdJzT0zwXpEMamSGobwrdlQJn2'){
+    if(userID == 'mpVepQYe0xSLA1hA21fwcdIeiyQ2'){
       
      
     }
@@ -45,7 +45,7 @@ export class AppComponent {
   dashboard(){
     const userID = getAuth().currentUser?.uid
 
-    if(userID == 'wHVdJzT0zwXpEMamSGobwrdlQJn2'){
+    if(userID == 'mpVepQYe0xSLA1hA21fwcdIeiyQ2'){
       this.router.navigate(['/admin-dashboard'])
     }else{
       this.router.navigate(['/faculty-dashboard'])
