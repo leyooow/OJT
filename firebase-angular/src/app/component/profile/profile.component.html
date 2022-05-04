@@ -1,4 +1,5 @@
-<div class="form-container mat-elevation-z5 text-center" *ngIf="user$ | async as user">
+<div class="form-container mat-elevation-z5 text-center"
+ *ngIf="user$ | async as user">
   <h1 class="form-title">User Profile</h1>
   <div class="profile-image">
     <img width="120" height="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
@@ -13,12 +14,34 @@
   <form class="margin-top" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
 
 
-
+    <label type="text" matInput formControlName="employeeId" p> Employee ID:  {{user.employeeId}}</label>
+    <br/><br/>
 
      <!-- employee-id -->
      <mat-form-field>
-      <input type="text" matInput formControlName="phoneNumber" placeholder="Phone Number" />
+      <input type="text" matInput formControlName="mobileNo" placeholder="Mobile Number" />
     </mat-form-field>
+
+
+     <!-- employee-id -->
+     
+      <!-- <mat-form-field class="mat-fieds">
+        <input formControlName="dateOfBirth" placeholder="Date of Birth" type="text" matInput
+            [matDatepicker]="picker">
+        <mat-hint>(MM/DD/YYYY)</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field> -->
+
+    <mat-form-field>
+      <!-- <input type="text" matInput formControlName="gender" placeholder="Gender" /> -->
+      <select matNativeControl formControlName="gender" placeholder="Gender" >
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="LGBTQIA">LGBTQIA+</option>
+        </select>
+  </mat-form-field>
+
 
     <!-- display-name -->
     <!-- <mat-form-field>
@@ -43,7 +66,7 @@
 
 
 
-    <button type="submit" class="margin-top" mat-raised-button color="warn">
+    <button type="submit" class="center margin-top" mat-raised-button color="warn">
       Save
     </button>
   </form>

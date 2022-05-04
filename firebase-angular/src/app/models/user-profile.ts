@@ -1,3 +1,5 @@
+import { Timestamp } from "@angular/fire/firestore"
+
 export interface ProfileUser {
     uid: string
     email?: string

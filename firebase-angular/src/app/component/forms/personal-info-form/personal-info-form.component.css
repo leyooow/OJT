@@ -1,6 +1,10 @@
 mat-form-field{
     margin-right: 5em;
     color: white;
+}label{
+    margin-right: 10em;
+    color: white;
+    text-align: center;
 }
 
 .title{
@@ -12,6 +16,20 @@ mat-form-field{
     text-align: center;
 }
 
-forms-btn{
+h1{
+    margin-bottom: 3em;
+}
+.profile-image > img {
     
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.profile-image{
+    position: relative;
+}
+.profile-image > button{
+    position: absolute;
+    bottom: 10px;
+    right:  25%;
 }

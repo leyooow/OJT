@@ -29,7 +29,10 @@ export class ProfileComponent implements OnInit {
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     employeeId: new FormControl(''),
-    phoneNumber: new FormControl(''),
+    mobileNo: new FormControl(''),
+    dateOfBirth: new FormControl(''),
+    gender: new FormControl(''),
+
   })
 
   constructor(private authService: AuthenticationService,
