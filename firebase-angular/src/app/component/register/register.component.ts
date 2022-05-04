@@ -67,7 +67,10 @@ export class RegisterComponent implements OnInit {
     this.authService.signUp( email, password)
     .pipe(
 
-      switchMap(({ user: { uid } }) => this.usersService.addUser({ uid,  firstName: firstname, lastName: lastname, employeeId:employeeId, email, displayName: firstname + ' ' + lastname, })
+      switchMap(({ user: { uid } }) => this.usersService.addUser(
+        { uid,  firstName: firstname, 
+          lastName: lastname, employeeId:employeeId, 
+          email, displayName: firstname + ' ' + lastname, })
       ),
 
     

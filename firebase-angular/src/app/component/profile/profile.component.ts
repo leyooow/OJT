@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getAuth } from '@angular/fire/auth';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -28,7 +29,7 @@ export class ProfileComponent implements OnInit {
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     employeeId: new FormControl(''),
-
+    phoneNumber: new FormControl(''),
   })
 
   constructor(private authService: AuthenticationService,
@@ -66,7 +67,12 @@ export class ProfileComponent implements OnInit {
         error: 'There was an error in updating the data.' 
       })
     ).subscribe()
-        this.router.navigate(['/faculty-dashboard'])
+    const userID = getAuth().currentUser?.uid
+    if(userID == 'wHVdJzT0zwXpEMamSGobwrdlQJn2'){
+      this.router.navigate(['/admin-dashboard'])
+    }else{
+      this.router.navigate(['/faculty-dashboard'])
+    }
    }
 
 }

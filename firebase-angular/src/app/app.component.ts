@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { user } from '@angular/fire/auth';
+import { getAuth, user } from '@angular/fire/auth';
+import { doc, Firestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
 import { UsersService } from './services/users.service';
@@ -16,18 +17,27 @@ export class AppComponent {
   constructor(
     private authService : AuthenticationService,
     private router : Router,  
-    private usersService : UsersService,      
+    private usersService : UsersService,  
+    private firestore : Firestore,    
     ){
 
   }
 
   logout(){
+  
     this.authService.logout().subscribe(() => {
       this.router.navigate([''])
     })
   }
 
   dashboard(){
-    this.router.navigate(['/faculty-dashboard'])
+    const userID = getAuth().currentUser?.uid
+
+    if(userID == 'wHVdJzT0zwXpEMamSGobwrdlQJn2'){
+      this.router.navigate(['/admin-dashboard'])
+    }else{
+      this.router.navigate(['/faculty-dashboard'])
+    }
+    
   }
 }
