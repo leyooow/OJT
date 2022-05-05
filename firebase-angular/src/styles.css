@@ -14,6 +14,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border-radius: 16px;
 }
 
+.form-container2{
+    display: block;
+    max-width: 80%;
+    margin: auto;
+
+    background: #5e5e68;
+    padding: 48px;
+    border-radius: 16px;
+}
+
+
 .form-container1{
     display: block;
     max-width: 90%;
@@ -22,6 +33,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background: #5e5e68;
     padding: 48px;
     border-radius: 16px;
+    align-items: center;
 }
 
 .form-container mat-form-field{

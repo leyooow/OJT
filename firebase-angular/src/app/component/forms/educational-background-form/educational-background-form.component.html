@@ -1,1 +1,342 @@
-<p>educational-background-form works!</p>
+<div class="form-container2 mat-elevation-z5 text-center"
+ *ngIf="user$ | async as user">
+
+  <h1 class="form-title">Educational Background</h1>
+
+  <!-- <div class="profile-image">
+    <img width="120" height="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
+    <button mat-mini-fab (click)="inputField.click()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div> 
+  
+
+  <input #inputField type="file" hidden (change)="uploadImage($event, user)" />
+  
+        -->
+
+  <form class="personalInfoForm" [formGroup]="ProfileFrom" (ngSubmit)="saveProfile()">
+
+    <hr>
+
+
+   
+   
+  
+    <div class="forms-div">
+               
+        <div>
+            <h2 class="title">Elementary</h2>
+        </div> 
+        
+        <mat-form-field>
+            <input type="text" matInput formControlName="nameOfSchoolElem" placeholder="Name of School" />
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" matInput formControlName="basicEducElem" placeholder="Basic Education/Degree/Course" />
+        </mat-form-field>
+
+       
+
+            <div>
+                <h4 class="title">Period of Attendance</h4>
+            </div> 
+            <div class="forms-div"> 
+                <mat-form-field>
+                    <input type="number" matInput formControlName="fromElem" placeholder="From" minlength="4" />
+                    <mat-hint>(Year)</mat-hint>
+                </mat-form-field>
+        
+                <mat-form-field>
+                    <input type="number" matInput formControlName="toElem" placeholder="To" minlength="4" />
+                    <mat-hint>(Year)</mat-hint>
+                </mat-form-field>
+            </div>
+        
+
+       
+
+        <!-- -->
+
+    </div>
+
+
+    
+
+    
+    
+    <br><br>
+    <div class="forms-div">
+        <div class="forms-div"> 
+            <mat-form-field>
+                <input type="text" matInput formControlName="highestLevelElem" placeholder="Highest Level/Units Earned" />
+               
+            </mat-form-field>
+    
+            <mat-form-field>
+                <input type="number" matInput formControlName="yearGraduatedElem" placeholder="Year Graduated" minlength="4" />
+                <mat-hint>(Year)</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="text" matInput formControlName="scholarElem" placeholder="Scholarship/Academic Honors Received" />
+            
+            </mat-form-field>
+        </div>
+    </div>
+    <hr>
+
+    <div>
+        <h2 class="title">Secondary</h2>
+    </div>  
+   
+   
+    <div class="forms-div">
+               
+
+        
+        <mat-form-field>
+            <input type="text" matInput formControlName="nameOfSchoolSecondary" placeholder="Name of School" />
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" matInput formControlName="basicEducSecondary" placeholder="Basic Education/Degree/Course" />
+        </mat-form-field>
+
+      
+
+        <!-- -->
+
+    </div>
+
+    
+    <div>
+        <h4 class="title">Period of Attendance</h4>
+    </div> 
+    <div class="forms-div"> 
+        <mat-form-field>
+            <input type="number" matInput formControlName="fromSecondary" placeholder="From" minlength="4" />
+            <mat-hint>(Year)</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="number" matInput formControlName="toSecondary" placeholder="To" minlength="4" />
+            <mat-hint>(Year)</mat-hint>
+        </mat-form-field>
+    </div>
+
+    <br><br>
+    <div class="forms-div">
+        <div class="forms-div"> 
+            <mat-form-field>
+                <input type="text" matInput formControlName="highestLevelSecondary" placeholder="Highest Level/Units Earned" />
+               
+            </mat-form-field>
+    
+            <mat-form-field>
+                <input type="number" matInput formControlName="yearGraduatedSecondary" placeholder="Year Graduated" minlength="4" />
+                <mat-hint>(Year)</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="text" matInput formControlName="scholarSecondary" placeholder="Scholarship/Academic Honors Received" />
+            
+            </mat-form-field>
+        </div>
+    </div>
+
+    <hr>
+
+    <div>
+        <h2 class="title">College</h2>
+    </div>  
+   
+   
+    <div class="forms-div">
+               
+
+        
+        <mat-form-field>
+            <input type="text" matInput formControlName="nameOfSchoolCollege" placeholder="Name of School" />
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" matInput formControlName="basicEducCollege" placeholder="Basic Education/Degree/Course" />
+        </mat-form-field>
+
+      
+
+        <!-- -->
+
+    </div>
+
+    
+    <div>
+        <h4 class="title">Period of Attendance</h4>
+    </div> 
+    <div class="forms-div"> 
+        <mat-form-field>
+            <input type="number" matInput formControlName="fromCollege" placeholder="From" minlength="4" />
+            <mat-hint>(Year)</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="number" matInput formControlName="toCollege" placeholder="To" minlength="4" />
+            <mat-hint>(Year)</mat-hint>
+        </mat-form-field>
+    </div>
+
+    <br><br>
+    <div class="forms-div">
+        <div class="forms-div"> 
+            <mat-form-field>
+                <input type="text" matInput formControlName="highestLevelCollege" placeholder="Highest Level/Units Earned" />
+               
+            </mat-form-field>
+    
+            <mat-form-field>
+                <input type="number" matInput formControlName="yearGraduatedCollege" placeholder="Year Graduated" minlength="4" />
+                <mat-hint>(Year)</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="text" matInput formControlName="scholarCollege" placeholder="Scholarship/Academic Honors Received" />
+            
+            </mat-form-field>
+        </div>
+    </div>
+<hr>
+
+<div>
+    <h2 class="title">Vocational/Trade Course</h2>
+</div>  
+
+
+<div class="forms-div">
+           
+
+    
+    <mat-form-field>
+        <input type="text" matInput formControlName="nameOfSchoolVocational" placeholder="Name of School" />
+    </mat-form-field>
+
+    <mat-form-field>
+        <input type="text" matInput formControlName="basicEducVocational" placeholder="Basic Education/Degree/Course" />
+    </mat-form-field>
+
+  
+
+    <!-- -->
+
+</div>
+
+
+<div>
+    <h4 class="title">Period of Attendance</h4>
+</div> 
+<div class="forms-div"> 
+    <mat-form-field>
+        <input type="number" matInput formControlName="fromVocational" placeholder="From" minlength="4" />
+        <mat-hint>(Year)</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input type="number" matInput formControlName="toVocational" placeholder="To" minlength="4" />
+        <mat-hint>(Year)</mat-hint>
+    </mat-form-field>
+</div>
+
+<br><br>
+<div class="forms-div">
+    <div class="forms-div"> 
+        <mat-form-field>
+            <input type="text" matInput formControlName="highestLevelVocational" placeholder="Highest Level/Units Earned" />
+           
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="number" matInput formControlName="yearGraduatedVocational" placeholder="Year Graduated" minlength="4" />
+            <mat-hint>(Year)</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" matInput formControlName="scholarVocational" placeholder="Scholarship/Academic Honors Received" />
+        
+        </mat-form-field>
+    </div>
+</div>
+<hr>
+
+<div>
+    <h2 class="title">Graduate Studies</h2>
+</div>  
+
+
+<div class="forms-div">
+           
+
+    
+    <mat-form-field>
+        <input type="text" matInput formControlName="nameOfSchoolStudies" placeholder="Name of School" />
+    </mat-form-field>
+
+    <mat-form-field>
+        <input type="text" matInput formControlName="basicEducStudies" placeholder="Basic Education/Degree/Course" />
+    </mat-form-field>
+
+  
+
+    <!-- -->
+
+</div>
+
+
+<div>
+    <h4 class="title">Period of Attendance</h4>
+</div> 
+<div class="forms-div"> 
+    <mat-form-field>
+        <input type="number" matInput formControlName="fromStudies" placeholder="From" minlength="4" />
+        <mat-hint>(Year)</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input type="number" matInput formControlName="toStudies" placeholder="To" minlength="4" />
+        <mat-hint>(Year)</mat-hint>
+    </mat-form-field>
+</div>
+
+<br><br>
+<div class="forms-div">
+    <div class="forms-div"> 
+        <mat-form-field>
+            <input type="text" matInput formControlName="highestLevelStudies" placeholder="Highest Level/Units Earned" />
+           
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="number" matInput formControlName="yearGraduatedStudies" placeholder="Year Graduated" minlength="4" />
+            <mat-hint>(Year)</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" matInput formControlName="scholarStudies" placeholder="Scholarship/Academic Honors Received" />
+        
+        </mat-form-field>
+    </div>
+</div>
+<hr>
+   
+
+
+
+<div>
+    <button type="submit" class="formbtn" mat-raised-button >
+        Submit
+      </button>
+</div>
+   
+  </form>
+
+</div>

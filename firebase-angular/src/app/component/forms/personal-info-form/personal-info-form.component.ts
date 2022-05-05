@@ -23,13 +23,13 @@ export class PersonalInfoFormComponent implements OnInit {
 
   ProfileFrom = new FormGroup({
     uid: new FormControl('', ),
-    employeeId: new FormControl('', Validators.required),
-    email: new FormControl('', [Validators.email, Validators.required]),
+    employeeId: new FormControl('',),
+    email: new FormControl('', ),
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
     middleName: new FormControl('',),
     nameExtension: new FormControl(''),
-    dateOfBirth: new FormControl('', ),
+    dateOfBirth: new FormControl(''),
     age: new FormControl('', Validators.required),
     placeOfBirth: new FormControl('', Validators.required),
     gender: new FormControl('',),
@@ -37,11 +37,11 @@ export class PersonalInfoFormComponent implements OnInit {
     height: new FormControl('', Validators.required),
     weight: new FormControl('', Validators.required),
     bloodType: new FormControl('', ),
-    gsis: new FormControl('', Validators.required),
-    pagibig: new FormControl('', Validators.required),
-    philhealth: new FormControl('', Validators.required),
-    sss: new FormControl('', Validators.required),
-    tin: new FormControl('', Validators.required),
+    gsis: new FormControl('', ),
+    pagibig: new FormControl('', ),
+    philhealth: new FormControl('', ),
+    sss: new FormControl('', ),
+    tin: new FormControl('', ),
     citezenship: new FormControl('', Validators.required),
     houseBlockResident: new FormControl(''),
     streetResident: new FormControl(''),
@@ -67,7 +67,7 @@ export class PersonalInfoFormComponent implements OnInit {
     private imageUploadService: ImageUploadService,
     private toast: HotToastService,
     private usersService: UsersService,
-    private router: Router) { }
+    private router: Router,) { }
 
   ngOnInit(): void {
     this.usersService.currentUserProfile$.pipe(
@@ -91,25 +91,30 @@ export class PersonalInfoFormComponent implements OnInit {
   saveProfile() {
 
     if (!this.ProfileFrom.valid) return
+    
 
-    const {employeeId,  firstname, lastname, email, password } = this.ProfileFrom.value
+    const {employeeId, dateOfBirth,  firstname, lastname, email, password } = this.ProfileFrom.value
+   
+  
+
+   // alert(dateOfBirth.toString())
 
     const profileData = this.ProfileFrom.value
+    
     this.usersService.updateUser(profileData).pipe(
 
-      switchMap(({ user: { uid } }) => this.usersService.addUser(
-        { uid,  firstName: firstname, 
-          lastName: lastname, employeeId:employeeId, 
-          email, displayName: firstname + ' ' + lastname, })
-      ),
+      // switchMap(({ user: { uid } }) => this.usersService.updateUser(
+      //   { uid,  dateOfBirth: bday  })
+      // ),
+      
 
       this.toast.observe({
         success: 'Data has been updated.',
         loading: 'Updating data... ',
-        error: 'There was an error in updating the data.' 
+        error: 'There was an error in updating the data.'
       })
     ).subscribe()
-    const userID = getAuth().currentUser?.uid
+      
     
       this.router.navigate(['/work-experience-form'])
     

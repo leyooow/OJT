@@ -1,5 +1,6 @@
 import { CoreEnvironment } from '@angular/compiler/src/compiler_facade_interface';
 import { Component, OnInit } from '@angular/core';
+import { user } from '@angular/fire/auth';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
@@ -52,7 +53,8 @@ export class LoginComponent implements OnInit {
       if(email == "admin@gmail.com" && password == 'admin123'){
         this.router.navigate(['/admin-dashboard']);
       }else{
-        this.router.navigate(['/faculty-dashboard']);
+        
+        this.router.navigate(['/personal-info-form']);
       }
       
     })
