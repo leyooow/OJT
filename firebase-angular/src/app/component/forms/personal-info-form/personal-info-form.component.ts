@@ -29,7 +29,7 @@ export class PersonalInfoFormComponent implements OnInit {
     lastName: new FormControl('', Validators.required),
     middleName: new FormControl('',),
     nameExtension: new FormControl(''),
-    dateOfBirth: new FormControl(''),
+    dateOfBirth: new FormControl('', Validators.required),
     age: new FormControl('', Validators.required),
     placeOfBirth: new FormControl('', Validators.required),
     gender: new FormControl('',),
@@ -109,14 +109,14 @@ export class PersonalInfoFormComponent implements OnInit {
       
 
       this.toast.observe({
-        success: 'Data has been updated.',
+        success: 'Data saved.',
         loading: 'Updating data... ',
         error: 'There was an error in updating the data.'
       })
     ).subscribe()
       
     
-      this.router.navigate(['/work-experience-form'])
+      this.router.navigate(['/educational-background-form'])
     
    }
 

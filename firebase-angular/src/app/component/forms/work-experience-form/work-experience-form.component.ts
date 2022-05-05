@@ -22,48 +22,17 @@ export class WorkExperienceFormComponent implements OnInit {
 
   user$ = this.usersService.currentUserProfile$
 
-  ProfileFrom = new FormGroup({
+  ProfileForm = new FormGroup({
     uid: new FormControl('', ),
+    fromWorkExp: new FormControl('', ),
+    tomWorkExp: new FormControl('', ),
+    positionTitleWorkExp: new FormControl('', ),
+    departmentWorkExp: new FormControl('', ),
+    monthlySalaryWorkExp: new FormControl('', ),
+    salaryJobPayWorkExp: new FormControl('', ),
+    statusOfAppointmentWorkExp: new FormControl('', ),
+    governmentServiceWorkExp: new FormControl('', ),
 
-    nameOfSchoolElem: new FormControl('', ),
-    basicEducElem: new FormControl('', ),
-    fromElem: new FormControl('', ),
-    toElem: new FormControl('', ),
-    highestLevelElem: new FormControl('', ),
-    yearGraduatedElem: new FormControl('', ),
-    scholarElem: new FormControl('', ),
-
-    nameOfSchoolSecondary: new FormControl('', ),
-    basicEducSecondary: new FormControl('', ),
-    fromSecondary: new FormControl('', ),
-    toSecondary: new FormControl('', ),
-    highestLevelSecondary: new FormControl('', ),
-    yearGraduatedSecondary: new FormControl('', ),
-    scholarSecondary: new FormControl('', ),
-
-    nameOfSchoolCollege: new FormControl('', ),
-    basicEducCollege: new FormControl('', ),
-    fromCollege: new FormControl('', ),
-    toCollege: new FormControl('', ),
-    highestLevelCollege: new FormControl('', ),
-    yearGraduatedCollege: new FormControl('', ),
-    scholarCollege: new FormControl('', ),
-
-    nameOfSchoolVocational: new FormControl('', ),
-    basicEducVocational: new FormControl('', ),
-    fromVocational: new FormControl('', ),
-    toVocational: new FormControl('', ),
-    highestLevelVocational: new FormControl('', ),
-    yearGraduatedVocational: new FormControl('', ),
-    scholarVocational: new FormControl('', ),
-
-    nameOfSchoolStudies: new FormControl('', ),
-    basicEducStudies: new FormControl('', ),
-    fromStudies: new FormControl('', ),
-    toStudies: new FormControl('', ),
-    highestLevelStudies: new FormControl('', ),
-    yearGraduatedStudies: new FormControl('', ),
-    scholarStudies: new FormControl('', ),
 
     
     
@@ -80,7 +49,7 @@ export class WorkExperienceFormComponent implements OnInit {
     this.usersService.currentUserProfile$.pipe(
       untilDestroyed(this)
     ).subscribe((user) => {
-      this.ProfileFrom.patchValue({ ...user })
+      this.ProfileForm.patchValue({ ...user })
     })
   }
 
@@ -97,12 +66,12 @@ export class WorkExperienceFormComponent implements OnInit {
 
   saveProfile() {
 
-    if (!this.ProfileFrom.valid) return
+    if (!this.ProfileForm.valid) return
     
 
-    const {employeeId,  firstname, lastname, email, password } = this.ProfileFrom.value
+    const {employeeId,  firstname, lastname, email, password } = this.ProfileForm.value
 
-    const profileData = this.ProfileFrom.value
+    const profileData = this.ProfileForm.value
     this.usersService.updateUser(profileData).pipe(
 
      
@@ -115,7 +84,7 @@ export class WorkExperienceFormComponent implements OnInit {
     ).subscribe()
       
     
-      this.router.navigate(['/work-experience-form'])
+      this.router.navigate(['/training-form'])
     
    }
 

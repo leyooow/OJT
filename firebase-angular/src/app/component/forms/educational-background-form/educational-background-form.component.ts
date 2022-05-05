@@ -114,7 +114,7 @@ export class EducationalBackgroundFormComponent implements OnInit {
     ).subscribe()
       
     
-      this.router.navigate(['/work-experience-form'])
+      this.router.navigate(['/civil-service-form'])
     
    }
 

@@ -1,0 +1,97 @@
+<div class="form-container  mat-elevation-z5 text-center" *ngIf="user$ | async as user">
+    <h1 class="form-title">Work Experience</h1>
+    <!-- <div class="profile-image">
+    <img width="120" height="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
+    <button mat-mini-fab (click)="inputField.click()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
+
+  <input #inputField type="file" hidden (change)="uploadImage($event, user)" /> -->
+    <hr>
+    <form class="margin-top" [formGroup]="ProfileForm" (ngSubmit)="saveProfile()">
+
+        <div>
+            <h3 class="title">Inclusive Dates</h3>
+        </div>
+
+        <div class="forms-dive">
+
+            <mat-form-field>
+                <input type="date" matInput formControlName="fromWorkExp" placeholder="From:" />
+                <mat-hint>(DD/MM/YYYY)</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="date" matInput formControlName="tomWorkExp" placeholder="To:" />
+                <mat-hint>(DD/MM/YYYY)</mat-hint>
+            </mat-form-field>
+
+        </div>
+        <hr>
+        <br>
+
+
+        <div class="forms-div" style="max-width: 100%">
+
+            <mat-form-field>
+                <input type="text" matInput formControlName="positionTitleWorkExp" placeholder="Position Title" />
+                <mat-hint>(write in full/do not abbreviate)</mat-hint>
+            </mat-form-field><br><br>
+
+            <mat-form-field>
+                <input type="text" matInput formControlName="departmentWorkExp"
+                    placeholder="Department/Agency/Office/Company" />
+                <mat-hint>(write in full/do not abbreviate)</mat-hint>
+            </mat-form-field><br><br>
+
+            <mat-form-field>
+                <input type="number" matInput formControlName="monthlySalaryWorkExp" placeholder="Monthly Salary" />
+            </mat-form-field><br><br>
+
+            <!-- <h5>Salary/Job/Pay Grade (If applicable) & Step (format '00=0')/Increment</h5> -->
+            <mat-form-field>
+                <input type="text" matInput formControlName="salaryJobPayWorkExp"
+                    placeholder="Salary/Job/Pay Grade (If applicable) & Step (format '00=0')/Increment" />
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="text" matInput formControlName="statusOfAppointmentWorkExp"
+                    placeholder="Status of Apointment" />
+            </mat-form-field>
+
+            <mat-form-field>
+                <select matNativeControl formControlName="governmentServiceWorkExp" placeholder="Y/N">
+
+                    <option value="Yes">Yes </option>
+                    <option value="No">No </option>
+
+                </select>
+            </mat-form-field>
+
+        </div>
+
+        <div class="forms-div">
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div>
+            <button type="submit" class="formbtn" mat-raised-button>
+                Submit
+            </button>
+        </div>
+    </form>
+
+</div>

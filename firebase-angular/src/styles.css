@@ -16,7 +16,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .form-container2{
     display: block;
-    max-width: 80%;
+    max-width: 50%;
     margin: auto;
 
     background: #5e5e68;
@@ -24,6 +24,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border-radius: 16px;
 }
 
+.form-container3{
+    display: block;
+    max-width: 60%;
+    margin: auto;
+
+    background: #5e5e68;
+    padding: 48px;
+    border-radius: 16px;
+    align-items: center;
+}
 
 .form-container1{
     display: block;
@@ -59,7 +69,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .formbtn{
     background-color: rgb(52, 150, 230);
-    width: 10%;
+    width: 20%;
     float: right;
+    text-align: center;
     margin-bottom: 5em;
 }
