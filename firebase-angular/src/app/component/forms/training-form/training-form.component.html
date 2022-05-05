@@ -39,7 +39,7 @@
             </mat-form-field><br>
 
             <mat-form-field>
-                <input type="number" matInput formControlName="typeOfLdTraining" placeholder="Types if LD" />
+                <input type="text" matInput formControlName="typeOfLdTraining" placeholder="Types if LD" />
                 <mat-hint>(Managerial/Supervisory/Technical/etc.)</mat-hint>
             </mat-form-field><br>
 
@@ -61,38 +61,18 @@
 
             <div class="profile-image">
                 <h3 class="title">Certificate</h3>
-                <img width="300" height="200" [src]="user.photoCertURL ?? 'assets/images/image-placeholder.jpg'">
+                <img  (click)="inputField1.click()" width="300" height="200" [src]="user.photoCertURL ?? 'assets/images/image-placeholder.jpg'">
+               
+                <mat-icon (click)="inputField1.click()">upload</mat-icon>
+                <input #inputField1 type="file" hidden (change)="uploadImage($event, user)" />
+
+            </div>
+            <mat-hint>(img file)
                 
-                <button mat-mini-fab (click)="inputField.click()">
-                    <mat-icon>upload</mat-icon>
-                </button>
-
-     
-            </div>           <mat-hint>(img file)</mat-hint>
-
-
-            <input #inputField type="file" hidden (change)="uploadImage($event, user)" />
-
-
-
-
-
-
-
-
-
-
-        </div>
-
-
-
-
+            </mat-hint>
+            
+        </div> 
         <hr>
-
-
-
-
-
 
 
         <div>

@@ -30,5 +30,5 @@ h1{
 .profile-image > button{
     position: absolute;
     bottom: 1px;
-    right:  8%;
+    left:  8%;
 }

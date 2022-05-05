@@ -26,14 +26,12 @@ export class TrainingFormComponent implements OnInit {
 
   ProfileForm = new FormGroup({
     uid: new FormControl('', ),
-    fromWorkExp: new FormControl('', ),
-    tomWorkExp: new FormControl('', ),
-    positionTitleWorkExp: new FormControl('', ),
-    departmentWorkExp: new FormControl('', ),
-    monthlySalaryWorkExp: new FormControl('', ),
-    salaryJobPayWorkExp: new FormControl('', ),
-    statusOfAppointmentWorkExp: new FormControl('', ),
-    governmentServiceWorkExp: new FormControl('', ),
+    toTraining: new FormControl('', ),
+    fromTraining: new FormControl('', ),
+    numberOfHrsTraining: new FormControl('', ),
+    typeOfLdTraining: new FormControl('', ),
+    conductedTraining: new FormControl('', ),
+   
 
 
     
@@ -66,6 +64,9 @@ export class TrainingFormComponent implements OnInit {
     ).subscribe()
   }
 
+
+  
+
   saveProfile() {
 
     if (!this.ProfileForm.valid) return
@@ -76,8 +77,7 @@ export class TrainingFormComponent implements OnInit {
     const profileData = this.ProfileForm.value
     this.usersService.updateUser(profileData).pipe(
 
-     
-
+    
       this.toast.observe({
         success: 'Data saved.',
         loading: 'Saving data... ',
