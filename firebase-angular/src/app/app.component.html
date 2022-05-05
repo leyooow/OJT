@@ -1,5 +1,8 @@
 <mat-toolbar color="">
+  <div routerLink="/landing" style="cursor:pointer;"> 
     Faculty Management System
+  </div>
+  
      
     <ng-container *ngIf="user$ | async as user; else loginButton">
         <button mat-button [mat-menu-trigger-for]="userMenu">
