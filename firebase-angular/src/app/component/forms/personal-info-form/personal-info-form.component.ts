@@ -57,9 +57,9 @@ export class PersonalInfoFormComponent implements OnInit {
     municipalityPermanent: new FormControl('', Validators.required),
     provincePermanent: new FormControl('', Validators.required),
     zipCodePermanent: new FormControl('', Validators.required),
-    telephoneNo: new FormControl('', Validators.required),
+    telephoneNo: new FormControl('',),
     mobileNo: new FormControl('', Validators.required),
-    alternateEmail: new FormControl('', Validators.required),
+    alternateEmail: new FormControl('',),
     
   })
 
@@ -80,9 +80,9 @@ export class PersonalInfoFormComponent implements OnInit {
   uploadImage(event: any, user: ProfileUser) {
     this.imageUploadService.uploadImage(event.target.files[0], `images/profile/${user.uid}`).pipe(
       this.toast.observe({
-        success: 'Image Uploaded',
-        loading: 'Uploading...',
-        error: 'There was an error in uploading',
+        success: 'Data saved.',
+        loading: 'Saving data... ',
+        error: 'There was an error in saving the data.'
 
       }), concatMap((photoURL) => this.usersService.updateUser({ uid: user.uid, photoURL }))
     ).subscribe()

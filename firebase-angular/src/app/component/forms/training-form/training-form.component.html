@@ -1,1 +1,105 @@
-<p>training-form works!</p>
+<div class="form-container  mat-elevation-z5 text-center" *ngIf="user$ | async as user">
+    <h1 class="form-title">Learning and Development (L&D) Interventions/Training Programs Attended</h1>
+
+    <!-- <div class="profile-image">
+    <img width="120" height="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
+    <button mat-mini-fab (click)="inputField.click()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
+
+  <input #inputField type="file" hidden (change)="uploadImage($event, user)" /> -->
+    <hr>
+    <form class="margin-top" [formGroup]="ProfileForm" (ngSubmit)="saveProfile()">
+
+        <div>
+            <h3 class="title">Inclusive Dates of Attendance</h3>
+        </div>
+
+        <div class="forms-dive">
+
+            <mat-form-field>
+                <input type="date" matInput formControlName="fromTraining" placeholder="From:" />
+                <mat-hint>(DD/MM/YYYY)</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input type="date" matInput formControlName="toTraining" placeholder="To:" />
+                <mat-hint>(DD/MM/YYYY)</mat-hint>
+            </mat-form-field>
+
+        </div>
+        <hr>
+
+
+        <div class="forms-div">
+
+            <mat-form-field>
+                <input type="number" matInput formControlName="numberOfHrsTraining" placeholder="Number of Hours" />
+            </mat-form-field><br>
+
+            <mat-form-field>
+                <input type="number" matInput formControlName="typeOfLdTraining" placeholder="Types if LD" />
+                <mat-hint>(Managerial/Supervisory/Technical/etc.)</mat-hint>
+            </mat-form-field><br>
+
+
+
+            <!-- <h5>Salary/Job/Pay Grade (If applicable) & Step (format '00=0')/Increment</h5> -->
+            <mat-form-field>
+                <input type="text" matInput formControlName="conductedTraining" placeholder="Conducted/Sponsored By:" />
+                <mat-hint>(write in full)</mat-hint>
+            </mat-form-field><br>
+
+            <!-- <mat-form-field>
+                <input type="text" matInput formControlName="certificateTraining" placeholder="Certificate" />
+                <mat-hint>(write in full)</mat-hint>
+                <button style="float: right;" mat-mini-fab (click)="inputField.click()">
+                    <mat-icon>upload</mat-icon>
+                </button>
+            </mat-form-field> -->
+
+            <div class="profile-image">
+                <h3 class="title">Certificate</h3>
+                <img width="300" height="200" [src]="user.photoCertURL ?? 'assets/images/image-placeholder.jpg'">
+                
+                <button mat-mini-fab (click)="inputField.click()">
+                    <mat-icon>upload</mat-icon>
+                </button>
+
+     
+            </div>           <mat-hint>(img file)</mat-hint>
+
+
+            <input #inputField type="file" hidden (change)="uploadImage($event, user)" />
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+        <hr>
+
+
+
+
+
+
+
+        <div>
+            <button type="submit" class="formbtn" mat-raised-button>
+                Submit
+            </button>
+        </div>
+    </form>
+
+</div>

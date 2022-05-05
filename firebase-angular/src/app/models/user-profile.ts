@@ -51,7 +51,7 @@ export interface ProfileUser {
     alternateEmail?: string
 
 
-
+    photoCertURL?: string
 
     
 

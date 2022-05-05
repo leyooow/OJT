@@ -108,8 +108,8 @@ export class EducationalBackgroundFormComponent implements OnInit {
 
       this.toast.observe({
         success: 'Data saved.',
-        loading: 'Updating data... ',
-        error: 'There was an error in updating the data.'
+        loading: 'Saving data... ',
+        error: 'There was an error in saving the data.'
       })
     ).subscribe()
       

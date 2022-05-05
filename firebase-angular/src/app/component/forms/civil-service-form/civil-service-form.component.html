@@ -1,5 +1,4 @@
-<div class="form-container2 mat-elevation-z5 text-center"
- *ngIf="user$ | async as user">
+<div class="form-container2 mat-elevation-z5 text-center" *ngIf="user$ | async as user">
   <h1 class="form-title">Civil Service Eligibility</h1>
   <!-- <div class="profile-image">
     <img width="120" height="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
@@ -14,54 +13,54 @@
 
 
     <div class="forms-div">
-         
-            <mat-form-field >
-              <input type="text" matInput formControlName="careercivil" placeholder="Career service/RA 1080/CES/etc." />
-        
-            </mat-form-field>
-            <mat-form-field>
-              <input type="text" matInput formControlName="ratingCivil" placeholder="Rating" />
-            </mat-form-field>
 
-            <mat-form-field>
-                <input type="date" matInput formControlName="dateofExamCivil" placeholder="Date of examination/Conferment" />
-            </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput formControlName="careercivil" placeholder="Career service/RA 1080/CES/etc." />
 
-            <mat-form-field>
-                <input type="text" matInput formControlName="placeofExamCivil" placeholder="Place of examination/Conferment" />
-            </mat-form-field>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput formControlName="ratingCivil" placeholder="Rating" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="date" matInput formControlName="dateofExamCivil" placeholder="Date of examination/Conferment" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="text" matInput formControlName="placeofExamCivil" placeholder="Place of examination/Conferment" />
+      </mat-form-field>
 
     </div>
-<hr>
+    <hr>
 
-<div>
-    <h3 class="title">License (If applicable)</h3>
-</div>
+    <div>
+      <h3 class="title">License (If applicable)</h3>
+    </div>
 
     <div class="forms-dive">
-   
-    <mat-form-field>
-      <input type="number" matInput formControlName="numberCivil" placeholder="Number" />
-    </mat-form-field>
 
-        <mat-form-field>
-            <input type="date" matInput formControlName="dateofValidityCivil" placeholder="Date of Validity" />
-        </mat-form-field>
+      <mat-form-field>
+        <input type="number" matInput formControlName="numberCivil" placeholder="Number" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="date" matInput formControlName="dateofValidityCivil" placeholder="Date of Validity" />
+      </mat-form-field>
 
     </div>
-   
 
 
 
 
-   
+    <hr>
+
 
 
 
     <div>
-        <button type="submit" class="formbtn" mat-raised-button>
-            Submit
-        </button>
+      <button type="submit" class="formbtn" mat-raised-button>
+        Submit
+      </button>
     </div>
   </form>
 
