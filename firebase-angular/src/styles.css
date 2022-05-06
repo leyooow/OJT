@@ -1,7 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html{
+    min-height: 100%;
+}
+
+body{
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden !important;
+    -webkit-transform:translate3d(0,0,0);
+	background: linear-gradient(90deg, #faf0cd, #fab397);;
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	min-height: 100%;
+    background-repeat: no-repeat;
+    -webkit-touch-callout: none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 
 
 .form-container{
