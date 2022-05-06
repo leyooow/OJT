@@ -9,6 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -67,6 +69,9 @@ import { MatNativeDateModule, } from '@angular/material/core';
     MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatSidenavModule,
+    MatDividerModule,
+
     
 
 

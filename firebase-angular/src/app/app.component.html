@@ -1,7 +1,11 @@
 <mat-toolbar color=""  class="navBar">
   <div routerLink="/landing" style="cursor:pointer;" class="home"> 
     Faculty Management System
+
+    
   </div>
+
+ 
   
      
     <ng-container *ngIf="user$ | async as user; else loginButton">
@@ -16,6 +20,8 @@
         
     </ng-container>
 
+
+
 <ng-template #loginButton>
     <button mat-button routerLink="/login" class="landingBtn">
         Login
@@ -24,9 +30,24 @@
     
 </mat-toolbar>
 
-<div class="content">
-    <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container>
+
+  <mat-sidenav class="side" opened>
+    Hello
+  </mat-sidenav>
+    
+  <mat-sidenav-content>
+    
+      <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+   
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
 
 <mat-menu #userMenu="matMenu">
     
@@ -55,3 +76,5 @@
       </div>
     </div>
   </div>
+
+  
