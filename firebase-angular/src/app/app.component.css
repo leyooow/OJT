@@ -10,3 +10,28 @@ mat-toolbar{
     border-radius: 100%;
     margin-right: 8px;
 }
+
+mat-sidenav{
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    color: white;
+    background:  #5e5e68;
+    padding: 16px;
+    text-align: center;
+    border-radius: 10px;
+}
+/* 
+.content{
+    height: calc(50vh - 100px);
+    margin: 16px;
+    margin-left: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-sidenav-container{
+    height: calc(100vh - 65px);
+
+} */
