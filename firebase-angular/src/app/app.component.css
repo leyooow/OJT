@@ -1,4 +1,4 @@
-mat-toolbar{
+/* mat-toolbar{
     justify-content: space-between;
 
 }
@@ -9,4 +9,70 @@ mat-toolbar{
 .profile-image-toolbar{
     border-radius: 100%;
     margin-right: 8px;
+} */
+
+mat-toolbar{
+    justify-content: space-between;
+}
+
+.content{
+    background-repeat: no-repeat;
+    background: none;
+    /* background: rgb(255,156,74);
+    background: linear-gradient(90deg, rgba(255,156,74,1) 0%, rgba(255,178,114,1) 51%); */
+}
+
+.profile-image-toolbar{
+    border-radius: 100%;
+    margin-right: 8px;
+}
+
+/* Seph */
+.navBar{
+    /* background: rgb(0, 0, 0);
+    z-index: 8;
+    border: #9D4700; */
+    /* position: sticky !important; */
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    height: 60px;
+    background: rgb(255,178,112);
+    background: -moz-linear-gradient(180deg, rgba(255,178,112,1) 0%, rgba(250,152,105,1) 80%);
+    background: -webkit-linear-gradient(180deg, rgba(255,178,112,1) 0%, rgba(250,152,105,1) 80%);
+    background: linear-gradient(180deg, rgba(255,178,112,1) 0%, rgba(250,152,105,1) 80%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffb270",endColorstr="#fa9869",GradientType=1);
+}
+
+.landingBtn{
+    position: relative;
+    font-size: 0.8em;
+    font-weight: 500;
+    float: right;
+    background-color: #FB8500;
+    border: none;
+    border-radius: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.landingBtn:hover{
+    background-color: #AA5A00;
+}
+
+.landingBtn:active{
+    background-color: #CE6D00;
+}
+
+.home{
+    color: #AA5A00;
+    font-weight: 800;
+    font-size: 0.9em;
+    background-color: transparent;
+    border: none;
+}
+
+.home:focus {
+    background-color: transparent;
+    border: none;
 }

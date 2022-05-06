@@ -1,53 +1,55 @@
 
-<div class="form-container mat-elevation-z5">
-    <h1 class="form-title">Sign Up as faculty</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+
+<div class="containerSignup form-container mat-elevation-z5">
+    <h1 class="form-title signupTxt">Sign Up</h1>
     <form [formGroup]="signUpForm" (ngSubmit)="submit()">
 
         <!-- firstname -->
         <mat-form-field>
-            <input class="input" matInput placeholder="First Name" formControlName="firstname">
-            <mat-error *ngIf="firstname?.errors?.['required']">Required!</mat-error>
+            <input class="input " matInput placeholder="First Name" formControlName="firstname">
+            <mat-error class="signupText" *ngIf="firstname?.errors?.['required']"> First name Required!</mat-error>
         </mat-form-field>
-
+            <br>
            <!-- lastname -->
          <mat-form-field>
             <input class="inputs" matInput placeholder="Last Name" formControlName="lastname">
-            <mat-error *ngIf="lastname?.errors?.['required']">Required!</mat-error>
+            <mat-error class="signupText" *ngIf="lastname?.errors?.['required']">Last name Required!</mat-error>
          </mat-form-field>
-        
+            <br>
          <!-- employeeId -->
          <mat-form-field>
             <input class="inputs" matInput placeholder="Eployee ID" formControlName="employeeId">
-            <mat-error *ngIf="employeeId?.errors?.['required']">Required!</mat-error>
+            <mat-error class="signupText" *ngIf="employeeId?.errors?.['required']">Employee ID Required!</mat-error>
         </mat-form-field>
-
+            <br>
          <!-- email -->
          <mat-form-field>
             <input class="inputs" matInput placeholder="Email Address" formControlName="email">
-            <mat-error *ngIf="email?.errors?.['required']"> Email is Required!</mat-error>
-            <mat-error *ngIf="email?.errors?.['email']"> Please enter a correct email!</mat-error>
+            <mat-error class="signupText" *ngIf="email?.errors?.['required']"> Email is Required!</mat-error>
+            <mat-error class="signupText" *ngIf="email?.errors?.['email']"> Please enter a correct email!</mat-error>
         </mat-form-field>
-        
+            <br>
         <!-- password -->
         <mat-form-field>
             <input class="inputs" matInput placeholder="Password" formControlName="password" type="password">
-            <mat-error *ngIf="email?.errors?.['required']"> Password is Required!</mat-error>
+            <mat-error class="signupText" *ngIf="email?.errors?.['required']"> Password is Required!</mat-error>
         </mat-form-field>
-
+            <br>
         <!-- confirm password -->
         <mat-form-field>
             <input class="inputs" matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password">
-            <mat-error *ngIf="confirmPassword?.errors?.['required']">Required!</mat-error>
+            <mat-error class="signupText" *ngIf="confirmPassword?.errors?.['required']">Confirm password is Required!</mat-error>
         </mat-form-field>
-
+            <br>
         <!-- password matching error -->
-         <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">Password should match!</mat-error>
+         <mat-error class="signuppassText" *ngIf="signUpForm.errors?.['passwordsDontMatch']">Password should match!</mat-error>
         <div class="center margin-top">
-            <button mat-raised-button color="warn" type="submit">
-                Register
-            </button>
+            <button mat-raised-button type="submit" class="signupBtn"> Register </button>
         </div>
         
-        <span class="center margin-top">Already have an account? <a routerLink="/login" class="sign-up-link">Login</a></span>
+        <span class="center margin-top yesAcc">Already have an account? <a routerLink="/login" class="sign-up-link signup">Login</a></span>
     </form>
 </div>

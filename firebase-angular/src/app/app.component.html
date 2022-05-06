@@ -1,5 +1,5 @@
-<mat-toolbar color="">
-  <div routerLink="/landing" style="cursor:pointer;"> 
+<mat-toolbar color=""  class="navBar">
+  <div routerLink="/landing" style="cursor:pointer;" class="home"> 
     Faculty Management System
   </div>
   
@@ -17,8 +17,7 @@
     </ng-container>
 
 <ng-template #loginButton>
-    <button mat-button routerLink="/login">
-        <mat-icon>login </mat-icon>  
+    <button mat-button routerLink="/login" class="landingBtn">
         Login
      </button>
 </ng-template>
