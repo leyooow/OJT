@@ -10,7 +10,11 @@
     border-radius: 100%;
     margin-right: 8px;
 } */
-
+body{
+    background: linear-gradient(90deg, #faf0cd, #fab397);;
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
 mat-toolbar{
     justify-content: space-between;
 }
@@ -20,6 +24,10 @@ mat-toolbar{
     background: none;
     /* background: rgb(255,156,74);
     background: linear-gradient(90deg, rgba(255,156,74,1) 0%, rgba(255,178,114,1) 51%); */
+    background: linear-gradient(90deg, #faf0cd, #fab397);;
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+    
 }
 
 .profile-image-toolbar{

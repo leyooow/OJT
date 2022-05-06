@@ -6,6 +6,7 @@
     padding-left: 100px;
     padding-right: 100px;
     padding-bottom: 50px;
+    align-items: center;
 }
 
 .logo{
@@ -218,6 +219,7 @@ img{
     background: -moz-linear-gradient(180deg, rgba(255,178,112,1) 0%, rgba(250,152,105,1) 80%);
     background: -webkit-linear-gradient(180deg, rgba(255,178,112,1) 0%, rgba(250,152,105,1) 80%);
     background: linear-gradient(180deg, rgba(255,178,112,1) 0%, rgba(250,152,105,1) 80%);
+
 }
 
 .goalcontainer .goal .boxGoal{
