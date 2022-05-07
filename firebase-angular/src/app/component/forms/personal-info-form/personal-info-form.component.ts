@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { getAuth } from '@angular/fire/auth';
-import { doc, Firestore, getDoc, getFirestore } from '@angular/fire/firestore';
+import { collection, doc, Firestore, getDoc, getDocs, getFirestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { getMetadata } from '@firebase/storage';
 
 import { HotToastService } from '@ngneat/hot-toast';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -21,7 +22,9 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class PersonalInfoFormComponent implements OnInit {
 
-   
+  public data: any = []
+
+  
  
 
   user$ = this.usersService.currentUserProfile$
@@ -74,10 +77,14 @@ export class PersonalInfoFormComponent implements OnInit {
     private toast: HotToastService,
     private usersService: UsersService,
     private router: Router,
-    private firestore: Firestore, ) { }
+    private firestore: Firestore, ) {
+      
+      this.getdata()
+     }
 
   ngOnInit(): void {
   
+      
    
     this.usersService.currentUserProfile$.pipe(
       untilDestroyed(this)
@@ -138,11 +145,22 @@ export class PersonalInfoFormComponent implements OnInit {
     }
    
 
-     
-     
-      
+    
     
    }
+   getdata(){
+     const dbInstance = collection(this.firestore, 'users')
+     getDocs(dbInstance)
+     .then((response) => {
+       this.data = (response.docs.map((user) =>  {
+         return{ ...user.data(), id: user.id}
+       }))
+     })
+
+     
+     
+       
+  } 
 
   //  getDocdata(user: ProfileUser, done: any)   {
   //   const ref = doc(this.firestore, 'users', user?.uid, done).toString()
