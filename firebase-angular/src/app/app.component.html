@@ -91,31 +91,31 @@
 
     <mat-divider></mat-divider>
 
-    <button mat-button class="menu-button">
+    <button mat-button class="menu-button" (click)="showPersonalInfo()">
       <mat-icon class="mat-icon">info</mat-icon>
       Personal Information
     </button>
     <mat-divider></mat-divider>
 
-    <button mat-button class="menu-button">
+    <button mat-button class="menu-button" (click)="showEducBack()">
       <mat-icon class="mat-icon">assignment_ind</mat-icon>
       Educational Background
     </button>
     <mat-divider></mat-divider>
 
-    <button mat-button class="menu-button">
+    <button mat-button class="menu-button" (click)="showCivilService()">
       <mat-icon class="mat-icon">check_box</mat-icon>
       Civil Service Eligibility 
     </button>
     <mat-divider></mat-divider>
 
-    <button mat-button class="menu-button">
+    <button mat-button class="menu-button" (click)="showWorkExp()">
       <mat-icon class="mat-icon">work</mat-icon>
       Work Experience 
     </button>
     <mat-divider></mat-divider>
 
-    <button mat-button class="menu-button">
+    <button mat-button class="menu-button" (click)="showTrainings()">
       <mat-icon class="mat-icon">assignment</mat-icon>
       L&D/Training Programs 
     </button>
@@ -189,5 +189,15 @@
       </div>
     </div>
   </div>
+
+  <!-- <div class="col-sm-8 bg-white">
+
+    <app-personal-info-display *ngIf="personal_info_display"></app-personal-info-display>>
+    <app-educational-background-display *ngIf="educational_background_display"></app-educational-background-display>>
+    <app-civil-service-display *ngIf="civil_service_display"></app-civil-service-display>>
+    <app-work-experience-display *ngIf="work_exp_display"></app-work-experience-display>>
+    <app-training-display *ngIf="training_display"></app-training-display>>
+
+  </div> -->
 
   

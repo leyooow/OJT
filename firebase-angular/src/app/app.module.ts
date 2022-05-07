@@ -34,6 +34,11 @@ import { TrainingFormComponent } from './component/forms/training-form/training-
 import { WorkExperienceFormComponent } from './component/forms/work-experience-form/work-experience-form.component';
 import { MatNativeDateModule, } from '@angular/material/core';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { PersonalInfoDisplayComponent } from './component/display/personal-info-display/personal-info-display.component';
+import { EducationalBackgroundDisplayComponent } from './component/display/educational-background-display/educational-background-display.component';
+import { WorkExperienceDisplayComponent } from './component/display/work-experience-display/work-experience-display.component';
+import { CivilServiceDisplayComponent } from './component/display/civil-service-display/civil-service-display.component';
+import { TrainingDisplayComponent } from './component/display/training-display/training-display.component';
 
 
 
@@ -50,7 +55,12 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     EducationalBackgroundFormComponent,
     CivilServiceFormComponent,
     WorkExperienceFormComponent,
-    TrainingFormComponent
+    TrainingFormComponent,
+    PersonalInfoDisplayComponent,
+    EducationalBackgroundDisplayComponent,
+    WorkExperienceDisplayComponent,
+    CivilServiceDisplayComponent,
+    TrainingDisplayComponent
   ],
   imports: [
     BrowserModule,

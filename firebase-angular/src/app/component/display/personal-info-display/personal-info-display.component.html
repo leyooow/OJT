@@ -1,0 +1,36 @@
+<div class="form-container3 mat-elevation-z5" *ngIf="user$ | async as user">
+
+    <h1 class="form-title">Personal Information</h1>
+    <mat-divider></mat-divider>
+
+    <div class="profile-image">
+        <img width="120" height="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
+    </div>
+
+    <mat-divider></mat-divider>
+
+<div class="detailsDisplay">
+    <div>
+        <h2 class="displayLabel">Employee ID: {{user.employeeId}}</h2>  
+        <h2 class="displayLabel" >Email Address: {{user.email}}</h2>
+        <h2 class="displayLabel">Faculty Name: {{user.firstName}} {{user.middleName}} {{user.lastName}} {{user.nameExtension}}</h2>
+        <h2 class="displayLabel" >Date of Birth: {{user.dateOfBirth}}</h2>
+        <h2 class="displayLabel">Email Address: {{user.email}}</h2>
+        <h2 class="displayLabel">Age: {{user.age}}</h2>
+        <h2 class="displayLabel">Place of Birth: {{user.placeOfBirth}}</h2>
+        <h2 class="displayLabel">Gender: {{user.gender}}</h2>
+        <h2 class="displayLabel">Civil Status: {{user.civilStatus}}</h2>
+        <h2 class="displayLabel">Height: {{user.height}} cm</h2>
+        <h2 class="displayLabel">Weight: {{user.weight}} lbs</h2>
+
+
+        
+
+       </div>
+</div>
+
+        
+      
+
+
+</div>

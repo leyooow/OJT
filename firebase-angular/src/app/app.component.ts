@@ -23,6 +23,11 @@ export class AppComponent {
   sidenav!: MatSidenav
   sidenav1!: MatSidenav
 
+// civil_service_display: boolean = false;
+// educational_background_display: boolean = false;
+// personal_info_display: boolean = false;
+// training_display: boolean = false;
+// work_exp_display: boolean = false;
 
   user$ = this.usersService.currentUserProfile$
   testModal: Modal | undefined
@@ -54,7 +59,7 @@ export class AppComponent {
   ngOnInit(): void {
 
     // this.check()
-
+    
 
   }
 
@@ -108,6 +113,33 @@ export class AppComponent {
   //   }
   // }
 
+
+  showPersonalInfo(){
+    this.sidenav.close()
+    this.router.navigate(['/personal-info-display'])
+  }
+
+  showEducBack(){
+    this.sidenav.close()
+    this.router.navigate(['/educational-background-display'])
+  }  
+
+  showCivilService(){
+    this.sidenav.close()
+    this.router.navigate(['/civil-service-display'])
+  }
+
+  showWorkExp(){
+    this.sidenav.close()
+    this.router.navigate(['/work-experience-display'])
+  }
+
+  showTrainings(){
+    this.sidenav.close()
+    this.router.navigate(['/training-display'])
+  }
+
+ 
   
 
 

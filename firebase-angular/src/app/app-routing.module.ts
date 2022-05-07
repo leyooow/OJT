@@ -17,6 +17,11 @@ import { CivilServiceFormComponent } from './component/forms/civil-service-form/
 import { EducationalBackgroundFormComponent } from './component/forms/educational-background-form/educational-background-form.component';
 import { TrainingFormComponent } from './component/forms/training-form/training-form.component';
 import { WorkExperienceFormComponent } from './component/forms/work-experience-form/work-experience-form.component';
+import { PersonalInfoDisplayComponent } from './component/display/personal-info-display/personal-info-display.component';
+import { EducationalBackgroundDisplayComponent } from './component/display/educational-background-display/educational-background-display.component';
+import { CivilServiceDisplayComponent } from './component/display/civil-service-display/civil-service-display.component';
+import { WorkExperienceDisplayComponent } from './component/display/work-experience-display/work-experience-display.component';
+import { TrainingDisplayComponent } from './component/display/training-display/training-display.component';
 
 
 const redirectToLogin = () => redirectUnauthorizedTo(['/login'])
@@ -70,6 +75,29 @@ const routes: Routes = [
  {path: 'training-form', 
  component: TrainingFormComponent,
  ...canActivate(redirectToLogin) },
+
+
+ 
+ {path: 'personal-info-display', 
+ component: PersonalInfoDisplayComponent,
+ ...canActivate(redirectToLogin) },
+
+ {path: 'educational-background-display', 
+ component: EducationalBackgroundDisplayComponent,
+ ...canActivate(redirectToLogin) },
+
+ {path: 'civil-service-display', 
+ component: CivilServiceDisplayComponent,
+ ...canActivate(redirectToLogin) },
+
+ {path: 'work-experience-display', 
+ component: WorkExperienceDisplayComponent,
+ ...canActivate(redirectToLogin) },
+
+ {path: 'training-display', 
+ component: TrainingDisplayComponent,
+ ...canActivate(redirectToLogin) },
+
 
 ];
 

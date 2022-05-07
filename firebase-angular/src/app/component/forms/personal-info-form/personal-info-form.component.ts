@@ -20,6 +20,9 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class PersonalInfoFormComponent implements OnInit {
 
+   
+ 
+
   user$ = this.usersService.currentUserProfile$
 
   ProfileFrom = new FormGroup({
