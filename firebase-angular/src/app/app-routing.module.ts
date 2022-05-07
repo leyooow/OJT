@@ -27,10 +27,12 @@ import { TrainingDisplayComponent } from './component/display/training-display/t
 const redirectToLogin = () => redirectUnauthorizedTo(['/login'])
 
 
-const redirectToDashboard = () => {
-  
-  redirectLoggedInTo(['/faculty-dashboard'])
-}
+// const redirectToDashboard = () => { redirectLoggedInTo(['/faculty-dashboard'])
+const redirectToDashboard = () => redirectLoggedInTo(['/landing']);
+
+
+
+
 
 
 const routes: Routes = [
@@ -39,9 +41,11 @@ const routes: Routes = [
   {path: 'landing', component: LandingComponent },
   {path: 'login', 
   component: LoginComponent,
+  ...canActivate(redirectToDashboard),
   },
 
   {path: 'register', component: RegisterComponent, 
+  ...canActivate(redirectToDashboard),
    },
 
   {path: 'faculty-dashboard', 
