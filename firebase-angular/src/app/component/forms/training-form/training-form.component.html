@@ -10,7 +10,7 @@
 
   <input #inputField type="file" hidden (change)="uploadImage($event, user)" /> -->
     <hr>
-    <form class="margin-top" [formGroup]="ProfileForm" (ngSubmit)="saveProfile()">
+    <form class="margin-top" [formGroup]="ProfileForm" (ngSubmit)="saveProfile(user)">
 
         <div>
             <h3 class="title">Inclusive Dates of Attendance</h3>

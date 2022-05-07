@@ -88,7 +88,7 @@ mat-toolbar{
 
 mat-sidenav{
     margin: 16px;
-    width: 200px;
+    width: 270px;
     border-right: none;
     color: white;
     background:  #5e5e68;
@@ -120,3 +120,31 @@ mat-sidenav-container{
     
 
 } 
+
+img
+{
+    border-radius: 50%;
+}
+strong{
+    color: #AA5A00;
+}
+
+.menu-button{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+    color: #AA5A00;
+    margin-bottom: 3px;
+
+}
+.mat-icon{
+    margin-right: 8px;
+}
+
+mat-divider{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: black;
+}

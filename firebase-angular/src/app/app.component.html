@@ -1,10 +1,33 @@
 <mat-toolbar color=""  class="navBar">
-  <div routerLink="/landing" style="cursor:pointer;" class="home"> 
-    Faculty Management System
+
+  
+  
+
+  <div > 
+    <ng-container *ngIf="user$ | async as user; else none">
+      <button mat-icon-button *ngIf=" sidenav1.mode === 'over'; " (click)="sidenav.toggle()" >
+
+        <mat-icon *ngIf="!sidenav.opened">
+          menu
+        </mat-icon>
+    
+        <mat-icon *ngIf="sidenav.opened">
+          close
+        </mat-icon>
+      </button>
+
+
+    </ng-container>
+   
+    
+    <strong routerLink="/landing" style="cursor:pointer;" class="home">
+      Faculty Management System
+    </strong> 
 
     
   </div>
 
+  
  
   
      
@@ -21,19 +44,87 @@
     </ng-container>
 
 
+    <ng-template #none>
+      <button mat-button routerLink="/landing" class="homeBtn">
+        <mat-icon>home</mat-icon>
+     </button>
+    </ng-template>
 
 <ng-template #loginButton>
     <button mat-button routerLink="/login" class="landingBtn">
         Login
      </button>
+     
 </ng-template>
+
+
     
 </mat-toolbar>
 
-<mat-sidenav-container>
+<mat-sidenav-container >
 
-  <mat-sidenav class="side" opened>
-    Hello
+  <mat-sidenav  mode="over" #sidenav="matSidenav">
+    <div  *ngIf="user$ | async as user" class="side">
+      <img  height="120" width="120" 
+      [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'"
+      ><br/><br/>
+      <strong *ngIf="user$ | async as user" > {{user.firstName}} {{ user.lastName}}</strong>
+
+    </div>
+   
+
+    <hr class="text-success">
+
+    <button mat-button class="menu-button">
+      <mat-icon class="mat-icon">info</mat-icon>
+      Personal Information
+    </button>
+
+    <button mat-button class="menu-button">
+      <mat-icon class="mat-icon">assignment_ind</mat-icon>
+      Educational Background
+    </button>
+
+    <button mat-button class="menu-button">
+      <mat-icon class="mat-icon">check_box</mat-icon>
+      Civil Service Eligibility 
+    </button>
+
+    <button mat-button class="menu-button">
+      <mat-icon class="mat-icon">work</mat-icon>
+      Work Experience 
+    </button>
+
+    <button mat-button class="menu-button">
+      <mat-icon class="mat-icon">assignment</mat-icon>
+      L&D/Training Programs 
+    </button>
+
+  </mat-sidenav>
+
+  <mat-sidenav #sidenav1="matSidenav"  >
+    <div *ngIf="user$ | async as user" class="side">
+      <img  height="120" width="120" 
+      [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'"
+      ><br/><br/>
+      <strong *ngIf="user$ | async as user" > {{user.firstName}} {{ user.lastName}}</strong>
+  
+    </div>
+   
+    
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button">
+      <mat-icon class="mat-icon">person</mat-icon>
+      Registration Request
+    </button>
+
+    <button mat-button class="menu-button">
+      <mat-icon class="mat-icon">list</mat-icon>
+      Faculty List
+    </button>
+
+
   </mat-sidenav>
     
   <mat-sidenav-content>

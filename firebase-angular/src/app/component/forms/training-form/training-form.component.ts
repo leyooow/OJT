@@ -31,6 +31,8 @@ export class TrainingFormComponent implements OnInit {
     numberOfHrsTraining: new FormControl('', ),
     typeOfLdTraining: new FormControl('', ),
     conductedTraining: new FormControl('', ),
+    done: new FormControl('', ),
+    
    
 
 
@@ -67,7 +69,7 @@ export class TrainingFormComponent implements OnInit {
 
   
 
-  saveProfile() {
+  saveProfile(user: ProfileUser) {
 
     if (!this.ProfileForm.valid) return
     
@@ -76,13 +78,12 @@ export class TrainingFormComponent implements OnInit {
 
     const profileData = this.ProfileForm.value
     this.usersService.updateUser(profileData).pipe(
-
     
       this.toast.observe({
         success: 'Data saved.',
         loading: 'Saving data... ',
         error: 'There was an error in saving the data.'
-      })
+      }), concatMap((done) => this.usersService.updateUser({ uid: user.uid, done: '1' }))
     ).subscribe()
       
     

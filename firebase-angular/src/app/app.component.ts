@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { getAuth, user } from '@angular/fire/auth';
 import { doc, Firestore } from '@angular/fire/firestore';
+import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import * as bootstrap from 'bootstrap';
 import { Modal } from 'bootstrap';
 import { AuthenticationService } from './services/authentication.service';
 import { UsersService } from './services/users.service';
+import {BreakpointObserver} from '@angular/cdk/layout'
 
 @Component({
   selector: 'app-root',
@@ -13,6 +15,11 @@ import { UsersService } from './services/users.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  @ViewChild(MatSidenav) 
+  sidenav!: MatSidenav
+  sidenav1!: MatSidenav
+
 
   user$ = this.usersService.currentUserProfile$
   testModal : Modal |undefined
@@ -22,8 +29,23 @@ export class AppComponent {
     private router : Router,  
     private usersService : UsersService,  
     private firestore : Firestore,    
+    private observer : BreakpointObserver,
     ){
 
+  }
+
+  ngAfterViewInit(){
+      // this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
+      //   if (res.matches) {   
+      //     this.sidenav.mode = 'over'
+      //     this.sidenav.close()
+
+      //   }else{
+      //     this.sidenav.mode = 'side'
+      //     this.sidenav.open()
+    
+      //   }
+      // })
   }
 
   ngOnInit(): void {
@@ -32,6 +54,8 @@ export class AppComponent {
       
      
     }
+
+    
     
   }
 
@@ -39,6 +63,9 @@ export class AppComponent {
   
     this.authService.logout().subscribe(() => {
       this.router.navigate([''])
+      this.sidenav.close()
+      this.router.navigate(['/login'])
+
     })
   }
 

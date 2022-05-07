@@ -53,6 +53,7 @@ export interface ProfileUser {
 
     photoCertURL?: string
 
+    done?: string
     
 
     

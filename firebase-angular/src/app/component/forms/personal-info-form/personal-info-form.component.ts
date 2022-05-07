@@ -75,6 +75,9 @@ export class PersonalInfoFormComponent implements OnInit {
     ).subscribe((user) => {
       this.ProfileFrom.patchValue({ ...user })
     })
+
+      
+
   }
 
   uploadImage(event: any, user: ProfileUser) {

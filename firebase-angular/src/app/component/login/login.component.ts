@@ -1,10 +1,13 @@
 import { CoreEnvironment } from '@angular/compiler/src/compiler_facade_interface';
 import { Component, OnInit } from '@angular/core';
-import { user } from '@angular/fire/auth';
+import { getAuth, user } from '@angular/fire/auth';
+import { doc, Firestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { getDoc } from '@firebase/firestore';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +15,9 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  user$ = this.usersService.currentUserProfile$
+
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
@@ -21,7 +27,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService : AuthenticationService, 
     private router : Router,
-    private toast : HotToastService,) { }
+    private toast : HotToastService,
+    private usersService : UsersService,
+    private firestore : Firestore,) { }
 
   ngOnInit(): void {
   }
@@ -50,9 +58,12 @@ export class LoginComponent implements OnInit {
         error: 'Ther was an error'
       })
     ).subscribe(() =>{
-      if(email == "admin@gmail.com" && password == 'admin123'){
+      // if(email == "admin@gmail.com" && password == 'admin123'){
+        const userID = getAuth().currentUser?.uid
+        if(userID === 'mpVepQYe0xSLA1hA21fwcdIeiyQ2' ){
         this.router.navigate(['/admin-dashboard']);
       }else{
+      
         
         this.router.navigate(['/personal-info-form']);
       }
