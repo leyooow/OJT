@@ -7,7 +7,8 @@ import * as bootstrap from 'bootstrap';
 import { Modal } from 'bootstrap';
 import { AuthenticationService } from './services/authentication.service';
 import { UsersService } from './services/users.service';
-import {BreakpointObserver} from '@angular/cdk/layout'
+import { BreakpointObserver } from '@angular/cdk/layout'
+import { ProfileUser } from './models/user-profile';
 
 @Component({
   selector: 'app-root',
@@ -16,51 +17,51 @@ import {BreakpointObserver} from '@angular/cdk/layout'
 })
 export class AppComponent {
 
-  @ViewChild(MatSidenav) 
+  opened = false;
+
+  @ViewChild(MatSidenav)
   sidenav!: MatSidenav
   sidenav1!: MatSidenav
 
 
   user$ = this.usersService.currentUserProfile$
-  testModal : Modal |undefined
+  testModal: Modal | undefined
 
   constructor(
-    private authService : AuthenticationService,
-    private router : Router,  
-    private usersService : UsersService,  
-    private firestore : Firestore,    
-    private observer : BreakpointObserver,
-    ){
+    private authService: AuthenticationService,
+    private router: Router,
+    private usersService: UsersService,
+    private firestore: Firestore,
+    private observer: BreakpointObserver,
+  ) {
 
   }
 
-  ngAfterViewInit(){
-      // this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
-      //   if (res.matches) {   
-      //     this.sidenav.mode = 'over'
-      //     this.sidenav.close()
+  ngAfterViewInit() {
+    this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
+      if (res.matches) {
+        this.sidenav.mode = 'over'
+        this.sidenav.close()
 
-      //   }else{
-      //     this.sidenav.mode = 'side'
-      //     this.sidenav.open()
-    
-      //   }
-      // })
+        // }else{
+        //   this.sidenav.mode = 'side'
+        //   this.sidenav.open()
+
+      }
+    })
   }
 
   ngOnInit(): void {
-    const userID = getAuth().currentUser?.uid
-    if(userID == 'mpVepQYe0xSLA1hA21fwcdIeiyQ2'){
-      
-     
-    }
 
-    
-    
+    // this.check()
+
+
   }
 
-  logout(){
-  
+
+
+  logout() {
+
     this.authService.logout().subscribe(() => {
       this.router.navigate([''])
       this.sidenav.close()
@@ -69,36 +70,45 @@ export class AppComponent {
     })
   }
 
-  dashboard(){
+  dashboard() {
     const userID = getAuth().currentUser?.uid
-    
 
-    if(userID == 'mpVepQYe0xSLA1hA21fwcdIeiyQ2'){
+
+    if (userID == 'mpVepQYe0xSLA1hA21fwcdIeiyQ2') {
       this.router.navigate(['/admin-dashboard'])
-    }else{
+    } else {
       this.router.navigate(['/faculty-dashboard'])
     }
-    
+
   }
 
-  profile(){
+  profile() {
 
     const userID = getAuth().currentUser?.uid
 
-    if(userID == 'mpVepQYe0xSLA1hA21fwcdIeiyQ2'){
+    if (userID == 'mpVepQYe0xSLA1hA21fwcdIeiyQ2') {
       return
-    }else{
+    } else {
       this.router.navigate(['/profile'])
     }
   }
 
-  openModal(){
-    this.testModal = new bootstrap.Modal(document.getElementById('sigoutModal')!,{
+  openModal() {
+    this.testModal = new bootstrap.Modal(document.getElementById('sigoutModal')!, {
       keyboard: false
     })
+    console.log(getAuth().currentUser?.uid)
     this.testModal.show()
-    
+
   }
+  // check() {
+  //   const userID = getAuth().currentUser?.uid
+  //   if (userID == 'mpVepQYe0xSLA1hA21fwcdIeiyQ2') {
+      
+  //   }
+  // }
 
   
+
+
 }

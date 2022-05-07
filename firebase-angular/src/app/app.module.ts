@@ -33,6 +33,7 @@ import { PersonalInfoFormComponent } from './component/forms/personal-info-form/
 import { TrainingFormComponent } from './component/forms/training-form/training-form.component';
 import { WorkExperienceFormComponent } from './component/forms/work-experience-form/work-experience-form.component';
 import { MatNativeDateModule, } from '@angular/material/core';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 
 
@@ -71,6 +72,7 @@ import { MatNativeDateModule, } from '@angular/material/core';
     MatNativeDateModule,
     MatSidenavModule,
     MatDividerModule,
+    AngularFirestoreModule,
 
     
 

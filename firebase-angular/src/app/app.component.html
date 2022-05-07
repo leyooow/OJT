@@ -4,8 +4,8 @@
   
 
   <div > 
-    <ng-container *ngIf="user$ | async as user; else none">
-      <button mat-icon-button *ngIf=" sidenav1.mode === 'over'; " (click)="sidenav.toggle()" >
+    <ng-container  *ngIf="user$ | async as user;  else none">
+      <button mat-icon-button  (click)="opened=!opened" >
 
         <mat-icon *ngIf="!sidenav.opened">
           menu
@@ -18,6 +18,22 @@
 
 
     </ng-container>
+
+
+    <!-- <ng-container  *ngIf="user$ | async as user;  else none">
+      <button mat-icon-button  (click)="opened=!opened" >
+
+        <mat-icon *ngIf="!sidenav1.opened">
+          menu
+        </mat-icon>
+    
+        <mat-icon *ngIf="sidenav1.opened">
+          close
+        </mat-icon>
+      </button>
+
+
+    </ng-container> -->
    
     
     <strong routerLink="/landing" style="cursor:pointer;" class="home">
@@ -63,7 +79,7 @@
 
 <mat-sidenav-container >
 
-  <mat-sidenav  mode="over" #sidenav="matSidenav">
+  <mat-sidenav [(opened)]="opened" mode="over" #sidenav="matSidenav">
     <div  *ngIf="user$ | async as user" class="side">
       <img  height="120" width="120" 
       [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'"
@@ -73,35 +89,40 @@
     </div>
    
 
-    <hr class="text-success">
+    <mat-divider></mat-divider>
 
     <button mat-button class="menu-button">
       <mat-icon class="mat-icon">info</mat-icon>
       Personal Information
     </button>
+    <mat-divider></mat-divider>
 
     <button mat-button class="menu-button">
       <mat-icon class="mat-icon">assignment_ind</mat-icon>
       Educational Background
     </button>
+    <mat-divider></mat-divider>
 
     <button mat-button class="menu-button">
       <mat-icon class="mat-icon">check_box</mat-icon>
       Civil Service Eligibility 
     </button>
+    <mat-divider></mat-divider>
 
     <button mat-button class="menu-button">
       <mat-icon class="mat-icon">work</mat-icon>
       Work Experience 
     </button>
+    <mat-divider></mat-divider>
 
     <button mat-button class="menu-button">
       <mat-icon class="mat-icon">assignment</mat-icon>
       L&D/Training Programs 
     </button>
+    <mat-divider></mat-divider>
 
   </mat-sidenav>
-
+<!-- 
   <mat-sidenav #sidenav1="matSidenav"  >
     <div *ngIf="user$ | async as user" class="side">
       <img  height="120" width="120" 
@@ -118,14 +139,15 @@
       <mat-icon class="mat-icon">person</mat-icon>
       Registration Request
     </button>
-
+    <mat-divider></mat-divider>
     <button mat-button class="menu-button">
       <mat-icon class="mat-icon">list</mat-icon>
       Faculty List
     </button>
+    <mat-divider></mat-divider>
 
 
-  </mat-sidenav>
+  </mat-sidenav> -->
     
   <mat-sidenav-content>
     

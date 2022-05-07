@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getAuth } from '@angular/fire/auth';
+import { doc, Firestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -67,7 +68,8 @@ export class PersonalInfoFormComponent implements OnInit {
     private imageUploadService: ImageUploadService,
     private toast: HotToastService,
     private usersService: UsersService,
-    private router: Router,) { }
+    private router: Router,
+    private firestore: Firestore) { }
 
   ngOnInit(): void {
     this.usersService.currentUserProfile$.pipe(
@@ -75,9 +77,6 @@ export class PersonalInfoFormComponent implements OnInit {
     ).subscribe((user) => {
       this.ProfileFrom.patchValue({ ...user })
     })
-
-      
-
   }
 
   uploadImage(event: any, user: ProfileUser) {
@@ -121,6 +120,10 @@ export class PersonalInfoFormComponent implements OnInit {
     
       this.router.navigate(['/educational-background-form'])
     
+   }
+
+   getDocdata(user: ProfileUser, done: any)   {
+    const ref = doc(this.firestore, 'users', user?.uid, done).toString()
    }
 
 }
