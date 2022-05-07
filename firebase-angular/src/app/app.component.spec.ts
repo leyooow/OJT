@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import * as bootstrap from 'bootstrap';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -23,7 +24,7 @@ describe('AppComponent', () => {
   it(`should have as title 'firebase-angular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('firebase-angular');
+    expect(app['title']).toEqual('firebase-angular');
   });
 
   it('should render title', () => {
@@ -33,11 +34,5 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.content span')?.textContent).toContain('firebase-angular app is running!');
   });
 
-  openModal(){
-    this.testModal = new bootstrap.Modal(document.getElementById('testModal')!,{
-      keyboard: false
-    })
-    this.testModal.show()
-    
-  }
+  
 });

@@ -16,6 +16,7 @@ import { ProfileUser } from './models/user-profile';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  [x: string]: any;
 
   opened = false;
 

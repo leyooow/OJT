@@ -87,7 +87,9 @@ export class TrainingFormComponent implements OnInit {
     ).subscribe()
       
     
+    
       this.router.navigate(['/faculty-dashboard'])
+    
     
    }
 

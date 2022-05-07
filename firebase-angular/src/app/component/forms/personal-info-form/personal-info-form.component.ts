@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { getAuth } from '@angular/fire/auth';
-import { doc, Firestore } from '@angular/fire/firestore';
+import { doc, Firestore, getDoc, getFirestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { HotToastService } from '@ngneat/hot-toast';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { User } from 'firebase/auth';
+import * as firebase from 'firebase/compat';
 import { concatMap, switchMap } from 'rxjs';
 import { ProfileUser } from 'src/app/models/user-profile';
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -25,7 +26,7 @@ export class PersonalInfoFormComponent implements OnInit {
 
   user$ = this.usersService.currentUserProfile$
 
-  ProfileFrom = new FormGroup({
+  ProfileForm = new FormGroup({
     uid: new FormControl('', ),
     employeeId: new FormControl('',),
     email: new FormControl('', ),
@@ -64,6 +65,7 @@ export class PersonalInfoFormComponent implements OnInit {
     telephoneNo: new FormControl('',),
     mobileNo: new FormControl('', Validators.required),
     alternateEmail: new FormControl('',),
+    done: new FormControl('',),
     
   })
 
@@ -72,14 +74,18 @@ export class PersonalInfoFormComponent implements OnInit {
     private toast: HotToastService,
     private usersService: UsersService,
     private router: Router,
-    private firestore: Firestore) { }
+    private firestore: Firestore, ) { }
 
   ngOnInit(): void {
+  
+   
     this.usersService.currentUserProfile$.pipe(
       untilDestroyed(this)
     ).subscribe((user) => {
-      this.ProfileFrom.patchValue({ ...user })
+      this.ProfileForm.patchValue({ ...user })
     })
+
+  
   }
 
   uploadImage(event: any, user: ProfileUser) {
@@ -95,16 +101,16 @@ export class PersonalInfoFormComponent implements OnInit {
 
   saveProfile() {
 
-    if (!this.ProfileFrom.valid) return
+    if (!this.ProfileForm.valid) return
     
 
-    const {employeeId, dateOfBirth,  firstname, lastname, email, password } = this.ProfileFrom.value
+    // const {employeeId, dateOfBirth,  firstname, lastname, email, password } = this.ProfileForm.value
    
   
 
    // alert(dateOfBirth.toString())
 
-    const profileData = this.ProfileFrom.value
+    const profileData = this.ProfileForm.value
     
     this.usersService.updateUser(profileData).pipe(
 
@@ -119,14 +125,27 @@ export class PersonalInfoFormComponent implements OnInit {
         error: 'There was an error in updating the data.'
       })
     ).subscribe()
-      
+    const { done} = this.ProfileForm.value
+
+    if(done == '1')
+    {
+     this.router.navigate(['/faculty-dashboard'])
+    }else{
+     
     
       this.router.navigate(['/educational-background-form'])
+
+    }
+   
+
+     
+     
+      
     
    }
 
-   getDocdata(user: ProfileUser, done: any)   {
-    const ref = doc(this.firestore, 'users', user?.uid, done).toString()
-   }
+  //  getDocdata(user: ProfileUser, done: any)   {
+  //   const ref = doc(this.firestore, 'users', user?.uid, done).toString()
+  //  }
 
 }
