@@ -3,23 +3,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
 
 <div class="form-container mat-elevation-z5 containerLogin">
-    <h1 class="form-title">Login</h1>
-    <form [formGroup]="loginForm" (ngSubmit)="submit()">
-        <mat-form-field>
-            <input matInput placeholder="Email Address" formControlName="email">
-            <mat-error class="loginText" *ngIf="email?.errors?.['required']"> Email is Required!</mat-error>
-            <mat-error class="loginText" *ngIf="email?.errors?.['email']"> Please enter a correct email!</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Password" formControlName="password" type="password">
-            <mat-error class="loginText" *ngIf="email?.errors?.['required']"> Password is Required!</mat-error>
-        </mat-form-field>
-        <div class="center margin-top">
-            <button mat-raised-button color="warn" type="submit" class="loginBtn">
-                Login
-            </button>
-        </div>
-        
-        <span class="center margin-top noAcc">Register as a faculty? <a routerLink="/register" class="sign-up-link reg">Register</a></span>
-    </form>
+  <h1 class="form-title">Login</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <mat-form-field>
+      <input matInput placeholder="Email Address" formControlName="email">
+      <mat-error class="loginText" *ngIf="email?.errors?.['required']"> Email is Required!</mat-error>
+      <mat-error class="loginText" *ngIf="email?.errors?.['email']"> Please enter a correct email!</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Password" formControlName="password" type="password">
+      <mat-error class="loginText" *ngIf="email?.errors?.['required']"> Password is Required!</mat-error>
+    </mat-form-field>
+    <div class="center margin-top">
+      <button mat-raised-button color="warn" type="submit" class="loginBtn">
+        Login
+      </button>
+    </div>
+
+    <span class="center margin-top noAcc">Register as a faculty? <a routerLink="/register"
+        class="sign-up-link reg">Register</a></span>
+  </form>
 </div>

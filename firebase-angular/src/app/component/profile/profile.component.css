@@ -1,21 +1,35 @@
-.profile-image > img {
-    border-radius: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-.profile-image{
-    position: relative;
-}
-.profile-image > button{
-    position: absolute;
-    bottom: 10px;
-    right:  25%;
-}
 .form-container {
-    max-width: 400px;
-  }
-  
-  .row {
-    display: flex;
-    gap: 16px;
-  }
+  display: block;
+  max-width: 40%;
+  margin: auto;
+  margin-top: 10px;
+
+  background: #61360f;
+  padding: 48px;
+  border-radius: 16px;
+}
+
+.profile-image>img {
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile-image {
+  position: relative;
+}
+
+.profile-image>button {
+  position: absolute;
+  bottom: 10px;
+  right: 25%;
+}
+
+.form-container {
+  max-width: 400px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+}
