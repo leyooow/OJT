@@ -1,34 +1,58 @@
-mat-form-field{
-    margin-right: 5em;
-    color: white;
-}label{
-    margin-right: 10em;
-    color: white;
-    text-align: center;
+.form-container2 {
+  display: block;
+  max-width: 50%;
+  margin: auto;
+  margin-top: 10px;
+
+  background: #61360f;
+  padding: 48px;
+  border-radius: 16px;
 }
 
-.title{
-    color: white;
-    font-family:serif;
+mat-form-field {
+  margin-right: 5em;
+  color: white;
 }
 
-.forms-div{
-    text-align: center;
+label {
+  margin-right: 10em;
+  color: white;
+  text-align: center;
 }
 
-h1{
-    margin-bottom: 1em;
+.title {
+  color: white;
+  font-family: serif;
 }
-.profile-image > img {
-    border-radius: 100%;
-    object-fit: cover;
-    object-position: center;
+
+.forms-div {
+  text-align: center;
 }
-.profile-image{
-    position:relative
+
+h1 {
+  margin-bottom: 1em;
 }
-.profile-image > button{
-    position: absolute;
-    bottom: 10px;
-    right:  45%;
+
+.profile-image>img {
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile-image {
+  position: relative
+}
+
+.profile-image>button {
+  position: absolute;
+  bottom: 10px;
+  right: 45%;
+}
+
+.formbtn {
+  background-color: rgb(52, 150, 230);
+  width: 20%;
+  float: right;
+  text-align: center;
+  margin-bottom: 5em;
 }

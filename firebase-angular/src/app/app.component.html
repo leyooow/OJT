@@ -1,25 +1,15 @@
-<mat-toolbar color=""  class="navBar">
-
-  
-  
-
-  <div > 
-    <ng-container  *ngIf="user$ | async as user;  else none">
-      <button mat-icon-button  (click)="opened=!opened" >
-
+<mat-toolbar color="" class="navBar">
+  <div>
+    <ng-container *ngIf="user$ | async as user;  else none">
+      <button class="sideNavBar" mat-icon-button (click)="opened=!opened">
         <mat-icon *ngIf="!sidenav.opened">
           menu
         </mat-icon>
-    
         <mat-icon *ngIf="sidenav.opened">
           close
         </mat-icon>
       </button>
-
-
     </ng-container>
-
-
     <!-- <ng-container  *ngIf="user$ | async as user;  else none">
       <button mat-icon-button  (click)="opened=!opened" >
 
@@ -31,63 +21,45 @@
           close
         </mat-icon>
       </button>
-
-
     </ng-container> -->
-   
-    
     <strong routerLink="/landing" style="cursor:pointer;" class="home">
       Faculty Management System
-    </strong> 
-
-    
+    </strong>
   </div>
 
-  
- 
-  
-     
-    <ng-container *ngIf="user$ | async as user; else loginButton">
-        <button mat-button [mat-menu-trigger-for]="userMenu">
-            <img class="profile-image-toolbar" 
-            width="30" height="30" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'" >
-            {{user.firstName}}
-            <mat-icon>expand_more</mat-icon>
-        </button>
-        
-        
-        
-    </ng-container>
+  <ng-container *ngIf="user$ | async as user; else loginButton">
+    <button mat-button [mat-menu-trigger-for]="userMenu">
+      <img class="profile-image-toolbar" width="30" height="30"
+        [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
+      {{user.firstName}}
+      <mat-icon>expand_more</mat-icon>
+    </button>
+  </ng-container>
 
 
-    <ng-template #none>
-      <button mat-button routerLink="/landing" class="homeBtn">
-        <mat-icon>home</mat-icon>
-     </button>
-    </ng-template>
+  <ng-template #none>
+    <button mat-button routerLink="/landing" class="homeBtn">
+    </button>
+  </ng-template>
 
-<ng-template #loginButton>
+  <ng-template #loginButton>
     <button mat-button routerLink="/login" class="landingBtn">
-        Login
-     </button>
-     
-</ng-template>
+      Login
+    </button>
+  </ng-template>
 
 
-    
+
 </mat-toolbar>
-
-<mat-sidenav-container >
+<mat-sidenav-container>
 
   <mat-sidenav [(opened)]="opened" mode="over" #sidenav="matSidenav">
-    <div  *ngIf="user$ | async as user" class="side">
-      <img  height="120" width="120" 
-      [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'"
-      ><br/><br/>
-      <strong *ngIf="user$ | async as user" > {{user.firstName}} {{ user.lastName}}</strong>
+    <div *ngIf="user$ | async as user" class="side">
+      <img height="120" width="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'"><br /><br />
+      <strong *ngIf="user$ | async as user"> {{user.firstName}} {{ user.lastName}}</strong>
 
     </div>
-   
+
 
     <mat-divider></mat-divider>
 
@@ -105,24 +77,24 @@
 
     <button mat-button class="menu-button" (click)="showCivilService()">
       <mat-icon class="mat-icon">check_box</mat-icon>
-      Civil Service Eligibility 
+      Civil Service Eligibility
     </button>
     <mat-divider></mat-divider>
 
     <button mat-button class="menu-button" (click)="showWorkExp()">
       <mat-icon class="mat-icon">work</mat-icon>
-      Work Experience 
+      Work Experience
     </button>
     <mat-divider></mat-divider>
 
     <button mat-button class="menu-button" (click)="showTrainings()">
       <mat-icon class="mat-icon">assignment</mat-icon>
-      L&D/Training Programs 
+      L&D/Training Programs
     </button>
     <mat-divider></mat-divider>
 
   </mat-sidenav>
-<!-- 
+  <!-- 
   <mat-sidenav #sidenav1="matSidenav"  >
     <div *ngIf="user$ | async as user" class="side">
       <img  height="120" width="120" 
@@ -148,13 +120,13 @@
 
 
   </mat-sidenav> -->
-    
+
   <mat-sidenav-content>
-    
-      <div class="content">
-        <router-outlet></router-outlet>
+
+    <div class="content">
+      <router-outlet></router-outlet>
     </div>
-   
+
 
   </mat-sidenav-content>
 
@@ -163,34 +135,40 @@
 
 
 <mat-menu #userMenu="matMenu">
-    
-    <button #editProfile id="editProfile" mat-menu-item (click)="profile()"> <mat-icon>edit</mat-icon>Edit Profile</button>
-    <button mat-menu-item (click)="dashboard()"><mat-icon>dashboard</mat-icon>Dashboard</button>
-    <button mat-menu-item (click)="openModal()"><mat-icon>logout</mat-icon>Signout</button>
+
+  <button #editProfile id="editProfile" mat-menu-item (click)="profile()">
+    <mat-icon>edit</mat-icon>Edit Profile
+  </button>
+  <button mat-menu-item (click)="dashboard()">
+    <mat-icon>dashboard</mat-icon>Dashboard
+  </button>
+  <button mat-menu-item (click)="openModal()">
+    <mat-icon>logout</mat-icon>Signout
+  </button>
 </mat-menu>
 
 <div class="modal fade" #sigoutModal id="sigoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h3  class="modal-title" id="exampleModalLabel"><strong>Signout</strong></h3>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-  
-          </button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to signout?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="logout()">Confirm</button>
-        </div>
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel"><strong>Signout</strong></h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to signout?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="logout()">Confirm</button>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- <div class="col-sm-8 bg-white">
+<!-- <div class="col-sm-8 bg-white">
 
     <app-personal-info-display *ngIf="personal_info_display"></app-personal-info-display>>
     <app-educational-background-display *ngIf="educational_background_display"></app-educational-background-display>>
@@ -199,5 +177,3 @@
     <app-training-display *ngIf="training_display"></app-training-display>>
 
   </div> -->
-
-  
