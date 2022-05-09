@@ -11,6 +11,14 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
+
+
+  
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,6 +47,7 @@ import { EducationalBackgroundDisplayComponent } from './component/display/educa
 import { WorkExperienceDisplayComponent } from './component/display/work-experience-display/work-experience-display.component';
 import { CivilServiceDisplayComponent } from './component/display/civil-service-display/civil-service-display.component';
 import { TrainingDisplayComponent } from './component/display/training-display/training-display.component';
+import { AngularFireModule } from '@angular/fire/compat';
 
 
 
@@ -60,7 +69,8 @@ import { TrainingDisplayComponent } from './component/display/training-display/t
     EducationalBackgroundDisplayComponent,
     WorkExperienceDisplayComponent,
     CivilServiceDisplayComponent,
-    TrainingDisplayComponent
+    TrainingDisplayComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -83,12 +93,19 @@ import { TrainingDisplayComponent } from './component/display/training-display/t
     MatSidenavModule,
     MatDividerModule,
     AngularFirestoreModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    AngularFireModule.initializeApp(environment.firebase)
 
     
 
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
