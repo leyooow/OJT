@@ -60,15 +60,6 @@ export class PersonalInfoFormComponent implements OnInit {
     civilStatus: new FormControl('',),
     height: new FormControl('', Validators.required),
     weight: new FormControl('', Validators.required),
-
-    bloodType: new FormControl('', ),
-    gsis: new FormControl('', ),
-    pagibig: new FormControl('', ),
-    philhealth: new FormControl('', ),
-    sss: new FormControl('', ),
-    tin: new FormControl('', ),
-    citezenship: new FormControl('', Validators.required), //mali spelling
-
     bloodType: new FormControl('',),
     gsis: new FormControl('',),
     pagibig: new FormControl('',),
@@ -76,7 +67,6 @@ export class PersonalInfoFormComponent implements OnInit {
     sss: new FormControl('',),
     tin: new FormControl('',),
     citezenship: new FormControl('', Validators.required),
-
     houseBlockResident: new FormControl(''),
     streetResident: new FormControl(''),
     subdivisionResident: new FormControl(''),
@@ -169,7 +159,11 @@ export class PersonalInfoFormComponent implements OnInit {
 
   saveProfile() {
 
-    if (!this.ProfileForm.valid) return
+    if (!this.ProfileForm.valid) {
+      alert('Please fill all required (*) fields. ')
+      return
+    }
+    
 
 
     // const {employeeId, dateOfBirth,  firstname, lastname, email, password } = this.ProfileForm.value
@@ -194,13 +188,6 @@ export class PersonalInfoFormComponent implements OnInit {
       })
     ).subscribe()
     const { done } = this.ProfileForm.value
-
-
-    // if(done == '1')
-    // {
-    //  this.router.navigate(['/faculty-dashboard'])
-    // }else{
-     
 
     
 
@@ -257,13 +244,8 @@ export class PersonalInfoFormComponent implements OnInit {
 
       this.router.navigate(['/educational-background-form'])
 
-
-    // }
-   
-
     }
   }
-
 
   openModal() {
     this.testModal = new bootstrap.Modal(document.getElementById('welcomeModal')!, {
