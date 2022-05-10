@@ -33,11 +33,12 @@
 }
 
 .form-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.2em;
+  font-family: 'Koulen', cursive;
+  font-size: 2.8em;
   padding: -5px;
   text-align: center;
   color: #072F6E;
+  font-weight: 700;
 }
 
 .profile-image>img {
@@ -63,10 +64,14 @@
 }
 
 .title {
-  text-align: center;
+  text-align: left;
   font-family: 'Cabin', sans-serif;
   font-size: 1.5em;
   color: #072F6E;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  margin-left: 20px;
 }
 
 .label1 {
