@@ -1,3 +1,8 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+<!--for titles-->
+
 <mat-toolbar color="" class="navBar">
   <div>
     <ng-container *ngIf="user$ | async as user;  else none">
@@ -23,7 +28,7 @@
       </button>
     </ng-container> -->
     <strong routerLink="/landing" style="cursor:pointer;" class="home">
-      Faculty Management System
+      Faculty Management Information System
     </strong>
   </div>
 
@@ -43,23 +48,18 @@
   </ng-template>
 
   <ng-template #loginButton>
-    <button mat-button routerLink="/login" class="landingBtn">
+    <button routerLink="/login" class="landingBtn">
       Login
     </button>
   </ng-template>
-
-
-
 </mat-toolbar>
-<mat-sidenav-container>
 
+<mat-sidenav-container>
   <mat-sidenav [(opened)]="opened" mode="over" #sidenav="matSidenav">
     <div *ngIf="user$ | async as user" class="side">
       <img height="120" width="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'"><br /><br />
-      <strong *ngIf="user$ | async as user"> {{user.firstName}} {{ user.lastName}}</strong>
-
+      <span class="nameFac" *ngIf="user$ | async as user"> {{user.firstName}} {{ user.lastName}}</span>
     </div>
-
 
     <mat-divider></mat-divider>
 
@@ -92,49 +92,18 @@
       L&D/Training Programs
     </button>
     <mat-divider></mat-divider>
-
   </mat-sidenav>
-  <!-- 
-  <mat-sidenav #sidenav1="matSidenav"  >
-    <div *ngIf="user$ | async as user" class="side">
-      <img  height="120" width="120" 
-      [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'"
-      ><br/><br/>
-      <strong *ngIf="user$ | async as user" > {{user.firstName}} {{ user.lastName}}</strong>
-  
-    </div>
-   
-    
-    <mat-divider></mat-divider>
 
-    <button mat-button class="menu-button">
-      <mat-icon class="mat-icon">person</mat-icon>
-      Registration Request
-    </button>
-    <mat-divider></mat-divider>
-    <button mat-button class="menu-button">
-      <mat-icon class="mat-icon">list</mat-icon>
-      Faculty List
-    </button>
-    <mat-divider></mat-divider>
-
-
-  </mat-sidenav> -->
-
-  <mat-sidenav-content>
-
-    <div class="content">
-      <router-outlet></router-outlet>
-    </div>
-
-
-  </mat-sidenav-content>
-
+  <!-- <mat-sidenav-content> -->
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <!-- </mat-sidenav-content> -->
 </mat-sidenav-container>
 
 
 
-<mat-menu #userMenu="matMenu">
+<mat-menu #userMenu="matMenu" class="dropdownRight">
 
   <button #editProfile id="editProfile" mat-menu-item (click)="profile()">
     <mat-icon>edit</mat-icon>Edit Profile

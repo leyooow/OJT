@@ -1,9 +1,9 @@
 .containerSignup {
-  background: rgb(255, 178, 112);
-  background: -moz-linear-gradient(180deg, rgba(255, 178, 112, 1) 0%, rgba(250, 152, 105, 1) 80%);
-  background: -webkit-linear-gradient(180deg, rgba(255, 178, 112, 1) 0%, rgba(250, 152, 105, 1) 80%);
-  background: linear-gradient(180deg, rgba(255, 178, 112, 1) 0%, rgba(250, 152, 105, 1) 80%);
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+  background: rgb(5, 61, 151);
+  background: -moz-linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
+  background: -webkit-linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
+  background: linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#053d97", endColorstr="#041c42", GradientType=1);
   max-width: 40%;
   margin: auto;
   margin-top: 50px;
@@ -19,34 +19,44 @@
 }
 
 .signupText {
-  color: rgb(187, 14, 14);
+  color: rgb(255, 255, 255);
   font-weight: bold;
   letter-spacing: 0.1em;
 }
 
+.signupText:active {
+  color: rgb(255, 255, 255) !important;
+}
+
+.signupText:focus {
+  color: rgb(255, 255, 255) !important;
+}
+
 .signuppassText {
-  color: rgb(187, 14, 14);
+  color: rgb(255, 255, 255);
   font-weight: 500;
-  letter-spacing: 0.1em;
+  margin-top: -15px;
+
 }
 
 .signupBtn {
-  background-color: #AA4F00;
+  background-color: #A3AFD4;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   padding-left: 40px;
   padding-right: 40px;
   border-radius: 30px;
   font-size: 1.3em;
-  color: #FFD4B0;
+  color: #0e0e0e;
 }
 
 .signupBtn:hover {
-  background-color: #FFBC82;
-  color: black;
+  background-color: #024ABD;
+  color: #ffffff;
 }
 
-.signupBtn:active {
-  background-color: #F8790B;
-}
+/* .signupBtn:active {
+  background-color: #A3AFD4;
+} */
 
 .yesAcc {
   margin-top: 40px;
