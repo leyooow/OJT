@@ -80,7 +80,7 @@ export class AppComponent {
     const userID = getAuth().currentUser?.uid
 
 
-    if (userID == 'mpVepQYe0xSLA1hA21fwcdIeiyQ2') {
+    if (userID == 'fM6Ko90ezgSzZJ04sbCdGMmbOYt1') {
       this.router.navigate(['/admin-dashboard'])
     } else {
       this.router.navigate(['/faculty-dashboard'])

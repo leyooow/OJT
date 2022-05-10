@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
     ).subscribe(() =>{
       // if(email == "admin@gmail.com" && password == 'admin123'){
         const userID = getAuth().currentUser?.uid
-        if(userID === 'mpVepQYe0xSLA1hA21fwcdIeiyQ2' ){
+        if(userID === 'fM6Ko90ezgSzZJ04sbCdGMmbOYt1' ){
         this.router.navigate(['/admin-dashboard']);
       }else{
       

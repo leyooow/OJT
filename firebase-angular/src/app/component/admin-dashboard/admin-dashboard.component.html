@@ -1,118 +1,75 @@
-
+<div class="form-container1" *ngIf="user$ | async as user" >
  
+  <!-- <div class="col-sm-3 bg-light sidebar pe-0 p-3" *ngIf="user$ | async as user">
 
-<div class="container-fluid p-0 m-0 " >
+    <a  class="p-3  text-success text-center">
+      <img  height="150" width="150" 
+      [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'"
+      ><br/><br/>
+      <strong *ngIf="user$ | async as user" > {{user.firstName}} {{ user.lastName}}</strong>
+    </a>
 
-    <div class="row">
-    
-        <!-- sidebar -->
-        <div class="col-sm-3 bg-light sidebar pe-0 p-3" *ngIf="user$ | async as user">
-    
-            <a class="p-3  text-success text-center">
-                <img [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'"
-                  height="150" width="150"><br/><br/>
-                <strong *ngIf="user$ | async as user" > {{user.displayName}}</strong>
-            </a>
-    
-            <hr class="text-success">
+    <hr class="text-success">
 
-            <a class="p-3" >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-plus-fill me-3" viewBox="0 0 16 16">
-                    <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                Registration Request
-            </a>
-    
-            <a class="p-3" >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-lines-fill me-3" viewBox="0 0 16 16">
-                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
-                  </svg>
-                Faculty List
-            </a>
-    
+    <a class="p-3" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+        class="bi bi-people-fill me-3" viewBox="0 0 16 16">
+        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+        <path fill-rule="evenodd"
+          d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
+        <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+      </svg>
+      Personal Information
+    </a>
 
-            <!-- <hr>
-    
-            <a class="p-3" >
-                <svg class="btn btn-warning text-center" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-left me-3" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
-                    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
-                  </svg>
-                Signout
-            </a> -->
+    <a class="p-3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+        class="bi bi-card-checklist me-3" viewBox="0 0 16 16">
+        <path
+          d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+        <path
+          d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
+      </svg>
+      Educational Background
+    </a>
 
-            <!-- <script>
-                function openModal() {
-                    document.getElementById('modal-1').style.display = "box";
-                    document.body.classList.add('jw-modal-open');
-            
-                }
-            
-                function closeModal() {
-                    document.getElementById('modal-1').style.display = "box";
-                    document.body.classList.remove('jw-modal-open');
-            
-                }
-            </script> -->
-            
-        </div>
-    
-        <!-- body -->
-        <div class="col-sm-8 bg-white">
-    
-            <!-- <app-faculty-list *ngIf="faculty_list"></app-faculty-list>
-            <app-registration-request *ngIf="registration_request"></app-registration-request> -->
-    
-        </div>
-    
-    </div>
-    
-    </div>
-
-    <!-- modal functions -->
-
-   
+    <a class="p-3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+        class="bi bi-bag-check-fill me-3" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zm-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+      </svg>
+      Civil Service Eligibility
+    </a>
 
 
-<!-- modal -->
-    <!-- <div class="jw-modal-wrapper" id="modal-1">
+    <a class="p-3" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+        class="bi bi-pc-display-horizontal me-3" viewBox="0 0 16 16">
+        <path
+          d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0h-13Zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5ZM12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25Z" />
+      </svg>
+      Work Experience
+    </a>
 
-        <div class="jw-modal">
-           
-            <div class="jw-modal-body">
-                <div class="title">
-                    <h3>Signout</h3>
-                    </div> <hr>
-                <p>Are you sure you want to signout?</p>
-                <div class="col">
-                     <button class="logout-modal-btn m-4" (click)="signout()" >logout</button>
-                     <button class="cancel-modal-btn m-4">Cancel</button>
-                </div>
-                
-            </div>
-        </div>
-    
-        <div class="jw-modal-background"></div>
-    
-    </div> -->
+    <a class="p-3" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-book-fill me-3"
+        viewBox="0 0 16 16">
+        <path
+          d="M8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+      </svg>
+      L&D/Training Programs
+    </a>
 
-<div class="modal fade" #signoutModal id="signoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Signout</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-          
-        </button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to signout?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary"  data-bs-dismiss="modal">Confirm</button>
-      </div>
-    </div>
-  </div>
+    
+
+
+
+  </div> -->
+ <h1>Hello, {{user.firstName}} {{user.lastName}}</h1>
+
+
+
+
 </div>
+
