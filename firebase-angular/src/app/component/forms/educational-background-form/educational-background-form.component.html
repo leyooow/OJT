@@ -1,363 +1,569 @@
-<div class="form-container2 mat-elevation-z5 text-center" *ngIf="user$ | async as user">
-
-    <h1 class="form-title">Educational Background</h1>
-
-    <!-- <div class="profile-image">
-    <img width="120" height="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
-    <button mat-mini-fab (click)="inputField.click()">
-      <mat-icon>edit</mat-icon>
-    </button>
-  </div> 
-  
-
-  <input #inputField type="file" hidden (change)="uploadImage($event, user)" />
-  
-        -->
-
-    <form class="personalInfoForm" [formGroup]="ProfileFrom" (ngSubmit)="saveProfile()">
-
-        <hr>
 
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+<!--for titles-->
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+<!--for labels-->
 
+<div class="form-container2 mat-elevation-z5" *ngIf="user$ | async as user">
+  <h1 class="form-title">Educational Background</h1>
+  <form class="personalInfoForm" [formGroup]="ProfileFrom" (ngSubmit)="saveProfile()">
+    <hr>
 
+    <div>
+      <h2 class="title">Elementary</h2>
+    </div>
 
-        <div class="forms-div">
+    <div class="container">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Name of School <span class="hint"> (write in full)</span>
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="nameOfSchoolElem" placeholder="Name of School" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Basic Education/Degree/Course <span class="hint"> (write in full)</span>
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="basicEducElem" placeholder="Basic Education/Degree/Course" />
+        </div>
+      </div>
+    </div>
 
-            <div>
-                <h2 class="title">Elementary</h2>
+    <div class="container">
+      <div class="divTitle">
+        <div style="margin-bottom: -25px;">
+          <h4 class="periodAtt">Period of Attendance</h4>
+        </div>
+        <div style="display: inline-flex; justify-content: space-between; min-width: fit-content;">
+          <div class="main-item">
+            <div class="nameLbl">
+              <label class="label2">
+                From <span class="hint"> (Year) </span>
+              </label>
             </div>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="nameOfSchoolElem" placeholder="Name of School" />
-                <mat-hint>(write in full)</mat-hint>
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="basicEducElem"
-                    placeholder="Basic Education/Degree/Course" />
-                <mat-hint>(write in full)</mat-hint>
-            </mat-form-field>
-
-            <br><br>
-
-            <div>
-                <h4 class="title">Period of Attendance</h4>
+            <div class="item">
+              <input class="smallInput" min="1900" max="2099" step="1" type="number" formControlName="fromElem"
+                placeholder="From" minlength="4" />
             </div>
-            <div class="forms-div">
-                <mat-form-field>
-                    <input type="number" matInput formControlName="fromElem" placeholder="From" minlength="4" />
-                    <mat-hint>(Year)</mat-hint>
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input type="number" matInput formControlName="toElem" placeholder="To" minlength="4" />
-                    <mat-hint>(Year)</mat-hint>
-                </mat-form-field>
+          </div>
+          &nbsp;&nbsp;
+          <div class="main-item">
+            <div class="nameLbl">
+              <label class="label2">
+                To <span class="hint"> (Year) </span>
+              </label>
             </div>
-
-
-
-
-            <!-- -->
-
-        </div>
-
-
-
-
-
-
-        <br><br>
-        <div class="forms-div">
-            <div class="forms-div">
-                <mat-form-field>
-                    <input type="text" matInput formControlName="highestLevelElem"
-                        placeholder="Highest Level/Units Earned" />
-                    <mat-hint>(if not graduated)</mat-hint>
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input type="number" matInput formControlName="yearGraduatedElem" placeholder="Year Graduated"
-                        minlength="4" />
-                    <mat-hint>(Year)</mat-hint>
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input type="text" matInput formControlName="scholarElem"
-                        placeholder="Scholarship/Academic Honors Received" />
-
-                </mat-form-field>
+            <div class="item">
+              <input class="smallInput" min="1900" max="2099" step="1" type="number" formControlName="toElem"
+                placeholder="To" minlength="4" />
             </div>
+          </div>
         </div>
-        <hr>
-
-        <div>
-            <h2 class="title">Secondary</h2>
-        </div>
-
-
-        <div class="forms-div">
-
-
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="nameOfSchoolSecondary" placeholder="Name of School" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="basicEducSecondary"
-                    placeholder="Basic Education/Degree/Course" />
-            </mat-form-field>
-
-
-
-            <!-- -->
+      </div>
+      <div class="divTitle">
+        <div style="margin-bottom: 12px;">
 
         </div>
-
-
-        <div>
-            <h4 class="title">Period of Attendance</h4>
+        <div class="main-item">
+          <div class="nameLbl">
+            <label class="label2">
+              Year Graduated
+            </label>
+          </div>
+          <div class="item">
+            <input class="medInput" min="1900" max="2099" step="1" type="number" formControlName="yearGraduatedElem"
+              placeholder="Year Graduated" minlength="4" />
+          </div>
         </div>
-        <div class="forms-div">
-            <mat-form-field>
-                <input type="number" matInput formControlName="fromSecondary" placeholder="From" minlength="4" />
-                <mat-hint>(Year)</mat-hint>
-            </mat-form-field>
+      </div>
 
-            <mat-form-field>
-                <input type="number" matInput formControlName="toSecondary" placeholder="To" minlength="4" />
-                <mat-hint>(Year)</mat-hint>
-            </mat-form-field>
+      <div class="divTitle">
+        <div style="margin-bottom: 12px;">
+
         </div>
+        <div class="main-item divHigh">
+          <div class="nameLbl">
+            <label class="label2">
+              Highest Level/Units Earned <span class="hint">(if not graduated)</span>
+            </label>
+          </div>
+          <div class="item">
+            <input type="text" formControlName="highestLevelElem" placeholder="Highest Level/Units Earned" />
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <br><br>
-        <div class="forms-div">
-            <div class="forms-div">
-                <mat-form-field>
-                    <input type="text" matInput formControlName="highestLevelSecondary"
-                        placeholder="Highest Level/Units Earned" />
+    <div class="container1">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Scholarship/Academic Honors Received
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="scholarElem" placeholder="Scholarship/Academic Honors Received" />
+        </div>
+      </div>
+    </div>
+    <hr>
 
-                </mat-form-field>
+    <!-- SECONDARY NA -->
+    <!-- SECONDARY NA -->
+    <!-- SECONDARY NA -->
+    <!-- SECONDARY NA -->
+    <!-- SECONDARY NA -->
+    <!-- SECONDARY NA -->
+    <div>
+      <h2 class="title">Secondary</h2>
+    </div>
 
-                <mat-form-field>
-                    <input type="number" matInput formControlName="yearGraduatedSecondary" placeholder="Year Graduated"
-                        minlength="4" />
-                    <mat-hint>(Year)</mat-hint>
-                </mat-form-field>
+    <div class="container">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Name of School <span class="hint"> (write in full)</span>
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="nameOfSchoolSecondary" placeholder="Name of School" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Basic Education/Degree/Course <span class="hint"> (write in full)</span>
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="basicEducSecondary" placeholder="Basic Education/Degree/Course" />
+        </div>
+      </div>
+    </div>
 
-                <mat-form-field>
-                    <input type="text" matInput formControlName="scholarSecondary"
-                        placeholder="Scholarship/Academic Honors Received" />
-
-                </mat-form-field>
+    <div class="container">
+      <div class="divTitle">
+        <div style="margin-bottom: -25px;">
+          <h4 class="periodAtt">Period of Attendance</h4>
+        </div>
+        <div style="display: inline-flex; justify-content: space-between; min-width: fit-content;">
+          <div class="main-item">
+            <div class="nameLbl">
+              <label class="label2">
+                From <span class="hint"> (Year) </span>
+              </label>
             </div>
-        </div>
-
-        <hr>
-
-        <div>
-            <h2 class="title">College</h2>
-        </div>
-
-
-        <div class="forms-div">
-
-
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="nameOfSchoolCollege" placeholder="Name of School" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="basicEducCollege"
-                    placeholder="Basic Education/Degree/Course" />
-            </mat-form-field>
-
-
-
-            <!-- -->
-
-        </div>
-
-
-        <div>
-            <h4 class="title">Period of Attendance</h4>
-        </div>
-        <div class="forms-div">
-            <mat-form-field>
-                <input type="number" matInput formControlName="fromCollege" placeholder="From" minlength="4" />
-                <mat-hint>(Year)</mat-hint>
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="number" matInput formControlName="toCollege" placeholder="To" minlength="4" />
-                <mat-hint>(Year)</mat-hint>
-            </mat-form-field>
-        </div>
-
-        <br><br>
-        <div class="forms-div">
-            <div class="forms-div">
-                <mat-form-field>
-                    <input type="text" matInput formControlName="highestLevelCollege"
-                        placeholder="Highest Level/Units Earned" />
-
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input type="number" matInput formControlName="yearGraduatedCollege" placeholder="Year Graduated"
-                        minlength="4" />
-                    <mat-hint>(Year)</mat-hint>
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input type="text" matInput formControlName="scholarCollege"
-                        placeholder="Scholarship/Academic Honors Received" />
-
-                </mat-form-field>
+            <div class="item">
+              <input class="smallInput" min="1900" max="2099" step="1" type="number" formControlName="fromSecondary"
+                placeholder="From" minlength="4" />
             </div>
-        </div>
-        <hr>
-
-        <div>
-            <h2 class="title">Vocational/Trade Course</h2>
-        </div>
-
-
-        <div class="forms-div">
-
-
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="nameOfSchoolVocational" placeholder="Name of School" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="basicEducVocational"
-                    placeholder="Basic Education/Degree/Course" />
-            </mat-form-field>
-
-
-
-            <!-- -->
-
-        </div>
-
-
-        <div>
-            <h4 class="title">Period of Attendance</h4>
-        </div>
-        <div class="forms-div">
-            <mat-form-field>
-                <input type="number" matInput formControlName="fromVocational" placeholder="From" minlength="4" />
-                <mat-hint>(Year)</mat-hint>
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="number" matInput formControlName="toVocational" placeholder="To" minlength="4" />
-                <mat-hint>(Year)</mat-hint>
-            </mat-form-field>
-        </div>
-
-        <br><br>
-        <div class="forms-div">
-            <div class="forms-div">
-                <mat-form-field>
-                    <input type="text" matInput formControlName="highestLevelVocational"
-                        placeholder="Highest Level/Units Earned" />
-
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input type="number" matInput formControlName="yearGraduatedVocational" placeholder="Year Graduated"
-                        minlength="4" />
-                    <mat-hint>(Year)</mat-hint>
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input type="text" matInput formControlName="scholarVocational"
-                        placeholder="Scholarship/Academic Honors Received" />
-
-                </mat-form-field>
+          </div>
+          &nbsp;&nbsp;
+          <div class="main-item">
+            <div class="nameLbl">
+              <label class="label2">
+                To <span class="hint"> (Year) </span>
+              </label>
             </div>
-        </div>
-        <hr>
-
-        <div>
-            <h2 class="title">Graduate Studies</h2>
-        </div>
-
-
-        <div class="forms-div">
-
-
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="nameOfSchoolStudies" placeholder="Name of School" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="basicEducStudies"
-                    placeholder="Basic Education/Degree/Course" />
-            </mat-form-field>
-
-
-
-            <!-- -->
-
-        </div>
-
-
-        <div>
-            <h4 class="title">Period of Attendance</h4>
-        </div>
-        <div class="forms-div">
-            <mat-form-field>
-                <input type="number" matInput formControlName="fromStudies" placeholder="From" minlength="4" />
-                <mat-hint>(Year)</mat-hint>
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="number" matInput formControlName="toStudies" placeholder="To" minlength="4" />
-                <mat-hint>(Year)</mat-hint>
-            </mat-form-field>
-        </div>
-
-        <br><br>
-        <div class="forms-div">
-            <div class="forms-div">
-                <mat-form-field>
-                    <input type="text" matInput formControlName="highestLevelStudies"
-                        placeholder="Highest Level/Units Earned" />
-
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input type="number" matInput formControlName="yearGraduatedStudies" placeholder="Year Graduated"
-                        minlength="4" />
-                    <mat-hint>(Year)</mat-hint>
-                </mat-form-field>
-
-                <mat-form-field>
-                    <input type="text" matInput formControlName="scholarStudies"
-                        placeholder="Scholarship/Academic Honors" />
-
-                </mat-form-field>
+            <div class="item">
+              <input class="smallInput" min="1900" max="2099" step="1" type="number" formControlName="toSecondary"
+                placeholder="To" minlength="4" />
             </div>
+          </div>
         </div>
-        <hr>
+      </div>
+      <div class="divTitle">
+        <div style="margin-bottom: 12px;">
 
-
-
-
-        <div>
-            <button type="submit" class="formbtn" mat-raised-button>
-                Submit
-            </button>
         </div>
+        <div class="main-item">
+          <div class="nameLbl">
+            <label class="label2">
+              Year Graduated
+            </label>
+          </div>
+          <div class="item">
+            <input class="medInput" min="1900" max="2099" step="1" type="number"
+              formControlName="yearGraduatedSecondary" placeholder="Year Graduated" minlength="4" />
+          </div>
+        </div>
+      </div>
+      <div class="divTitle">
+        <div style="margin-bottom: 12px;">
 
-    </form>
+        </div>
+        <div class="main-item">
+          <div class="nameLbl">
+            <label class="label2">
+              Highest Level/Units Earned <span class="hint">(if not graduated)</span>
+            </label>
+          </div>
+          <div class="item">
+            <input type="text" formControlName="highestLevelSecondary" placeholder="Highest Level/Units Earned" />
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="container1">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Scholarship/Academic Honors Received
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="scholarSecondary" placeholder="Scholarship/Academic Honors Received" />
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <!-- COLLEGE NA -->
+    <!-- COLLEGE NA -->
+    <!-- COLLEGE NA -->
+    <!-- COLLEGE NA -->
+    <!-- COLLEGE NA -->
+    <div>
+      <h2 class="title">College</h2>
+    </div>
+
+    <div class="container">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Name of School <span class="hint"> (write in full)</span>
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="nameOfSchoolCollege" placeholder="Name of School" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Basic Education/Degree/Course <span class="hint"> (write in full)</span>
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="basicEducCollege" placeholder="Basic Education/Degree/Course" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="divTitle">
+        <div style="margin-bottom: -25px;">
+          <h4 class="periodAtt">Period of Attendance</h4>
+        </div>
+        <div style="display: inline-flex; justify-content: space-between; min-width: fit-content;">
+          <div class="main-item">
+            <div class="nameLbl">
+              <label class="label2">
+                From <span class="hint"> (Year) </span>
+              </label>
+            </div>
+            <div class="item">
+              <input class="smallInput" min="1900" max="2099" step="1" type="number" formControlName="fromCollege"
+                placeholder="From" minlength="4" />
+            </div>
+          </div>
+          &nbsp;&nbsp;
+          <div class="main-item">
+            <div class="nameLbl">
+              <label class="label2">
+                To <span class="hint"> (Year) </span>
+              </label>
+            </div>
+            <div class="item">
+              <input class="smallInput" min="1900" max="2099" step="1" type="number" formControlName="toCollege"
+                placeholder="To" minlength="4" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="divTitle">
+        <div style="margin-bottom: 12px;">
+
+        </div>
+        <div class="main-item">
+          <div class="nameLbl">
+            <label class="label2">
+              Year Graduated
+            </label>
+          </div>
+          <div class="item">
+            <input class="medInput" min="1900" max="2099" step="1" type="number" formControlName="yearGraduatedCollege"
+              placeholder="Year Graduated" minlength="4" />
+          </div>
+        </div>
+      </div>
+      <div class="divTitle">
+        <div style="margin-bottom: 12px;">
+
+        </div>
+        <div class="main-item">
+          <div class="nameLbl">
+            <label class="label2">
+              Highest Level/Units Earned <span class="hint">(if not graduated)</span>
+            </label>
+          </div>
+          <div class="item">
+            <input type="text" formControlName="highestLevelCollege" placeholder="Highest Level/Units Earned" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container1">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Scholarship/Academic Honors Received
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="scholarCollege" placeholder="Scholarship/Academic Honors Received" />
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <!-- VOCATIONAL NA -->
+    <!-- VOCATIONAL NA -->
+    <!-- VOCATIONAL NA -->
+    <!-- VOCATIONAL NA -->
+    <!-- VOCATIONAL NA -->
+    <div>
+      <h2 class="title">Vocational/Trade Course</h2>
+    </div>
+
+    <div class="container">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Name of School <span class="hint"> (write in full)</span>
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="nameOfSchoolVocational" placeholder="Name of School" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Basic Education/Degree/Course <span class="hint"> (write in full)</span>
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="basicEducVocational" placeholder="Basic Education/Degree/Course" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="divTitle">
+        <div style="margin-bottom: -25px;">
+          <h4 class="periodAtt">Period of Attendance</h4>
+        </div>
+        <div style="display: inline-flex; justify-content: space-between; min-width: fit-content;">
+          <div class="main-item">
+            <div class="nameLbl">
+              <label class="label2">
+                From <span class="hint"> (Year) </span>
+              </label>
+            </div>
+            <div class="item">
+              <input class="smallInput" min="1900" max="2099" step="1" type="number" formControlName="fromVocational"
+                placeholder="From" minlength="4" />
+            </div>
+          </div>
+          &nbsp;&nbsp;
+          <div class="main-item">
+            <div class="nameLbl">
+              <label class="label2">
+                To <span class="hint"> (Year) </span>
+              </label>
+            </div>
+            <div class="item">
+              <input class="smallInput" min="1900" max="2099" step="1" type="number" formControlName="toVocational"
+                placeholder="To" minlength="4" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="divTitle">
+        <div style="margin-bottom: 12px;">
+
+        </div>
+        <div class="main-item">
+          <div class="nameLbl">
+            <label class="label2">
+              Year Graduated
+            </label>
+          </div>
+          <div class="item">
+            <input class="medInput" min="1900" max="2099" step="1" type="number"
+              formControlName="yearGraduatedVocational" placeholder="Year Graduated" minlength="4" />
+          </div>
+        </div>
+      </div>
+      <div class="divTitle">
+        <div style="margin-bottom: 12px;">
+
+        </div>
+        <div class="main-item">
+          <div class="nameLbl">
+            <label class="label2">
+              Highest Level/Units Earned <span class="hint">(if not graduated)</span>
+            </label>
+          </div>
+          <div class="item">
+            <input type="text" formControlName="highestLevelVocational" placeholder="Highest Level/Units Earned" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container1">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Scholarship/Academic Honors Received
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="scholarVocational" placeholder="Scholarship/Academic Honors Received" />
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <!-- GRADUATE NA -->
+    <!-- GRADUATE NA -->
+    <!-- GRADUATE NA -->
+    <!-- GRADUATE NA -->
+    <!-- GRADUATE NA -->
+    <div>
+      <h2 class="title">Graduate Studies</h2>
+    </div>
+
+    <div class="container">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Name of School <span class="hint"> (write in full)</span>
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="nameOfSchoolStudies" placeholder="Name of School" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Basic Education/Degree/Course <span class="hint"> (write in full)</span>
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="basicEducStudies" placeholder="Basic Education/Degree/Course" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="divTitle">
+        <div style="margin-bottom: -25px;">
+          <h4 class="periodAtt">Period of Attendance</h4>
+        </div>
+        <div style="display: inline-flex; justify-content: space-between; min-width: fit-content;">
+          <div class="main-item">
+            <div class="nameLbl">
+              <label class="label2">
+                From <span class="hint"> (Year) </span>
+              </label>
+            </div>
+            <div class="item">
+              <input class="smallInput" min="1900" max="2099" step="1" type="number" formControlName="fromStudies"
+                placeholder="From" minlength="4" />
+            </div>
+          </div>
+          &nbsp;&nbsp;
+          <div class="main-item">
+            <div class="nameLbl">
+              <label class="label2">
+                To <span class="hint"> (Year) </span>
+              </label>
+            </div>
+            <div class="item">
+              <input class="smallInput" min="1900" max="2099" step="1" type="number" formControlName="toStudies"
+                placeholder="To" minlength="4" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="divTitle">
+        <div style="margin-bottom: 12px;">
+
+        </div>
+        <div class="main-item">
+          <div class="nameLbl">
+            <label class="label2">
+              Year Graduated
+            </label>
+          </div>
+          <div class="item">
+            <input class="medInput" min="1900" max="2099" step="1" type="number" formControlName="yearGraduatedStudies"
+              placeholder="Year Graduated" minlength="4" />
+          </div>
+        </div>
+      </div>
+      <div class="divTitle">
+        <div style="margin-bottom: 12px;">
+
+        </div>
+        <div class="main-item">
+          <div class="nameLbl">
+            <label class="label2">
+              Highest Level/Units Earned <span class="hint">(if not graduated)</span>
+            </label>
+          </div>
+          <div class="item">
+            <input type="text" formControlName="highestLevelStudies" placeholder="Highest Level/Units Earned" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container1">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Scholarship/Academic Honors Received
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="scholarStudies" placeholder="Scholarship/Academic Honors" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="submitBtn">
+      <button type="submit" class="formbtn" mat-raised-button>
+        Next
+      </button>
+    </div>
+  </form>
 </div>
+
+>>>>>>> 20ca2f04dfeed204a253b2cc47daef7bbeee8a3c
