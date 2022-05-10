@@ -28,28 +28,26 @@ import { UsersService } from 'src/app/services/users.service';
 export class PersonalInfoFormComponent implements OnInit {
 
   public data: any = []
-  facultyList: ProfileUser[] = []
+  // facultyList: ProfileUser[] = []
 
-  uid: string = ""
-  employeeId: string = ""
-  firstName: string = ""
-  lastName: string = ""
-  email: string = ""
-  password: string = ""
+  // uid: string = ""
+  // employeeId: string = ""
+  // firstName: string = ""
+  // lastName: string = ""
+  // email: string = ""
+  // password: string = ""
 
-  done: string = ""
+  // done: string = ""
 
 
 
-  public done1: any
+  // public done1: any
 
 
   user$ = this.usersService.currentUserProfile$
 
   ProfileForm = new FormGroup({
     uid: new FormControl('',),
-    employeeId: new FormControl('',),
-    email: new FormControl('',),
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
     middleName: new FormControl('',),
@@ -85,10 +83,10 @@ export class PersonalInfoFormComponent implements OnInit {
     telephoneNo: new FormControl('',),
     mobileNo: new FormControl('', Validators.required),
     alternateEmail: new FormControl('',),
-    done: new FormControl('',),
+  
 
   })
-  testModal: bootstrap.Modal | undefined;
+  
 
   constructor(private authService: AuthenticationService,
     private imageUploadService: ImageUploadService,
@@ -102,7 +100,7 @@ export class PersonalInfoFormComponent implements OnInit {
 
   ) {
 
-    this.getdata()
+    // this.getdata()
 
 
   }
@@ -177,7 +175,7 @@ export class PersonalInfoFormComponent implements OnInit {
           error: 'There was an error in updating the data.'
         })
       ).subscribe()
-      const { done } = this.ProfileForm.value
+      
   
       
   
@@ -186,7 +184,7 @@ export class PersonalInfoFormComponent implements OnInit {
     }
     
     else{
-      alert('Please fill all required(*) fields! ')
+      alert('Please fill all required(*) fields!')
   
     }
   
@@ -230,31 +228,31 @@ export class PersonalInfoFormComponent implements OnInit {
 
   }
 
-  continue() {
-    const profileData = this.ProfileForm.value
+  // continue() {
+  //   const profileData = this.ProfileForm.value
 
-    this.usersService.updateUser(profileData)
-      .subscribe()
-    const { done } = this.ProfileForm.value
+  //   this.usersService.updateUser(profileData)
+  //     .subscribe()
+  //   const { done } = this.ProfileForm.value
 
-    if (done == '1') {
-      this.router.navigate(['/faculty-dashboard'])
-    } else {
+  //   if (done == '1') {
+  //     this.router.navigate(['/faculty-dashboard'])
+  //   } else {
 
 
-      this.router.navigate(['/educational-background-form'])
+  //     this.router.navigate(['/educational-background-form'])
 
-    }
-  }
+  //   }
+  // }
 
-  openModal() {
-    this.testModal = new bootstrap.Modal(document.getElementById('welcomeModal')!, {
-      keyboard: false
-    })
-    console.log(getAuth().currentUser?.uid)
-    this.testModal.show()
+  // openModal() {
+  //   this.testModal = new bootstrap.Modal(document.getElementById('welcomeModal')!, {
+  //     keyboard: false
+  //   })
+  //   console.log(getAuth().currentUser?.uid)
+  //   this.testModal.show()
 
-  }
+  // }
 
 
 

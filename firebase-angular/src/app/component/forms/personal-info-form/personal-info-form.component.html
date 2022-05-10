@@ -65,6 +65,7 @@
         </div>
         <div class="item">
           <input type="text" formControlName="firstName" placeholder="First Name"  />
+          
         </div>
       </div>
       <div class="main-item">
@@ -355,7 +356,7 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="houseBlockResident" placeholder="House/Block/Lot No." />
+          <input type="text" formControlName="houseBlockPermanent" placeholder="House/Block/Lot No." />
         </div>
       </div>
       <div class="main-item">
@@ -365,7 +366,7 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="streetResident" placeholder="Street" />
+          <input type="text" formControlName="streetPermanent" placeholder="Street" />
         </div>
       </div>
       <div class="main-item">
@@ -375,7 +376,7 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="subdivisionResident" placeholder="Subdivision/Village" />
+          <input type="text" formControlName="subdivisionPermanent" placeholder="Subdivision/Village" />
         </div>
       </div>
       <div class="main-item">
@@ -385,7 +386,7 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="barangayResident" placeholder="Barangay" />
+          <input type="text" formControlName="barangayPermanent" placeholder="Barangay" />
         </div>
       </div>
       <div class="main-item">
@@ -395,7 +396,7 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="municipalityResident" placeholder="City/Municipality" />
+          <input type="text" formControlName="municipalityPermanent" placeholder="City/Municipality" />
         </div>
       </div>
       <div class="main-item">
@@ -405,7 +406,7 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="provinceResident" placeholder="Province" />
+          <input type="text" formControlName="provincePermanent" placeholder="Province" />
         </div>
       </div>
       <div class="main-item">
@@ -415,7 +416,7 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="zipCodeResident" placeholder="Zip Code" />
+          <input type="text" formControlName="zipCodePermanent" placeholder="Zip Code" />
         </div>
       </div>
     </div>
@@ -467,25 +468,4 @@
 
 
 
-
-<div class="modal fade" #welcomeModal id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="exampleModalLabel"><strong>Welconme</strong></h3>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-
-        </button>
-      </div>
-      <div class="modal-body" *ngIf="user$ | async as user">
-        Hello , {{user.firstName}} {{user.lastName}}
-      </div>
-      <div class="modal-footer">
-        
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="continue()">Continue</button>
-      </div>
-    </div>
-  </div>
-</div>
 
