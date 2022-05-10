@@ -134,15 +134,15 @@ export class PersonalInfoFormComponent implements OnInit {
     ).subscribe()
     const { done} = this.ProfileForm.value
 
-    if(done == '1')
-    {
-     this.router.navigate(['/faculty-dashboard'])
-    }else{
+    // if(done == '1')
+    // {
+    //  this.router.navigate(['/faculty-dashboard'])
+    // }else{
      
     
       this.router.navigate(['/educational-background-form'])
 
-    }
+    // }
    
 
     
