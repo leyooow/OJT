@@ -135,7 +135,7 @@ mat-sidenav {
 }
 
 mat-sidenav-container {
-  height: calc(100vh - 70px);
+  height: calc(100vh - 80px);
   background-color: transparent;
 }
 

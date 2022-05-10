@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ojt1-6eeca": {
+      "hosting": {
+        "firebase-angular": [
+          "ojt1-6eeca"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ojt1-6eeca"
+  }
+}

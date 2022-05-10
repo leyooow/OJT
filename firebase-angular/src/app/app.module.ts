@@ -48,6 +48,7 @@ import { WorkExperienceDisplayComponent } from './component/display/work-experie
 import { CivilServiceDisplayComponent } from './component/display/civil-service-display/civil-service-display.component';
 import { TrainingDisplayComponent } from './component/display/training-display/training-display.component';
 import { AngularFireModule } from '@angular/fire/compat';
+import {  provideDatabase,getDatabase } from '@angular/fire/database';
 
 
 
@@ -86,6 +87,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
+    provideDatabase(() => getDatabase()),
     HotToastModule.forRoot(),
     MatMenuModule,
     MatDatepickerModule,
@@ -98,7 +100,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     MatPaginatorModule,
     MatSortModule,
     MatProgressSpinnerModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+  
 
     
 

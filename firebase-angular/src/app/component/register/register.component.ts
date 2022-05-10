@@ -13,6 +13,9 @@ import { switchMap } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UsersService } from 'src/app/services/users.service';
 
+import {Database, set, ref, update, onValue} from '@angular/fire/database'
+import { getAuth } from '@angular/fire/auth';
+
 
 
 export function passwordsMatchValidator(): ValidatorFn {
@@ -40,6 +43,7 @@ export function passwordsMatchValidator(): ValidatorFn {
 export class RegisterComponent implements OnInit {
 
   signUpForm = new FormGroup({
+    uid: new FormControl('',),
     firstname: new FormControl('', Validators.required),
     lastname: new FormControl('', Validators.required),
     employeeId: new FormControl('', Validators.required),
@@ -54,10 +58,36 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private toast: HotToastService,
     private usersService: UsersService,
+    public database : Database,
     ) { }
 
   ngOnInit(): void {
   }
+
+  setRealtimeDbData(){
+    const userId = getAuth().currentUser?.uid.toString() ;
+    const {employeeId, email,uid} = this.signUpForm.value;
+    const ref1 = ref(this.database, 'users/' + userId)
+
+    const ref2 = ref(this.database, 'users/' + userId + '/email')
+    
+    set(ref1, {
+      
+      employeeId : employeeId,
+      email: email,
+    })
+
+    // const starCountRef = ref(this.database, 'users/' + userId + '/email' );
+    // onValue(starCountRef, (snapshot) => {
+    //   const data = snapshot.val();
+    //   alert(data)
+    // })
+
+  
+  }
+
+
+
 
   submit() {
 
@@ -87,6 +117,7 @@ export class RegisterComponent implements OnInit {
       })
     })
 
+    // this.setRealtimeDbData()
 
   }
 
@@ -114,4 +145,7 @@ export class RegisterComponent implements OnInit {
     return this.signUpForm.get('confirmPassword')
   }
 
+  
 }
+
+

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getAuth } from '@angular/fire/auth';
+import { Database, onValue, ref } from '@angular/fire/database';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -44,9 +45,16 @@ export class TrainingFormComponent implements OnInit {
     private imageUploadService: ImageUploadService,
     private toast: HotToastService,
     private usersService: UsersService,
-    private router: Router,) { }
+    private router: Router,
+    public database : Database,) { 
+
+      
+    }
 
   ngOnInit(): void {
+
+
+   
 
     this.usersService.currentUserProfile$.pipe(
       untilDestroyed(this)
@@ -92,5 +100,6 @@ export class TrainingFormComponent implements OnInit {
     
     
    }
+  
 
 }

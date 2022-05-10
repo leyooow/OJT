@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getAuth } from '@angular/fire/auth';
+import { Database, onValue, ref, set } from '@angular/fire/database';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -25,6 +26,8 @@ export class ProfileComponent implements OnInit {
 
   profileForm = new FormGroup({
     uid: new FormControl(''),
+    email: new FormControl(''),
+
     displayName: new FormControl(''),
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -39,7 +42,8 @@ export class ProfileComponent implements OnInit {
     private imageUploadService: ImageUploadService,
     private toast: HotToastService,
     private usersService: UsersService,
-    private router: Router) { }
+    private router: Router,
+    public database: Database,) { }
 
   ngOnInit(): void {
     this.usersService.currentUserProfile$.pipe(
@@ -76,6 +80,10 @@ export class ProfileComponent implements OnInit {
     }else{
       this.router.navigate(['/faculty-dashboard'])
     }
-   }
+
+    // this.setRealtimeDbData()
+
+  }
+  
 
 }

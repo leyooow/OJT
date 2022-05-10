@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { getAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Database, onValue, ref } from '@angular/fire/database';
 import { collection, doc, Firestore, getDoc, getDocs, getFirestore, } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -95,6 +96,7 @@ export class PersonalInfoFormComponent implements OnInit {
     private router: Router,
     private firestore: Firestore,
     private afs: AngularFirestore,
+    public database : Database,
 
 
 
@@ -107,27 +109,7 @@ export class PersonalInfoFormComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
 
-    // const firebaseConfig = {
-    //   apiKey: "AIzaSyAZwTfopp-Qz3HFzGNBc5iYsBpA6U1A4FI",
-    //   authDomain: "ojt1-6eeca.firebaseapp.com",
-    //   projectId: "ojt1-6eeca",
-    //   storageBucket: "ojt1-6eeca.appspot.com",
-    //   messagingSenderId: "586333622765",
-    //   appId: "1:586333622765:web:ff90f5bef683338019d7e4",
-    //   measurementId: "G-0L3NSLG8QZ"
-    // };
-
-    // const app = initializeApp(firebaseConfig)
-    // const db = getFirestore(app)
-    // const userID = getAuth().currentUser?.uid
-
-    // this.usersService.getDoneData(userID).subscribe(ref => {
-    //   if (!ref.exists){
-    //     console.log('no data')
-    //   }else{
-    //   console.log(ref.data())
-    //   }
-    // })
+    this.setRealtimeDbData()
 
 
 
@@ -217,16 +199,37 @@ export class PersonalInfoFormComponent implements OnInit {
 
   }
 
-  getDone() {
-    //   const userID = getAuth().currentUser?.uid
+  setRealtimeDbData() {
+    const userId = getAuth().currentUser?.uid.toString();
+    const { employeeId, email, uid } = this.ProfileForm.value;
+    const ref1 = ref(this.database, 'users/' + uid)
 
-    //   this.usersService.getDoneData(userID).subscribe(
-    //     (data) => this.done = data.exists ? data.data().done : undefined)
+    const ref2 = ref(this.database, 'users/' + userId + '/email')
 
-    const userID = getAuth().currentUser?.uid
-    this.usersService.getDoneData(userID)
+    // set(ref1, {
+    //   uid: uid,
+    //   employeeId: employeeId,
+    //   email: email,
+    //   done: '1',
+    // })
+
+    const starCountRef = ref(this.database, 'users/' + userId + '/done' );
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+     
+
+      if(data == '1'){
+        this.router.navigate(['/faculty-dashboard'])
+      }
+    })
+
+    
+
+
 
   }
+
+ 
 
   // continue() {
   //   const profileData = this.ProfileForm.value
