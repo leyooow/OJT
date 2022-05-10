@@ -207,7 +207,7 @@ export class PersonalInfoFormComponent implements OnInit {
     const ref2 = ref(this.database, 'users/' + userId + '/email')
 
     // set(ref1, {
-    //   uid: uid,
+    //   uid: uid,  
     //   employeeId: employeeId,
     //   email: email,
     //   done: '1',

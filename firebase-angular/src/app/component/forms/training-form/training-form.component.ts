@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getAuth } from '@angular/fire/auth';
-import { Database, onValue, ref } from '@angular/fire/database';
+import { Database, onValue, ref, set } from '@angular/fire/database';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -78,11 +78,20 @@ export class TrainingFormComponent implements OnInit {
   
 
   saveProfile(user: ProfileUser) {
+    const {uid, employeeId,  firstname, lastname, email, password } = this.ProfileForm.value
+
+    const userId = getAuth().currentUser?.uid.toString();
+    const ref1 = ref(this.database, 'users/' + userId)
+
+    set(ref1, {
+      uid: uid,
+      done: '1',
+    })
 
     if (!this.ProfileForm.valid) return
     
 
-    const {employeeId,  firstname, lastname, email, password } = this.ProfileForm.value
+   
 
     const profileData = this.ProfileForm.value
     this.usersService.updateUser(profileData).pipe(
@@ -94,6 +103,7 @@ export class TrainingFormComponent implements OnInit {
       }), concatMap((done) => this.usersService.updateUser({ uid: user.uid, done: '1' }))
     ).subscribe()
       
+   
     
     
       this.router.navigate(['/faculty-dashboard'])

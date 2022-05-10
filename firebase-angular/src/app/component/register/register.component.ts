@@ -67,9 +67,9 @@ export class RegisterComponent implements OnInit {
   setRealtimeDbData(){
     const userId = getAuth().currentUser?.uid.toString() ;
     const {employeeId, email,uid} = this.signUpForm.value;
-    const ref1 = ref(this.database, 'users/' + userId)
+    const ref1 = ref(this.database, 'users/' + employeeId)
 
-    const ref2 = ref(this.database, 'users/' + userId + '/email')
+    const ref2 = ref(this.database, 'users/' + employeeId + '/email')
     
     set(ref1, {
       
@@ -86,6 +86,34 @@ export class RegisterComponent implements OnInit {
   
   }
 
+  employeeIdValidate(){
+    const userId = getAuth().currentUser?.uid.toString() ;
+    const {employeeId, email,uid} = this.signUpForm.value;
+    const ref1 = ref(this.database, 'users/' + employeeId)
+
+     const starCountRef = ref(this.database, 'users/' + employeeId + '/employeeId' );
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+      
+       
+        
+
+       
+
+        
+
+      
+        
+
+     
+    })
+
+    
+
+
+
+  }
+
 
 
 
@@ -93,7 +121,9 @@ export class RegisterComponent implements OnInit {
 
     if (!this.signUpForm.valid) return
 
-    const {employeeId,  firstname, lastname, email, password, done } = this.signUpForm.value
+    this.setRealtimeDbData()
+
+    const {employeeId,  firstname, lastname, email, password, done, } = this.signUpForm.value
 
     this.authService.signUp( email, password)
     .pipe(
@@ -117,7 +147,10 @@ export class RegisterComponent implements OnInit {
       })
     })
 
-    // this.setRealtimeDbData()
+    // this.employeeIdValidate()
+
+    
+
 
   }
 
