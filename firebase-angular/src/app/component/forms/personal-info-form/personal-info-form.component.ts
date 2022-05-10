@@ -185,14 +185,12 @@ export class PersonalInfoFormComponent implements OnInit {
     ).subscribe()
     const { done } = this.ProfileForm.value
 
-    if (done == '1') {
-      this.router.navigate(['/faculty-dashboard'])
-    } else {
+    
 
 
       this.router.navigate(['/educational-background-form'])
 
-    }
+    
 
 
 
@@ -235,7 +233,7 @@ export class PersonalInfoFormComponent implements OnInit {
       .subscribe()
     const { done } = this.ProfileForm.value
 
-    if (done == '1') {
+    if (done == '') {
       this.router.navigate(['/faculty-dashboard'])
     } else {
 
