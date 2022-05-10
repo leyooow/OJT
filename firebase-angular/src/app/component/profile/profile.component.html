@@ -19,8 +19,15 @@
   <input #inputField type="file" hidden (change)="uploadImage($event, user)" />
 
   <form class="margin-top" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
-    <label type="text" formControlName="employeeId" p> <span class="label1">Employee ID:</span>&nbsp;&nbsp;
+
+    <label type="text"  p> <span class="label1">Employee ID:</span>&nbsp;&nbsp;
       <span class="ans">{{user.employeeId}}</span> </label>
+
+    <br>
+
+
+    <label type="text" matInput > Employee ID: {{user.employeeId}}</label>
+
     <br /><br />
 
     <mat-form-field>
