@@ -26,10 +26,20 @@
 } */
 
 .containerLogin {
-  background: rgb(255, 178, 112);
+  background: rgb(5, 61, 151);
+  background: -moz-linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
+  background: -webkit-linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
+  background: linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#053d97", endColorstr="#041c42", GradientType=1);
+  /* background: rgb(30, 67, 129);
+  background: -moz-linear-gradient(0deg, rgba(30, 67, 129, 1) 26%, rgba(41, 109, 223, 1) 100%);
+  background: -webkit-linear-gradient(0deg, rgba(30, 67, 129, 1) 26%, rgba(41, 109, 223, 1) 100%);
+  background: linear-gradient(0deg, rgba(30, 67, 129, 1) 26%, rgba(41, 109, 223, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1e4381", endColorstr="#296ddf", GradientType=1); */
+  /* background: rgb(255, 178, 112);
   background: -moz-linear-gradient(180deg, rgba(255, 178, 112, 1) 0%, rgba(250, 152, 105, 1) 80%);
   background: -webkit-linear-gradient(180deg, rgba(255, 178, 112, 1) 0%, rgba(250, 152, 105, 1) 80%);
-  background: linear-gradient(180deg, rgba(255, 178, 112, 1) 0%, rgba(250, 152, 105, 1) 80%);
+  background: linear-gradient(180deg, rgba(255, 178, 112, 1) 0%, rgba(250, 152, 105, 1) 80%); */
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
   max-width: 40%;
   margin: auto;
@@ -46,28 +56,29 @@
 }
 
 .loginText {
-  color: rgb(187, 14, 14);
+  color: rgb(255, 255, 255);
   font-weight: bold;
   letter-spacing: 0.1em;
 }
 
 .loginBtn {
-  background-color: #AA4F00;
+  background-color: #A3AFD4;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
   padding-left: 40px;
   padding-right: 40px;
   border-radius: 30px;
   font-size: 1.3em;
-  color: #FFD4B0;
+  color: #000000;
 }
 
 .loginBtn:hover {
-  background-color: #FFBC82;
-  color: black;
+  background-color: #024ABD;
+  color: #ffffff;
 }
 
-.loginBtn:active {
-  background-color: #F8790B;
-}
+/* .loginBtn:active {
+  background-color: #A3AFD4;
+} */
 
 .noAcc {
   margin-top: 40px;

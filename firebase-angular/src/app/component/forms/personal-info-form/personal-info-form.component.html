@@ -1,313 +1,466 @@
-<div class="form-container1 mat-elevation-z5 text-center" *ngIf="user$ | async as user">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+<!--for titles-->
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+<!--for labels-->
+<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300&display=swap" rel="stylesheet">
+<!--for answers-->
 
-    <h1 class="form-title">Personal Information</h1>
+<div class="form-container1 mat-elevation-z5" *ngIf="user$ | async as user">
+  <p id="ins">Please fill out all of the relevant information which will be recorded in the Faculty Management
+    Information System. We ask that you only provide true and accurate information.
+  </p>
+  <hr>
+  <h1 class="form-title">Personal Information</h1>
+  <hr>
+
+  <!-- <div class="profile-image">
+    <img width="120" height="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
+    <button mat-mini-fab (click)="inputField.click()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div> -->
+
+  <div class="container1">
+    <div class="profile-image imgInfo">
+      <img width="120" height="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
+      <button mat-mini-fab (click)="inputField.click()">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+    <div class="imgInfo info">
+      <label type="text" p> <span class="label1">Employee ID: &nbsp; </span> <span
+          class="ans">{{user.employeeId}}</span>
+      </label> <br>
+      <label type="text"> <span class="label1">Email Adress: &nbsp; </span>
+        <span class="ans">{{user.email}}</span>
+      </label>
+    </div>
+  </div>
+
+  <input #inputField type="file" hidden (change)="uploadImage($event, user)" />
+
+  <form class="personalInfoForm" [formGroup]="ProfileForm" (ngSubmit)="saveProfile()">
     <hr>
+    <!-- <div class="container" style="text-align:center">
+      <label type="text" p> <span class="label1">Employee ID: &nbsp; </span> <span
+          class="ans">{{user.employeeId}}</span>
+      </label>
+      <label type="text"> <span class="label1">Email Adress: &nbsp; </span>
+        <span class="ans">{{user.email}}</span>
+      </label>
+    </div> -->
 
-    <div class="profile-image">
-        <img width="120" height="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
-        <button mat-mini-fab (click)="inputField.click()">
-            <mat-icon>edit</mat-icon>
-        </button>
-
+    <div>
+      <h2 class="title">Basic Information</h2>
     </div>
 
-
-    <input #inputField type="file" hidden (change)="uploadImage($event, user)" />
-
-
-
-    <form class="personalInfoForm" [formGroup]="ProfileForm" (ngSubmit)="saveProfile()">
-
-        <hr>
-
-
-        <div class="forms-div" style="text-align:center">
-
-            <!-- employee id -->
-
-            <label type="text" matInput p> Employee ID:{{user.employeeId}}</label>
-
-
-            <!-- email -->
-
-            <label type="text" matInput>Email Adress: {{user.email}}</label>
-
-
-
+    <div class="container">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            First Name*
+          </label>
         </div>
-
-        <hr>
-        <div>
-            <h2 class="title">Faculty Name</h2>
+        <div class="item">
+          <input type="text" formControlName="firstName" placeholder="First Name" required />
         </div>
-
-
-        <div class="forms-div">
-
-
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="firstName" placeholder="First Name" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="lastName" placeholder="Last Name" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="middleName" placeholder="Middle Name" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="nameExtension" placeholder="Name Extension" />
-                <mat-hint>(Jr, Sr, III etc.)</mat-hint>
-            </mat-form-field>
-
-            <!-- -->
-
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Last Name*
+          </label>
         </div>
-
-        <hr>
-
-        <div class="forms-div">
-            <mat-form-field class="mat-fieds">
-                <input formControlName="dateOfBirth" placeholder="Date of Birth" type="date" matInput>
-                <mat-hint>(DD/MM/YYYY)</mat-hint>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="age" placeholder="Age" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="placeOfBirth" placeholder="Place of Birth" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <select matNativeControl formControlName="gender" placeholder="Gender">
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="LGBTQIA">LGBTQIA+</option>
-                </select>
-            </mat-form-field>
+        <div class="item">
+          <input type="text" formControlName="lastName" placeholder="Last Name" required />
         </div>
-        <br>
-
-        <div class="forms-div">
-
-            <mat-form-field>
-
-                <select matNativeControl formControlName="civilStatus" placeholder="Civil Status">
-
-                    <option value="Single  ">Single </option>
-                    <option value="Married ">Married </option>
-                    <option value="Widowed">Widowed</option>
-                    <option value="Separated ">Separated</option>
-                    <option value="Divorced ">Divorced</option>
-
-                </select>
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="height" placeholder="Height" />
-                <mat-hint>(cm)</mat-hint>
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="weight" placeholder="Weight" />
-                <mat-hint>(lbs)</mat-hint>
-            </mat-form-field>
-
-            <mat-form-field>
-
-                <select matNativeControl formControlName="bloodType" placeholder="Blood Type">
-
-                    <option value="A RhD positive (A+)">A RhD positive (A+) </option>
-                    <option value="A RhD negative (A-) ">A RhD negative (A-) </option>
-                    <option value="B RhD positive (B+)">B RhD positive (B+)</option>
-                    <option value="B RhD negative (B-)">B RhD negative (B-)</option>
-                    <option value="O RhD positive (O+)">O RhD positive (O+)</option>
-                    <option value="O RhD negative (O-)">O RhD negative (O-))</option>
-                    <option value="AB RhD positive (AB+)">AB RhD positive (AB+)</option>
-                    <option value="AB RhD negative (AB-)">AB RhD negative (AB-)</option>
-
-                </select>
-            </mat-form-field>
-
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Middle Name
+          </label>
         </div>
-        <br>
-
-        <div class="forms-div">
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="gsis" placeholder="GSIS ID No." />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="pagibig" placeholder="PAGIBIG ID No." />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="philhealth" placeholder="PHILHEALTH No." />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="sss" placeholder="SSS No." />
-            </mat-form-field>
-
+        <div class="item">
+          <input type="text" formControlName="middleName" placeholder="Middle Name" />
         </div>
-        <br>
-
-        <div class="forms-div">
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="tin" placeholder="TIN No." />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="citezenship" placeholder="Citizenship" />
-            </mat-form-field>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Name Extension <span class="hint">(Jr, Sr)</span>
+          </label>
         </div>
-
-        <hr>
-
-
-        <div>
-            <h2 class="title">Resident Address</h2>
+        <div class="item">
+          <input type="text" formControlName="nameExtension" placeholder="Name Extension" />
         </div>
-
-
-        <div class="forms-div">
-
-
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="houseBlockResident" placeholder="House/Block/Lot No." />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="streetResident" placeholder="Street" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="subdivisionResident" placeholder="Subdivision/Village" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="barangayResident" placeholder="Barangay" />
-            </mat-form-field>
-
-            <!-- -->
-
+      </div>
+      <div style="display: inline-flex; justify-content: space-between; min-width: fit-content;">
+        <div class="main-item">
+          <div class="nameLbl">
+            <label class="label2">
+              Birthday*
+            </label>
+          </div>
+          <div class="item">
+            <input class="smallInput" formControlName="dateOfBirth" placeholder="Date of Birth" type="date" required>
+            <mat-datepicker #picker></mat-datepicker>
+          </div>
         </div>
-
-        <div class="forms-div">
-
-
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="municipalityResident" placeholder="City/Municipality" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="provinceResident" placeholder="Province" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="zipCodeResident" placeholder="Zip Code" />
-            </mat-form-field>
-
-            <!-- -->
-
+        &nbsp;&nbsp;
+        <div class="main-item">
+          <div class="nameLbl">
+            <label class="label2">
+              Age*
+            </label>
+          </div>
+          <div class="item">
+            <input class="smallInput" type="text" formControlName="age" placeholder="Age" />
+            <mat-error *ngIf="ProfileForm?.errors?.['required']"> First Name is Required!</mat-error>
+          </div>
         </div>
-
-        <hr>
-
-        <div>
-            <h2 class="title">Permanent Address</h2>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Place of Birth* <span class="hint">(City/Municipality/Province)</span>
+          </label>
         </div>
-
-
-        <div class="forms-div">
-
-
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="houseBlockPermanent" placeholder="House/Block/Lot No." />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="streetPermanent" placeholder="Street" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="subdivisionPermanent" placeholder="Subdivision/Village" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="barangayPermanent" placeholder="Barangay" />
-            </mat-form-field>
-
-            <!-- -->
-
+        <div class="item">
+          <input class="mediumInput" type="text" formControlName="placeOfBirth" placeholder="Place of Birth" />
         </div>
-
-        <div class="forms-div">
-
-
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="municipalityPermanent" placeholder="City/Municipality" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="provincePermanent" placeholder="Province" />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="zipCodePermanent" placeholder="Zip Code" />
-            </mat-form-field>
-
-            <!-- -->
-
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Gender
+          </label>
         </div>
-
-        <hr>
-
-        <div class="forms-div">
-
-
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="telephoneNo" placeholder="Telephone No." />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="mobileNo" placeholder="Mobile No." />
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="alternateEmail" placeholder="Alternate Email Address" />
-            </mat-form-field>
-
-            <!-- -->
-
+        <div class="item">
+          <select formControlName="gender" placeholder="Gender">
+            <option value="" selected disabled>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="LGBTQIA">LGBTQIA+</option>
+          </select>
         </div>
-
-
-
-
-
-        <hr>
-
-
-        <div>
-            <button type="submit" class="formbtn" mat-raised-button>
-                Submit
-            </button>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Civil Status
+          </label>
         </div>
+        <div class="item">
+          <select formControlName="civilStatus" placeholder="Civil Status">
+            <option value="" disabled selected>Select Civil Status</option>
+            <option value="Single  ">Single </option>
+            <option value="Married ">Married </option>
+            <option value="Widowed">Widowed</option>
+            <option value="Separated ">Separated</option>
+            <option value="Divorced ">Divorced</option>
+          </select>
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Height <span class="hint">(cm)</span>*
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="height" placeholder="Height" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Weight <span class="hint">(lbs)</span>*
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="weight" placeholder="Weight" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Blood Type
+          </label>
+        </div>
+        <div class="item">
+          <select formControlName="bloodType">
+            <option value="" disabled selected>Select Blood Type</option>
+            <option value="A RhD positive (A+)">A RhD positive (A+) </option>
+            <option value="A RhD negative (A-) ">A RhD negative (A-) </option>
+            <option value="B RhD positive (B+)">B RhD positive (B+)</option>
+            <option value="B RhD negative (B-)">B RhD negative (B-)</option>
+            <option value="O RhD positive (O+)">O RhD positive (O+)</option>
+            <option value="O RhD negative (O-)">O RhD negative (O-))</option>
+            <option value="AB RhD positive (AB+)">AB RhD positive (AB+)</option>
+            <option value="AB RhD negative (AB-)">AB RhD negative (AB-)</option>
+          </select>
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Citizenship*
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="citezenship" placeholder="Citizenship" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            GSIS ID No.
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="gsis" placeholder="GSIS ID No." />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            PAGIBIG ID No.
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="pagibig" placeholder="PAGIBIG ID No." />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            PHILHEALTH No.
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="philhealth" placeholder="PHILHEALTH No." />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            SSS No.
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="sss" placeholder="SSS No." />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            TIN No.
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="tin" placeholder="TIN No." />
+        </div>
+      </div>
+    </div>
+    <hr>
 
-    </form>
+    <div>
+      <h2 class="title">Resident Address</h2>
+    </div>
+    <div class="container">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            House/Block/Lot No.
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="houseBlockResident" placeholder="House/Block/Lot No." />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Street
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="streetResident" placeholder="Street" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Subdivision/Village
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="subdivisionResident" placeholder="Subdivision/Village" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Barangay*
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="barangayResident" placeholder="Barangay" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            City/Municipality*
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="municipalityResident" placeholder="City/Municipality" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Province*
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="provinceResident" placeholder="Province" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Zip Code*
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="zipCodeResident" placeholder="Zip Code" />
+        </div>
+      </div>
+    </div>
+    <hr>
 
+    <div>
+      <h2 class="title">Permanent Address</h2>
+    </div>
+    <div class="container">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            House/Block/Lot No.
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="houseBlockResident" placeholder="House/Block/Lot No." />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Street
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="streetResident" placeholder="Street" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Subdivision/Village
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="subdivisionResident" placeholder="Subdivision/Village" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Barangay*
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="barangayResident" placeholder="Barangay" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            City/Municipality*
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="municipalityResident" placeholder="City/Municipality" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Province*
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="provinceResident" placeholder="Province" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Zip Code*
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="zipCodeResident" placeholder="Zip Code" />
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <div>
+      <h2 class="title">Contact Information</h2>
+    </div>
+    <div class="container">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Telephone No.
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="telephoneNo" placeholder="Telephone No." />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Mobile No.*
+          </label>
+        </div>
+        <div class="item">
+          <input type="text" formControlName="mobileNo" placeholder="Mobile No." />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Alternate Email Address
+          </label>
+        </div>
+        <div class="item">
+          <input type="email" formControlName="alternateEmail" placeholder="Alternate Email Address" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="submitBtn">
+      <button type="submit" class="formbtn" mat-raised-button>
+        Submit
+      </button>
+    </div>
+  </form>
 </div>

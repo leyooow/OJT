@@ -50,7 +50,7 @@ export class PersonalInfoFormComponent implements OnInit {
     philhealth: new FormControl('', ),
     sss: new FormControl('', ),
     tin: new FormControl('', ),
-    citezenship: new FormControl('', Validators.required),
+    citezenship: new FormControl('', Validators.required), //mali spelling
     houseBlockResident: new FormControl(''),
     streetResident: new FormControl(''),
     subdivisionResident: new FormControl(''),

@@ -1,3 +1,12 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+<!--for titles-->
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+<!--for labels-->
+<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300&display=swap" rel="stylesheet">
+<!--for answers-->
+
 <div class="form-container mat-elevation-z5 text-center" *ngIf="user$ | async as user">
   <h1 class="form-title">User Profile</h1>
   <div class="profile-image">
@@ -9,31 +18,16 @@
 
   <input #inputField type="file" hidden (change)="uploadImage($event, user)" />
 
-
   <form class="margin-top" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
-
-
-    <label type="text" matInput formControlName="employeeId" p> Employee ID: {{user.employeeId}}</label>
+    <label type="text" formControlName="employeeId" p> <span class="label1">Employee ID:</span>&nbsp;&nbsp;
+      <span class="ans">{{user.employeeId}}</span> </label>
     <br /><br />
 
-    <!-- employee-id -->
     <mat-form-field>
       <input type="text" matInput formControlName="mobileNo" placeholder="Mobile Number" />
     </mat-form-field>
 
-
-    <!-- employee-id -->
-
-    <!-- <mat-form-field class="mat-fieds">
-        <input formControlName="dateOfBirth" placeholder="Date of Birth" type="text" matInput
-            [matDatepicker]="picker">
-        <mat-hint>(MM/DD/YYYY)</mat-hint>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field> -->
-
     <mat-form-field>
-      <!-- <input type="text" matInput formControlName="gender" placeholder="Gender" /> -->
       <select matNativeControl formControlName="gender" placeholder="Gender">
         <option value="Male">Male</option>
         <option value="Female">Female</option>
@@ -41,33 +35,29 @@
       </select>
     </mat-form-field>
 
-
-    <!-- display-name -->
-    <!-- <mat-form-field>
-      <input type="text" matInput formControlName="displayName" placeholder="Display Name" />
-    </mat-form-field> -->
-
-    <!-- firstname -->
     <mat-form-field>
       <input type="text" matInput formControlName="firstName" placeholder="First Name" />
-
-      <!-- lastname -->
     </mat-form-field>
+
     <mat-form-field>
       <input type="text" matInput formControlName="lastName" placeholder="Last Name" />
     </mat-form-field>
 
+    <!-- <div class="main-item">
+      <div class="nameLbl">
+        <label class="label2">
+          First Name*
+        </label>
+      </div>
+      <div class="item">
+        <input type="text" formControlName="firstName" placeholder="First Name" />
+      </div>
+    </div> -->
 
 
 
-
-
-
-
-
-    <button type="submit" class="center margin-top" mat-raised-button color="warn">
+    <button type="submit" class="formbtn" mat-raised-button color="warn">
       Save
     </button>
   </form>
-
 </div>
