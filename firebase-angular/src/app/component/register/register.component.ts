@@ -46,6 +46,7 @@ export class RegisterComponent implements OnInit {
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', Validators.required),
     confirmPassword: new FormControl('', Validators.required),
+    done: new FormControl('',),
   }, { validators: passwordsMatchValidator() })
 
   constructor(
@@ -62,7 +63,7 @@ export class RegisterComponent implements OnInit {
 
     if (!this.signUpForm.valid) return
 
-    const {employeeId,  firstname, lastname, email, password } = this.signUpForm.value
+    const {employeeId,  firstname, lastname, email, password, done } = this.signUpForm.value
 
     this.authService.signUp( email, password)
     .pipe(
@@ -70,7 +71,7 @@ export class RegisterComponent implements OnInit {
       switchMap(({ user: { uid } }) => this.usersService.addUser(
         { uid,  firstName: firstname, 
           lastName: lastname, employeeId: employeeId, 
-          email, displayName: firstname + ' ' + lastname, })
+          email, displayName: firstname + ' ' + lastname, done: ''})
       ),
 
     

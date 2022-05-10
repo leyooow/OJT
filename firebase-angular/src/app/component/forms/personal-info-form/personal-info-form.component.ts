@@ -11,6 +11,7 @@ import { getMetadata } from '@firebase/storage';
 import { HotToastService } from '@ngneat/hot-toast';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import * as bootstrap from 'bootstrap';
+import { error } from 'console';
 import { User } from 'firebase/auth';
 import * as firebase from 'firebase/compat';
 import { concatMap, switchMap } from 'rxjs';
@@ -159,43 +160,42 @@ export class PersonalInfoFormComponent implements OnInit {
 
   saveProfile() {
 
-    if (!this.ProfileForm.valid) {
-      alert('Please fill all required (*) fields. ')
-      return
+    if (this.ProfileForm.valid) {
+      
+      const profileData = this.ProfileForm.value
+
+      this.usersService.updateUser(profileData).pipe(
+  
+        // switchMap(({ user: { uid } }) => this.usersService.updateUser(
+        //   { uid,  dateOfBirth: bday  })
+        // ),
+  
+  
+        this.toast.observe({
+          success: 'Data saved.',
+          loading: 'Updating data... ',
+          error: 'There was an error in updating the data.'
+        })
+      ).subscribe()
+      const { done } = this.ProfileForm.value
+  
+      
+  
+  
+        this.router.navigate(['/educational-background-form'])
     }
     
-
+    else{
+      alert('Please fill all required(*) fields! ')
+  
+    }
+  
 
     // const {employeeId, dateOfBirth,  firstname, lastname, email, password } = this.ProfileForm.value
 
 
 
     // alert(dateOfBirth.toString())
-
-    const profileData = this.ProfileForm.value
-
-    this.usersService.updateUser(profileData).pipe(
-
-      // switchMap(({ user: { uid } }) => this.usersService.updateUser(
-      //   { uid,  dateOfBirth: bday  })
-      // ),
-
-
-      this.toast.observe({
-        success: 'Data saved.',
-        loading: 'Updating data... ',
-        error: 'There was an error in updating the data.'
-      })
-    ).subscribe()
-    const { done } = this.ProfileForm.value
-
-    
-
-
-      this.router.navigate(['/educational-background-form'])
-
-    
-
 
 
 

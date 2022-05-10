@@ -64,7 +64,7 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="firstName" placeholder="First Name" required />
+          <input type="text" formControlName="firstName" placeholder="First Name"  />
         </div>
       </div>
       <div class="main-item">
@@ -74,7 +74,7 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="lastName" placeholder="Last Name" required />
+          <input type="text" formControlName="lastName" placeholder="Last Name"  />
         </div>
       </div>
       <div class="main-item">
@@ -105,7 +105,7 @@
             </label>
           </div>
           <div class="item">
-            <input class="smallInput" formControlName="dateOfBirth" placeholder="Date of Birth" type="date" required>
+            <input class="smallInput" formControlName="dateOfBirth" placeholder="Date of Birth" type="date" >
             <mat-datepicker #picker></mat-datepicker>
           </div>
         </div>
@@ -118,7 +118,7 @@
           </div>
           <div class="item">
             <input class="smallInput" type="text" formControlName="age" placeholder="Age" />
-            <mat-error *ngIf="ProfileForm?.errors?.['required']"> First Name is Required!</mat-error>
+            <!-- <mat-error *ngIf="ProfileForm?.errors?.['required']"> Required!</mat-error> -->
           </div>
         </div>
       </div>

@@ -71,7 +71,7 @@ export class ProfileComponent implements OnInit {
       })
     ).subscribe()
     const userID = getAuth().currentUser?.uid
-    if(userID == 'wHVdJzT0zwXpEMamSGobwrdlQJn2'){
+    if(userID == 'fM6Ko90ezgSzZJ04sbCdGMmbOYt1'){
       this.router.navigate(['/admin-dashboard'])
     }else{
       this.router.navigate(['/faculty-dashboard'])
