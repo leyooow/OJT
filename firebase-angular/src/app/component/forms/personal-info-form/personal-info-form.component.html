@@ -1,6 +1,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
 <!--for titles-->
 <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
 <!--for labels-->
@@ -64,8 +64,8 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="firstName" placeholder="First Name"  />
-          
+          <input type="text" formControlName="firstName" placeholder="First Name" />
+
         </div>
       </div>
       <div class="main-item">
@@ -75,7 +75,7 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="lastName" placeholder="Last Name"  />
+          <input type="text" formControlName="lastName" placeholder="Last Name" />
         </div>
       </div>
       <div class="main-item">
@@ -106,8 +106,8 @@
             </label>
           </div>
           <div class="item">
-            <input class="smallInput" formControlName="dateOfBirth" placeholder="Date of Birth" type="date" >
-            <mat-datepicker #picker></mat-datepicker>
+            <input class="smallInput" formControlName="dateOfBirth" placeholder="Date of Birth" type="date">
+            <!-- <mat-datepicker #picker></mat-datepicker> -->
           </div>
         </div>
         &nbsp;&nbsp;
@@ -118,7 +118,7 @@
             </label>
           </div>
           <div class="item">
-            <input class="smallInput" type="text" formControlName="age" placeholder="Age" />
+            <input class="smallInput" type="text" formControlName="age" placeholder="Age" maxlength="3" />
             <!-- <mat-error *ngIf="ProfileForm?.errors?.['required']"> Required!</mat-error> -->
           </div>
         </div>
@@ -172,7 +172,8 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="height" placeholder="Height" />
+          <input type="text" formControlName="height" placeholder="Height"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
         </div>
       </div>
       <div class="main-item">
@@ -182,7 +183,8 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="weight" placeholder="Weight" />
+          <input type="text" formControlName="weight" placeholder="Weight"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
         </div>
       </div>
       <div class="main-item">
@@ -222,7 +224,8 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="gsis" placeholder="GSIS ID No." />
+          <input type="text" formControlName="gsis" placeholder="GSIS ID No." maxlength="7" minlength="7"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
         </div>
       </div>
       <div class="main-item">
@@ -232,7 +235,8 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="pagibig" placeholder="PAGIBIG ID No." />
+          <input type="text" formControlName="pagibig" placeholder="PAGIBIG ID No." maxlength="7" minlength="7"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
         </div>
       </div>
       <div class="main-item">
@@ -242,7 +246,8 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="philhealth" placeholder="PHILHEALTH No." />
+          <input type="text" formControlName="philhealth" placeholder="PHILHEALTH No." maxlength="12" minlength="12"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
         </div>
       </div>
       <div class="main-item">
@@ -252,7 +257,8 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="sss" placeholder="SSS No." />
+          <input type="text" formControlName="sss" placeholder="SSS No." maxlength="15" minlength="15"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
         </div>
       </div>
       <div class="main-item">
@@ -262,7 +268,8 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="tin" placeholder="TIN No." />
+          <input type="text" formControlName="tin" placeholder="TIN No." maxlength="12" minlength="12"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
         </div>
       </div>
     </div>
@@ -339,7 +346,8 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="zipCodeResident" placeholder="Zip Code" />
+          <input type="text" formControlName="zipCodeResident" placeholder="Zip Code" maxlength="4"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
         </div>
       </div>
     </div>
@@ -416,7 +424,8 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="zipCodePermanent" placeholder="Zip Code" />
+          <input type="text" formControlName="zipCodePermanent" placeholder="Zip Code" maxlength="4"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
         </div>
       </div>
     </div>
@@ -429,21 +438,23 @@
       <div class="main-item">
         <div class="nameLbl">
           <label class="label2">
-            Telephone No.
+            Telephone No. <span class="hint">(Area Code + xxxxxxx)</span>
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="telephoneNo" placeholder="Telephone No." />
+          <input type="text" formControlName="telephoneNo" placeholder="Telephone No." maxlength="7"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
         </div>
       </div>
       <div class="main-item">
         <div class="nameLbl">
           <label class="label2">
-            Mobile No.*
+            Mobile No. <span class="hint">(09xxxxxxxxx)</span>*
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="mobileNo" placeholder="Mobile No." />
+          <input type="text" formControlName="mobileNo" placeholder="Mobile No." maxlength="11" minlength="11"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
         </div>
       </div>
       <div class="main-item">
@@ -457,15 +468,11 @@
         </div>
       </div>
     </div>
-    
+
     <div class="container" id="submitBtn">
       <button type="submit" class="formbtn" mat-raised-button>
-        Submit
+        Next
       </button>
     </div>
   </form>
 </div>
-
-
-
-
