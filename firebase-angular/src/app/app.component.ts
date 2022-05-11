@@ -44,6 +44,9 @@ export class AppComponent {
   }
 
   ngAfterViewInit() {
+
+   
+    
     this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
       if (res.matches) {
         this.sidenav.mode = 'over'
@@ -60,6 +63,7 @@ export class AppComponent {
   ngOnInit(): void {
 
     // this.check()
+    
     
 
   }
@@ -113,6 +117,35 @@ export class AppComponent {
       
   //   }
   // }
+
+  openSidenav(){
+    const userId = getAuth().currentUser?.uid
+    this.opened=!this.opened
+    if(userId == "fM6Ko90ezgSzZJ04sbCdGMmbOYt1"){
+     document.getElementById('personalInfo')!.remove()
+     document.getElementById('EducBack')!.remove()
+     document.getElementById('civilService')!.remove()
+     document.getElementById('workExp')!.remove()
+     document.getElementById('traning')!.remove()
+
+     document.getElementById('facultyReq')!.style.visibility = "visible"
+     document.getElementById('FacultyList')!.style.visibility = "visible"
+
+
+     
+    }else{
+
+     document.getElementById('personalInfo')!.style.visibility = "visible"
+     document.getElementById('EducBack')!.style.visibility = "visible"
+     document.getElementById('civilService')!.style.visibility = "visible"
+     document.getElementById('workExp')!.style.visibility = "visible"
+     document.getElementById('traning')!.style.visibility = "visible"
+
+     document.getElementById('facultyReq')!.remove()
+     document.getElementById('FacultyList')!.remove()
+
+    }
+  }
 
 
   showPersonalInfo(){

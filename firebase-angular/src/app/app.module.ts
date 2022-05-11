@@ -49,6 +49,8 @@ import { CivilServiceDisplayComponent } from './component/display/civil-service-
 import { TrainingDisplayComponent } from './component/display/training-display/training-display.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import {  provideDatabase,getDatabase } from '@angular/fire/database';
+import { FacultyRequestComponent } from './component/display/faculty-request/faculty-request.component';
+import { FacultyListComponent } from './component/display/faculty-list/faculty-list.component';
 
 
 
@@ -71,6 +73,8 @@ import {  provideDatabase,getDatabase } from '@angular/fire/database';
     WorkExperienceDisplayComponent,
     CivilServiceDisplayComponent,
     TrainingDisplayComponent,
+    FacultyRequestComponent,
+    FacultyListComponent,
     
   ],
   imports: [
