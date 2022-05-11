@@ -127,34 +127,34 @@ export class RegisterComponent implements OnInit {
 
     this.setRealtimeDbData()
     
-    alert('Registration request sent')
-    this.router.navigate(['/login'])
+    // alert('Registration request sent')
+    // this.router.navigate(['/login'])
 
     const {employeeId,  firstname, lastname, email, password, done, } = this.signUpForm.value
 
-    // this.authService.signUp( email, password)
-    // .pipe(
+    this.authService.signUp( email, password)
+    .pipe(
 
-    //   switchMap(({ user: { uid } }) => this.usersService.addUser(
-    //     { uid,  firstName: firstname, 
-    //       lastName: lastname, employeeId: employeeId, 
-    //       email, displayName: firstname + ' ' + lastname, done: ''})
-    //   ),
+      switchMap(({ user: { uid } }) => this.usersService.addUser(
+        { uid,  firstName: firstname, 
+          lastName: lastname, employeeId: employeeId, 
+          email, displayName: firstname + ' ' + lastname, done: ''})
+      ),
 
     
 
-    //   this.toast.observe({
-    //     success: 'Successfully Registered',
-    //     loading: 'Checking..',
-    //     error: ({ message }) => `${message}`
-    //   })
-    // ).subscribe(() => {
-    //   this.authService.logout().subscribe(() => {
-    //     this.router.navigate(['/login'])
-    //   })
-    // })
+      this.toast.observe({
+        success: 'Successfully Registered',
+        loading: 'Checking..',
+        error: ({ message }) => `${message}`
+      })
+    ).subscribe(() => {
+      this.authService.logout().subscribe(() => {
+        this.router.navigate(['/login'])
+      })
+    })
 
-    // this.employeeIdValidate()
+    this.employeeIdValidate()
 
     
 
