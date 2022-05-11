@@ -11,33 +11,29 @@
 
   <form class="margin-top" [formGroup]="ProfileForm" (ngSubmit)="saveProfile()">
 
-    <div class="container">
-      <div class="divTitle">
-        <div style="margin-bottom: -25px;">
-          <h4 class="incl">Inclusive Dates</h4>
+    <div style="margin-bottom: -25px;">
+      <h4 class="incl">Inclusive Dates</h4>
+    </div>
+
+    <div class="container1">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            From <span class="hint"> (mm/dd/yyyy) </span>
+          </label>
         </div>
-        <div style="display: inline-flex; justify-content: space-between; min-width: fit-content;">
-          <div class="main-item">
-            <div class="nameLbl">
-              <label class="label2">
-                From <span class="hint"> (DD/MM/YYYY) </span>
-              </label>
-            </div>
-            <div class="item">
-              <input class="medInput" type="date" formControlName="fromWorkExp" placeholder="From:" />
-            </div>
-          </div>
-          &nbsp;&nbsp;
-          <div class="main-item">
-            <div class="nameLbl">
-              <label class="label2">
-                To <span class="hint"> (DD/MM/YYYY) </span>
-              </label>
-            </div>
-            <div class="item">
-              <input class="medInput" type="date" formControlName="tomWorkExp" placeholder="To:" />
-            </div>
-          </div>
+        <div class="item">
+          <input class="form-control medInput" type="date" formControlName="fromWorkExp" placeholder="From:" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            To <span class="hint"> (mm/dd/yyyy) </span>
+          </label>
+        </div>
+        <div class="item">
+          <input class="form-control medInput" type="date" formControlName="tomWorkExp" placeholder="To:" />
         </div>
       </div>
     </div>
@@ -50,72 +46,68 @@
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="positionTitleWorkExp" placeholder="Position Title" />
+          <input class="form-control" type="text" formControlName="positionTitleWorkExp" placeholder="Position Title" />
         </div>
       </div>
       <div class="main-item">
         <div class="nameLbl">
-          <label class="label2">
-            Department/Agency/Office/Company <span class="hint">(Write in full/Do not abbreviate)</span>
+          <label class="label2 lbldept-outer">
+            Department/Agency/Office/Company <span class="hint lbldept-inner">(Write in full/Do not abbreviate)</span>
           </label>
         </div>
         <div class="item">
-          <input type="text" formControlName="departmentWorkExp" placeholder="Department/Agency/Office/Company" />
+          <input class="form-control" type="text" formControlName="departmentWorkExp"
+            placeholder="Department/Agency/Office/Company" />
         </div>
       </div>
     </div>
 
     <div class="container">
-      <div style="display: inline-flex; justify-content: space-between; min-width: fit-content;">
-        <div class="main-item">
-          <div class="nameLbl">
-            <label class="label2">
-              Monthly Salary
-            </label>
-          </div>
-          <div class="item">
-            <input class="medInput" type="number" formControlName="monthlySalaryWorkExp" placeholder="Monthly Salary" />
-          </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Monthly Salary
+          </label>
         </div>
-        &nbsp;&nbsp;
-        <div class="main-item">
-          <div class="nameLbl">
-            <label class="label2">
-              Salary/Job/Pay Grade <span class="hint"> (If applicable) </span>
-            </label>
-          </div>
-          <div class="item">
-            <input class="medInput" type="text" formControlName="salaryJobPayWorkExp"
-              placeholder="Salary/Job/Pay Grade" />
-          </div>
+        <div class="item">
+          <input class="form-control" class="medInput" type="number" formControlName="monthlySalaryWorkExp"
+            placeholder="Monthly Salary" />
         </div>
       </div>
-
-      <div style="display: inline-flex; justify-content: space-between; min-width: fit-content;">
-        <div class="main-item">
-          <div class="nameLbl">
-            <label class="label2">
-              Status of Apointment
-            </label>
-          </div>
-          <div class="item">
-            <input class="medInput" type="text" formControlName="statusOfAppointmentWorkExp"
-              placeholder="Status of Apointment" />
-          </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Salary/Job/Pay Grade <span class="hint"> (If applicable) </span>
+          </label>
         </div>
-        &nbsp;&nbsp;
-        <div class="main-item">
-          <div class="nameLbl">
-            <label class="label2">
-              Government Service
-            </label>
-          </div>
-          <div class="item">
-            <select class="medInput" formControlName="governmentServiceWorkExp" placeholder="Y/N">
-              <option value="Yes">Yes </option>
-              <option value="No">No </option>
-            </select>
-          </div>
+        <div class="item">
+          <input class="form-control medInput" type="text" formControlName="salaryJobPayWorkExp"
+            placeholder="Salary/Job/Pay Grade" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Status of Apointment
+          </label>
+        </div>
+        <div class="item">
+          <input class="form-control medInput" type="text" formControlName="statusOfAppointmentWorkExp"
+            placeholder="Status of Apointment" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Government Service
+          </label>
+        </div>
+        <div class="item">
+          <select class="form-control medInput" formControlName="governmentServiceWorkExp">
+            <option value="" selected disabled>Government Service</option>
+            <option value="Yes">Yes </option>
+            <option value="No">No </option>
+          </select>
         </div>
       </div>
     </div>

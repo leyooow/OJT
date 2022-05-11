@@ -20,6 +20,8 @@ import { ProfileUser } from 'src/app/models/user-profile';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ImageUploadService } from 'src/app/services/image-upload.service';
 import { UsersService } from 'src/app/services/users.service';
+
+
 @UntilDestroy()
 @Component({
   selector: 'app-personal-info-form',
@@ -50,43 +52,41 @@ export class PersonalInfoFormComponent implements OnInit {
   ProfileForm = new FormGroup({
     uid: new FormControl('',),
     firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
-    middleName: new FormControl('',),
+    lastName: new FormControl('', Validators.required), //required
+    middleName: new FormControl('', ),
     nameExtension: new FormControl(''),
-    dateOfBirth: new FormControl('', Validators.required),
-    age: new FormControl('', Validators.required),
-    placeOfBirth: new FormControl('', Validators.required),
+    dateOfBirth: new FormControl('', Validators.required), //required
+    age: new FormControl('', Validators.required), //required
+    placeOfBirth: new FormControl('', Validators.required), //required
     gender: new FormControl('',),
     civilStatus: new FormControl('',),
-    height: new FormControl('', Validators.required),
-    weight: new FormControl('', Validators.required),
+    height: new FormControl('', Validators.required), //required
+    weight: new FormControl('', Validators.required), //required
     bloodType: new FormControl('',),
     gsis: new FormControl('',),
     pagibig: new FormControl('',),
     philhealth: new FormControl('',),
     sss: new FormControl('',),
     tin: new FormControl('',),
-    citezenship: new FormControl('', Validators.required),
+    citezenship: new FormControl('', Validators.required), //required
     houseBlockResident: new FormControl(''),
     streetResident: new FormControl(''),
     subdivisionResident: new FormControl(''),
-    barangayResident: new FormControl('', Validators.required),
-    municipalityResident: new FormControl('', Validators.required),
-    provinceResident: new FormControl('', Validators.required),
-    zipCodeResident: new FormControl('', Validators.required),
+    barangayResident: new FormControl('', Validators.required), //required
+    municipalityResident: new FormControl('', Validators.required), //required
+    provinceResident: new FormControl('', Validators.required), //required
+    zipCodeResident: new FormControl('', Validators.required), //required
     houseBlockPermanent: new FormControl(''),
     streetPermanent: new FormControl(''),
     subdivisionPermanent: new FormControl(''),
-    barangayPermanent: new FormControl('', Validators.required),
-    municipalityPermanent: new FormControl('', Validators.required),
-    provincePermanent: new FormControl('', Validators.required),
-    zipCodePermanent: new FormControl('', Validators.required),
+    barangayPermanent: new FormControl('', Validators.required), //required
+    municipalityPermanent: new FormControl('', Validators.required), //required
+    provincePermanent: new FormControl('', Validators.required), //required
+    zipCodePermanent: new FormControl('', Validators.required), //required
     telephoneNo: new FormControl('',),
-    mobileNo: new FormControl('', Validators.required),
+    mobileNo: new FormControl('', Validators.required), //required
     alternateEmail: new FormControl('',),
-  
-
-  })
+  }, {updateOn: 'submit'})
   
 
   constructor(private authService: AuthenticationService,

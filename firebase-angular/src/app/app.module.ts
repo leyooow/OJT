@@ -49,6 +49,7 @@ import { CivilServiceDisplayComponent } from './component/display/civil-service-
 import { TrainingDisplayComponent } from './component/display/training-display/training-display.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import {  provideDatabase,getDatabase } from '@angular/fire/database';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -101,7 +102,7 @@ import {  provideDatabase,getDatabase } from '@angular/fire/database';
     MatSortModule,
     MatProgressSpinnerModule,
     AngularFireModule.initializeApp(environment.firebase),
-  
+    FormsModule,
 
     
 
