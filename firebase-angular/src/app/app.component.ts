@@ -135,27 +135,28 @@ export class AppComponent {
     const userId = getAuth().currentUser?.uid
     this.opened=!this.opened
     if(userId == "fM6Ko90ezgSzZJ04sbCdGMmbOYt1"){
-     document.getElementById('personalInfo')!.remove()
-     document.getElementById('EducBack')!.remove()
-     document.getElementById('civilService')!.remove()
-     document.getElementById('workExp')!.remove()
-     document.getElementById('traning')!.remove()
+     document.getElementById('personalInfo')!.style.display="none"
+     document.getElementById('EducBack')!.style.display="none"  
+     document.getElementById('civilService')!.style.display="none"  
+     document.getElementById('workExp')!.style.display="none" 
+     document.getElementById('traning')!.style.display="none" 
 
-     document.getElementById('facultyReq')!.style.visibility = "visible"
-     document.getElementById('FacultyList')!.style.visibility = "visible"
+     document.getElementById('facultyReq')!.style.display="block"
+     document.getElementById('FacultyList')!.style.display="block"
+     
 
 
      
     }else{
 
-     document.getElementById('personalInfo')!.style.visibility = "visible"
-     document.getElementById('EducBack')!.style.visibility = "visible"
-     document.getElementById('civilService')!.style.visibility = "visible"
-     document.getElementById('workExp')!.style.visibility = "visible"
-     document.getElementById('traning')!.style.visibility = "visible"
+     document.getElementById('personalInfo')!.style.display="block"
+     document.getElementById('EducBack')!.style.display="block"
+     document.getElementById('civilService')!.style.display="block"
+     document.getElementById('workExp')!.style.display="block"
+     document.getElementById('traning')!.style.display="block"
 
-     document.getElementById('facultyReq')!.remove()
-     document.getElementById('FacultyList')!.remove()
+     document.getElementById('facultyReq')!.style.display="none"  
+     document.getElementById('FacultyList')!.style.display="none" 
 
     }
   }

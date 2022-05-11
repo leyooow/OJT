@@ -57,20 +57,33 @@ export class LoginComponent implements OnInit {
       this.toast.observe({
         success: 'Logged in Succesfully',
         loading: 'Loggin in',
-        error: 'Ther was an error'
+        error: 'There was an error'
       })
-    ).subscribe(() =>{
+    ).subscribe(async () =>{
       // if(email == "admin@gmail.com" && password == 'admin123'){
+
+       
         const userID = getAuth().currentUser?.uid
         if(userID === 'fM6Ko90ezgSzZJ04sbCdGMmbOYt1' ){
+          
+         
         this.router.navigate(['/admin-dashboard']);
-        window.location.reload();
-      }else{
+        await window.location.reload
+        
+        
       
+      
+      }else{
+       
         
         this.router.navigate(['/personal-info-form']);
-        window.location.reload();
+        await window.location.reload
+       
+        
+        
       }
+
+      
       
     })
     

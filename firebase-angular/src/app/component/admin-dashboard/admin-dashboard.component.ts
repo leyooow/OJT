@@ -11,14 +11,20 @@ import { UsersService } from 'src/app/services/users.service';
 export class AdminDashboardComponent implements OnInit {
 
   user$ = this.usersService.currentUserProfile$
-  constructor(private authService : AuthenticationService,
-    private usersService : UsersService) { }
+  constructor(private authService: AuthenticationService,
+    private usersService: UsersService) { }
 
+  async ngAfterViewInit() {
+
+    await window.location.reload
+
+
+  }
   ngOnInit(): void {
 
- 
 
-    
+
+
 
   }
 
