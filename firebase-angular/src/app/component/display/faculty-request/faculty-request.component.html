@@ -14,14 +14,14 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let user of users; index as i">
+        <tr *ngFor="let data of countries; index as i">
           <th scope="row">{{ i + 1 }}</th>
-          <td>{{ user.employeeId }}</td>
-          <td>{{ user.email}}</td>
-          <td>{{ user.firstName}}</td>
-          <td>{{ user.lastName}}</td>
+          <td>{{ data.employeeId }}</td>
+          <td>{{ data.email}}</td>
+          <td>{{ data.firstName}}</td>
+          <td>{{ data.lastName}}</td>
           <td>
-              <button  class="btn btn-success">
+              <button  class="btn btn-success" >
                   Accept
               </button>
               <button  class="btn btn-danger">

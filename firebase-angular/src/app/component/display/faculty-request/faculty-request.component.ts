@@ -1,10 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Database, onValue, ref,  } from '@angular/fire/database';
-import { Firestore } from '@angular/fire/firestore';
-import { Router } from '@angular/router';
-import { HotToastService } from '@ngneat/hot-toast';
-import { UsersService } from 'src/app/services/users.service';
 
 interface user {
   employeeId: string;
@@ -14,23 +8,15 @@ interface user {
 }
 
 
-const USERS: user[] = [
+const COUNTRIES: user[] = [
   {
     employeeId: '2018100457',
     email: 'leo@gmail.com',
-    firstName: 'Leo', 
-    lastName: 'Espino'
-  },
-  {
-    employeeId: '2018100458',
-    email: 'leo1@gmail.com',
-    firstName: 'Leyow', 
-    lastName: 'Espino'
+    firstName: '"Leo"',
+    lastName: "Espino"
   },
   
 ];
-
-
 
 @Component({
   selector: 'app-faculty-request',
@@ -38,41 +24,12 @@ const USERS: user[] = [
   styleUrls: ['./faculty-request.component.css']
 })
 export class FacultyRequestComponent implements OnInit {
-  
 
+  countries = COUNTRIES;
 
-
-  users = USERS
-
-  constructor(private toast: HotToastService,
-    private usersService: UsersService,
-    private router: Router,
-    private firestore: Firestore,
-    private afs: AngularFirestore,
-    public database : Database,) { }
-
-    
-
-
-    
+  constructor() { }
 
   ngOnInit(): void {
   }
-
-  getRequest(){
-
-    // data = USERS;
-
-    const starCountRef = ref(this.database, 'users/' )
-
-    onValue(starCountRef, (snapshot) => {
-      const data = snapshot.val();
-
-      
-
-      
-  })
-
-}
 
 }
