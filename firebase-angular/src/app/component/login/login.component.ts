@@ -64,10 +64,12 @@ export class LoginComponent implements OnInit {
         const userID = getAuth().currentUser?.uid
         if(userID === 'fM6Ko90ezgSzZJ04sbCdGMmbOYt1' ){
         this.router.navigate(['/admin-dashboard']);
+        window.location.reload();
       }else{
       
         
         this.router.navigate(['/personal-info-form']);
+        window.location.reload();
       }
       
     })

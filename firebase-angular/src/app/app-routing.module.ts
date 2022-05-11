@@ -22,6 +22,8 @@ import { EducationalBackgroundDisplayComponent } from './component/display/educa
 import { CivilServiceDisplayComponent } from './component/display/civil-service-display/civil-service-display.component';
 import { WorkExperienceDisplayComponent } from './component/display/work-experience-display/work-experience-display.component';
 import { TrainingDisplayComponent } from './component/display/training-display/training-display.component';
+import { FacultyRequestComponent } from './component/display/faculty-request/faculty-request.component';
+import { FacultyListComponent } from './component/display/faculty-list/faculty-list.component';
 
 
 const redirectToLogin = () => redirectUnauthorizedTo(['/login'])
@@ -100,6 +102,14 @@ const routes: Routes = [
 
  {path: 'training-display', 
  component: TrainingDisplayComponent,
+ ...canActivate(redirectToLogin) },
+
+ {path: 'faculty-request', 
+ component: FacultyRequestComponent,
+ ...canActivate(redirectToLogin) },
+
+ {path: 'faculty-list', 
+ component: FacultyListComponent,
  ...canActivate(redirectToLogin) },
 
 

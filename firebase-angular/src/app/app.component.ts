@@ -63,7 +63,7 @@ export class AppComponent {
   ngOnInit(): void {
 
     // this.check()
-    
+      
     
 
   }
@@ -119,6 +119,7 @@ export class AppComponent {
   // }
 
   openSidenav(){
+   
     const userId = getAuth().currentUser?.uid
     this.opened=!this.opened
     if(userId == "fM6Ko90ezgSzZJ04sbCdGMmbOYt1"){
@@ -171,6 +172,16 @@ export class AppComponent {
   showTrainings(){
     this.sidenav.close()
     this.router.navigate(['/training-display'])
+  }
+
+  showFacultyRequest(){
+    this.sidenav.close()
+    this.router.navigate(['/faculty-request'])
+  }
+
+  showFacultyList(){
+    this.sidenav.close()
+    this.router.navigate(['/faculty-list'])
   }
 
  
