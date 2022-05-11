@@ -1,1 +1,36 @@
-<p>faculty-request works!</p>
+
+<div class="form-container1">
+
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">EmployeeID</th>
+          <th scope="col">Email</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ user.employeeId }}</td>
+          <td>{{ user.email}}</td>
+          <td>{{ user.firstName}}</td>
+          <td>{{ user.lastName}}</td>
+          <td>
+              <button mat-button>
+                  Accept
+              </button>
+              <button mat-button>
+                Delete
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+</div>
+

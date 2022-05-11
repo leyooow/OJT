@@ -1,0 +1,16 @@
+.form-container1 {
+    display: block;
+    max-width: 90%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #D3D5DB;
+    /* background: rgb(5, 61, 151);
+    background: -moz-linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
+    background: -webkit-linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
+    background: linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#053d97", endColorstr="#041c42", GradientType=1); */
+    padding: 10px;
+    border-radius: 16px;
+    height: max-content;
+  }
