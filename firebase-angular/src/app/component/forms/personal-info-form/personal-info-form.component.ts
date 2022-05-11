@@ -107,6 +107,8 @@ export class PersonalInfoFormComponent implements OnInit {
 
   }
 
+  
+
   async ngOnInit(): Promise<void> {
 
     this.setRealtimeDbData()

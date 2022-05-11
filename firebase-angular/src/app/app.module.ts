@@ -49,7 +49,14 @@ import { CivilServiceDisplayComponent } from './component/display/civil-service-
 import { TrainingDisplayComponent } from './component/display/training-display/training-display.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import {  provideDatabase,getDatabase } from '@angular/fire/database';
+
 import { FormsModule } from '@angular/forms';
+
+import { FacultyRequestComponent } from './component/display/faculty-request/faculty-request.component';
+import { FacultyListComponent } from './component/display/faculty-list/faculty-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 
 
@@ -72,6 +79,8 @@ import { FormsModule } from '@angular/forms';
     WorkExperienceDisplayComponent,
     CivilServiceDisplayComponent,
     TrainingDisplayComponent,
+    FacultyRequestComponent,
+    FacultyListComponent,
     
   ],
   imports: [
@@ -102,7 +111,13 @@ import { FormsModule } from '@angular/forms';
     MatSortModule,
     MatProgressSpinnerModule,
     AngularFireModule.initializeApp(environment.firebase),
+
     FormsModule,
+
+    NgbModule,
+    
+  
+
 
     
 

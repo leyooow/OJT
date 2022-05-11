@@ -9,6 +9,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { UsersService } from './services/users.service';
 import { BreakpointObserver } from '@angular/cdk/layout'
 import { ProfileUser } from './models/user-profile';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ export class AppComponent {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav
   sidenav1!: MatSidenav
+  
 
 // civil_service_display: boolean = false;
 // educational_background_display: boolean = false;
@@ -44,6 +46,9 @@ export class AppComponent {
   }
 
   ngAfterViewInit() {
+
+   
+    
     this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
       if (res.matches) {
         this.sidenav.mode = 'over'
@@ -60,11 +65,20 @@ export class AppComponent {
   ngOnInit(): void {
 
     // this.check()
+
+    
+      
     
 
   }
 
 
+  // userMenu(){
+  //   const userId = getAuth().currentUser?.uid
+  //   if(userId == "fM6Ko90ezgSzZJ04sbCdGMmbOYt1"){
+  //    document.getElementById('editProfile')!.remove()
+  //   }
+  // }
 
   logout() {
 
@@ -85,6 +99,7 @@ export class AppComponent {
     } else {
       this.router.navigate(['/faculty-dashboard'])
     }
+    this.sidenav.close()
 
   }
 
@@ -92,18 +107,19 @@ export class AppComponent {
 
     const userID = getAuth().currentUser?.uid
 
-    if (userID == 'mpVepQYe0xSLA1hA21fwcdIeiyQ2') {
+    if (userID == 'fM6Ko90ezgSzZJ04sbCdGMmbOYt1') {
       return
     } else {
       this.router.navigate(['/profile'])
     }
+    this.sidenav.close()
   }
 
   openModal() {
     this.testModal = new bootstrap.Modal(document.getElementById('sigoutModal')!, {
       keyboard: false
     })
-    console.log(getAuth().currentUser?.uid)
+    // console.log(getAuth().currentUser?.uid)
     this.testModal.show()
 
   }
@@ -113,6 +129,37 @@ export class AppComponent {
       
   //   }
   // }
+
+  openSidenav(){
+   
+    const userId = getAuth().currentUser?.uid
+    this.opened=!this.opened
+    if(userId == "fM6Ko90ezgSzZJ04sbCdGMmbOYt1"){
+     document.getElementById('personalInfo')!.style.display="none"
+     document.getElementById('EducBack')!.style.display="none"  
+     document.getElementById('civilService')!.style.display="none"  
+     document.getElementById('workExp')!.style.display="none" 
+     document.getElementById('traning')!.style.display="none" 
+
+     document.getElementById('facultyReq')!.style.display="block"
+     document.getElementById('FacultyList')!.style.display="block"
+     
+
+
+     
+    }else{
+
+     document.getElementById('personalInfo')!.style.display="block"
+     document.getElementById('EducBack')!.style.display="block"
+     document.getElementById('civilService')!.style.display="block"
+     document.getElementById('workExp')!.style.display="block"
+     document.getElementById('traning')!.style.display="block"
+
+     document.getElementById('facultyReq')!.style.display="none"  
+     document.getElementById('FacultyList')!.style.display="none" 
+
+    }
+  }
 
 
   showPersonalInfo(){
@@ -138,6 +185,16 @@ export class AppComponent {
   showTrainings(){
     this.sidenav.close()
     this.router.navigate(['/training-display'])
+  }
+
+  showFacultyRequest(){
+    this.sidenav.close()
+    this.router.navigate(['/faculty-request'])
+  }
+
+  showFacultyList(){
+    this.sidenav.close()
+    this.router.navigate(['/faculty-list'])
   }
 
  

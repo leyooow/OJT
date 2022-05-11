@@ -14,17 +14,24 @@ export class FacultyDashboardComponent implements OnInit {
   user$ = this.usersService.currentUserProfile$
   testModal: any;
 
-  constructor(private authService : AuthenticationService,
-     private usersService: UsersService,
-     ) { }
+  constructor(private authService: AuthenticationService,
+    private usersService: UsersService,
+  ) { }
+
+  async ngAfterViewInit() {
+
+  await window.location.reload
+    
+
+  }
 
   ngOnInit(): void {
   }
 
-  logout(){
+  logout() {
     this.authService.logout()
   }
 
-  
+
 
 }
