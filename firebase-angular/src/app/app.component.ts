@@ -9,6 +9,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { UsersService } from './services/users.service';
 import { BreakpointObserver } from '@angular/cdk/layout'
 import { ProfileUser } from './models/user-profile';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ export class AppComponent {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav
   sidenav1!: MatSidenav
+  
 
 // civil_service_display: boolean = false;
 // educational_background_display: boolean = false;
@@ -63,12 +65,20 @@ export class AppComponent {
   ngOnInit(): void {
 
     // this.check()
+
+    
       
     
 
   }
 
 
+  // userMenu(){
+  //   const userId = getAuth().currentUser?.uid
+  //   if(userId == "fM6Ko90ezgSzZJ04sbCdGMmbOYt1"){
+  //    document.getElementById('editProfile')!.remove()
+  //   }
+  // }
 
   logout() {
 
@@ -89,6 +99,7 @@ export class AppComponent {
     } else {
       this.router.navigate(['/faculty-dashboard'])
     }
+    this.sidenav.close()
 
   }
 
@@ -96,11 +107,12 @@ export class AppComponent {
 
     const userID = getAuth().currentUser?.uid
 
-    if (userID == 'mpVepQYe0xSLA1hA21fwcdIeiyQ2') {
+    if (userID == 'fM6Ko90ezgSzZJ04sbCdGMmbOYt1') {
       return
     } else {
       this.router.navigate(['/profile'])
     }
+    this.sidenav.close()
   }
 
   openModal() {
