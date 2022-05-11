@@ -119,7 +119,7 @@ export class AppComponent {
     this.testModal = new bootstrap.Modal(document.getElementById('sigoutModal')!, {
       keyboard: false
     })
-    console.log(getAuth().currentUser?.uid)
+    // console.log(getAuth().currentUser?.uid)
     this.testModal.show()
 
   }

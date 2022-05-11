@@ -14,3 +14,6 @@
     border-radius: 16px;
     height: max-content;
   }
+  button{
+    margin-left: 15px;
+  }
