@@ -1,94 +1,115 @@
-<div class="form-container  mat-elevation-z5 text-center" *ngIf="user$ | async as user">
-    <h1 class="form-title">Learning and Development (L&D) Interventions/Training Programs Attended</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+<!--for titles-->
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+<!--for labels-->
 
-    <!-- <div class="profile-image">
-    <img width="120" height="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
-    <button mat-mini-fab (click)="inputField.click()">
-      <mat-icon>edit</mat-icon>
-    </button>
-  </div>
+<div class="form-container2  mat-elevation-z5" *ngIf="user$ | async as user">
+  <h1 class="form-title">Learning and Development (L&D) Interventions/Training Programs Attended</h1>
+  <hr>
 
-  <input #inputField type="file" hidden (change)="uploadImage($event, user)" /> -->
-    <hr>
-    <form class="margin-top" [formGroup]="ProfileForm" (ngSubmit)="saveProfile(user)">
+  <form [formGroup]="ProfileForm" (ngSubmit)="saveProfile(user)">
 
+
+
+    <div style="margin-bottom: -25px;">
+      <h4 class="incl">Inclusive Dates</h4>
+    </div>
+
+    <div class="container">
+      <div class="main-item fromNumSpace">
+        <div class="nameLbl">
+          <label class="label2">
+            From <span class="hint"> (mm/dd/yyyy) </span>
+          </label>
+        </div>
+        <div class="item">
+          <input class="form-control smallInput" type="date" formControlName="fromTraining" placeholder="From:" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            To <span class="hint"> (mm/dd/yyyy) </span>
+          </label>
+        </div>
+        <div class="item">
+          <input class="form-control smallInput" type="date" formControlName="toTraining" placeholder="To:" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Title <span class="hint">(Write in full)</span>
+          </label>
+        </div>
+        <div class="item">
+          <input class="form-control" type="text" formControlName="TitleOfLearningTraining"
+            placeholder="Title of learning and development interventions/training programs" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="main-item fromNumSpace">
+        <div class="nameLbl">
+          <label class="label2">
+            Number of Hours
+          </label>
+        </div>
+        <div class="item">
+          <input class="form-control smallInput numHr" type="number" formControlName="numberOfHrsTraining"
+            placeholder="Number of Hours" />
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Types of L&D
+          </label>
+        </div>
+        <div class="item">
+          <select class="form-control smallInput" formControlName="typeOfLdTraining">
+            <option value="" selected disabled>Select type</option>
+            <option value="Managerial">Managerial</option>
+            <option value="Supervisory">Supervisory </option>
+            <option value="Technical">Technical </option>
+          </select>
+        </div>
+      </div>
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Conducted/Sponsored By <span class="hint"> (write in full) </span>
+          </label>
+        </div>
+        <div class="item">
+          <input class="form-control" type="text" formControlName="conductedTraining"
+            placeholder="Conducted/Sponsored By" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="divTitle">
         <div>
-            <h3 class="title">Inclusive Dates of Attendance</h3>
+          <h3 class="title">Certificate</h3>
         </div>
-
-        <div class="forms-dive">
-            
-    
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="TitleOfLearningTraining" 
-                placeholder=" Title of learning and development interventions/training programs" />
-                <mat-hint> (write in full)</mat-hint>
-            </mat-form-field><br>
-
-
-            <mat-form-field>
-                <input type="date" matInput formControlName="fromTraining" placeholder="From:" />
-                <mat-hint>(DD/MM/YYYY)</mat-hint>
-            </mat-form-field>
-
-            <mat-form-field>
-                <input type="date" matInput formControlName="toTraining" placeholder="To:" />
-                <mat-hint>(DD/MM/YYYY)</mat-hint>
-            </mat-form-field>
-
+        <div class="profile-image">
+          <img width="520" height="250" [src]="user.photoCertURL ?? 'assets/images/image-placeholder.jpg'">
+          <input #inputField1 type="file" hidden (change)="uploadImage($event, user)" />
         </div>
-        <hr>
-
-
-        <div class="forms-div">
-
-            <mat-form-field>
-                <input type="number" matInput formControlName="numberOfHrsTraining" placeholder="Number of Hours" />
-            </mat-form-field><br>
-
-            <mat-form-field>
-                <input type="text" matInput formControlName="typeOfLdTraining" placeholder="Types if LD" />
-                <mat-hint>(Managerial/Supervisory/Technical/etc.)</mat-hint>
-            </mat-form-field><br>
-
-
-
-            <!-- <h5>Salary/Job/Pay Grade (If applicable) & Step (format '00=0')/Increment</h5> -->
-            <mat-form-field>
-                <input type="text" matInput formControlName="conductedTraining" placeholder="Conducted/Sponsored By:" />
-                <mat-hint>(write in full)</mat-hint>
-            </mat-form-field><br>
-
-            <!-- <mat-form-field>
-                <input type="text" matInput formControlName="certificateTraining" placeholder="Certificate" />
-                <mat-hint>(write in full)</mat-hint>
-                <button style="float: right;" mat-mini-fab (click)="inputField.click()">
-                    <mat-icon>upload</mat-icon>
-                </button>
-            </mat-form-field> -->
-
-            <div class="profile-image">
-                <h3 class="title">Certificate</h3>
-                <img  (click)="inputField1.click()" width="300" height="200" [src]="user.photoCertURL ?? 'assets/images/image-placeholder.jpg'">
-               
-                <mat-icon (click)="inputField1.click()">upload</mat-icon>
-                <input #inputField1 type="file" hidden (change)="uploadImage($event, user)" />
-
-            </div>
-            <mat-hint>(img file)
-                
-            </mat-hint>
-            
-        </div> 
-        <hr>
-
-
-        <div>
-            <button type="submit" class="formbtn" mat-raised-button>
-                Submit
-            </button>
+        <div (click)="inputField1.click()" class="addImgBtn">
+          <span>Upload Image</span>
         </div>
-    </form>
+      </div>
+    </div>
 
+    <div class="container" id="submitBtn">
+      <button type="submit" class="formbtn" mat-raised-button>
+        Next
+      </button>
+    </div>
+  </form>
 </div>
