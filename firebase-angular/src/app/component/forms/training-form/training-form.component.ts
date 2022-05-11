@@ -33,6 +33,8 @@ export class TrainingFormComponent implements OnInit {
     typeOfLdTraining: new FormControl('', ),
     conductedTraining: new FormControl('', ),
     done: new FormControl('', ),
+    TitleOfLearningTraining: new FormControl('', ),
+    
     
    
 
