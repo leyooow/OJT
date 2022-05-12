@@ -117,7 +117,7 @@ export class AppComponent {
   }
 
   openModal() {
-    this.testModal = new bootstrap.Modal(document.getElementById('sigoutModal')!, {
+    this.testModal = new bootstrap.Modal(document.getElementById('signoutModal')!, {
       keyboard: false
     })
     // console.log(getAuth().currentUser?.uid)

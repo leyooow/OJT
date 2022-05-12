@@ -4,7 +4,7 @@
 
 <div class="containerSignup mat-elevation-z5">
   <h1 class="form-title signupTitle">Sign Up</h1>
-  <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+  <form [formGroup]="signUpForm" >
 
     <!-- firstname -->
     <mat-form-field appearance="outline">
@@ -54,7 +54,7 @@
     <mat-error class="signuppassText" *ngIf="signUpForm.errors?.['passwordsDontMatch']">Password should match!
     </mat-error>
     <div class="center margin-top">
-      <button mat-raised-button type="submit" class="signupBtn"> Register </button>
+      <button mat-raised-button type="submit" class="signupBtn" (click)="submit()"> Register </button>
     </div>
 
     <span class="center margin-top yesAcc">Already have an account?&nbsp; <a routerLink="/login" class="signup">

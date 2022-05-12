@@ -115,8 +115,14 @@ export class FacultyRequestComponent implements OnInit {
       window.location.reload
      const id = String(localStorage.getItem('id'))
     //  alert(id)
-    alert(id)
-     const ref = this.db.object('request/' + id).remove()
+    if (confirm('Are you sure you want to delete this request?') === true){
+      const ref = this.db.object('request/' + id).remove()
+      alert('deleted')
+      this.getStarted()
+
+    }
+   
+    
     //  const emp = this.empID = '123'
      
   },50)
@@ -128,7 +134,7 @@ export class FacultyRequestComponent implements OnInit {
     
 
 
-    await this.getStarted()
+   
 
 
 
