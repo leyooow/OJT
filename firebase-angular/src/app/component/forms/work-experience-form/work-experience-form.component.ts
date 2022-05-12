@@ -66,10 +66,11 @@ export class WorkExperienceFormComponent implements OnInit {
 
   saveProfile() {
 
-    if (!this.ProfileForm.valid) return
-    
+    if (!this.ProfileForm.valid){
+      alert('Please fill all required(*) fields!')
+    }else{
 
-    const {employeeId,  firstname, lastname, email, password } = this.ProfileForm.value
+      const {employeeId,  firstname, lastname, email, password } = this.ProfileForm.value
 
     const profileData = this.ProfileForm.value
     this.usersService.updateUser(profileData).pipe(
@@ -85,6 +86,11 @@ export class WorkExperienceFormComponent implements OnInit {
       
     
       this.router.navigate(['/training-form'])
+
+    }
+    
+
+    
     
    }
 

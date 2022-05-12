@@ -98,18 +98,7 @@ export class RegisterComponent implements OnInit {
      const starCountRef = ref(this.database, 'users/' + employeeId + '/employeeId' );
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
-      
-       
-        
-
-       
-
-        
-
-      
-        
-
-     
+   
     })
 
     

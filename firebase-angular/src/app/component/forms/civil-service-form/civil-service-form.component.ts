@@ -61,16 +61,22 @@ export class CivilServiceFormComponent implements OnInit {
   }
 
   saveProfile() {
+    if (!this.profileForm.valid){
+      alert('Please fill all required(*) fields!')
+    }else{
+      const profileData = this.profileForm.value
+      this.usersService.updateUser(profileData).pipe(
+        this.toast.observe({
+          success: 'Data saved.',
+          loading: 'Saving data... ',
+          error: 'There was an error in saving the data.'
+        })
+      ).subscribe()
+      this.router.navigate(['/work-experience-form'])
+    }
+    
 
-    const profileData = this.profileForm.value
-    this.usersService.updateUser(profileData).pipe(
-      this.toast.observe({
-        success: 'Data saved.',
-        loading: 'Saving data... ',
-        error: 'There was an error in saving the data.'
-      })
-    ).subscribe()
-    this.router.navigate(['/work-experience-form'])
+    
     
    }
 

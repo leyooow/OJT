@@ -96,25 +96,29 @@ export class EducationalBackgroundFormComponent implements OnInit {
 
   saveProfile() {
 
-    if (!this.ProfileFrom.valid) return
-    
+    if (!this.ProfileFrom.valid){
+      alert('Please fill all required(*) fields!')
+    }else{
+      const {employeeId,  firstname, lastname, email, password } = this.ProfileFrom.value
 
-    const {employeeId,  firstname, lastname, email, password } = this.ProfileFrom.value
-
-    const profileData = this.ProfileFrom.value
-    this.usersService.updateUser(profileData).pipe(
-
-     
-
-      this.toast.observe({
-        success: 'Data saved.',
-        loading: 'Saving data... ',
-        error: 'There was an error in saving the data.'
-      })
-    ).subscribe()
+      const profileData = this.ProfileFrom.value
+      this.usersService.updateUser(profileData).pipe(
+  
+       
+  
+        this.toast.observe({
+          success: 'Data saved.',
+          loading: 'Saving data... ',
+          error: 'There was an error in saving the data.'
+        })
+      ).subscribe()
+        
       
+        this.router.navigate(['/civil-service-form'])
+    }
     
-      this.router.navigate(['/civil-service-form'])
+
+    
     
    }
 
