@@ -14,17 +14,17 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let data of userList; index as i">
-          <th scope="row">{{ i + 1 }}</th>
+        <tr *ngFor="let data of userList; index as id">
+          <th scope="row">{{ id + 1 }}</th>
           <td>{{ data.employeeId }}</td>
           <td>{{ data.email}}</td>
           <td>{{ data.firstname}}</td>
           <td>{{ data.lastname}}</td>
           <td>
-              <button  class="btn btn-success" >
-                  Accept
+              <button  class="btn btn-success" (click)="accept()" >
+                Accept
               </button>
-              <button  class="btn btn-danger">
+              <button  class="btn btn-danger" (click)="openAlert()">
                 Delete
             </button>
           </td>
@@ -33,4 +33,10 @@
       </table>
 
 </div>
+
+
+
+
+
+
 

@@ -8,6 +8,8 @@ import {
   AngularFireList,
   AngularFireObject,
 } from '@angular/fire/compat/database';
+import * as bootstrap from 'bootstrap';
+import { user } from '@angular/fire/auth';
 
 interface User {
   employeeId: string;
@@ -35,7 +37,11 @@ interface User {
 export class FacultyRequestComponent implements OnInit {
 
   // countries = COUNTRIES;
-  public userList: User[] | undefined
+  public userList!: User[]
+  testModal: any;
+  testModal1: any;
+
+  id!: number;
 
   constructor(
     public database: Database,
@@ -43,6 +49,34 @@ export class FacultyRequestComponent implements OnInit {
     private db: AngularFireDatabase,
 
   ) { }
+
+
+  openAlert() {
+    if (confirm("Are you sure you want to delete this request?") == true) {
+      this.delete()
+      
+    }
+
+    // alert(this.userList.toString())
+
+  }
+
+  
+
+  async accept(){
+    alert('Accepted')
+    await this.getStarted()
+
+
+  }
+
+  async delete(){
+
+    await this.db.object('user/' + String(this.id)).remove()
+    alert('Deleted')
+   await this.getStarted()
+
+  }
 
   getAllRequest() {
 
