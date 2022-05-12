@@ -5,13 +5,15 @@
 <div class="form-container mat-elevation-z5 containerLogin">
   <h1 class="form-title">Login</h1>
   <form [formGroup]="loginForm" (ngSubmit)="submit()">
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <input matInput placeholder="Email Address" formControlName="email">
+      <mat-label>Email</mat-label>
       <mat-error class="loginText" *ngIf="email?.errors?.['required']"> Email is Required!</mat-error>
       <mat-error class="loginText" *ngIf="email?.errors?.['email']"> Please enter a correct email!</mat-error>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <input matInput placeholder="Password" formControlName="password" type="password">
+      <mat-label>Password</mat-label>
       <mat-error class="loginText" *ngIf="email?.errors?.['required']"> Password is Required!</mat-error>
     </mat-form-field>
     <div class="center margin-top">

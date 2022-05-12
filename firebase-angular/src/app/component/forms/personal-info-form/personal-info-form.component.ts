@@ -134,7 +134,7 @@ export class PersonalInfoFormComponent implements OnInit {
       this.toast.observe({
         success: 'Data saved.',
         loading: 'Saving data... ',
-        error: 'There was an error in saving the data.'
+        error: 'Failed to upload an image.'
 
       }), concatMap((photoURL) => this.usersService.updateUser({ uid: user.uid, photoURL }))
     ).subscribe()
@@ -156,7 +156,7 @@ export class PersonalInfoFormComponent implements OnInit {
         this.toast.observe({
           success: 'Data saved.',
           loading: 'Updating data... ',
-          error: 'There was an error in updating the data.'
+          error: 'Failed to update data.'
         })
       ).subscribe()
       

@@ -56,8 +56,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(email, password).pipe(
       this.toast.observe({
         success: 'Logged in Succesfully',
-        loading: 'Loggin in',
-        error: 'There was an error'
+        loading: 'Logging in',
+        error: 'Email or Password is Incorrect'
       })
     ).subscribe(async () =>{
       // if(email == "admin@gmail.com" && password == 'admin123'){

@@ -1,58 +1,45 @@
 <div class="form-container3 mat-elevation-z5" *ngIf="user$ | async as user">
+  <h1 class="form-title">Personal Information</h1>
+  <mat-divider></mat-divider>
 
-    <h1 class="form-title">Personal Information</h1>
-    <mat-divider></mat-divider>
+  <div class="profile-image">
+    <img width="120" height="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
+  </div>
 
-    <div class="profile-image">
-        <img width="120" height="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
-    </div>
+  <mat-divider></mat-divider>
 
-    <mat-divider></mat-divider>
+  <div class="detailsDisplay">
+    <h2 class="displayLabel">Employee ID: {{user.employeeId}}</h2>
+    <h2 class="displayLabel">Email Address: {{user.email}}</h2>
+    <h2 class="displayLabel">Faculty Name: {{user.firstName}} {{user.middleName}} {{user.lastName}}
+      {{user.nameExtension}}</h2>
+    <h2 class="displayLabel">Date of Birth: {{user.dateOfBirth}}</h2>
+    <h2 class="displayLabel">Email Address: {{user.email}}</h2>
+    <h2 class="displayLabel">Age: {{user.age}}</h2>
+    <h2 class="displayLabel">Place of Birth: {{user.placeOfBirth}}</h2>
+    <h2 class="displayLabel">Gender: {{user.gender}}</h2>
+    <h2 class="displayLabel">Civil Status: {{user.civilStatus}}</h2>
+    <h2 class="displayLabel">Height: {{user.height}} cm</h2>
+    <h2 class="displayLabel">Weight: {{user.weight}} lbs</h2>
+    <h2 class="displayLabel">Blood Type: {{user.bloodType}}</h2>
+    <h2 class="displayLabel">GSIS ID Number: {{user.gsisId}}</h2>
+    <h2 class="displayLabel">PAGIBIG ID Number: {{user.pagibig}}</h2>
+    <h2 class="displayLabel">PHILHEALTH Number: {{user.philhealt}}</h2>
+    <h2 class="displayLabel">SSS Number: {{user.sss}}</h2>
+    <h2 class="displayLabel">TIN Number: {{user.tin}} </h2>
+    <h2 class="displayLabel">CItizenship: {{user.citezenship}}</h2>
 
-    <div class="detailsDisplay">
+    <h2 class="displayLabel">Resident Adress: {{user.houseBlockResident}} {{user.streetResident}}
+      {{user.subdivisionResident}} {{user.barangayResident}} {{user.municipalityResident}}
+      {{user.provinceResident}}</h2>
+    <h2 class="displayLabel">Zip Code: {{user.zipCodeResident}}</h2>
 
-        <h2 class="displayLabel">Employee ID: {{user.employeeId}}</h2>
-        <h2 class="displayLabel">Email Address: {{user.email}}</h2>
-        <h2 class="displayLabel">Faculty Name: {{user.firstName}} {{user.middleName}} {{user.lastName}}
-            {{user.nameExtension}}</h2>
-        <h2 class="displayLabel">Date of Birth: {{user.dateOfBirth}}</h2>
-        <h2 class="displayLabel">Email Address: {{user.email}}</h2>
-        <h2 class="displayLabel">Age: {{user.age}}</h2>
-        <h2 class="displayLabel">Place of Birth: {{user.placeOfBirth}}</h2>
-        <h2 class="displayLabel">Gender: {{user.gender}}</h2>
-        <h2 class="displayLabel">Civil Status: {{user.civilStatus}}</h2>
-        <h2 class="displayLabel">Height: {{user.height}} cm</h2>
-        <h2 class="displayLabel">Weight: {{user.weight}} lbs</h2>
-        <h2 class="displayLabel">Blood Type: {{user.bloodType}}</h2>
-        <h2 class="displayLabel">GSIS ID Number: {{user.gsisId}}</h2>
-        <h2 class="displayLabel">PAGIBIG ID Number: {{user.pagibig}}</h2>
-        <h2 class="displayLabel">PHILHEALTH Number: {{user.philhealt}}</h2>
-        <h2 class="displayLabel">SSS Number: {{user.sss}}</h2>
-        <h2 class="displayLabel">TIN Number: {{user.tin}} </h2>
-        <h2 class="displayLabel">CItizenship: {{user.citezenship}}</h2>
-        
-        <h2 class="displayLabel">Resident Adress: {{user.houseBlockResident}} {{user.streetResident}}
-            {{user.subdivisionResident}} {{user.barangayResident}} {{user.municipalityResident}}
-            {{user.provinceResident}}</h2>
-        <h2 class="displayLabel">Zip Code: {{user.zipCodeResident}}</h2>
-
-
-        <h2 class="displayLabel">Permanent Adress: {{user.houseBlockPermanent}} {{user.streetPermanent}}
-            {{user.subdivisionPermanent}} {{user.barangayPermanent}} {{user.municipalityPermanent}}
-            {{user.provincePermanent}}</h2>
-        <h2 class="displayLabel">Zip Code: {{user.zipCodePermanent}}</h2>
-
-
-
-        <h2 class="displayLabel">Telephone Number: {{user.telephoneNo}}</h2>
-        <h2 class="displayLabel">Mobile Number: {{user.mobileNo}}</h2>
-        <h2 class="displayLabel">Alternate Email Address: {{user.alternateEmail}}</h2>
-
-
-    </div>
-
-
-
-
-
+    <h2 class="displayLabel">Permanent Adress: {{user.houseBlockPermanent}} {{user.streetPermanent}}
+      {{user.subdivisionPermanent}} {{user.barangayPermanent}} {{user.municipalityPermanent}}
+      {{user.provincePermanent}}</h2>
+    <h2 class="displayLabel">Zip Code: {{user.zipCodePermanent}}</h2>
+    <h2 class="displayLabel">Telephone Number: {{user.telephoneNo}}</h2>
+    <h2 class="displayLabel">Mobile Number: {{user.mobileNo}}</h2>
+    <h2 class="displayLabel">Alternate Email Address: {{user.alternateEmail}}</h2>
+  </div>
 </div>

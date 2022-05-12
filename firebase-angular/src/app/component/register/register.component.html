@@ -7,41 +7,47 @@
   <form [formGroup]="signUpForm" (ngSubmit)="submit()">
 
     <!-- firstname -->
-    <mat-form-field>
-      <input class="input " matInput placeholder="First Name" formControlName="firstname">
+    <mat-form-field appearance="outline">
+      <input class="inputs" matInput placeholder="First Name" formControlName="firstname">
       <mat-error class="signupText" *ngIf="firstname?.errors?.['required']"> First name Required!</mat-error>
+      <mat-label>First Name</mat-label>
     </mat-form-field>
     <br>
     <!-- lastname -->
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <input class="inputs" matInput placeholder="Last Name" formControlName="lastname">
       <mat-error class="signupText" *ngIf="lastname?.errors?.['required']">Last name Required!</mat-error>
+      <mat-label>Last Name</mat-label>
     </mat-form-field>
     <br>
     <!-- employeeId -->
-    <mat-form-field>
-      <input class="inputs" matInput placeholder="Eployee ID" formControlName="employeeId">
+    <mat-form-field appearance="outline">
+      <input class="inputs" matInput placeholder="Employee ID" formControlName="employeeId">
       <mat-error class="signupText" *ngIf="employeeId?.errors?.['required']">Employee ID Required!</mat-error>
+      <mat-label>Employee ID</mat-label>
     </mat-form-field>
     <br>
     <!-- email -->
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <input class="inputs" matInput placeholder="Email Address" formControlName="email">
       <mat-error class="signupText" *ngIf="email?.errors?.['required']"> Email is Required!</mat-error>
       <mat-error class="signupText" *ngIf="email?.errors?.['email']"> Please enter a correct email!</mat-error>
+      <mat-label>Email</mat-label>
     </mat-form-field>
     <br>
     <!-- password -->
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <input class="inputs" matInput placeholder="Password" formControlName="password" type="password">
       <mat-error class="signupText" *ngIf="email?.errors?.['required']"> Password is Required!</mat-error>
+      <mat-label>Password</mat-label>
     </mat-form-field>
     <br>
     <!-- confirm password -->
-    <mat-form-field>
+    <mat-form-field appearance="outline">
       <input class="inputs" matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password">
       <mat-error class="signupText" *ngIf="confirmPassword?.errors?.['required']">Confirm password is Required!
       </mat-error>
+      <mat-label>Confirm Password</mat-label>
     </mat-form-field>
     <br>
     <!-- password matching error -->

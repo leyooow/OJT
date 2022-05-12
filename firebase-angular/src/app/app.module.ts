@@ -54,7 +54,6 @@ import { FormsModule } from '@angular/forms';
 
 import { FacultyRequestComponent } from './component/display/faculty-request/faculty-request.component';
 import { FacultyListComponent } from './component/display/faculty-list/faculty-list.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -111,10 +110,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatSortModule,
     MatProgressSpinnerModule,
     AngularFireModule.initializeApp(environment.firebase),
-
     FormsModule,
 
-    NgbModule,
     
   
 

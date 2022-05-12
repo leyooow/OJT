@@ -3,45 +3,42 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
 <!--for titles-->
 
-<mat-toolbar #navBar id="navBar" color="" class="navBar">
-  <div>
-    <ng-container *ngIf="user$ | async as user;  else none">
-      <!-- <button  class="sideNavBar" mat-icon-button (click)="opened=!opened"> -->
-        <button  class="sideNavBar" mat-icon-button (click)="openSidenav()">
-        <mat-icon *ngIf="!sidenav.opened">
-          menu
-        </mat-icon>
-        <mat-icon *ngIf="sidenav.opened">
-          close
-        </mat-icon>
-      </button>
-    </ng-container>
-    <!-- <ng-container  *ngIf="user$ | async as user;  else none">
-      <button mat-icon-button  (click)="opened=!opened" >
-
-        <mat-icon *ngIf="!sidenav1.opened">
-          menu
-        </mat-icon>
-    
-        <mat-icon *ngIf="sidenav1.opened">
-          close
-        </mat-icon>
-      </button>
-    </ng-container> -->
-    <strong routerLink="/landing" style="cursor:pointer;" class="home">
-      Faculty Management Information System
-    </strong>
+<!-- <mat-toolbar #navBar id="navBar" color="" class="navBar"> -->
+<nav #navBar class="navBar" id="navBar">
+  <div style="display: inline-flex; justify-content: space-between; vertical-align: middle;">
+    <div>
+      <ng-container *ngIf="user$ | async as user;  else none">
+        <button class="sideNavBar" mat-icon-button (click)="openSidenav()">
+          <mat-icon class="leftBtnNav" *ngIf="!sidenav.opened">
+            menu
+          </mat-icon>
+          <mat-icon class="leftBtnNav" *ngIf="sidenav.opened">
+            close
+          </mat-icon>
+        </button>
+      </ng-container>
+    </div>
+    <div class="titleDiv">
+      <strong routerLink="/landing" class="home">
+        Faculty Management Information System
+      </strong>
+    </div>
   </div>
 
-  <ng-container  *ngIf="user$ | async as user; else loginButton">
-    <button mat-button [mat-menu-trigger-for]="userMenu" >
-      <img class="profile-image-toolbar" width="30" height="30"
-        [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
-      {{user.firstName}}
-      <mat-icon>expand_more</mat-icon>
-    </button>
-  </ng-container>
-
+  <div id="rightDiv">
+    <ng-container *ngIf="user$ | async as user; else loginButton">
+      <button class="rightBtnNav" [mat-menu-trigger-for]="userMenu">
+        <div>
+          <img class="profile-image-toolbar" width="30" height="30"
+            [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
+        </div>
+        <div id="toVanish">
+          {{user.firstName}}
+          <mat-icon>expand_more</mat-icon>
+        </div>
+      </button>
+    </ng-container>
+  </div>
 
   <ng-template #none>
     <button mat-button routerLink="/landing" class="homeBtn">
@@ -53,93 +50,9 @@
       Login
     </button>
   </ng-template>
-</mat-toolbar>
+</nav>
 
-<mat-sidenav-container>
-  <mat-sidenav [(opened)]="opened" mode="over" #sidenav="matSidenav">
-    <div *ngIf="user$ | async as user" class="side">
-      <img height="120" width="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'"><br /><br />
-      <span class="nameFac" *ngIf="user$ | async as user"> {{user.firstName}} {{ user.lastName}}</span>
-    </div>
-
-    <mat-divider></mat-divider>
-    <div id="personalInfo">
-      <button  mat-button class="menu-button" (click)="showPersonalInfo()">
-        <mat-icon class="mat-icon">info</mat-icon>
-        Personal Information
-      </button>
-      <mat-divider></mat-divider>
-    </div>
-    
-
-    <div id="EducBack">
-      <button  mat-button class="menu-button" (click)="showEducBack()">
-        <mat-icon class="mat-icon">assignment_ind</mat-icon>
-        Educational Background
-      </button>
-      <mat-divider></mat-divider>
-    </div>
-    
-    <div id="civilService">
-
-      <button id="civilService" mat-button class="menu-button" (click)="showCivilService()">
-        <mat-icon class="mat-icon">check_box</mat-icon>
-        Civil Service Eligibility
-      </button>
-      <mat-divider></mat-divider>
-
-    </div>
-    
-    <div id="workExp" >
-
-      <button  mat-button class="menu-button" (click)="showWorkExp()">
-        <mat-icon class="mat-icon">work</mat-icon>
-        Work Experience
-      </button>
-      <mat-divider></mat-divider>
-      
-    </div>
-
-   <div id="traning">
-    <button  mat-button class="menu-button" (click)="showTrainings()">
-      <mat-icon class="mat-icon">assignment</mat-icon>
-      L&D/Training Programs
-    </button>
-    <mat-divider></mat-divider>
-   </div>
-
-   <div id="facultyReq" style="visibility: gone;">
-    <button  mat-button class="menu-button" (click)="showFacultyRequest()">
-      <mat-icon class="mat-icon">person</mat-icon>
-      Faculty Request
-    </button>
-    <mat-divider></mat-divider>
-   </div>
-
-   <div id="FacultyList">
-    <button  mat-button class="menu-button" (click)="showFacultyList()">
-      <mat-icon class="mat-icon">list</mat-icon>
-      Faculty List
-    </button>
-    <mat-divider></mat-divider>
-   </div>
-
-
-
-    
-  </mat-sidenav>
-
-  <!-- <mat-sidenav-content> -->
-  <div class="content">
-    <router-outlet></router-outlet>
-  </div>
-  <!-- </mat-sidenav-content> -->
-</mat-sidenav-container>
-
-
-
-<mat-menu #userMenu="matMenu" class="dropdownRight">
-
+<mat-menu class="dropdown" #userMenu="matMenu" id="dropdown">
   <button #editProfile id="editProfile" mat-menu-item (click)="profile()">
     <mat-icon>edit</mat-icon>Edit Profile
   </button>
@@ -151,13 +64,97 @@
   </button>
 </mat-menu>
 
+
+
+<mat-sidenav-container>
+  <mat-sidenav [(opened)]="opened" mode="over" #sidenav="matSidenav">
+    <div *ngIf="user$ | async as user" class="side">
+      <img height="120" width="120" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'"><br /><br />
+      <span class="nameFac" *ngIf="user$ | async as user"> {{user.firstName}} {{ user.lastName}}</span>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="sideNavHover" id="personalInfo">
+      <button mat-button class="menu-button sideBtnDesignNew" (click)="showPersonalInfo()">
+        <mat-icon class="mat-icon">info</mat-icon>
+        &nbsp;Personal Information
+      </button>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="sideNavHover" id="EducBack">
+      <button mat-button class="menu-button sideBtnDesignNew" (click)="showEducBack()">
+        <mat-icon class="mat-icon">assignment_ind</mat-icon>
+        &nbsp;Educational Background
+      </button>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="sideNavHover" id="civilService">
+      <button mat-button id="civilService" class="menu-button sideBtnDesignNew" (click)="showCivilService()">
+        <mat-icon class="mat-icon">check_box</mat-icon>
+        &nbsp;Civil Service Eligibility
+      </button>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="sideNavHover" id="workExp">
+      <button mat-button class="menu-button sideBtnDesignNew" (click)="showWorkExp()">
+        <mat-icon class="mat-icon">work</mat-icon>
+        &nbsp;Work Experience
+      </button>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div class="sideNavHover" id="traning">
+      <button mat-button class="menu-button sideBtnDesignNew" (click)="showTrainings()">
+        <mat-icon class="mat-icon">assignment</mat-icon>
+        &nbsp;L&D/Training Programs
+      </button>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <div id="facultyReq" style="visibility: gone;">
+      <button mat-button class="menu-button" (click)="showFacultyRequest()">
+        <mat-icon class="mat-icon">person</mat-icon>
+        Faculty Request
+      </button>
+    </div>
+
+
+
+    <div id="FacultyList">
+      <button mat-button class="menu-button" (click)="showFacultyList()">
+        <mat-icon class="mat-icon">list</mat-icon>
+        Faculty List
+      </button>
+    </div>
+  </mat-sidenav>
+
+  <!-- <mat-sidenav-content> -->
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <!-- </mat-sidenav-content> -->
+</mat-sidenav-container>
+
+
+
+
+
 <div class="modal fade" #sigoutModal id="sigoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title" id="exampleModalLabel"><strong>Signout</strong></h3>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close">
 
         </button>
       </div>
