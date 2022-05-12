@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Database, onValue, ref } from '@angular/fire/database';
+import { Database, get, onValue, ref } from '@angular/fire/database';
 import { ProfileUser } from 'src/app/models/user-profile';
 
 import {
@@ -37,11 +37,10 @@ interface User {
 export class FacultyRequestComponent implements OnInit {
 
   // countries = COUNTRIES;
-  public userList!: User[]
-  testModal: any;
-  testModal1: any;
+  public userList!: ProfileUser[]
+  
 
-  id!: number;
+  public id: string | undefined;
 
   constructor(
     public database: Database,
@@ -52,12 +51,20 @@ export class FacultyRequestComponent implements OnInit {
 
 
   openAlert() {
+
+
     if (confirm("Are you sure you want to delete this request?") == true) {
       this.delete()
       
     }
 
     // alert(this.userList.toString())
+
+  }
+
+  getUserFromTable(id: string){
+
+ 
 
   }
 
@@ -72,9 +79,19 @@ export class FacultyRequestComponent implements OnInit {
 
   async delete(){
 
-    await this.db.object('user/' + String(this.id)).remove()
-    alert('Deleted')
+    var user1 = this.userList.find(element => {
+      return element.employeeId == this.id
+      })
+      this.id = user1?.employeeId
+      // alert(String( user1?.employeeId))
+
+    await this.db.object('request/' + this.id).remove()
+    
+  
    await this.getStarted()
+
+   
+   
 
   }
 
@@ -85,13 +102,15 @@ export class FacultyRequestComponent implements OnInit {
         resolve(value)
       })
     })
+
+   
   }
 
   async getStarted() {
 
-    var users!: User[]
+    var users!: ProfileUser[]
     await this.getAllRequest().then(value => {
-      users = value as User[]
+      users = value as ProfileUser[]
     })
     this.userList = users
     
@@ -101,6 +120,8 @@ export class FacultyRequestComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.getStarted()
   }
+
+
 
 
 

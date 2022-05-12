@@ -20,6 +20,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 export function passwordsMatchValidator(): ValidatorFn {
+  
   return (control: AbstractControl): ValidationErrors | null => {
 
     const password = control.get('password')?.value
@@ -34,6 +35,8 @@ export function passwordsMatchValidator(): ValidatorFn {
     return null
   }
 
+  
+
 }
 
 @Component({
@@ -42,6 +45,8 @@ export function passwordsMatchValidator(): ValidatorFn {
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  
 
   signUpForm = new FormGroup({
     uid: new FormControl('',),
@@ -76,9 +81,9 @@ export class RegisterComponent implements OnInit {
       
       employeeId : employeeId,
       email: email,
-      uid: uid,
-      firstname: firstname,
-      lastname: lastname,
+      uid: uid, 
+      firstName: firstname,
+      lastName: lastname,
       password: password,
 
     })
