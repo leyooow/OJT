@@ -70,7 +70,7 @@ export class TrainingFormComponent implements OnInit {
       this.toast.observe({
         success: 'Image Uploaded',
         loading: 'Uploading...',
-        error: 'There was an error in uploading',
+        error: 'Failed to upload an image.',
 
       }), concatMap((photoCertURL) => this.usersService.updateUser({ uid: user.uid, photoCertURL }))
     ).subscribe()
@@ -111,6 +111,18 @@ export class TrainingFormComponent implements OnInit {
     
 
    
+
+
+    const profileData = this.ProfileForm.value
+    this.usersService.updateUser(profileData).pipe(
+    
+      this.toast.observe({
+        success: 'Data saved.',
+        loading: 'Saving data... ',
+        error: 'Failed to update data.'
+      }), concatMap((done) => this.usersService.updateUser({ uid: user.uid, done: '1' }))
+    ).subscribe()
+      
 
    
     

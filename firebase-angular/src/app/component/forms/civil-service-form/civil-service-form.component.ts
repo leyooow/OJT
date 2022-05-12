@@ -54,7 +54,7 @@ export class CivilServiceFormComponent implements OnInit {
       this.toast.observe({
         success: 'Image Uploaded',
         loading: 'Uploading...',
-        error: 'There was an error in uploading',
+        error: 'Failed to upload an image.',
 
       }), concatMap((photoURL) => this.usersService.updateUser({ uid: user.uid, photoURL }))
     ).subscribe()
@@ -76,7 +76,19 @@ export class CivilServiceFormComponent implements OnInit {
     }
     
 
+
+    const profileData = this.profileForm.value
+    this.usersService.updateUser(profileData).pipe(
+      this.toast.observe({
+        success: 'Data saved.',
+        loading: 'Saving data... ',
+        error: 'Failed to update data.'
+      })
+    ).subscribe()
+    this.router.navigate(['/work-experience-form'])
+
     
+
     
    }
 

@@ -42,7 +42,7 @@
 
   <input #inputField type="file" hidden (change)="uploadImage($event, user)" />
 
-  <form id="perForm" class="personalInfoForm" [formGroup]="ProfileForm" (ngSubmit)="saveProfile()" #localForm="ngForm">
+  <form id="perForm" class="personalInfoForm" [formGroup]="ProfileForm" #localForm="ngForm">
     <hr>
 
     <!-- <div class="container" style="text-align:center">
@@ -53,10 +53,12 @@
         <span class="ans">{{user.email}}</span>
       </label>
     </div> -->
-
-    <div>
-      <h2 class="title">Basic Information</h2>
+    <div class="container2">
+      <div>
+        <h2 class="title">Basic Information</h2>
+      </div>
     </div>
+
 
     <div class="container">
       <div class="main-item">
@@ -280,9 +282,12 @@
     </div>
     <hr>
 
-    <div>
-      <h2 class="title">Resident Address</h2>
+    <div class="container2">
+      <div>
+        <h2 class="title">Resident Address</h2>
+      </div>
     </div>
+
     <div class="container">
       <div class="main-item">
         <div class="nameLbl">
@@ -363,9 +368,12 @@
     </div>
     <hr>
 
-    <div>
-      <h2 class="title">Permanent Address</h2>
+    <div class="container3">
+      <div>
+        <h2 class="title">Permanent Address</h2>
+      </div>
     </div>
+
     <div class="container">
       <div class="main-item">
         <div class="nameLbl">
@@ -447,9 +455,12 @@
     </div>
     <hr>
 
-    <div>
-      <h2 class="title">Contact Information</h2>
+    <div class="container3">
+      <div>
+        <h2 class="title">Contact Information</h2>
+      </div>
     </div>
+
     <div class="container">
       <div class="main-item">
         <div class="nameLbl">
@@ -488,7 +499,7 @@
     </div>
 
     <div class="container" id="submitBtn">
-      <button type="submit" class="formbtn" mat-raised-button>
+      <button (click)="saveProfile()" type="submit" class="formbtn" mat-raised-button>
         Next
       </button>
     </div>

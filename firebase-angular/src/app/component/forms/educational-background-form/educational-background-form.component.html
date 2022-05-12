@@ -7,8 +7,8 @@
 
 <div class="form-container2 mat-elevation-z5" *ngIf="user$ | async as user">
   <h1 class="form-title">Educational Background</h1>
-
-  <form class="personalInfoForm" [formGroup]="ProfileFrom" (ngSubmit)="saveProfile()" #localForm="ngForm">
+  <!-- (ngSubmit)="saveProfile()" remove -->
+  <form class="personalInfoForm" [formGroup]="ProfileFrom" #localForm="ngForm">
     <hr>
 
     <div>
@@ -110,12 +110,7 @@
     </div>
     <hr>
 
-    <!-- SECONDARY NA -->
-    <!-- SECONDARY NA -->
-    <!-- SECONDARY NA -->
-    <!-- SECONDARY NA -->
-    <!-- SECONDARY NA -->
-    <!-- SECONDARY NA -->
+    <!-- SECONDARY -->
     <div>
       <h2 class="title">Secondary</h2>
     </div>
@@ -215,11 +210,7 @@
     </div>
     <hr>
 
-    <!-- COLLEGE NA -->
-    <!-- COLLEGE NA -->
-    <!-- COLLEGE NA -->
-    <!-- COLLEGE NA -->
-    <!-- COLLEGE NA -->
+    <!-- COLLEGE -->
     <div>
       <h2 class="title">College</h2>
     </div>
@@ -319,11 +310,7 @@
     </div>
     <hr>
 
-    <!-- VOCATIONAL NA -->
-    <!-- VOCATIONAL NA -->
-    <!-- VOCATIONAL NA -->
-    <!-- VOCATIONAL NA -->
-    <!-- VOCATIONAL NA -->
+    <!-- VOCATIONAL-->
     <div>
       <h2 class="title">Vocational/Trade Course</h2>
     </div>
@@ -419,11 +406,7 @@
     </div>
     <hr>
 
-    <!-- GRADUATE NA -->
-    <!-- GRADUATE NA -->
-    <!-- GRADUATE NA -->
-    <!-- GRADUATE NA -->
-    <!-- GRADUATE NA -->
+    <!-- GRADUATE -->
     <div>
       <h2 class="title">Graduate Studies</h2>
     </div>
@@ -517,8 +500,12 @@
       </div>
     </div>
 
+
     <div class="container" id="submitBtn">
-      <button type="submit" class="formbtn" mat-raised-button>
+      <button routerLink="/personal-info-form" class="formbtn" mat-raised-button>
+        Back
+      </button>
+      <button (click)="saveProfile()" type="submit" class="formbtn" mat-raised-button>
         Next
       </button>
     </div>

@@ -9,10 +9,7 @@
   <h1 class="form-title">Learning and Development (L&D) Interventions/Training Programs Attended</h1>
   <hr>
 
-  <form [formGroup]="ProfileForm" (ngSubmit)="saveProfile(user)">
-
-
-
+  <form [formGroup]="ProfileForm">
     <div style="margin-bottom: -25px;">
       <h4 class="incl">Inclusive Dates</h4>
     </div>
@@ -107,7 +104,10 @@
     </div>
 
     <div class="container" id="submitBtn">
-      <button type="submit" class="formbtn" mat-raised-button>
+      <button routerLink="/work-experience-form" class="formbtn" mat-raised-button>
+        Back
+      </button>
+      <button (click)="saveProfile(user)" type="submit" class="formbtn" mat-raised-button>
         Next
       </button>
     </div>

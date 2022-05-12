@@ -125,7 +125,7 @@ select:focus {
 }
 
 #submitBtn {
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 hr {

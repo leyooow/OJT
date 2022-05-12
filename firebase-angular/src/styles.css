@@ -9,12 +9,6 @@ html {
 }
 
 body {
-  /* -webkit-transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden !important;
-  -webkit-transform: translate3d(0, 0, 0);
-  background: linear-gradient(90deg, #49494A, #a13c3c);
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite; */
   background-color: #D3D5DB;
   min-height: 100%;
   background-repeat: no-repeat;
