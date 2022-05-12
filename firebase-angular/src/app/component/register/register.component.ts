@@ -15,6 +15,7 @@ import { UsersService } from 'src/app/services/users.service';
 
 import {Database, set, ref, update, onValue} from '@angular/fire/database'
 import { getAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 
@@ -59,6 +60,7 @@ export class RegisterComponent implements OnInit {
     private toast: HotToastService,
     private usersService: UsersService,
     public database : Database,
+    private afs : AngularFirestore
     ) { }
 
   ngOnInit(): void {
@@ -124,11 +126,19 @@ export class RegisterComponent implements OnInit {
     this.authService.signUp( email, password)
     .pipe(
 
-      switchMap(({ user: { uid } }) => this.usersService.addUser(
+      // switchMap(({ user: { uid } }) => this.usersService.addUser(
+      //   { uid,  firstName: firstname, 
+      //     lastName: lastname, employeeId: employeeId, 
+      //     email, displayName: firstname + ' ' + lastname, done: ''})
+      // ),
+
+      switchMap(({ user: { uid } }) => this.usersService.addUser2(
         { uid,  firstName: firstname, 
           lastName: lastname, employeeId: employeeId, 
           email, displayName: firstname + ' ' + lastname, done: ''})
       ),
+
+      
 
     
 

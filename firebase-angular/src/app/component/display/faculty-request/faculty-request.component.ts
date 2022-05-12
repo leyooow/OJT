@@ -1,22 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Database, onValue, ref } from '@angular/fire/database';
+import { ProfileUser } from 'src/app/models/user-profile';
 
-interface user {
+import {
+  AngularFireDatabase,
+  AngularFireList,
+  AngularFireObject,
+} from '@angular/fire/compat/database';
+
+interface User {
   employeeId: string;
   email: string;
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
 }
+// let COUNTRIES: user[] = [
+//   // {
+//   //   employeeId: '2018100457',
+//   //   email: 'leo@gmail.com',
+//   //   firstname: 'Leo',
+//   //   lastname: "Espino"
+//   // },
 
+// ];
 
-const COUNTRIES: user[] = [
-  {
-    employeeId: '2018100457',
-    email: 'leo@gmail.com',
-    firstName: 'Leo',
-    lastName: "Espino"
-  },
-  
-];
+// const array: { [x: string]: any; }[] = [];
 
 @Component({
   selector: 'app-faculty-request',
@@ -25,11 +34,40 @@ const COUNTRIES: user[] = [
 })
 export class FacultyRequestComponent implements OnInit {
 
-  countries = COUNTRIES;
+  // countries = COUNTRIES;
+  public userList: User[] | undefined
 
-  constructor() { }
+  constructor(
+    public database: Database,
+    private afs: AngularFirestore,
+    private db: AngularFireDatabase,
 
-  ngOnInit(): void {
+  ) { }
+
+  getAllRequest() {
+
+    return new Promise((resolve, reject) => {
+      this.db.list('request').valueChanges().subscribe(value => {
+        resolve(value)
+      })
+    })
   }
+
+  async getStarted() {
+
+    var users!: User[]
+    await this.getAllRequest().then(value => {
+      users = value as User[]
+    })
+    this.userList = users
+    
+    console.log(this.userList)
+  }
+
+  async ngOnInit(): Promise<void> {
+    this.getStarted()
+  }
+
+
 
 }
