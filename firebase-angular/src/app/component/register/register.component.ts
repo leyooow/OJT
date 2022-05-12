@@ -15,10 +15,12 @@ import { UsersService } from 'src/app/services/users.service';
 
 import {Database, set, ref, update, onValue} from '@angular/fire/database'
 import { getAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 
 export function passwordsMatchValidator(): ValidatorFn {
+  
   return (control: AbstractControl): ValidationErrors | null => {
 
     const password = control.get('password')?.value
@@ -33,6 +35,8 @@ export function passwordsMatchValidator(): ValidatorFn {
     return null
   }
 
+  
+
 }
 
 @Component({
@@ -41,6 +45,8 @@ export function passwordsMatchValidator(): ValidatorFn {
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  
 
   signUpForm = new FormGroup({
     uid: new FormControl('',),
@@ -59,6 +65,7 @@ export class RegisterComponent implements OnInit {
     private toast: HotToastService,
     private usersService: UsersService,
     public database : Database,
+    private afs : AngularFirestore
     ) { }
 
   ngOnInit(): void {
@@ -74,12 +81,15 @@ export class RegisterComponent implements OnInit {
       
       employeeId : employeeId,
       email: email,
-      uid: uid,
-      firstname: firstname,
-      lastname: lastname,
+      uid: uid, 
+      firstName: firstname,
+      lastName: lastname,
       password: password,
 
     })
+
+    alert("Registration request sent!")
+    this.router.navigate(['/login'])
 
     // const starCountRef = ref(this.database, 'users/' + userId + '/email' );
     // onValue(starCountRef, (snapshot) => {
@@ -98,18 +108,7 @@ export class RegisterComponent implements OnInit {
      const starCountRef = ref(this.database, 'users/' + employeeId + '/employeeId' );
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
-      
-       
-        
-
-       
-
-        
-
-      
-        
-
-     
+   
     })
 
     
@@ -130,31 +129,33 @@ export class RegisterComponent implements OnInit {
     // alert('Registration request sent')
     // this.router.navigate(['/login'])
 
-    const {employeeId,  firstname, lastname, email, password, done, } = this.signUpForm.value
+    // const {employeeId,  firstname, lastname, email, password, done, } = this.signUpForm.value
 
-    this.authService.signUp( email, password)
-    .pipe(
+    // this.authService.signUp( email, password)
+    // .pipe(
 
-      switchMap(({ user: { uid } }) => this.usersService.addUser(
-        { uid,  firstName: firstname, 
-          lastName: lastname, employeeId: employeeId, 
-          email, displayName: firstname + ' ' + lastname, done: ''})
-      ),
+    //   switchMap(({ user: { uid } }) => this.usersService.addUser2(
+    //     { uid,  firstName: firstname, 
+    //       lastName: lastname, employeeId: employeeId, 
+    //       email, displayName: firstname + ' ' + lastname, done: ''})
+    //   ),
+
+      
 
     
 
-      this.toast.observe({
-        success: 'Successfully Registered',
-        loading: 'Checking..',
-        error: ({ message }) => `${message}`
-      })
-    ).subscribe(() => {
-      this.authService.logout().subscribe(() => {
-        this.router.navigate(['/login'])
-      })
-    })
+    //   this.toast.observe({
+    //     success: 'Successfully Registered',
+    //     loading: 'Checking..',
+    //     error: ({ message }) => `${message}`
+    //   })
+    // ).subscribe(() => {
+    //   this.authService.logout().subscribe(() => {
+    //     this.router.navigate(['/login'])
+    //   })
+    // })
 
-    this.employeeIdValidate()
+    // this.employeeIdValidate()
 
     
 

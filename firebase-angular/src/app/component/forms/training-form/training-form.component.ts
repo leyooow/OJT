@@ -90,10 +90,28 @@ export class TrainingFormComponent implements OnInit {
       done: '1',
     })
 
-    if (!this.ProfileForm.valid) return
+    if (!this.ProfileForm.valid){
+      alert('Please fill all required(*) fields!')
+    }else{
+      const profileData = this.ProfileForm.value
+      this.usersService.updateUser(profileData).pipe(
+      
+        this.toast.observe({
+          success: 'Data saved.',
+          loading: 'Saving data... ',
+          error: 'There was an error in saving the data.'
+        }), concatMap((done) => this.usersService.updateUser({ uid: user.uid, done: '1' }))
+      ).subscribe()
+        
+     
+      
+      
+        this.router.navigate(['/faculty-dashboard'])
+    }
     
 
    
+
 
     const profileData = this.ProfileForm.value
     this.usersService.updateUser(profileData).pipe(
@@ -105,10 +123,8 @@ export class TrainingFormComponent implements OnInit {
       }), concatMap((done) => this.usersService.updateUser({ uid: user.uid, done: '1' }))
     ).subscribe()
       
+
    
-    
-    
-      this.router.navigate(['/faculty-dashboard'])
     
     
    }
