@@ -12,7 +12,7 @@ const COUNTRIES: user[] = [
   {
     employeeId: '2018100457',
     email: 'leo@gmail.com',
-    firstName: '"Leo"',
+    firstName: 'Leo',
     lastName: "Espino"
   },
   
