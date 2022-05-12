@@ -176,7 +176,28 @@ mat-divider {
   background-color: #000000;
 }
 
-/* .dropdownRight {
+/* .modal {
+  text-align: center;
+  padding: 0!important;
+  
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px; /* Adjusts for spacing 
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  width: 500px;
+} */
+
+/* ::ng-deep .dropdownRight {
   background: rgb(5, 61, 151);
   background: -moz-linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
   background: -webkit-linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);

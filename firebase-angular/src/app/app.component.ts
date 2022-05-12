@@ -86,6 +86,7 @@ export class AppComponent {
       this.router.navigate([''])
       this.sidenav.close()
       this.router.navigate(['/login'])
+      localStorage.clear();
 
     })
   }

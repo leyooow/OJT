@@ -1,6 +1,7 @@
 
 <div class="form-container1">
 
+  <h2 style="color: #000; text-align:center;"> Registration Request</h2>
 
     <table class="table table-striped">
         <thead>
@@ -14,19 +15,26 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let data of userList; index as i">
+        <tr  *ngFor="let data of userList; index as i"   >
           <th scope="row">{{ i + 1 }}</th>
-          <td>{{ data.employeeId }}</td>
-          <td>{{ data.email}}</td>
+          <!-- <td >{{ data.employeeId }}</td> -->
+          <td class="td1">{{ data.employeeId }}
+          <td class="td2">{{ data.email}}</td>
           <td>{{ data.firstName}}</td>
           <td>{{ data.lastName}}</td>
           <td>
-              <button  class="btn btn-success" (click)="accept()" >
-                Accept
-              </button>
-              <button  class="btn btn-danger" (click)="openAlert()">
-                Delete
-            </button>
+            
+              <div class="row">
+                <div class="col hit">
+                  <button  class="btn btn-success" (click)="accept()" >
+                    Accept
+                  </button>
+                  <button #hit id="hit" class="btn btn-danger" (click)="delete()"  >
+                    Delete
+                </button>
+                </div>
+              </div>
+              
           </td>
         </tr>
         </tbody>
