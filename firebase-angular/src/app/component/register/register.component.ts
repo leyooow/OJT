@@ -87,6 +87,16 @@ export class RegisterComponent implements OnInit {
       password: password,
 
     })
+   
+    localStorage.setItem('uid', uid)
+    localStorage.setItem('password', password)
+    localStorage.setItem('email', email)
+    localStorage.setItem('employeeId', employeeId)
+    localStorage.setItem('firstName', firstname) 
+    localStorage.setItem('lastName', lastname)   
+    
+
+
 
     alert("Registration request sent!")
     this.router.navigate(['/login'])
@@ -134,7 +144,7 @@ export class RegisterComponent implements OnInit {
     // this.authService.signUp( email, password)
     // .pipe(
 
-    //   switchMap(({ user: { uid } }) => this.usersService.addUser2(
+    //   switchMap(({ user: { uid } }) => this.usersService.addUser(
     //     { uid,  firstName: firstname, 
     //       lastName: lastname, employeeId: employeeId, 
     //       email, displayName: firstname + ' ' + lastname, done: ''})

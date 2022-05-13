@@ -11,8 +11,12 @@ import {
 import * as bootstrap from 'bootstrap';
 import { user } from '@angular/fire/auth';
 import { FormControl, FormGroup } from '@angular/forms';
-import { first } from 'rxjs';
+import { first, switchMap } from 'rxjs';
 import * as $ from 'jquery';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UsersService } from 'src/app/services/users.service';
+import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
 
 interface User {
   employeeId: string;
@@ -41,7 +45,24 @@ interface User {
 })
 export class FacultyRequestComponent implements OnInit {
 
+   password: string = '';
+    email: string = '';
+    employeeId: string = '';
+    firstName: string = '';
+    lastName : string = ''; 
+
   empID:any
+
+  signUpForm = new FormGroup({
+    uid: new FormControl('',),
+    firstname: new FormControl('', ),
+    lastname: new FormControl('', ),
+    employeeId: new FormControl('', ),
+    email: new FormControl('', ),
+    password: new FormControl('', ),
+    confirmPassword: new FormControl('', ),
+    done: new FormControl('',),
+  })
 
 
   facRequestForm = new FormGroup({
@@ -59,6 +80,11 @@ export class FacultyRequestComponent implements OnInit {
     public database: Database,
     private afs: AngularFirestore,
     private db: AngularFireDatabase,
+    private authService: AuthenticationService,
+    private usersService: UsersService,
+    private router: Router,
+    private toast: HotToastService,
+
 
   ) { }
 
@@ -113,7 +139,7 @@ export class FacultyRequestComponent implements OnInit {
     // await this.db.object('request/' + value).remove()
     setTimeout(() => {
       window.location.reload
-     const id = String(localStorage.getItem('id'))
+     const id = String(sessionStorage.getItem('id'))
     //  alert(id)
     if (confirm('Are you sure you want to delete this request?') === true){
       const ref = this.db.object('request/' + id).remove()
@@ -146,7 +172,7 @@ export class FacultyRequestComponent implements OnInit {
     $(".hit").click(function(){
        value=$(this). closest('tr'). children('td:first'). text();
         console.log(value);
-        localStorage.setItem('id', value) 
+        sessionStorage.setItem('id', value) 
      
         
         
@@ -171,6 +197,57 @@ export class FacultyRequestComponent implements OnInit {
 
 
   async accept() {
+
+
+  
+  //  const email1 = ''
+  //  const employeeId1 = ''
+  //  const firstName1 = '' 
+  //  const lastName1 = ''  
+
+   const password1 = String(localStorage.getItem('password')!)
+   const email1 = String(localStorage.getItem('email')!)
+   const employeeId1 = String(localStorage.getItem('employeeId')!)
+   const firstName1 = String(localStorage.getItem('firstName')!)
+   const lastName1 = String(localStorage.getItem('lastName')!)
+    // email1 =  localStorage.getItem('email')
+    // employeeId1 =  localStorage.getItem('employeeId')
+    // firstName1 =  localStorage.getItem('firstName') 
+    // lastName1 =  localStorage.getItem('lastName')   
+    
+    // setTimeout(() => {
+
+    //   this.authService.signUp( email1, password1)
+    // .pipe(
+         
+
+    //   switchMap(({ user: { uid } }) => this.usersService.addUser(
+    //     { uid,  firstName: firstName1, 
+    //       lastName: lastName1, employeeId: employeeId1, 
+    //       email: email1, displayName: firstName1 + ' ' + lastName1, done: ''})
+    //   ),
+
+      
+
+    
+
+    //   this.toast.observe({
+    //     success: 'Accepted',
+    //     loading: 'Checking...',
+    //     error: ({ message }) => `${message}`,
+    //   })
+    // ).subscribe(() => {
+    //   this.authService.logout().subscribe(() => {
+    //     this.router.navigate(['/login'])
+        
+    //   })
+    // })
+
+    // }, 200)
+    
+
+    this.getUserFromTable()
+
 
     await this.getStarted()
 
