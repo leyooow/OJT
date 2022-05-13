@@ -210,7 +210,7 @@ export class FacultyRequestComponent implements OnInit {
     setTimeout(() => {
 
       const id = sessionStorage.getItem('id');
-      
+        
 
       //email
       const emailRef = ref(this.database, 'request/' + id + '/email');
