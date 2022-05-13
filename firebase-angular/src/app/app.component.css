@@ -1,7 +1,3 @@
-mat-toolbar {
-  justify-content: space-between;
-}
-
 .profile-image-toolbar {
   border-radius: 100%;
   margin-right: 8px;
@@ -141,6 +137,10 @@ mat-icon {
   vertical-align: middle;
 }
 
+mat-toolbar {
+  justify-content: space-between;
+}
+
 mat-divider {
   background-color: #010611;
 }
@@ -148,6 +148,10 @@ mat-divider {
 mat-button-wrapper {
   justify-content: center;
   color: black;
+}
+
+.thickdiv {
+  border: 2px;
 }
 
 img {
