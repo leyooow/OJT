@@ -221,6 +221,7 @@ export class PersonalInfoFormComponent implements OnInit {
      
 
       if(data == '1'){
+        alert(data)
         this.router.navigate(['/faculty-dashboard'])
       }
     })
