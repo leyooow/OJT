@@ -98,11 +98,12 @@ mat-toolbar {
 }
 
 ::ng-deep .dropdown {
-  background: rgb(5, 61, 151);
+  background-color: #072F6E;
+  /* background: rgb(5, 61, 151);
   background: -moz-linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
   background: -webkit-linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
   background: linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#053d97", endColorstr="#041c42", GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#053d97", endColorstr="#041c42", GradientType=1); */
   margin-left: 70px;
   margin-top: 5px;
 }
@@ -112,6 +113,9 @@ mat-toolbar {
   display: none;
 }
 
+.mat-focus {
+  background-color: #072F6E !important;
+}
 
 mat-sidenav {
   width: 300px;
@@ -146,7 +150,6 @@ mat-button-wrapper {
   color: black;
 }
 
-
 img {
   border-radius: 50%;
 }
@@ -164,13 +167,20 @@ img {
   align-items: center;
   justify-content: flex-start;
   font-size: 1rem;
-  color: #ffffff;
+  color: #092972;
   padding-top: 10px;
   padding-bottom: 10px;
   vertical-align: middle;
 }
 
-.sideBtnDesignNew {
+.sideNavHover:hover,
+.menu-button:hover {
+  background-color: #092972;
+  color: #ffffff !important;
+}
+
+
+/* .sideBtnDesignNew {
   color: #072F6E;
   background: transparent;
   border: none;
@@ -180,25 +190,18 @@ img {
 
 .sideBtnDesignNew:hover,
 .menu-button:hover {
-  color: #ffffff;
+  background-color: #092972;
+  color: #ffffff !important;
 }
 
 .sideNavHover:hover {
+  color: #ffffff;
   background-color: #092972;
-}
+} */
 
 .modal-content {
-  /* background-color: #041f46; */
   color: #ffffff;
-
-
-
- 
-  background: rgb(5, 61, 151);
-  background: -moz-linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
-  background: -webkit-linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
-  background: linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#053d97", endColorstr="#041c42", GradientType=1); 
+  background-color: #072F6E;
 }
 
 .modal-dialog {
