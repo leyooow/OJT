@@ -24,6 +24,9 @@ import { HotToastService } from '@ngneat/hot-toast';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import * as firebase from 'firebase/compat';
+import { applicationDefault } from 'firebase-admin/app';
+
+
 
 
 interface User {
@@ -63,8 +66,8 @@ export class FacultyRequestComponent implements OnInit {
 
   signUpForm = new FormGroup({
     uid: new FormControl('',),
-    firstname: new FormControl('',),
-    lastname: new FormControl('',),
+    firstName: new FormControl('',),
+    lastName: new FormControl('',),
     employeeId: new FormControl('',),
     email: new FormControl('',),
     password: new FormControl('',),
@@ -218,10 +221,10 @@ export class FacultyRequestComponent implements OnInit {
     setTimeout(() => {
 
 
-     
+
       this.getUserFromTable()
       const id = sessionStorage.getItem('id');
-        
+
 
       //email
       const emailRef = ref(this.database, 'request/' + id + '/email');
@@ -229,9 +232,9 @@ export class FacultyRequestComponent implements OnInit {
         const email = snapshot.val();
 
         localStorage.setItem('email', String(email))
-        
+
       })
-      
+
 
       //password
       const passworRef = ref(this.database, 'request/' + id + '/password');
@@ -264,113 +267,141 @@ export class FacultyRequestComponent implements OnInit {
 
 
 
-  }, 50)
-
-
-
-
-  const email1 =  String(localStorage.getItem('email')!)
-  const employeeId1 = String(localStorage.getItem('employeeId')!)
-  const firstName1 = String(localStorage.getItem('firstName')!)
-  const lastName1 = String(localStorage.getItem('lastName')!)
-  const password1 = String(localStorage.getItem('password')!) 
-
-  
-
-  
-
-  setTimeout(() => {
-
-    
-
-    //var admin = require("firebase-admin");
-
-    // const serviceAccount = 'path/to/serviceAccountKey.json';
-    
-
-    // admin.initializeApp({
-    //   credential: admin.credential.cert(serviceAccount),
-    //   databaseURL: 'https://mysuperdatabase.firebaseio.com'
-    // });
-    
-
-
-
-    
-
-
-    // this.authService.signUp(email1, password1)
-    //   .pipe(
-
-
-    //     switchMap(({ user: { uid } }) => this.usersService.addUser(
-    //       {
-    //         uid, firstName: firstName1,
-    //         lastName: lastName1, employeeId: employeeId1,
-    //         email: email1, displayName: firstName1 + ' ' + lastName1, done: ''
-    //       })
-    //     ),
+    }, 50)
 
 
 
 
 
-    //     this.toast.observe({
-    //       success: 'Accepted',
-    //       loading: 'Checking...',
-    //       error: 'Error'
-    //     })
-    //   ).subscribe(() => {
-    //     // this.getUserFromTable()
-    //     this.authService.logout().subscribe(() => {
-    //     localStorage.clear();
-
-    //     })
-    //   })
-
-  }, 200)
 
 
 
 
+    setTimeout(() => {
 
-await this.getStarted()
+      const email1 = String(localStorage.getItem('email')!)
+      const employeeId1 = String(localStorage.getItem('employeeId')!)
+      const firstName1 = String(localStorage.getItem('firstName')!)
+      const lastName1 = String(localStorage.getItem('LastName')!)
+      const password1 = String(localStorage.getItem('password')!)
+
+
+      //   initializeApp({
+      //     // credential: applicationDefault(),
+
+      //     databaseURL: "https://ojt1-6eeca-default-rtdb.firebaseio.com"
+      // });
+      //var admin = require("firebase-admin");
+
+      // const serviceAccount = 'path/to/serviceAccountKey.json';
+
+
+      // admin.initializeApp({
+      //   credential: admin.credential.cert(serviceAccount),
+      //   databaseURL: 'https://mysuperdatabase.firebaseio.com'
+      // });
+
+
+
+
+
+
+
+      this.authService.signUp(email1, password1)
+        .pipe(
+
+
+          switchMap(({ user: { uid } }) => this.usersService.addUser(
+            {
+              uid, firstName: firstName1,
+              lastName: lastName1, employeeId: employeeId1,
+              email: email1, displayName: firstName1 + ' ' + lastName1,
+            })
+          ),
+
+
+
+
+
+          this.toast.observe({
+            success: 'Accepted',
+            loading: 'Checking...',
+            error: ({ message }) => `${message}`
+          })
+        ).subscribe(() => {
+          // this.getUserFromTable()
+          this.authService.logout().subscribe(() => {
+            localStorage.clear();
+            const id = String(sessionStorage.getItem('id'))
+            //  alert(id)
+
+            const ref = this.db.object('request/' + id).remove()
+            this.getStarted()
+          })
+
+
+          this.getUserFromTable();
+
+
+          this.authService.login('admin@gmail.com', 'admin123').subscribe()
+
+
+
+
+
+
+          //  const emp = this.empID = '1
+
+
+
+
+        })
+
+    }, 200)
+
+
+
+
+
+
+
+
 
 
   }
 
 
 
-getAllRequest() {
+  getAllRequest() {
 
-  return new Promise((resolve, reject) => {
-    this.db.list('request').valueChanges().subscribe(value => {
-      resolve(value)
+    return new Promise((resolve, reject) => {
+      this.db.list('request').valueChanges().subscribe(value => {
+        resolve(value)
+      })
     })
-  })
 
 
-}
+  }
 
   async getStarted() {
 
-  var users!: ProfileUser[]
-  await this.getAllRequest().then(value => {
-    users = value as ProfileUser[]
-  })
-  this.userList = users
+    var users!: ProfileUser[]
+    await this.getAllRequest().then(value => {
+      users = value as ProfileUser[]
+    })
+    this.userList = users
 
-  console.log(this.userList)
-}
+    console.log(this.userList)
+  }
 
-  async ngOnInit(): Promise < void> {
-  this.getStarted()
-}
+  async ngOnInit(): Promise<void> {
+    this.getStarted()
+  }
 
-getValue(event: any) {
-  let value = event.target.innerHTML;
-  console.log("value", value);
-}
+  getValue(event: any) {
+    let value = event.target.innerHTML;
+    console.log("value", value);
+  }
 
 
 

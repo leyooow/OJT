@@ -93,7 +93,7 @@ export class RegisterComponent implements OnInit {
     localStorage.setItem('email', email)
     localStorage.setItem('employeeId', employeeId)
     localStorage.setItem('firstName', firstname) 
-    localStorage.setItem('lastName', lastname)   
+    localStorage.setItem('lastName1', lastname)   
     
 
 
