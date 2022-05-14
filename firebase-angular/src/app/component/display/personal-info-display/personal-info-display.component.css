@@ -225,4 +225,8 @@ mat-icon {
     width: 348px;
   }
 
+  .fieldset {
+    padding: 5px;
+  }
+
 }

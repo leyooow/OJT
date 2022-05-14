@@ -17,54 +17,29 @@
   </div>
 
   <input #inputField type="file" hidden (change)="uploadImage($event, user)" />
-
-  <form class="margin-top" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
-
-    <label type="text"  p> <span class="label1">Employee ID:</span>&nbsp;&nbsp;
+  <form class="margin-top" [formGroup]="profileForm" #localForm="ngForm">
+    <label type="text" p> <span class="label1">Employee ID:</span>&nbsp;&nbsp;
       <span class="ans">{{user.employeeId}}</span> </label>
 
-    <br>
-
-
-    <!-- <label type="text" matInput > Employee ID: {{user.employeeId}}</label> -->
-
-    <br /><br />
-
-    <mat-form-field>
-      <input type="text" matInput formControlName="mobileNo" placeholder="Mobile Number" />
-    </mat-form-field>
-
-    <mat-form-field>
-      <select matNativeControl formControlName="gender" placeholder="Gender">
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="LGBTQIA">LGBTQIA+</option>
-      </select>
-    </mat-form-field>
-
-    <mat-form-field>
-      <input type="text" matInput formControlName="firstName" placeholder="First Name" />
-    </mat-form-field>
-
-    <mat-form-field>
-      <input type="text" matInput formControlName="lastName" placeholder="Last Name" />
-    </mat-form-field>
-
-    <!-- <div class="main-item">
-      <div class="nameLbl">
-        <label class="label2">
-          First Name*
-        </label>
+    <div class="container">
+      <div class="main-item">
+        <div class="nameLbl">
+          <label class="label2">
+            Mobile No. <span class="hint">(09xxxxxxxxx)</span>*
+          </label>
+        </div>
+        <div class="item">
+          <input class="form-control" type="text" formControlName="mobileNo" placeholder="Mobile No." maxlength="11"
+            minlength="11" [class.is-invalid]="localForm.submitted && profileForm.get('mobileNo')?.invalid"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+        </div>
       </div>
-      <div class="item">
-        <input type="text" formControlName="firstName" placeholder="First Name" />
-      </div>
-    </div> -->
+    </div>
 
-
-
-    <button type="submit" class="formbtn" mat-raised-button color="warn">
-      Save
-    </button>
+    <div class="container" id="submitBtn">
+      <button (ngSubmit)="saveProfile()" type="submit" class="formbtn" mat-raised-button>
+        Save
+      </button>
+    </div>
   </form>
 </div>
