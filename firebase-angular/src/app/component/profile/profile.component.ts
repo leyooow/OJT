@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { getAuth } from '@angular/fire/auth';
 import { Database, onValue, ref, set } from '@angular/fire/database';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { HotToastService } from '@ngneat/hot-toast';
@@ -29,13 +29,10 @@ export class ProfileComponent implements OnInit {
     email: new FormControl(''),
 
     displayName: new FormControl(''),
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
     employeeId: new FormControl(''),
-    mobileNo: new FormControl(''),
-    dateOfBirth: new FormControl(''),
-    gender: new FormControl(''),
-
+    mobileNo: new FormControl('', Validators.required),
+    // displayPass:new FormControl('', Validators.required),
+    // displayConPass:new FormControl('', Validators.required),
   })
 
   constructor(private authService: AuthenticationService,
