@@ -5,7 +5,7 @@
   margin-top: 30px;
   margin-bottom: 30px;
   background-color: #D3D5DB;
-  padding: 50px;
+  padding: 10px;
   border-radius: 16px;
   height: max-content;
 }
@@ -111,7 +111,7 @@ select:focus {
   width: 15%;
   text-align: center;
   margin-top: 40px;
-  margin-bottom: 5px;
+  margin-bottom: 25px;
   justify-content: flex-end;
   border-radius: 30px;
   font-size: 1.2em;
@@ -130,6 +130,15 @@ select:focus {
 
 hr {
   background-color: #01193E;
+}
+
+#ins {
+  font-size: 1.3em;
+  font-family: sans-serif;
+  padding: 5px;
+  line-height: 1.2em;
+  color: black;
+  text-align: left;
 }
 
 @media only screen and (max-width: 1410px) {

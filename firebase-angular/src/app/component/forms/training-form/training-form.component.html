@@ -6,6 +6,10 @@
 <!--for labels-->
 
 <div class="form-container2  mat-elevation-z5" *ngIf="user$ | async as user">
+  <p id="ins">Please fill out all of the relevant information which will be recorded in the Faculty Management
+    Information System. We ask that you only provide true and accurate information. Write "N/A" if not applicable.
+  </p>
+  <hr>
   <h1 class="form-title">Learning and Development (L&D) Interventions/Training Programs Attended</h1>
   <hr>
 
@@ -108,7 +112,7 @@
         Back
       </button>
       <button (click)="saveProfile(user)" type="submit" class="formbtn" mat-raised-button>
-        Next
+        Submit
       </button>
     </div>
   </form>

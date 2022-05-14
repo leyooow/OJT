@@ -1,1 +1,59 @@
-<p>work-experience-display works!</p>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+<!--for titles-->
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+<!--for labels-->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+<!-- for th -->
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+<!--Sub Title-->
+
+<div class="form-container3 mat-elevation-z5" *ngIf="user$ | async as user">
+  <h1 class="form-title">Work Experience</h1>
+  <hr>
+
+  <div class="container">
+    <section class="fieldset">
+      <table>
+        <tbody>
+          <tr>
+            <th>Position Title</th>
+            <td>:</td>
+            <td>{{user.positionTitleWorkExp}}</td>
+          </tr>
+          <tr>
+            <th>Inclusive Dates</th>
+            <td>:</td>
+            <td>{{user.fromWorkExp}} <strong>-</strong> {{user.tomWorkExp}}</td>
+          </tr>
+          <tr>
+            <th>Department/Agency/Office/Company</th>
+            <td>:</td>
+            <td>{{user.departmentWorkExp}}</td>
+          </tr>
+          <tr>
+            <th>Salary/Job/Pay Grade</th>
+            <td>:</td>
+            <td>{{user.salaryJobPayWorkExp}}</td>
+          </tr>
+          <tr>
+            <th>Monthly Salary</th>
+            <td>:</td>
+            <td>{{user.monthlySalaryWorkExp}}</td>
+          </tr>
+          <tr>
+            <th>Status of Apointment</th>
+            <td>:</td>
+            <td>{{user.statusOfAppointmentWorkExp}}</td>
+          </tr>
+          <tr>
+            <th>Government Service</th>
+            <td>:</td>
+            <td>{{user.governmentServiceWorkExp}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>

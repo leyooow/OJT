@@ -6,12 +6,16 @@
 <!--for labels-->
 
 <div class="form-container2 mat-elevation-z5" *ngIf="user$ | async as user">
+  <p id="ins">Please fill out all of the relevant information which will be recorded in the Faculty Management
+    Information System. We ask that you only provide true and accurate information. Write "N/A" if not applicable.
+  </p>
+  <hr>
   <h1 class="form-title">Educational Background</h1>
-  <!-- (ngSubmit)="saveProfile()" remove -->
   <form class="personalInfoForm" [formGroup]="ProfileFrom" #localForm="ngForm">
     <hr>
 
-    <div>
+
+    <div class="container2">
       <h2 class="title">Elementary</h2>
     </div>
 
@@ -111,7 +115,7 @@
     <hr>
 
     <!-- SECONDARY -->
-    <div>
+    <div class="container2">
       <h2 class="title">Secondary</h2>
     </div>
 
@@ -211,7 +215,7 @@
     <hr>
 
     <!-- COLLEGE -->
-    <div>
+    <div class="container2 container3">
       <h2 class="title">College</h2>
     </div>
 
@@ -311,7 +315,7 @@
     <hr>
 
     <!-- VOCATIONAL-->
-    <div>
+    <div class="container2 container4">
       <h2 class="title">Vocational/Trade Course</h2>
     </div>
 
@@ -407,7 +411,7 @@
     <hr>
 
     <!-- GRADUATE -->
-    <div>
+    <div class="container2 container5">
       <h2 class="title">Graduate Studies</h2>
     </div>
 

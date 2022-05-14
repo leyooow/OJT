@@ -113,15 +113,15 @@ export class TrainingFormComponent implements OnInit {
    
 
 
-    const profileData = this.ProfileForm.value
-    this.usersService.updateUser(profileData).pipe(
+    // const profileData = this.ProfileForm.value
+    // this.usersService.updateUser(profileData).pipe(
     
-      this.toast.observe({
-        success: 'Data saved.',
-        loading: 'Saving data... ',
-        error: 'Failed to update data.'
-      }), concatMap((done) => this.usersService.updateUser({ uid: user.uid, done: '1' }))
-    ).subscribe()
+    //   this.toast.observe({
+    //     success: 'Data saved.',
+    //     loading: 'Saving data... ',
+    //     error: 'Failed to update data.'
+    //   }), concatMap((done) => this.usersService.updateUser({ uid: user.uid, done: '1' }))
+    // ).subscribe()
       
 
    

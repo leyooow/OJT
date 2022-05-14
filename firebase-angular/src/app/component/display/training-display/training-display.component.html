@@ -1,0 +1,56 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+<!--for titles-->
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+<!--for labels-->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+<!-- for th -->
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+<!--Sub Title-->
+
+<div class="form-container3 mat-elevation-z5" *ngIf="user$ | async as user">
+  <h1 class="form-title">Learning and Development (L&D) Interventions/<br>Training Programs Attended</h1>
+  <hr>
+
+  <div class="container">
+    <section class="fieldset1">
+      <div class="profile">
+        <h3>Certificate</h3>
+        <img width="350" height="200" [src]="user.photoCertURL ?? 'assets/images/image-placeholder.jpg'">
+        <span id="certTitle">{{user.TitleOfLearningTraining}}</span>
+      </div>
+    </section>
+    <section class="fieldset">
+      <table>
+        <tbody>
+          <tr>
+            <th>Title</th>
+            <td>:</td>
+            <td>{{user.TitleOfLearningTraining}}</td>
+          </tr>
+          <tr>
+            <th>Inclusive Dates</th>
+            <td>:</td>
+            <td>{{user.fromTraining}} <strong>-</strong> {{user.toTraining}}</td>
+          </tr>
+          <tr>
+            <th>Conducted/Sponsored By</th>
+            <td>:</td>
+            <td>{{user.conductedTraining}}</td>
+          </tr>
+          <tr>
+            <th>Number of Hours</th>
+            <td>:</td>
+            <td>{{user.numberOfHrsTraining}}</td>
+          </tr>
+          <tr>
+            <th>Types of L&D</th>
+            <td>:</td>
+            <td>{{user.typeOfLdTraining}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
