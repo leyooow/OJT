@@ -4,8 +4,10 @@
 <!--for titles-->
 <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
 <!--for labels-->
-<link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
 <!-- for th -->
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+<!--Sub Title-->
 
 <div class="form-container3 mat-elevation-z5" *ngIf="user$ | async as user">
   <h1 class="form-title">Personal Information</h1>
@@ -34,8 +36,9 @@
     <section class="fieldset">
       <table>
         <tbody>
+          <caption>Basic Information</caption>
           <tr>
-            <th class="tdTitle">First Name</th>
+            <th>First Name</th>
             <td>:</td>
             <td>{{user.firstName}}</td>
           </tr>
@@ -134,8 +137,168 @@
             <td>:</td>
             <td>{{user.tin}}</td>
           </tr>
+          <caption class="capBot">Resident Address</caption>
+          <tr>
+            <th>House/Block/Lot Number</th>
+            <td>:</td>
+            <td>{{user.houseBlockResident}}</td>
+          </tr>
+          <tr>
+            <th>Street</th>
+            <td>:</td>
+            <td>{{user.streetResident}}</td>
+          </tr>
+          <tr>
+            <th>Subdivision/Village</th>
+            <td>:</td>
+            <td>{{user.subdivisionResident}}</td>
+          </tr>
+          <tr>
+            <th>Barangay</th>
+            <td>:</td>
+            <td>{{user.barangayResident}}</td>
+          </tr>
+          <tr>
+            <th>City/Municipality</th>
+            <td>:</td>
+            <td>{{user.municipalityResident}}</td>
+          </tr>
+          <tr>
+            <th>Province</th>
+            <td>:</td>
+            <td>{{user.provinceResident}}</td>
+          </tr>
+          <tr>
+            <th>Zip Code</th>
+            <td>:</td>
+            <td>{{user.zipCodeResident}}</td>
+          </tr>
+          <caption class="capBot">Permanent Address</caption>
+          <tr>
+            <th>House/Block/Lot Number</th>
+            <td>:</td>
+            <td>{{user.houseBlockPermanent}}</td>
+          </tr>
+          <tr>
+            <th>Street</th>
+            <td>:</td>
+            <td>{{user.streetPermanent}}</td>
+          </tr>
+          <tr>
+            <th>Subdivision/Village</th>
+            <td>:</td>
+            <td>{{user.subdivisionPermanent}}</td>
+          </tr>
+          <tr>
+            <th>Barangay</th>
+            <td>:</td>
+            <td>{{user.barangayPermanent}}</td>
+          </tr>
+          <tr>
+            <th>City/Municipality</th>
+            <td>:</td>
+            <td>{{user.municipalityPermanent}}</td>
+          </tr>
+          <tr>
+            <th>Province</th>
+            <td>:</td>
+            <td>{{user.provincePermanent}}</td>
+          </tr>
+          <tr>
+            <th>Zip Code</th>
+            <td>:</td>
+            <td>{{user.zipCodePermanent}}</td>
+          </tr>
         </tbody>
       </table>
     </section>
   </div>
+  <!-- <div class="container">
+    <h2>Resident Address</h2>
+    <section class="fieldset">
+      <table>
+        <tbody>
+          <tr>
+            <th>House/Block/Lot Number</th>
+            <td>:</td>
+            <td>{{user.houseBlockResident}}</td>
+          </tr>
+          <tr>
+            <th>Street</th>
+            <td>:</td>
+            <td>{{user.streetResident}}</td>
+          </tr>
+          <tr>
+            <th>Subdivision/Village</th>
+            <td>:</td>
+            <td>{{user.subdivisionResident}}</td>
+          </tr>
+          <tr>
+            <th>Barangay</th>
+            <td>:</td>
+            <td>{{user.barangayResident}}</td>
+          </tr>
+          <tr>
+            <th>City/Municipality</th>
+            <td>:</td>
+            <td>{{user.municipalityResident}}</td>
+          </tr>
+          <tr>
+            <th>Province</th>
+            <td>:</td>
+            <td>{{user.provinceResident}}</td>
+          </tr>
+          <tr>
+            <th>Zip Code</th>
+            <td>:</td>
+            <td>{{user.zipCodeResident}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+  <div class="container">
+    <h2>Permanent Address</h2>
+    <section class="fieldset">
+      <table>
+        <tbody>
+          <tr>
+            <th>House/Block/Lot Number</th>
+            <td>:</td>
+            <td>{{user.houseBlockPermanent}}</td>
+          </tr>
+          <tr>
+            <th>Street</th>
+            <td>:</td>
+            <td>{{user.streetPermanent}}</td>
+          </tr>
+          <tr>
+            <th>Subdivision/Village</th>
+            <td>:</td>
+            <td>{{user.subdivisionPermanent}}</td>
+          </tr>
+          <tr>
+            <th>Barangay</th>
+            <td>:</td>
+            <td>{{user.barangayPermanent}}</td>
+          </tr>
+          <tr>
+            <th>City/Municipality</th>
+            <td>:</td>
+            <td>{{user.municipalityPermanent}}</td>
+          </tr>
+          <tr>
+            <th>Province</th>
+            <td>:</td>
+            <td>{{user.provincePermanent}}</td>
+          </tr>
+          <tr>
+            <th>Zip Code</th>
+            <td>:</td>
+            <td>{{user.zipCodePermanent}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div> -->
 </div>
