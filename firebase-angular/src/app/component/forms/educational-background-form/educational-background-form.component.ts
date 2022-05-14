@@ -119,19 +119,19 @@ export class EducationalBackgroundFormComponent implements OnInit {
     
 
 
-    const {employeeId,  firstname, lastname, email, password } = this.ProfileFrom.value
+    // const {employeeId,  firstname, lastname, email, password } = this.ProfileFrom.value
 
-    const profileData = this.ProfileFrom.value
-    this.usersService.updateUser(profileData).pipe(
+    // const profileData = this.ProfileFrom.value
+    // this.usersService.updateUser(profileData).pipe(
 
      
 
-      this.toast.observe({
-        success: 'Data saved.',
-        loading: 'Saving data... ',
-        error: 'Failed to update data.'
-      })
-    ).subscribe()
+    //   this.toast.observe({
+    //     success: 'Data saved.',
+    //     loading: 'Saving data... ',
+    //     error: 'Failed to update data.'
+    //   })
+    // ).subscribe()
       
 
 

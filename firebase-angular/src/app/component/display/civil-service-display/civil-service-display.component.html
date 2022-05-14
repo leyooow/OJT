@@ -1,1 +1,55 @@
-<p>civil-service-display works!</p>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+<!--for titles-->
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+<!--for labels-->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+<!-- for th -->
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+<!--Sub Title-->
+
+<div class="form-container3 mat-elevation-z5" *ngIf="user$ | async as user">
+  <h1 class="form-title">Civil Service Eligibility</h1>
+  <hr>
+
+  <div class="container">
+    <section class="fieldset">
+      <table>
+        <tbody>
+          <tr>
+            <th>Civil Service</th>
+            <td>:</td>
+            <td>{{user.careercivil}}</td>
+          </tr>
+          <tr>
+            <th>Rating</th>
+            <td>:</td>
+            <td>{{user.ratingCivil}}</td>
+          </tr>
+          <tr>
+            <th>Place of examination/Conferment</th>
+            <td>:</td>
+            <td>{{user.placeofExamCivil}}</td>
+          </tr>
+          <tr>
+            <th>Date of examination/Conferment</th>
+            <td>:</td>
+            <td>{{user.dateofExamCivil}}</td>
+          </tr>
+          <caption class="capBot">License</caption>
+          <tr>
+            <th>Number</th>
+            <td>:</td>
+            <td>{{user.numberCivil}}</td>
+          </tr>
+          <tr>
+            <th> Date of Validity</th>
+            <td>:</td>
+            <td>{{user.dateofValidityCivil}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>

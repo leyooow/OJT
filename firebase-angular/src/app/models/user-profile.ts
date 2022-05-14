@@ -115,7 +115,9 @@ export interface ProfileUser {
     monthlySalaryWorkExp?: string
     statusOfAppointmentWorkExp?: string
     governmentServiceWorkExp?: string
+    salaryJobPayWorkExp?:string
 
+    TitleOfLearningTraining?:string
     toTraining?: string
     fromTraining?: string
     numberOfHrsTraining?: string

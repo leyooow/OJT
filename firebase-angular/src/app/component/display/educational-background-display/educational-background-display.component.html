@@ -1,1 +1,179 @@
-<h1> Educational Background is working</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+<!--for titles-->
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+<!--for labels-->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+<!-- for th -->
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+<!--Sub Title-->
+
+<div class="form-container3 mat-elevation-z5" *ngIf="user$ | async as user">
+  <h1 class="form-title">Educational Background</h1>
+  <hr>
+
+  <div class="container">
+    <section class="fieldset">
+      <table>
+        <tbody>
+          <caption>Elementary</caption>
+          <tr>
+            <th>Name of School</th>
+            <td>:</td>
+            <td>{{user.nameOfSchoolElem}}</td>
+          </tr>
+          <tr>
+            <th>Basic Education/Degree/Course</th>
+            <td>:</td>
+            <td>{{user.basicEducElem}}</td>
+          </tr>
+          <tr>
+            <th>Period of Attendance</th>
+            <td>:</td>
+            <td>{{user.fromElem}} <strong>-</strong> {{user.toElem}}</td>
+          </tr>
+          <tr>
+            <th>Year Graduated</th>
+            <td>:</td>
+            <td>{{user.yearGraduatedElem}}</td>
+          </tr>
+          <tr>
+            <th>Highest Level/Units Earned</th>
+            <td>:</td>
+            <td>{{user.highestLevelElem}}</td>
+          </tr>
+          <tr>
+            <th>Scholarship/Academic Honors Received</th>
+            <td>:</td>
+            <td>{{user.scholarElem}}</td>
+          </tr>
+          <caption class="capBot">Secondary</caption>
+          <tr>
+            <th>Name of School</th>
+            <td>:</td>
+            <td>{{user.nameOfSchoolSecondary}}</td>
+          </tr>
+          <tr>
+            <th>Basic Education/Degree/Course</th>
+            <td>:</td>
+            <td>{{user.basicEducSecondary}}</td>
+          </tr>
+          <tr>
+            <th>Period of Attendance</th>
+            <td>:</td>
+            <td>{{user.fromSecondary}} <strong>-</strong> {{user.toSecondary}}</td>
+          </tr>
+          <tr>
+            <th>Year Graduated</th>
+            <td>:</td>
+            <td>{{user.yearGraduatedSecondary}}</td>
+          </tr>
+          <tr>
+            <th>Highest Level/Units Earned</th>
+            <td>:</td>
+            <td>{{user.highestLevelSecondary}}</td>
+          </tr>
+          <tr>
+            <th>Scholarship/Academic Honors Received</th>
+            <td>:</td>
+            <td>{{user.scholarSecondary}}</td>
+          </tr>
+          <caption class="capBot">College</caption>
+          <tr>
+            <th>Name of School</th>
+            <td>:</td>
+            <td>{{user.nameOfSchoolCollege}}</td>
+          </tr>
+          <tr>
+            <th>Basic Education/Degree/Course</th>
+            <td>:</td>
+            <td>{{user.basicEducCollege}}</td>
+          </tr>
+          <tr>
+            <th>Period of Attendance</th>
+            <td>:</td>
+            <td>{{user.fromCollege}} <strong>-</strong> {{user.toCollege}}</td>
+          </tr>
+          <tr>
+            <th>Year Graduated</th>
+            <td>:</td>
+            <td>{{user.yearGraduatedCollege}}</td>
+          </tr>
+          <tr>
+            <th>Highest Level/Units Earned</th>
+            <td>:</td>
+            <td>{{user.highestLevelCollege}}</td>
+          </tr>
+          <tr>
+            <th>Scholarship/Academic Honors Received</th>
+            <td>:</td>
+            <td>{{user.scholarCollege}}</td>
+          </tr>
+          <caption class="capBot">Vocational/Trade Course</caption>
+          <tr>
+            <th>Name of School</th>
+            <td>:</td>
+            <td>{{user.nameOfSchoolVocational}}</td>
+          </tr>
+          <tr>
+            <th>Basic Education/Degree/Course</th>
+            <td>:</td>
+            <td>{{user.basicEducVocational}}</td>
+          </tr>
+          <tr>
+            <th>Period of Attendance</th>
+            <td>:</td>
+            <td>{{user.fromVocational}} <strong>-</strong> {{user.toVocational}}</td>
+          </tr>
+          <tr>
+            <th>Year Graduated</th>
+            <td>:</td>
+            <td>{{user.yearGraduatedVocational}}</td>
+          </tr>
+          <tr>
+            <th>Highest Level/Units Earned</th>
+            <td>:</td>
+            <td>{{user.highestLevelVocational}}</td>
+          </tr>
+          <tr>
+            <th>Scholarship/Academic Honors Received</th>
+            <td>:</td>
+            <td>{{user.scholarVocational}}</td>
+          </tr>
+          <caption class="capBot">Graduate Studies</caption>
+          <tr>
+            <th>Name of School</th>
+            <td>:</td>
+            <td>{{user.nameOfSchoolStudies}}</td>
+          </tr>
+          <tr>
+            <th>Basic Education/Degree/Course</th>
+            <td>:</td>
+            <td>{{user.basicEducStudies}}</td>
+          </tr>
+          <tr>
+            <th>Period of Attendance</th>
+            <td>:</td>
+            <td>{{user.fromStudies}} <strong>-</strong> {{user.toStudies}}</td>
+          </tr>
+          <tr>
+            <th>Year Graduated</th>
+            <td>:</td>
+            <td>{{user.yearGraduatedStudies}}</td>
+          </tr>
+          <tr>
+            <th>Highest Level/Units Earned</th>
+            <td>:</td>
+            <td>{{user.highestLevelStudies}}</td>
+          </tr>
+          <tr>
+            <th>Scholarship/Academic Honors Received</th>
+            <td>:</td>
+            <td>{{user.scholarStudies}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>

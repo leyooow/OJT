@@ -93,7 +93,6 @@
 }
 
 table {
-  /* position: relative; */
   display: table;
   border-collapse: collapse;
   box-sizing: border-box;
@@ -119,27 +118,21 @@ tr {
 
 tr:hover {
   background-color: #b7b9bd6e;
-  /* color: white; */
 }
 
 td {
   font-family: sans-serif;
-  /* justify-content: center;
-  text-align: center;
-  align-items: center; */
+  font-size: 0.8em;
 }
 
 th {
-
-  /* font-family: 'Merriweather Sans', sans-serif; */
   font-weight: 600;
 }
 
 td,
 th {
-  /* width: max-content; 118*/
   padding: 8px;
-  padding-right: 118px;
+  padding-right: 120px;
   font-family: 'Roboto Slab', serif;
 }
 
@@ -203,7 +196,6 @@ mat-icon {
 
   td,
   th {
-    /* width: max-content; */
     padding: 5px;
     padding-right: -50px;
   }
