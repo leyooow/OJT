@@ -11,8 +11,12 @@ import {
 import * as bootstrap from 'bootstrap';
 import { user } from '@angular/fire/auth';
 import { FormControl, FormGroup } from '@angular/forms';
-import { first } from 'rxjs';
+import { first, switchMap } from 'rxjs';
 import * as $ from 'jquery';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UsersService } from 'src/app/services/users.service';
+import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
 
 interface User {
   employeeId: string;
@@ -41,12 +45,29 @@ interface User {
 })
 export class FacultyRequestComponent implements OnInit {
 
-  empID:any
+  password: string = '';
+  email: string = '';
+  employeeId: string = '';
+  firstName: string = '';
+  lastName: string = '';
+
+  empID: any
+
+  signUpForm = new FormGroup({
+    uid: new FormControl('',),
+    firstname: new FormControl('',),
+    lastname: new FormControl('',),
+    employeeId: new FormControl('',),
+    email: new FormControl('',),
+    password: new FormControl('',),
+    confirmPassword: new FormControl('',),
+    done: new FormControl('',),
+  })
 
 
   facRequestForm = new FormGroup({
     employeeId: new FormControl('',),
-   
+
   })
 
   // countries = COUNTRIES;
@@ -59,6 +80,11 @@ export class FacultyRequestComponent implements OnInit {
     public database: Database,
     private afs: AngularFirestore,
     private db: AngularFireDatabase,
+    private authService: AuthenticationService,
+    private usersService: UsersService,
+    private router: Router,
+    private toast: HotToastService,
+
 
   ) { }
 
@@ -67,20 +93,20 @@ export class FacultyRequestComponent implements OnInit {
     // let value = event.target.innerHTML; 
     // console.log("value", value);
 
-     
-   
 
-    
-        
 
-      
+
+
+
+
+
 
     if (confirm("Are you sure you want to delete this request?") == true) {
-      
+
       // this.getUserFromTable()
       // this.delete()
-      
-      
+
+
 
     }
 
@@ -90,7 +116,7 @@ export class FacultyRequestComponent implements OnInit {
 
   async delete() {
 
-    
+
     this.getUserFromTable()
 
     // let value = ""
@@ -98,7 +124,7 @@ export class FacultyRequestComponent implements OnInit {
     // $(".hit").click(function(){
     //  value=$(this). closest('tr'). children('td:first'). text();
     //   console.log(value);
-      
+
     //   });
 
     // const { employeeId } = this.facRequestForm.value
@@ -113,28 +139,28 @@ export class FacultyRequestComponent implements OnInit {
     // await this.db.object('request/' + value).remove()
     setTimeout(() => {
       window.location.reload
-     const id = String(localStorage.getItem('id'))
-    //  alert(id)
-    if (confirm('Are you sure you want to delete this request?') === true){
-      const ref = this.db.object('request/' + id).remove()
-      alert('deleted')
-      this.getStarted()
+      const id = String(sessionStorage.getItem('id'))
+      //  alert(id)
+      if (confirm('Are you sure you want to delete this request?') === true) {
+        const ref = this.db.object('request/' + id).remove()
+        alert('deleted')
+        this.getStarted()
 
-    }
-   
-    
-    //  const emp = this.empID = '123'
-     
-  },50)
-    
-     
-      
-    
-  
-    
+      }
 
 
-   
+      //  const emp = this.empID = '123'
+
+    }, 50)
+
+
+
+
+
+
+
+
+
 
 
 
@@ -143,71 +169,174 @@ export class FacultyRequestComponent implements OnInit {
 
   async getUserFromTable() {
     var value: string
-    $(".hit").click(function(){
-       value=$(this). closest('tr'). children('td:first'). text();
-        console.log(value);
-        localStorage.setItem('id', value) 
-     
-        
-        
-        });
+    $(".hit").click(function () {
+      value = $(this).closest('tr').children('td:first').text();
+      console.log(value);
+      sessionStorage.setItem('id', value)
 
-  
+
+
+    });
+
+
     // await this.db.object('request/' + id).remove()
     // if(confirm('Are you sure you want to delete this request?') == true){
     //   alert(id)
     //   localStorage.clear();
     // }
-    
 
 
-       
-  // let value1 = document.querySelector('.td1')?.innerHTML;
-  // console.log(value1)
-      
-        // this.getStarted()
+
+
+    // let value1 = document.querySelector('.td1')?.innerHTML;
+    // console.log(value1)
+
+    // this.getStarted()
   }
 
 
 
   async accept() {
 
-    await this.getStarted()
 
 
-  }
+    //  const email1 = ''
+    //  const employeeId1 = ''
+    //  const firstName1 = '' 
+    //  const lastName1 = ''  
 
-  
 
-  getAllRequest() {
 
-    return new Promise((resolve, reject) => {
-      this.db.list('request').valueChanges().subscribe(value => {
-        resolve(value)
+    setTimeout(() => {
+
+      const id = sessionStorage.getItem('id');
+        
+
+      //email
+      const emailRef = ref(this.database, 'request/' + id + '/email');
+      onValue(emailRef, (snapshot) => {
+        const email = snapshot.val();
+
+        localStorage.setItem('email', String(email))
+        alert(String(email))
       })
-    })
+      
+
+      //password
+      const passworRef = ref(this.database, 'request/' + id + '/password');
+      onValue(passworRef, (snapshot) => {
+        const password = snapshot.val();
+        localStorage.setItem('password', password)
+      })
+
+      //employeeId
+      const employeeIdRef = ref(this.database, 'request/' + id + '/employeeId');
+      onValue(employeeIdRef, (snapshot) => {
+        const employeeId = snapshot.val();
+        localStorage.setItem('employeeId', employeeId)
+
+      })
+
+      //firstName
+      const firstNameRef = ref(this.database, 'request/' + id + '/firstName');
+      onValue(firstNameRef, (snapshot) => {
+        const firstName = snapshot.val();
+        localStorage.setItem('firstName', firstName)
+      })
+
+      //LastName
+      const LastNameRef = ref(this.database, 'request/' + id + '/lastName');
+      onValue(LastNameRef, (snapshot) => {
+        const lastName = snapshot.val();
+        localStorage.setItem('LastName', lastName)
+      })
+
+
+
+  }, 50)
+
+
+
+
+  const email1 =  String(localStorage.getItem('email')!)
+  const employeeId1 = String(localStorage.getItem('employeeId')!)
+  const firstName1 = String(localStorage.getItem('firstName')!)
+  const lastName1 = String(localStorage.getItem('lastName')!)
+  const password1 = String(localStorage.getItem('password')!) 
+
+  setTimeout(() => {
+
+    this.authService.signUp(email1, password1)
+      .pipe(
+
+
+        switchMap(({ user: { uid } }) => this.usersService.addUser(
+          {
+            uid, firstName: firstName1,
+            lastName: lastName1, employeeId: employeeId1,
+            email: email1, displayName: firstName1 + ' ' + lastName1, done: ''
+          })
+        ),
+
+
+
+
+
+        this.toast.observe({
+          success: 'Accepted',
+          loading: 'Checking...',
+          error: 'Error'
+        })
+      ).subscribe(() => {
+        // this.getUserFromTable()
+        this.authService.logout().subscribe(() => {
+        localStorage.clear();
+
+        })
+      })
+
+  }, 200)
+
+
+
+
+
+await this.getStarted()
 
 
   }
+
+
+
+getAllRequest() {
+
+  return new Promise((resolve, reject) => {
+    this.db.list('request').valueChanges().subscribe(value => {
+      resolve(value)
+    })
+  })
+
+
+}
 
   async getStarted() {
 
-    var users!: ProfileUser[]
-    await this.getAllRequest().then(value => {
-      users = value as ProfileUser[]
-    })
-    this.userList = users
+  var users!: ProfileUser[]
+  await this.getAllRequest().then(value => {
+    users = value as ProfileUser[]
+  })
+  this.userList = users
 
-    console.log(this.userList)
-  }
+  console.log(this.userList)
+}
 
-  async ngOnInit(): Promise<void> {
-    this.getStarted()
-  }
+  async ngOnInit(): Promise < void> {
+  this.getStarted()
+}
 
-  getValue(event:any) {
-    let value = event.target.innerHTML; 
-    console.log("value", value);
+getValue(event: any) {
+  let value = event.target.innerHTML;
+  console.log("value", value);
 }
 
 
