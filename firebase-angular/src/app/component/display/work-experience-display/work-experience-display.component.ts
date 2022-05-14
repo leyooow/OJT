@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-work-experience-display',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkExperienceDisplayComponent implements OnInit {
 
-  constructor() { }
+ 
+  user$ = this.usersService.currentUserProfile$
+
+  constructor(private usersService : UsersService,
+    ) { }
 
   ngOnInit(): void {
   }
 
 }
+

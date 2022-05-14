@@ -1,4 +1,4 @@
-  import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { initializeApp } from '@angular/fire/app';
 import { getAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
@@ -13,13 +13,13 @@ import { AuthenticationService } from './authentication.service';
 })
 export class UsersService {
 
-  get currentUserProfile$() : Observable<ProfileUser | null> {
+  get currentUserProfile$(): Observable<ProfileUser | null> {
     return this.authService.currentUser$.pipe(
-      switchMap( user => {
-        
-        if(!user?.uid) {
+      switchMap(user => {
+
+        if (!user?.uid) {
           return of(null)
-        } 
+        }
 
         const ref = doc(this.firestore, 'users', user?.uid)
         return docData(ref) as Observable<ProfileUser>
@@ -27,54 +27,56 @@ export class UsersService {
       })
     )
   }
-  constructor(private firestore: Firestore, private authService: AuthenticationService, private afs : AngularFirestore) { }
+  constructor(private firestore: Firestore, 
+    private authService: AuthenticationService, 
+    private afs: AngularFirestore) { }
 
-  addUser(user: ProfileUser) : Observable<any> {
+  addUser(user: ProfileUser): Observable<any> {
     const ref = doc(this.firestore, 'users', user?.uid)
     return from(setDoc(ref, user));
   }
 
-  addUser2(user: ProfileUser) : Observable<any> {
+  addUser2(user: ProfileUser): Observable<any> {
     const ref = doc(this.firestore, 'request', user?.uid)
     return from(setDoc(ref, user));
   }
 
-  updateUser(user: ProfileUser) : Observable<any> {
+  updateUser(user: ProfileUser): Observable<any> {
     const ref = doc(this.firestore, 'users', user?.uid)
     return from(updateDoc(ref, { ...user }));
-    
+
   }
 
-  updateInfo(user: ProfileUser) : Observable<any> {
+  updateInfo(user: ProfileUser): Observable<any> {
     const ref = doc(this.firestore, 'users', user?.uid)
-    return from( updateDoc(ref, { ...user }));
+    return from(updateDoc(ref, { ...user }));
   }
 
-getDocdata(user: ProfileUser, done: any)   {
-  const ref = doc(this.firestore, 'users', user?.uid, done).toString()
-  return ref
-}
+  getDocdata(user: ProfileUser, done: any) {
+    const ref = doc(this.firestore, 'users', user?.uid, done).toString()
+    return ref
+  }
 
-getDoneData(uid: any)  : AngularFirestoreDocument<ProfileUser> {
-  // const firebaseConfig = {
-  //     apiKey: "AIzaSyAZwTfopp-Qz3HFzGNBc5iYsBpA6U1A4FI",
-  //     authDomain: "ojt1-6eeca.firebaseapp.com",
-  //     projectId: "ojt1-6eeca",
-  //     storageBucket: "ojt1-6eeca.appspot.com",
-  //     messagingSenderId: "586333622765",
-  //     appId: "1:586333622765:web:ff90f5bef683338019d7e4",
-  //     measurementId: "G-0L3NSLG8QZ"
-  //   };
+  getDoneData(uid: any): AngularFirestoreDocument<ProfileUser> {
+    // const firebaseConfig = {
+    //     apiKey: "AIzaSyAZwTfopp-Qz3HFzGNBc5iYsBpA6U1A4FI",
+    //     authDomain: "ojt1-6eeca.firebaseapp.com",
+    //     projectId: "ojt1-6eeca",
+    //     storageBucket: "ojt1-6eeca.appspot.com",
+    //     messagingSenderId: "586333622765",
+    //     appId: "1:586333622765:web:ff90f5bef683338019d7e4",
+    //     measurementId: "G-0L3NSLG8QZ"
+    //   };
 
-  //   const app = initializeApp(firebaseConfig)
-  //   const db = getFirestore(app)
+    //   const app = initializeApp(firebaseConfig)
+    //   const db = getFirestore(app)
 
-  const userID = getAuth().currentUser?.uid
-    
-  return this.afs.collection('users').doc(userID);
+    const userID = getAuth().currentUser?.uid
 
-    
-  
-}
+    return this.afs.collection('users').doc(userID);
+
+
+
+  }
 
 }
