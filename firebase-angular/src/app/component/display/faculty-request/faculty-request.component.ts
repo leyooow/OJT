@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Database, get, onValue, ref } from '@angular/fire/database';
 import { ProfileUser } from 'src/app/models/user-profile';
+import * as admin from 'firebase-admin';
+import * as serviceAccount from 'firebase-admin'
+
+
 
 import {
   AngularFireDatabase,
@@ -9,7 +13,7 @@ import {
   AngularFireObject,
 } from '@angular/fire/compat/database';
 import * as bootstrap from 'bootstrap';
-import { user } from '@angular/fire/auth';
+import { getAuth, user } from '@angular/fire/auth';
 import { FormControl, FormGroup } from '@angular/forms';
 import { first, switchMap } from 'rxjs';
 import * as $ from 'jquery';
@@ -17,6 +21,10 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UsersService } from 'src/app/services/users.service';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import * as firebase from 'firebase/compat';
+
 
 interface User {
   employeeId: string;
@@ -161,7 +169,7 @@ export class FacultyRequestComponent implements OnInit {
 
 
 
-
+    await this.getStarted()
 
 
 
@@ -209,6 +217,9 @@ export class FacultyRequestComponent implements OnInit {
 
     setTimeout(() => {
 
+
+     
+      this.getUserFromTable()
       const id = sessionStorage.getItem('id');
         
 
@@ -218,7 +229,7 @@ export class FacultyRequestComponent implements OnInit {
         const email = snapshot.val();
 
         localStorage.setItem('email', String(email))
-        alert(String(email))
+        
       })
       
 
@@ -264,36 +275,58 @@ export class FacultyRequestComponent implements OnInit {
   const lastName1 = String(localStorage.getItem('lastName')!)
   const password1 = String(localStorage.getItem('password')!) 
 
+  
+
+  
+
   setTimeout(() => {
 
-    this.authService.signUp(email1, password1)
-      .pipe(
+    
+
+    //var admin = require("firebase-admin");
+
+    // const serviceAccount = 'path/to/serviceAccountKey.json';
+    
+
+    // admin.initializeApp({
+    //   credential: admin.credential.cert(serviceAccount),
+    //   databaseURL: 'https://mysuperdatabase.firebaseio.com'
+    // });
+    
 
 
-        switchMap(({ user: { uid } }) => this.usersService.addUser(
-          {
-            uid, firstName: firstName1,
-            lastName: lastName1, employeeId: employeeId1,
-            email: email1, displayName: firstName1 + ' ' + lastName1, done: ''
-          })
-        ),
+
+    
+
+
+    // this.authService.signUp(email1, password1)
+    //   .pipe(
+
+
+    //     switchMap(({ user: { uid } }) => this.usersService.addUser(
+    //       {
+    //         uid, firstName: firstName1,
+    //         lastName: lastName1, employeeId: employeeId1,
+    //         email: email1, displayName: firstName1 + ' ' + lastName1, done: ''
+    //       })
+    //     ),
 
 
 
 
 
-        this.toast.observe({
-          success: 'Accepted',
-          loading: 'Checking...',
-          error: 'Error'
-        })
-      ).subscribe(() => {
-        // this.getUserFromTable()
-        this.authService.logout().subscribe(() => {
-        localStorage.clear();
+    //     this.toast.observe({
+    //       success: 'Accepted',
+    //       loading: 'Checking...',
+    //       error: 'Error'
+    //     })
+    //   ).subscribe(() => {
+    //     // this.getUserFromTable()
+    //     this.authService.logout().subscribe(() => {
+    //     localStorage.clear();
 
-        })
-      })
+    //     })
+    //   })
 
   }, 200)
 
