@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Database, get, onValue, ref } from '@angular/fire/database';
+import { Database, get, onValue, ref, set } from '@angular/fire/database';
 import { ProfileUser } from 'src/app/models/user-profile';
 import * as admin from 'firebase-admin';
 import * as serviceAccount from 'firebase-admin'
@@ -150,15 +150,16 @@ export class FacultyRequestComponent implements OnInit {
     // await this.db.object('request/' + value).remove()
     setTimeout(() => {
       window.location.reload
-      const id = String(sessionStorage.getItem('id'))
+      const id = String(localStorage.getItem('id'))
       //  alert(id)
       if (confirm('Are you sure you want to delete this request?') === true) {
         const ref = this.db.object('request/' + id).remove()
         alert('deleted')
         this.getStarted()
 
+      }else{
+        localStorage.clear()
       }
-
 
       //  const emp = this.empID = '123'
 
@@ -178,17 +179,22 @@ export class FacultyRequestComponent implements OnInit {
 
   }
 
-  async getUserFromTable() {
-    var value: string
-    $(".hit").click(function () {
-      value = $(this).closest('tr').children('td:first').text();
-      console.log(value);
-      sessionStorage.setItem('id', value)
+   getUserFromTable() {
+    
+      var value: string
+      $(".hit").click(function () {
+        value = $(this).closest('tr').children('td:first').text();
+        console.log(value);
+        localStorage.setItem('id', value)
+  
+  
+  
+      });
+  
 
 
-
-    });
-
+    
+   
 
     // await this.db.object('request/' + id).remove()
     // if(confirm('Are you sure you want to delete this request?') == true){
@@ -218,12 +224,29 @@ export class FacultyRequestComponent implements OnInit {
 
 
 
+    // setTimeout(() => {
+
+
+
+     
+
+
+
+    // }, 50)
+
+
+
+
+
+
+    this.getUserFromTable()
+
+
     setTimeout(() => {
 
+      
 
-
-      this.getUserFromTable()
-      const id = sessionStorage.getItem('id');
+      const id = localStorage.getItem('id');
 
 
       //email
@@ -265,19 +288,8 @@ export class FacultyRequestComponent implements OnInit {
         localStorage.setItem('LastName', lastName)
       })
 
-
-
-    }, 50)
-
-
-
-
-
-
-
-
-
-    setTimeout(() => {
+  
+     
 
       const email1 = String(localStorage.getItem('email')!)
       const employeeId1 = String(localStorage.getItem('employeeId')!)
@@ -303,7 +315,7 @@ export class FacultyRequestComponent implements OnInit {
 
 
 
-
+      
 
 
 
@@ -311,6 +323,7 @@ export class FacultyRequestComponent implements OnInit {
         .pipe(
 
 
+          
           switchMap(({ user: { uid } }) => this.usersService.addUser(
             {
               uid, firstName: firstName1,
@@ -329,22 +342,55 @@ export class FacultyRequestComponent implements OnInit {
             error: ({ message }) => `${message}`
           })
         ).subscribe(() => {
-          // this.getUserFromTable()
+          //  this.getUserFromTable()
+
+          const userId = getAuth().currentUser?.uid
+
+          const ref1 = ref(this.database, 'users/' + userId)
+          const ref2 = ref(this.database, 'users2/' + employeeId1)
+
+
+
+          set(ref1, {
+
+            employeeId: employeeId1,
+            email: email1,
+            uid: userId,
+            firstName: firstName1,
+            lastName: lastName1,
+            password: password1,
+
+          })
+
+          set(ref2, {
+
+            employeeId: employeeId1,
+            email: email1,
+            uid: userId,
+        
+
+          })
+
           this.authService.logout().subscribe(() => {
             localStorage.clear();
-            const id = String(sessionStorage.getItem('id'))
+            
+            const id = String(localStorage.getItem('id'))
             //  alert(id)
 
             const ref = this.db.object('request/' + id).remove()
+            
             this.getStarted()
+            
           })
 
 
-          this.getUserFromTable();
-
+          // this.getUserFromTable();
+        
+     
 
           this.authService.login('admin@gmail.com', 'admin123').subscribe()
-
+          
+      
 
 
 
@@ -357,10 +403,10 @@ export class FacultyRequestComponent implements OnInit {
 
         })
 
-    }, 200)
+    }, 50)
 
 
-
+  
 
 
 

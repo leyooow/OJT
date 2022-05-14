@@ -88,12 +88,12 @@ export class RegisterComponent implements OnInit {
 
     })
    
-    localStorage.setItem('uid', uid)
-    localStorage.setItem('password', password)
-    localStorage.setItem('email', email)
-    localStorage.setItem('employeeId', employeeId)
-    localStorage.setItem('firstName', firstname) 
-    localStorage.setItem('lastName1', lastname)   
+    // localStorage.setItem('uid', uid)
+    // localStorage.setItem('password', password)
+    // localStorage.setItem('email', email)
+    // localStorage.setItem('employeeId', employeeId)
+    // localStorage.setItem('firstName', firstname) 
+    // localStorage.setItem('lastName1', lastname)   
     
 
 
