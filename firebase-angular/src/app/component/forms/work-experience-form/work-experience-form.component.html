@@ -5,7 +5,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
 <!--for labels-->
 
-<div class="form-container2  mat-elevation-z5 text-center" *ngIf="user$ | async as user">
+<div class="form-container2  mat-elevation-z5 text-center animate__animated animate__fadeIn animate__faster"
+  *ngIf="user$ | async as user">
   <p id="ins">Please fill out all of the relevant information which will be recorded in the Faculty Management
     Information System. We ask that you only provide true and accurate information. Write "N/A" if not applicable.
   </p>
@@ -14,114 +15,141 @@
   <hr>
 
   <form class="margin-top" [formGroup]="ProfileForm">
-    <div style="margin-bottom: -25px;">
-      <h4 class="incl">Inclusive Dates</h4>
-    </div>
-
-    <div class="container1">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            From <span class="hint"> (mm/dd/yyyy) </span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control medInput" type="date" formControlName="fromWorkExp" placeholder="From:" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            To <span class="hint"> (mm/dd/yyyy) </span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control medInput" type="date" formControlName="tomWorkExp" placeholder="To:" />
-        </div>
-      </div>
-    </div>
-
     <div class="container">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Position Title <span class="hint">(Write in full/Do not abbreviate)</span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="positionTitleWorkExp" placeholder="Position Title" />
+      <div class="row">
+        <div class="col-md-8 col-lg-4 col-sm-12">
+          <div>
+            <span class="title2 subAtt">Period of Attendance</span>
+          </div>
+          <div class="row att">
+            <div class="col-sm-6 att">
+              <div class="nameLbl">
+                <label class="label2">
+                  From
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" maxlength="4" min="1900" max="2099" step="1" type="number"
+                  formControlName="fromStudies" placeholder="From (yyyy)" />
+              </div>
+            </div>
+            <div class="col-sm-6 att">
+              <div class="nameLbl">
+                <label class="label2">
+                  To
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" maxlength="4" min="1900" max="2099" step="1" type="number"
+                  formControlName="toStudies" placeholder="To (yyyy)" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2 lbldept-outer">
-            Department/Agency/Office/Company <span class="hint lbldept-inner">(Write in full/Do not abbreviate)</span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="departmentWorkExp"
-            placeholder="Department/Agency/Office/Company" />
-        </div>
-      </div>
-    </div>
 
-    <div class="container">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Monthly Salary
-          </label>
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Position Title <span class="hint">(Write in full/Do not abbreviate)</span>
+            </label>
+          </div>
+          <div class="item">
+            <input class="form-control" type="text" formControlName="positionTitleWorkExp"
+              placeholder="Position Title" />
+          </div>
         </div>
-        <div class="item">
-          <input class="form-control" class="medInput" type="number" formControlName="monthlySalaryWorkExp"
-            placeholder="Monthly Salary" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Salary/Job/Pay Grade <span class="hint"> (If applicable) </span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control medInput" type="text" formControlName="salaryJobPayWorkExp"
-            placeholder="Salary/Job/Pay Grade" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Status of Apointment
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control medInput" type="text" formControlName="statusOfAppointmentWorkExp"
-            placeholder="Status of Apointment" />
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2 lbldept-outer">
+              Department/Agency/Office/Company <span class="hint lbldept-inner">(Write in full/Do not abbreviate)</span>
+            </label>
+          </div>
+          <div class="item">
+            <input class="form-control" type="text" formControlName="departmentWorkExp"
+              placeholder="Department/Agency/Office/Company" />
+          </div>
         </div>
       </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Government Service
-          </label>
+
+      <div class="row">
+        <div class="col-md-6 col-lg-3 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Monthly Salary
+            </label>
+          </div>
+          <div class="item">
+            <input class="form-control" type="number" formControlName="monthlySalaryWorkExp"
+              placeholder="Monthly Salary" />
+          </div>
         </div>
-        <div class="item">
-          <select class="form-control medInput" formControlName="governmentServiceWorkExp">
-            <option value="" selected disabled>Government Service</option>
-            <option value="Yes">Yes </option>
-            <option value="No">No </option>
-          </select>
+        <div class="col-md-6 col-lg-3 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Salary/Job/Pay Grade <span class="hint"> (If applicable) </span>
+            </label>
+          </div>
+          <div class="item">
+            <input class="form-control " type="text" formControlName="salaryJobPayWorkExp"
+              placeholder="Salary/Job/Pay Grade" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Status of Apointment
+            </label>
+          </div>
+          <div class="item">
+            <input class="form-control " type="text" formControlName="statusOfAppointmentWorkExp"
+              placeholder="Status of Apointment" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Government Service
+            </label>
+          </div>
+          <div class="item">
+            <select class="form-control " formControlName="governmentServiceWorkExp">
+              <option value="" selected disabled>Government Service</option>
+              <option value="Yes">Yes </option>
+              <option value="No">No </option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
+    <hr>
 
     <div class="container" id="submitBtn">
-      <button routerLink="/civil-service-form" class="formbtn" mat-raised-button>
-        Back
-      </button>
-      <button (click)="saveProfile()" type="submit" class="formbtn" mat-raised-button>
-        Next
-      </button>
+      <div class="row">
+        <div class="col-md-6 col-lg-3 col-sm-12 formbtnDiv">
+          <button routerLink="/civil-service-form" class="formbtn" mat-raised-button>
+            Back
+          </button>
+        </div>
+        <div class="col-md-6 col-lg-1 col-sm-12">
+
+        </div>
+        <div class="col-md-6 col-lg-2 col-sm-12">
+
+        </div>
+        <div class="col-md-6 col-lg-2 col-sm-12">
+
+        </div>
+        <div class="col-md-6 col-lg-1 col-sm-12">
+
+        </div>
+        <div class="col-md-6 col-lg-3 col-sm-12 formbtnDiv">
+          <button (click)="saveProfile()" type="submit" class="formbtn" mat-raised-button>
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   </form>
 </div>

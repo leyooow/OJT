@@ -2,62 +2,78 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
 
-<div class="containerSignup mat-elevation-z5">
+<div class="containerSignup mat-elevation-z5 animate__animated animate__zoomIn animate__faster">
   <h1 class="form-title signupTitle">Sign Up</h1>
-  <form [formGroup]="signUpForm" >
-
-    <!-- firstname -->
-    <mat-form-field appearance="outline">
-      <input class="inputs" matInput placeholder="First Name" formControlName="firstname">
-      <mat-error class="signupText" *ngIf="firstname?.errors?.['required']"> First name Required!</mat-error>
-      <mat-label>First Name</mat-label>
-    </mat-form-field>
-    <br>
-    <!-- lastname -->
-    <mat-form-field appearance="outline">
-      <input class="inputs" matInput placeholder="Last Name" formControlName="lastname">
-      <mat-error class="signupText" *ngIf="lastname?.errors?.['required']">Last name Required!</mat-error>
-      <mat-label>Last Name</mat-label>
-    </mat-form-field>
-    <br>
-    <!-- employeeId -->
-    <mat-form-field appearance="outline">
-      <input class="inputs" matInput placeholder="Employee ID" formControlName="employeeId">
-      <mat-error class="signupText" *ngIf="employeeId?.errors?.['required']">Employee ID Required!</mat-error>
-      <mat-label>Employee ID</mat-label>
-    </mat-form-field>
-    <br>
-    <!-- email -->
-    <mat-form-field appearance="outline">
-      <input class="inputs" matInput placeholder="Email Address" formControlName="email">
-      <mat-error class="signupText" *ngIf="email?.errors?.['required']"> Email is Required!</mat-error>
-      <mat-error class="signupText" *ngIf="email?.errors?.['email']"> Please enter a correct email!</mat-error>
-      <mat-label>Email</mat-label>
-    </mat-form-field>
-    <br>
-    <!-- password -->
-    <mat-form-field appearance="outline">
-      <input class="inputs" matInput placeholder="Password" formControlName="password" type="password">
-      <mat-error class="signupText" *ngIf="email?.errors?.['required']"> Password is Required!</mat-error>
-      <mat-label>Password</mat-label>
-    </mat-form-field>
-    <br>
-    <!-- confirm password -->
-    <mat-form-field appearance="outline">
-      <input class="inputs" matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password">
-      <mat-error class="signupText" *ngIf="confirmPassword?.errors?.['required']">Confirm password is Required!
-      </mat-error>
-      <mat-label>Confirm Password</mat-label>
-    </mat-form-field>
-    <br>
-    <!-- password matching error -->
-    <mat-error class="signuppassText" *ngIf="signUpForm.errors?.['passwordsDontMatch']">Password should match!
-    </mat-error>
-    <div class="center margin-top">
-      <button mat-raised-button type="submit" class="signupBtn" (click)="submit()"> Register </button>
+  <form [formGroup]="signUpForm">
+    <div class="row">
+      <mat-form-field appearance="outline" class="col-md-12 col-lg-12 col-sm-12">
+        <input class="inputs" matInput placeholder="First Name" formControlName="firstname">
+        <mat-error class="signupText" *ngIf="firstname?.errors?.['required']"> First name Required!</mat-error>
+        <mat-label>First Name</mat-label>
+      </mat-form-field>
     </div>
 
-    <span class="center margin-top yesAcc">Already have an account?&nbsp; <a routerLink="/login" class="signup">
-        Login</a></span>
+    <div class="row">
+      <!-- firstname -->
+      <mat-form-field appearance="outline" class="col-md-12 col-lg-12 col-sm-12">
+        <input class="inputs" matInput placeholder="First Name" formControlName="firstname">
+        <mat-error class="signupText" *ngIf="firstname?.errors?.['required']"> First name Required!</mat-error>
+        <mat-label>First Name</mat-label>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <!-- lastname -->
+      <mat-form-field appearance="outline" class="col-md-12 col-lg-12 col-sm-12">
+        <input class="inputs" matInput placeholder="Last Name" formControlName="lastname">
+        <mat-error class="signupText" *ngIf="lastname?.errors?.['required']">Last name Required!</mat-error>
+        <mat-label>Last Name</mat-label>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <!-- employeeId -->
+      <mat-form-field appearance="outline" class="col-md-12 col-lg-12 col-sm-12">
+        <input class="inputs" matInput placeholder="Employee ID" formControlName="employeeId">
+        <mat-error class="signupText" *ngIf="employeeId?.errors?.['required']">Employee ID Required!</mat-error>
+        <mat-label>Employee ID</mat-label>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <!-- email -->
+      <mat-form-field appearance="outline" class="col-md-12 col-lg-12 col-sm-12">
+        <input class="inputs" matInput placeholder="Email Address" formControlName="email">
+        <mat-error class="signupText" *ngIf="email?.errors?.['required']"> Email is Required!</mat-error>
+        <mat-error class="signupText" *ngIf="email?.errors?.['email']"> Please enter a correct email!</mat-error>
+        <mat-label>Email</mat-label>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <!-- password -->
+      <mat-form-field appearance="outline" class="col-md-12 col-lg-12 col-sm-12">
+        <input class="inputs" matInput placeholder="Password" formControlName="password" type="password">
+        <mat-error class="signupText" *ngIf="email?.errors?.['required']"> Password is Required!</mat-error>
+        <mat-label>Password</mat-label>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <!-- confirm password -->
+      <mat-form-field appearance="outline" class="col-md-12 col-lg-12 col-sm-12">
+        <input class="inputs" matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password">
+        <mat-error class="signupText" *ngIf="confirmPassword?.errors?.['required']">Confirm password is Required!
+        </mat-error>
+        <mat-label>Confirm Password</mat-label>
+      </mat-form-field>
+      <!-- password matching error -->
+      <mat-error class="signuppassText" *ngIf="signUpForm.errors?.['passwordsDontMatch']">Password should match!
+      </mat-error>
+    </div>
+    <div class="row">
+      <div class="center margin-top col-md-12 col-lg-12 col-sm-12">
+        <button mat-raised-button type="submit" class="signupBtn" (click)="submit()"> Register </button>
+      </div>
+    </div>
+    <div class="row" class="col-md-12 col-lg-12 col-sm-12">
+      <span class="center margin-top yesAcc">Already have an account?&nbsp; <a routerLink="/login" class="signup">
+          Login</a></span>
+    </div>
   </form>
 </div>
