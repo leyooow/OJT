@@ -30,7 +30,9 @@ export class ProfileComponent implements OnInit {
 
     displayName: new FormControl(''),
     employeeId: new FormControl(''),
-    mobileNo: new FormControl('', Validators.required),
+    // mobileNo: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    confirmPassword: new FormControl('', Validators.required),
     // displayPass:new FormControl('', Validators.required),
     // displayConPass:new FormControl('', Validators.required),
   })

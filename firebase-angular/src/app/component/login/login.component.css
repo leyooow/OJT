@@ -73,3 +73,42 @@ input:-webkit-autofill:active {
 input:-webkit-autofill {
   -webkit-text-fill-color: rgb(255, 255, 255) !important;
 }
+
+.animated.zoomIn {
+  -webkit-animation-name: zoomIn;
+  -moz-animation-name: zoomIn;
+  -o-animation-name: zoomIn;
+  animation-name: zoomIn;
+  transform: scale(1);
+}
+
+.animated {
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/* @-webkit-keyframes zoomIn {
+  0% {
+    -webkit-filter: blur(0px);
+  }
+
+  50% {
+    -webkit-filter: blur(5px);
+  }
+
+  100% {
+    -webkit-filter: blur(0px);
+  }
+} */
+
+@media only screen and (max-width: 600px) {
+  .containerLogin {
+    max-width: 80%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 20px;
+  }
+
+}

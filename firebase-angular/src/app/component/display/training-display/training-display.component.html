@@ -14,43 +14,50 @@
   <hr>
 
   <div class="container">
-    <section class="fieldset1">
-      <div class="profile">
-        <h3>Certificate</h3>
-        <img width="350" height="200" [src]="user.photoCertURL ?? 'assets/images/image-placeholder.jpg'">
-        <span id="certTitle">{{user.TitleOfLearningTraining}}</span>
+    <div class="row">
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <section class="fieldset1">
+          <div class="profile">
+            <h3>Certificate</h3>
+            <img width="350" height="200" [src]="user.photoCertURL ?? 'assets/images/image-placeholder.jpg'">
+            <span id="certTitle">{{user.TitleOfLearningTraining}}</span>
+          </div>
+        </section>
       </div>
-    </section>
-    <section class="fieldset">
-      <table>
-        <tbody>
-          <tr>
-            <th>Title</th>
-            <td>:</td>
-            <td>{{user.TitleOfLearningTraining}}</td>
-          </tr>
-          <tr>
-            <th>Inclusive Dates</th>
-            <td>:</td>
-            <td>{{user.fromTraining}} <strong>-</strong> {{user.toTraining}}</td>
-          </tr>
-          <tr>
-            <th>Conducted/Sponsored By</th>
-            <td>:</td>
-            <td>{{user.conductedTraining}}</td>
-          </tr>
-          <tr>
-            <th>Number of Hours</th>
-            <td>:</td>
-            <td>{{user.numberOfHrsTraining}}</td>
-          </tr>
-          <tr>
-            <th>Types of L&D</th>
-            <td>:</td>
-            <td>{{user.typeOfLdTraining}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <table>
+          <tbody>
+            <tr>
+              <th>Title</th>
+              <td>:</td>
+              <td>{{user.TitleOfLearningTraining}}</td>
+            </tr>
+            <tr>
+              <th>Inclusive Dates</th>
+              <td>:</td>
+              <td>{{user.fromTraining}} <strong>-</strong> {{user.toTraining}}</td>
+            </tr>
+            <tr>
+              <th>Conducted/Sponsored By</th>
+              <td>:</td>
+              <td>{{user.conductedTraining}}</td>
+            </tr>
+            <tr>
+              <th>Number of Hours</th>
+              <td>:</td>
+              <td>{{user.numberOfHrsTraining}}</td>
+            </tr>
+            <tr>
+              <th>Types of L&D</th>
+              <td>:</td>
+              <td>{{user.typeOfLdTraining}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

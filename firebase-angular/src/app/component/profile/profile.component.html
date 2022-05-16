@@ -21,19 +21,42 @@
     <label type="text" p> <span class="label1">Employee ID:</span>&nbsp;&nbsp;
       <span class="ans">{{user.employeeId}}</span> </label>
 
-    <div class="container">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Mobile No. <span class="hint">(09xxxxxxxxx)</span>*
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="mobileNo" placeholder="Mobile No." maxlength="11"
-            minlength="11" [class.is-invalid]="localForm.submitted && profileForm.get('mobileNo')?.invalid"
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+    <!-- <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Mobile No. <span class="hint">(09xxxxxxxxx)</span>*
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="mobileNo" placeholder="Mobile No." maxlength="11"
+              minlength="11" [class.is-invalid]="localForm.submitted && profileForm.get('mobileNo')?.invalid"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+          </div>
         </div>
       </div>
+    </div> -->
+
+    <div class="row">
+      <!-- password -->
+      <mat-form-field appearance="outline" class="col-md-12 col-lg-12 col-sm-12">
+        <input class="inputs" matInput placeholder="Password" formControlName="password" type="password">
+        <!-- <mat-error class="signupText" *ngIf="password?.errors?.['required']"> Password is Required!</mat-error> -->
+        <mat-label>Password</mat-label>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <!-- confirm password -->
+      <mat-form-field appearance="outline" class="col-md-12 col-lg-12 col-sm-12">
+        <input class="inputs" matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password">
+        <!-- <mat-error class="signupText" *ngIf="confirmPassword?.errors?.['required']">Confirm password is Required!
+        </mat-error> -->
+        <mat-label>Confirm Password</mat-label>
+      </mat-form-field>
+      <!-- password matching error -->
+      <!-- <mat-error class="signuppassText" *ngIf="profileForm.errors?.['passwordsDontMatch']">Password should match!
+      </mat-error> -->
     </div>
 
     <div class="container" id="submitBtn">

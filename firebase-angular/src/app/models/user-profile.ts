@@ -55,11 +55,11 @@ export interface ProfileUser {
 
     done?: string
 
-    gsisId?: string
-    philhealt?: string
+    // gsisId?: string
+    // philhealt?: string
 
 
-    philhnameOfSchoolElemealt?: string
+    // philhnameOfSchoolElem?: string
     basicEducElem?: string
     nameOfSchoolElem?: string
     fromElem?: string
@@ -68,13 +68,13 @@ export interface ProfileUser {
     yearGraduatedElem?: string
     scholarElem?: string
 
-    basicEducSecondary?: string
-    nameOfSchoolSecondary?: string
-    fromSecondary?: string
-    toSecondary?: string
-    highestLevelSecondary?: string
-    yearGraduatedSecondary?: string
-    scholarSecondary?: string
+    // basicEducSecondary?: string
+    // nameOfSchoolSecondary?: string
+    // fromSecondary?: string
+    // toSecondary?: string
+    // highestLevelSecondary?: string
+    // yearGraduatedSecondary?: string
+    // scholarSecondary?: string
 
     basicEducCollege?: string
     nameOfSchoolCollege?: string
@@ -124,7 +124,29 @@ export interface ProfileUser {
     typeOfLdTraining?: string
     conductedTraining?: string
    
+    // Seph
+    // addressElem?:string
+    // addressJunior?:string
+    // addressSenior?:string
+    // addressCollege?:string
+    // addressVocational?:string
+    // addressStudies?:string
 
+    nameOfSchoolJunior?: string
+    basicEducJunior?: string
+    fromJunior?: string
+    toJunior?: string
+    highestLevelJunior?: string
+    yearGraduatedJunior?: string
+    scholarJunior?: string
+
+    nameOfSchoolSenior?: string
+    basicEducSenior?: string
+    fromSenior?: string
+    toSenior?: string
+    highestLevelSenior?: string
+    yearGraduatedSenior?: string
+    scholarSenior?: string
 
 
     

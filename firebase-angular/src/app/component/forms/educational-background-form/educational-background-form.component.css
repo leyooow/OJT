@@ -24,66 +24,21 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-}
-
-.container1 {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin-left: 12px;
-}
-
-.container2 {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  text-align: left;
-  margin-top: 20px;
-  margin-bottom: -10px;
-  margin-left: -550px;
-  margin-right: 560px;
-}
-
-.container3 {
-  margin-left: -585px;
-}
-
-.container4 {
-  margin-left: -440px;
-}
-
-.container5 {
-  margin-left: -500px;
-}
-
-.main-item {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 3px;
-  margin-right: 3px;
-}
-
-.item {
-  display: flex;
+  justify-content: space-around;
 }
 
 
 input {
   display: block;
   border: 2px solid #072F6E;
-  width: 550px;
   background: #ecf0f3;
   padding: 10px;
-  padding-left: 20px;
   height: 50px;
   font-size: 16px;
   font-weight: 400;
   border-radius: 10px;
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+  margin-bottom: 10px;
 }
 
 input:focus {
@@ -91,34 +46,33 @@ input:focus {
   border: 3px solid #072F6E;
 }
 
-.smallInput {
-  width: 145px;
-}
-
-.medInput {
-  width: 160px;
-}
 
 hr {
   background-color: #01193E;
 }
 
 .title {
-  text-align: left;
   font-family: 'Cabin', sans-serif;
   font-size: 1.5em;
   color: #072F6E;
   font-weight: 700;
 }
 
-.periodAtt {
-  text-align: left;
-  font-family: 'Cabin', sans-serif;
-  font-size: 1.2em;
-  color: #072F6E;
-  font-weight: 500;
-  margin-left: 110px;
+
+.senior {
+  margin-top: 10px;
+  margin-bottom: -5px;
 }
+
+
+.title2 {
+  display: flex;
+  font-family: 'Cabin', sans-serif;
+  font-size: 1.1em;
+  color: #072F6E;
+  justify-content: center;
+}
+
 
 .label2 {
   font-weight: 0 !important;
@@ -127,46 +81,49 @@ hr {
   color: #072F6E;
 }
 
+
 .nameLbl {
   text-align: left;
   margin-left: 10px;
+  margin-top: 10px;
 }
+
 
 .hint {
   font-size: 0.9em;
-}
-
-.divTitle {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: left;
 }
 
 
 .formbtn {
   background-color: #01193E;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-  width: 15%;
+  width: 200px;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 25px;
   justify-content: flex-end;
   border-radius: 30px;
   font-size: 1.2em;
   color: #e7e7e7;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 3px;
 }
+
 
 .formbtn:hover {
   background-color: #024ABD;
 }
 
+.formbtnDiv {
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+}
+
+
 #submitBtn {
   justify-content: space-between;
 }
+
 
 #ins {
   font-size: 1.3em;
@@ -176,29 +133,33 @@ hr {
   color: black;
 }
 
-@media only screen and (max-width: 1410px) {
+.row {
+  width: 100%;
+}
 
-  input,
-  .smallInput,
-  .medInput {
-    width: 300px;
+@media only screen and (max-width: 600px) {
+
+  .att {
+    margin-bottom: -15px;
   }
 
-  .periodAtt {
-    margin-left: 25px;
-  }
 
-  .container1 {
-    justify-content: space-around;
-    margin-left: 0;
-  }
-
-  .title {
-    margin-left: 10px;
+  .subAtt {
+    margin-bottom: -10px;
   }
 
   .form-title {
     line-height: 1em;
+  }
+
+
+  .formbtnDiv {
+    justify-content: center;
+  }
+
+  .formbtn {
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
 }

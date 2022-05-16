@@ -1,5 +1,6 @@
 .mainLanding {
-  min-height: fit-content;
+  min-height: 796px;
+  overflow: hidden;
 }
 
 .contentLanding {

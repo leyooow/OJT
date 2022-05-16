@@ -19,6 +19,14 @@
   font-weight: 700;
 }
 
+.title2 {
+  display: flex;
+  font-family: 'Cabin', sans-serif;
+  font-size: 1.1em;
+  color: #072F6E;
+  justify-content: center;
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -45,6 +53,7 @@
 .nameLbl {
   text-align: left;
   margin-left: 10px;
+  margin-top: 10px;
 }
 
 .label2 {
@@ -81,7 +90,6 @@ select {
   border: 2px solid #072F6E;
   background: #ecf0f3;
   padding: 10px;
-  padding-left: 20px;
   height: 50px;
   font-size: 16px;
   font-weight: 400;
@@ -89,20 +97,10 @@ select {
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
 }
 
-input {
-  width: 600px;
-}
-
-
 input:focus,
 select:focus {
   outline: none !important;
   border: 3px solid #072F6E;
-}
-
-
-.smallInput {
-  width: 150px;
 }
 
 .numHr::placeholder {
@@ -119,7 +117,6 @@ select:focus {
 }
 
 .profile-image>img {
-
   object-fit: fill;
   object-position: center;
 }
@@ -133,7 +130,7 @@ select:focus {
 
 .addImgBtn {
   background-color: #253E76;
-  width: 520px;
+  width: 420px;
   padding: 10px;
   font-size: 1.1em;
   border-radius: 3px;
@@ -144,20 +141,26 @@ select:focus {
 .formbtn {
   background-color: #01193E;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-  width: 15%;
+  width: 200px;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 25px;
   justify-content: flex-end;
   border-radius: 30px;
   font-size: 1.2em;
   color: #e7e7e7;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 3px;
 }
 
 .formbtn:hover {
   background-color: #024ABD;
+}
+
+
+.formbtnDiv {
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
 }
 
 #submitBtn {
@@ -180,15 +183,19 @@ hr {
   color: black;
 }
 
-@media only screen and (max-width: 1410px) {
+.row {
+  width: 100%;
+}
 
-  .smallInput {
-    width: 145px;
+@media only screen and (max-width: 600px) {
+
+  .formbtnDiv {
+    justify-content: center;
   }
 
-  input,
-  .smallInput {
-    width: 300px;
+  .formbtn {
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   img {
@@ -199,18 +206,5 @@ hr {
   .addImgBtn {
     width: 300px;
   }
-
-  .form-title {
-    line-height: 1em;
-  }
-
-  .fromNumSpace {
-    margin-right: 0;
-  }
-
-  .incl {
-    margin-left: 30px;
-  }
-
 
 }

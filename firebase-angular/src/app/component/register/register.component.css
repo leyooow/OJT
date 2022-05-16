@@ -81,3 +81,13 @@ input:-webkit-autofill:active {
 input:-webkit-autofill {
   -webkit-text-fill-color: rgb(255, 255, 255) !important;
 }
+
+@media only screen and (max-width: 600px) {
+  .containerSignup {
+    max-width: 80%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+  }
+
+}

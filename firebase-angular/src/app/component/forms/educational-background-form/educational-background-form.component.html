@@ -5,7 +5,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
 <!--for labels-->
 
-<div class="form-container2 mat-elevation-z5" *ngIf="user$ | async as user">
+<div class="form-container2 mat-elevation-z5 animate__animated animate__fadeIn animate__faster"
+  *ngIf="user$ | async as user">
   <p id="ins">Please fill out all of the relevant information which will be recorded in the Faculty Management
     Information System. We ask that you only provide true and accurate information. Write "N/A" if not applicable.
   </p>
@@ -14,504 +15,724 @@
   <form class="personalInfoForm" [formGroup]="ProfileFrom" #localForm="ngForm">
     <hr>
 
-
-    <div class="container2">
-      <h2 class="title">Elementary</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <span class="title">Elementary</span>
+        </div>
+      </div>
     </div>
 
     <div class="container">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Name of School <span class="hint"> (write in full)</span>*
-          </label>
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <div style="height: 20px;">
+            <span></span>
+          </div>
+          <div class="col">
+            <div class="nameLbl">
+              <label class="label2">
+                Name of School <span class="hint"> (write in full)</span>*
+              </label>
+            </div>
+            <div>
+              <input class="form-control" type="text" formControlName="nameOfSchoolElem" placeholder="Name of School" />
+            </div>
+          </div>
         </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="nameOfSchoolElem" placeholder="Name of School"
-            [class.is-invalid]="localForm.submitted && ProfileFrom.get('nameOfSchoolElem')?.invalid" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Basic Education/Degree/Course <span class="hint"> (write in full)</span>*
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="basicEducElem"
-            placeholder="Basic Education/Degree/Course"
-            [class.is-invalid]="localForm.submitted && ProfileFrom.get('basicEducElem')?.invalid" />
-        </div>
-      </div>
-    </div>
 
-    <div style="margin-bottom: -25px; width: fit-content;">
-      <h4 class="periodAtt">Period of Attendance*</h4>
-    </div>
+        <div class="col-md-8 col-lg-4 col-sm-12">
+          <div>
+            <span class="title2 subAtt">Period of Attendance</span>
+          </div>
+          <div class="row att">
+            <div class="col-sm-6 att">
+              <div class="nameLbl">
+                <label class="label2">
+                  From
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" maxlength="4" min="1900" max="2099" step="1" type="number"
+                  formControlName="fromElem" placeholder="From (yyyy)" />
+              </div>
+            </div>
+            <div class="col-sm-6 att">
+              <div class="nameLbl">
+                <label class="label2">
+                  To
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" maxlength="4" min="1900" max="2099" step="1" type="number"
+                  formControlName="toElem" placeholder="To (yyyy)" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-2 col-sm-12">
+          <div style="height: 20px;">
+            <span></span>
+          </div>
+          <div class="col">
+            <div class="nameLbl">
+              <label class="label2">
+                Year Graduated
+              </label>
+            </div>
+            <div>
+              <input class="form-control" min="1900" max="2099" step="1" type="number"
+                formControlName="yearGraduatedElem" placeholder="Year Graduated" maxlength="4" />
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="container">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            From <span class="hint"> (yyyy) </span>
-          </label>
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Basic Education/Degree/Course <span class="hint"> (write in full)</span>
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="basicEducElem"
+              placeholder="Basic Education/Degree/Course" />
+          </div>
         </div>
-        <div class="item">
-          <input class="form-control smallInput" maxlength="4" min="1900" max="2099" step="1" type="number"
-            formControlName="fromElem" placeholder="From"
-            [class.is-invalid]="localForm.submitted && ProfileFrom.get('fromElem')?.invalid" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            To <span class="hint"> (yyyy) </span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control smallInput" maxlength="4" min="1900" max="2099" step="1" type="number"
-            formControlName="toElem" placeholder="To"
-            [class.is-invalid]="localForm.submitted && ProfileFrom.get('toElem')?.invalid" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Year Graduated*
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control medInput" min="1900" max="2099" step="1" type="number"
-            formControlName="yearGraduatedElem" placeholder="Year Graduated" maxlength="4"
-            [class.is-invalid]="localForm.submitted && ProfileFrom.get('yearGraduatedElem')?.invalid" />
+        <div class="col-md-6 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Highest Level/Units Earned <span class="hint">(if not graduated)</span>
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="highestLevelElem"
+              placeholder="Highest Level/Units Earned" />
+          </div>
         </div>
       </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Highest Level/Units Earned <span class="hint">(if not graduated)</span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="highestLevelElem"
-            placeholder="Highest Level/Units Earned" />
-        </div>
-      </div>
-    </div>
 
-    <div class="container1">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Scholarship/Academic Honors Received
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="scholarElem"
-            placeholder="Scholarship/Academic Honors Received" />
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Scholarship/Academic Honors Received
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="scholarElem"
+              placeholder="Scholarship/Academic Honors Received" />
+          </div>
         </div>
       </div>
     </div>
     <hr>
 
-    <!-- SECONDARY -->
-    <div class="container2">
-      <h2 class="title">Secondary</h2>
+    <!-- Junior-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <span class="title">Junior High School</span>
+        </div>
+      </div>
     </div>
 
     <div class="container">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Name of School <span class="hint"> (write in full)</span>*
-          </label>
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <div style="height: 20px;">
+            <span></span>
+          </div>
+          <div class="col">
+            <div class="nameLbl">
+              <label class="label2">
+                Name of School <span class="hint"> (write in full)</span>*
+              </label>
+            </div>
+            <div>
+              <input class="form-control" type="text" formControlName="nameOfSchoolJunior"
+                placeholder="Name of School" />
+            </div>
+          </div>
         </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="nameOfSchoolSecondary" placeholder="Name of School"
-            [class.is-invalid]="localForm.submitted && ProfileFrom.get('nameOfSchoolSecondary')?.invalid" />
+
+        <div class="col-md-8 col-lg-4 col-sm-12">
+          <div>
+            <span class="title2 subAtt">Period of Attendance</span>
+          </div>
+          <div class="row att">
+            <div class="col-sm-6 att">
+              <div class="nameLbl ">
+                <label class="label2">
+                  From
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" maxlength="4" min="1900" max="2099" step="1" type="number"
+                  formControlName="fromJunior" placeholder="From (yyyy)" />
+              </div>
+            </div>
+            <div class="col-sm-6 att">
+              <div class="nameLbl">
+                <label class="label2">
+                  To
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" maxlength="4" min="1900" max="2099" step="1" type="number"
+                  formControlName="toJunior" placeholder="To (yyyy)" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-2 col-sm-12">
+          <div style="height: 20px;">
+            <span></span>
+          </div>
+          <div class="col">
+            <div class="nameLbl">
+              <label class="label2">
+                Year Graduated
+              </label>
+            </div>
+            <div>
+              <input class="form-control" min="1900" max="2099" step="1" type="number"
+                formControlName="yearGraduatedJunior" placeholder="Year Graduated" maxlength="4" />
+            </div>
+          </div>
         </div>
       </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Basic Education/Degree/Course <span class="hint"> (write in full)</span>*
-          </label>
+
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Basic Education/Degree/Course <span class="hint"> (write in full)</span>
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="basicEducJunior"
+              placeholder="Basic Education/Degree/Course" />
+          </div>
         </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="basicEducSecondary"
-            placeholder="Basic Education/Degree/Course"
-            [class.is-invalid]="localForm.submitted && ProfileFrom.get('basicEducSecondary')?.invalid" />
+        <div class="col-md-6 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Highest Level/Units Earned <span class="hint">(if not graduated)</span>
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="highestLevelJunior"
+              placeholder="Highest Level/Units Earned" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Scholarship/Academic Honors Received
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="scholarJunior"
+              placeholder="Scholarship/Academic Honors Received" />
+          </div>
         </div>
       </div>
     </div>
 
-    <div style="margin-bottom: -25px;">
-      <h4 class="periodAtt">Period of Attendance*</h4>
+    <!-- Senior-->
+    <div class="container senior">
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <span class="title">Senior High School</span>
+        </div>
+      </div>
     </div>
 
     <div class="container">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            From <span class="hint"> (yyyy) </span>
-          </label>
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <div style="height: 20px;">
+            <span></span>
+          </div>
+          <div class="col">
+            <div class="nameLbl">
+              <label class="label2">
+                Name of School <span class="hint"> (write in full)</span>*
+              </label>
+            </div>
+            <div>
+              <input class="form-control" type="text" formControlName="nameOfSchoolSenior"
+                placeholder="Name of School" />
+            </div>
+          </div>
         </div>
-        <div class="item">
-          <input class="form-control smallInput" min="1900" max="2099" step="1" type="number"
-            formControlName="fromSecondary" placeholder="From" maxlength="4"
-            [class.is-invalid]="localForm.submitted && ProfileFrom.get('fromSecondary')?.invalid" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            To <span class="hint"> (yyyy) </span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control smallInput" min="1900" max="2099" step="1" type="number"
-            formControlName="toSecondary" placeholder="To" maxlength="4"
-            [class.is-invalid]="localForm.submitted && ProfileFrom.get('toSecondary')?.invalid" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Year Graduated*
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control medInput" min="1900" max="2099" step="1" type="number"
-            formControlName="yearGraduatedSecondary" placeholder="Year Graduated" maxlength="4"
-            [class.is-invalid]="localForm.submitted && ProfileFrom.get('yearGraduatedSecondary')?.invalid" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Highest Level/Units Earned <span class="hint">(if not graduated)</span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="highestLevelSecondary"
-            placeholder="Highest Level/Units Earned" />
-        </div>
-      </div>
-    </div>
 
-    <div class="container1">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Scholarship/Academic Honors Received
-          </label>
+        <div class="col-md-8 col-lg-4 col-sm-12">
+          <div>
+            <span class="title2 subAtt">Period of Attendance</span>
+          </div>
+          <div class="row att">
+            <div class="col-sm-6 att">
+              <div class="nameLbl ">
+                <label class="label2">
+                  From
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" maxlength="4" min="1900" max="2099" step="1" type="number"
+                  formControlName="fromSenior" placeholder="From (yyyy)" />
+              </div>
+            </div>
+            <div class="col-sm-6 att">
+              <div class="nameLbl">
+                <label class="label2">
+                  To
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" maxlength="4" min="1900" max="2099" step="1" type="number"
+                  formControlName="toSenior" placeholder="To (yyyy)" />
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="scholarSecondary"
-            placeholder="Scholarship/Academic Honors Received" />
+        <div class="col-md-4 col-lg-2 col-sm-12">
+          <div style="height: 20px;">
+            <span></span>
+          </div>
+          <div class="col">
+            <div class="nameLbl">
+              <label class="label2">
+                Year Graduated
+              </label>
+            </div>
+            <div>
+              <input class="form-control" min="1900" max="2099" step="1" type="number"
+                formControlName="yearGraduatedSenior" placeholder="Year Graduated" maxlength="4" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Basic Education/Degree/Course <span class="hint"> (write in full)</span>
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="basicEducSenior"
+              placeholder="Basic Education/Degree/Course" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Highest Level/Units Earned <span class="hint">(if not graduated)</span>
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="highestLevelSenior"
+              placeholder="Highest Level/Units Earned" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Scholarship/Academic Honors Received
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="scholarSenior"
+              placeholder="Scholarship/Academic Honors Received" />
+          </div>
         </div>
       </div>
     </div>
     <hr>
 
-    <!-- COLLEGE -->
-    <div class="container2 container3">
-      <h2 class="title">College</h2>
+    <!-- College-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <span class="title">College</span>
+        </div>
+      </div>
     </div>
 
     <div class="container">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Name of School <span class="hint"> (write in full)</span>
-          </label>
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <div style="height: 20px;">
+            <span></span>
+          </div>
+          <div class="col">
+            <div class="nameLbl">
+              <label class="label2">
+                Name of School <span class="hint"> (write in full)</span>*
+              </label>
+            </div>
+            <div>
+              <input class="form-control" type="text" formControlName="nameOfSchoolCollege"
+                placeholder="Name of School" />
+            </div>
+          </div>
         </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="nameOfSchoolCollege" placeholder="Name of School"
-            [class.is-invalid]="localForm.submitted && ProfileFrom.get('nameOfSchoolCollege')?.invalid" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Basic Education/Degree/Course <span class="hint"> (write in full)</span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="basicEducCollege"
-            placeholder="Basic Education/Degree/Course"
-            [class.is-invalid]="localForm.submitted && ProfileFrom.get('basicEducCollege')?.invalid" />
-        </div>
-      </div>
-    </div>
 
-    <div style="margin-bottom: -25px;">
-      <h4 class="periodAtt">Period of Attendance*</h4>
-    </div>
+        <div class="col-md-8 col-lg-4 col-sm-12">
+          <div>
+            <span class="title2 subAtt">Period of Attendance</span>
+          </div>
+          <div class="row att">
+            <div class="col-sm-6 att">
+              <div class="nameLbl ">
+                <label class="label2">
+                  From
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" maxlength="4" min="1900" max="2099" step="1" type="number"
+                  formControlName="fromCollege" placeholder="From (yyyy)" />
+              </div>
+            </div>
+            <div class="col-sm-6 att">
+              <div class="nameLbl">
+                <label class="label2">
+                  To
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" maxlength="4" min="1900" max="2099" step="1" type="number"
+                  formControlName="toCollege" placeholder="To (yyyy)" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-2 col-sm-12">
+          <div style="height: 20px;">
+            <span></span>
+          </div>
+          <div class="col">
+            <div class="nameLbl">
+              <label class="label2">
+                Year Graduated
+              </label>
+            </div>
+            <div>
+              <input class="form-control" min="1900" max="2099" step="1" type="number"
+                formControlName="yearGraduatedCollege" placeholder="Year Graduated" maxlength="4" />
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="container">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            From <span class="hint"> (yyyy) </span>
-          </label>
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Basic Education/Degree/Course <span class="hint"> (write in full)</span>
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="basicEducCollege"
+              placeholder="Basic Education/Degree/Course" />
+          </div>
         </div>
-        <div class="item">
-          <input class="form-control smallInput" min="1900" max="2099" step="1" type="number"
-            formControlName="fromCollege" placeholder="From" maxlength="4"
-            [class.is-invalid]="localForm.submitted && ProfileFrom.get('fromCollege')?.invalid" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            To <span class="hint"> (yyyy) </span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control smallInput" min="1900" max="2099" step="1" type="number"
-            formControlName="toCollege" placeholder="To" maxlength="4"
-            [class.is-invalid]="localForm.submitted && ProfileFrom.get('toCollege')?.invalid" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Year Graduated*
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control medInput" min="1900" max="2099" step="1" type="number"
-            formControlName="yearGraduatedCollege" placeholder="Year Graduated" maxlength="4"
-            [class.is-invalid]="localForm.submitted && ProfileFrom.get('yearGraduatedCollege')?.invalid" />
+        <div class="col-md-6 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Highest Level/Units Earned <span class="hint">(if not graduated)</span>
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="highestLevelCollege"
+              placeholder="Highest Level/Units Earned" />
+          </div>
         </div>
       </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Highest Level/Units Earned <span class="hint">(if not graduated)</span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="highestLevelCollege"
-            placeholder="Highest Level/Units Earned" />
-        </div>
-      </div>
-    </div>
 
-    <div class="container1">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Scholarship/Academic Honors Received
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="scholarCollege"
-            placeholder="Scholarship/Academic Honors Received" />
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Scholarship/Academic Honors Received
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="scholarCollege"
+              placeholder="Scholarship/Academic Honors Received" />
+          </div>
         </div>
       </div>
     </div>
     <hr>
 
-    <!-- VOCATIONAL-->
-    <div class="container2 container4">
-      <h2 class="title">Vocational/Trade Course</h2>
+    <!-- Vocational/Trade Course-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <span class="title">Vocational/Trade Course</span>
+        </div>
+      </div>
     </div>
 
     <div class="container">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Name of School <span class="hint"> (write in full)</span>
-          </label>
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <div style="height: 20px;">
+            <span></span>
+          </div>
+          <div class="col">
+            <div class="nameLbl">
+              <label class="label2">
+                Name of School <span class="hint"> (write in full)</span>*
+              </label>
+            </div>
+            <div>
+              <input class="form-control" type="text" formControlName="nameOfSchoolVocational"
+                placeholder="Name of School" />
+            </div>
+          </div>
         </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="nameOfSchoolVocational"
-            placeholder="Name of School" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Basic Education/Degree/Course <span class="hint"> (write in full)</span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="basicEducVocational"
-            placeholder="Basic Education/Degree/Course" />
-        </div>
-      </div>
-    </div>
 
-    <div style="margin-bottom: -25px;">
-      <h4 class="periodAtt">Period of Attendance</h4>
-    </div>
+        <div class="col-md-8 col-lg-4 col-sm-12">
+          <div>
+            <span class="title2 subAtt">Period of Attendance</span>
+          </div>
+          <div class="row att">
+            <div class="col-sm-6 att">
+              <div class="nameLbl ">
+                <label class="label2">
+                  From
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" maxlength="4" min="1900" max="2099" step="1" type="number"
+                  formControlName="fromVocational" placeholder="From (yyyy)" />
+              </div>
+            </div>
+            <div class="col-sm-6 att">
+              <div class="nameLbl">
+                <label class="label2">
+                  To
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" maxlength="4" min="1900" max="2099" step="1" type="number"
+                  formControlName="toVocational" placeholder="To (yyyy)" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-2 col-sm-12">
+          <div style="height: 20px;">
+            <span></span>
+          </div>
+          <div class="col">
+            <div class="nameLbl">
+              <label class="label2">
+                Year Graduated
+              </label>
+            </div>
+            <div>
+              <input class="form-control" min="1900" max="2099" step="1" type="number"
+                formControlName="yearGraduatedVocational" placeholder="Year Graduated" maxlength="4" />
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <div class="container">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            From <span class="hint"> (yyyy) </span>
-          </label>
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Basic Education/Degree/Course <span class="hint"> (write in full)</span>
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="basicEducVocational"
+              placeholder="Basic Education/Degree/Course" />
+          </div>
         </div>
-        <div class="item">
-          <input class="form-control smallInput" min="1900" max="2099" step="1" type="number"
-            formControlName="fromVocational" placeholder="From" maxlength="4" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            To <span class="hint"> (yyyy) </span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control smallInput" min="1900" max="2099" step="1" type="number"
-            formControlName="toVocational" placeholder="To" maxlength="4" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Year Graduated
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control medInput" min="1900" max="2099" step="1" type="number"
-            formControlName="yearGraduatedVocational" placeholder="Year Graduated" maxlength="4" />
+        <div class="col-md-6 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Highest Level/Units Earned <span class="hint">(if not graduated)</span>
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="highestLevelVocational"
+              placeholder="Highest Level/Units Earned" />
+          </div>
         </div>
       </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Highest Level/Units Earned <span class="hint">(if not graduated)</span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="highestLevelVocational"
-            placeholder="Highest Level/Units Earned" />
-        </div>
-      </div>
-    </div>
 
-    <div class="container1">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Scholarship/Academic Honors Received
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="scholarVocational"
-            placeholder="Scholarship/Academic Honors Received" />
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Scholarship/Academic Honors Received
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="scholarVocational"
+              placeholder="Scholarship/Academic Honors Received" />
+          </div>
         </div>
       </div>
     </div>
     <hr>
 
-    <!-- GRADUATE -->
-    <div class="container2 container5">
-      <h2 class="title">Graduate Studies</h2>
+    <!-- Graduate Studies-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <span class="title">Graduate Studies</span>
+        </div>
+      </div>
     </div>
 
     <div class="container">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Name of School <span class="hint"> (write in full)</span>
-          </label>
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <div style="height: 20px;">
+            <span></span>
+          </div>
+          <div class="col">
+            <div class="nameLbl">
+              <label class="label2">
+                Name of School <span class="hint"> (write in full)</span>*
+              </label>
+            </div>
+            <div>
+              <input class="form-control" type="text" formControlName="nameOfSchoolStudies"
+                placeholder="Name of School" />
+            </div>
+          </div>
         </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="nameOfSchoolStudies" placeholder="Name of School" />
+
+        <div class="col-md-8 col-lg-4 col-sm-12">
+          <div>
+            <span class="title2 subAtt">Period of Attendance</span>
+          </div>
+          <div class="row att">
+            <div class="col-sm-6 att">
+              <div class="nameLbl ">
+                <label class="label2">
+                  From
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" maxlength="4" min="1900" max="2099" step="1" type="number"
+                  formControlName="fromStudies" placeholder="From (yyyy)" />
+              </div>
+            </div>
+            <div class="col-sm-6 att">
+              <div class="nameLbl">
+                <label class="label2">
+                  To
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" maxlength="4" min="1900" max="2099" step="1" type="number"
+                  formControlName="toStudies" placeholder="To (yyyy)" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-2 col-sm-12">
+          <div style="height: 20px;">
+            <span></span>
+          </div>
+          <div class="col">
+            <div class="nameLbl">
+              <label class="label2">
+                Year Graduated
+              </label>
+            </div>
+            <div>
+              <input class="form-control" min="1900" max="2099" step="1" type="number"
+                formControlName="yearGraduatedStudies" placeholder="Year Graduated" maxlength="4" />
+            </div>
+          </div>
         </div>
       </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Basic Education/Degree/Course <span class="hint"> (write in full)</span>
-          </label>
+
+      <div class="row">
+        <div class="col-md-6 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Basic Education/Degree/Course <span class="hint"> (write in full)</span>
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="basicEducStudies"
+              placeholder="Basic Education/Degree/Course" />
+          </div>
         </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="basicEducStudies"
-            placeholder="Basic Education/Degree/Course" />
+        <div class="col-md-6 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Highest Level/Units Earned <span class="hint">(if not graduated)</span>
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="highestLevelStudies"
+              placeholder="Highest Level/Units Earned" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Scholarship/Academic Honors Received
+            </label>
+          </div>
+          <div>
+            <input class="form-control" type="text" formControlName="scholarStudies"
+              placeholder="Scholarship/Academic Honors Received" />
+          </div>
         </div>
       </div>
     </div>
-
-    <div style="margin-bottom: -25px;">
-      <h4 class="periodAtt">Period of Attendance</h4>
-    </div>
-
-    <div class="container">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            From <span class="hint"> (yyyy) </span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control smallInput" min="1900" max="2099" step="1" type="number"
-            formControlName="fromStudies" placeholder="From" maxlength="4" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            To <span class="hint"> (yyyy) </span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control smallInput" min="1900" max="2099" step="1" type="number"
-            formControlName="toStudies" placeholder="To" maxlength="4" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Year Graduated
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control medInput" min="1900" max="2099" step="1" type="number"
-            formControlName="yearGraduatedStudies" placeholder="Year Graduated" maxlength="4" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Highest Level/Units Earned <span class="hint">(if not graduated)</span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="highestLevelStudies"
-            placeholder="Highest Level/Units Earned" />
-        </div>
-      </div>
-    </div>
-
-    <div class="container1">
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Scholarship/Academic Honors Received
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="scholarStudies"
-            placeholder="Scholarship/Academic Honors" />
-        </div>
-      </div>
-    </div>
-
+    <hr>
 
     <div class="container" id="submitBtn">
-      <button routerLink="/personal-info-form" class="formbtn" mat-raised-button>
-        Back
-      </button>
-      <button (click)="saveProfile()" type="submit" class="formbtn" mat-raised-button>
-        Next
-      </button>
+      <div class="row">
+        <div class="col-md-6 col-lg-3 col-sm-12 formbtnDiv">
+          <button routerLink="/personal-info-form" class="formbtn" mat-raised-button>
+            Back
+          </button>
+        </div>
+        <div class="col-md-6 col-lg-1 col-sm-12">
+
+        </div>
+        <div class="col-md-6 col-lg-2 col-sm-12">
+
+        </div>
+        <div class="col-md-6 col-lg-2 col-sm-12">
+
+        </div>
+        <div class="col-md-6 col-lg-1 col-sm-12">
+
+        </div>
+        <div class="col-md-6 col-lg-3 col-sm-12 formbtnDiv">
+          <button (click)="saveProfile()" type="submit" class="formbtn" mat-raised-button>
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   </form>
 </div>

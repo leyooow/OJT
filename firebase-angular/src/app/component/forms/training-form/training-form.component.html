@@ -5,7 +5,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
 <!--for labels-->
 
-<div class="form-container2  mat-elevation-z5" *ngIf="user$ | async as user">
+<div class="form-container2  mat-elevation-z5 animate__animated animate__fadeIn animate__faster"
+  *ngIf="user$ | async as user">
   <p id="ins">Please fill out all of the relevant information which will be recorded in the Faculty Management
     Information System. We ask that you only provide true and accurate information. Write "N/A" if not applicable.
   </p>
@@ -14,106 +15,153 @@
   <hr>
 
   <form [formGroup]="ProfileForm">
-    <div style="margin-bottom: -25px;">
-      <h4 class="incl">Inclusive Dates</h4>
-    </div>
 
     <div class="container">
-      <div class="main-item fromNumSpace">
-        <div class="nameLbl">
-          <label class="label2">
-            From <span class="hint"> (mm/dd/yyyy) </span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control smallInput" type="date" formControlName="fromTraining" placeholder="From:" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            To <span class="hint"> (mm/dd/yyyy) </span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control smallInput" type="date" formControlName="toTraining" placeholder="To:" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Title <span class="hint">(Write in full)</span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="TitleOfLearningTraining"
-            placeholder="Title of learning and development interventions/training programs" />
-        </div>
-      </div>
-    </div>
+      <div class="row">
+        <div class="col-md-12 col-lg-1 col-sm-12">
 
-    <div class="container">
-      <div class="main-item fromNumSpace">
-        <div class="nameLbl">
-          <label class="label2">
-            Number of Hours
-          </label>
         </div>
-        <div class="item">
-          <input class="form-control smallInput numHr" type="number" formControlName="numberOfHrsTraining"
-            placeholder="Number of Hours" />
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Types of L&D
-          </label>
-        </div>
-        <div class="item">
-          <select class="form-control smallInput" formControlName="typeOfLdTraining">
-            <option value="" selected disabled>Select type</option>
-            <option value="Managerial">Managerial</option>
-            <option value="Supervisory">Supervisory </option>
-            <option value="Technical">Technical </option>
-          </select>
-        </div>
-      </div>
-      <div class="main-item">
-        <div class="nameLbl">
-          <label class="label2">
-            Conducted/Sponsored By <span class="hint"> (write in full) </span>
-          </label>
-        </div>
-        <div class="item">
-          <input class="form-control" type="text" formControlName="conductedTraining"
-            placeholder="Conducted/Sponsored By" />
+        <div class="col-md-12 col-lg-4 col-sm-12">
+          <div>
+            <span class="title2 subAtt">Inclusive Dates</span>
+          </div>
+          <div class="row att">
+            <div class="col-sm-6 att">
+              <div class="nameLbl ">
+                <label class="label2">
+                  From
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" type="number" formControlName="fromTraining" placeholder="From:" />
+              </div>
+            </div>
+            <div class="col-sm-6 att">
+              <div class="nameLbl">
+                <label class="label2">
+                  To
+                </label>
+              </div>
+              <div>
+                <input class="form-control medInput" type="number" formControlName="toTraining" placeholder="To:" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="container">
-      <div class="divTitle">
-        <div>
-          <h3 class="title">Certificate</h3>
+      <div class="row">
+        <div class="col-md-12 col-lg-1 col-sm-12">
+
         </div>
-        <div class="profile-image">
-          <img width="520" height="250" [src]="user.photoCertURL ?? 'assets/images/image-placeholder.jpg'">
-          <input #inputField1 type="file" hidden (change)="uploadImage($event, user)" />
+        <div class="col-md-12 col-lg-7 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Title <span class="hint">(Write in full)</span>
+            </label>
+          </div>
+          <div class="item">
+            <input class="form-control" type="text" formControlName="TitleOfLearningTraining"
+              placeholder="Title of learning and development interventions/training programs" />
+          </div>
         </div>
-        <div (click)="inputField1.click()" class="addImgBtn">
-          <span>Upload Image</span>
+
+        <div class="col-md-12 col-lg-3 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Number of Hours
+            </label>
+          </div>
+          <div class="item">
+            <input class="form-control smallInput numHr" type="number" formControlName="numberOfHrsTraining"
+              placeholder="Number of Hours" />
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-1 col-sm-12">
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 col-lg-1 col-sm-12">
+
+        </div>
+        <div class="col-md-12 col-lg-7 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Conducted/Sponsored By <span class="hint"> (write in full) </span>
+            </label>
+          </div>
+          <div class="item">
+            <input class="form-control" type="text" formControlName="conductedTraining"
+              placeholder="Conducted/Sponsored By" />
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-3 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Number of Hours
+            </label>
+          </div>
+          <div class="item">
+            <input class="form-control smallInput numHr" type="number" formControlName="numberOfHrsTraining"
+              placeholder="Number of Hours" />
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-1 col-sm-12">
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 col-lg-1 col-sm-12">
+
+        </div>
+        <div class="col-md-8 col-lg-4 col-sm-12">
+          <div>
+            <h3 class="title">Certificate</h3>
+          </div>
+          <div class="row att">
+            <div class="col att">
+              <div class="profile-image">
+                <img width="420" height="200" [src]="user.photoCertURL ?? 'assets/images/image-placeholder.jpg'">
+                <input #inputField1 type="file" hidden (change)="uploadImage($event, user)" />
+              </div>
+              <div (click)="inputField1.click()" class="addImgBtn">
+                <span>Upload Image</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <hr>
 
     <div class="container" id="submitBtn">
-      <button routerLink="/work-experience-form" class="formbtn" mat-raised-button>
-        Back
-      </button>
-      <button (click)="saveProfile(user)" type="submit" class="formbtn" mat-raised-button>
-        Submit
-      </button>
+      <div class="row">
+        <div class="col-md-6 col-lg-3 col-sm-12 formbtnDiv">
+          <button routerLink="/work-experience-form" class="formbtn" mat-raised-button>
+            Back
+          </button>
+        </div>
+        <div class="col-md-6 col-lg-1 col-sm-12">
+
+        </div>
+        <div class="col-md-6 col-lg-2 col-sm-12">
+
+        </div>
+        <div class="col-md-6 col-lg-2 col-sm-12">
+
+        </div>
+        <div class="col-md-6 col-lg-1 col-sm-12">
+
+        </div>
+        <div class="col-md-6 col-lg-3 col-sm-12 formbtnDiv">
+          <button (click)="saveProfile(user)" type="submit" class="formbtn" mat-raised-button>
+            Next
+          </button>
+        </div>
+      </div>
     </div>
   </form>
 </div>

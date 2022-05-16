@@ -2,15 +2,15 @@
   display: block;
   max-width: 40%;
   margin: auto;
-  margin-top: 10px;
+  margin-top: 30px;
   max-width: 400px;
-  background-color: #D3D5DB;
-  /* background: rgb(5, 61, 151);
+  /* background-color: #D3D5DB; */
+  background: rgb(5, 61, 151);
   background: -moz-linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
   background: -webkit-linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
   background: linear-gradient(176deg, rgba(5, 61, 151, 1) 26%, rgba(4, 28, 66, 1) 98%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#053d97", endColorstr="#041c42", GradientType=1); */
-  padding: 40px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#053d97", endColorstr="#041c42", GradientType=1);
+  padding: 20px;
   border-radius: 16px;
 }
 
@@ -20,14 +20,6 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-  /* margin-bottom: 10px; */
-}
-
-.main-item {
-  /* margin-top: 10px; */
-  /* margin-bottom: 10px; */
-  margin-left: 3px;
-  margin-right: 3px;
 }
 
 .nameLbl {
@@ -39,20 +31,16 @@
   font-weight: 0 !important;
   font-size: 1.1em;
   font-family: 'Cabin', sans-serif;
-  color: #072F6E;
+  color: #ffffff;
 }
 
 .hint {
   font-size: 0.9em;
 }
 
-.item {
-  display: flex;
-}
-
 .form-title {
   font-family: 'Poppins', sans-serif;
-  color: #072F6E;
+  color: #ffffff;
   font-size: 2em;
   font-weight: 600;
 }
@@ -71,7 +59,7 @@
 .profile-image>button {
   position: absolute;
   bottom: 10px;
-  right: 25%;
+  right: 30%;
   background-color: #072F6E;
   color: #ffffff;
 }
@@ -83,34 +71,31 @@ label {
 .label1 {
   font-size: 1.2em;
   font-family: 'Cabin', sans-serif;
-  color: #072F6E;
+  color: #ffffff;
 }
 
 .ans {
   font-size: 1.2em;
   font-family: 'Signika Negative', sans-serif;
-  color: #072F6E;
+  color: #ffffff;
   font-weight: 600;
 }
 
-input {
-  width: 300px;
+/* input {
   background: #ecf0f3;
   padding: 10px;
-  padding-left: 20px;
   height: 50px;
   font-size: 16px;
   font-weight: 400;
   border-radius: 10px;
   box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
-  display: block;
   border: 2px solid #072F6E;
 }
 
 input:focus {
   outline: none !important;
   border: 3px solid #072F6E;
-}
+} */
 
 .formbtn {
   background-color: #01193E;
@@ -130,68 +115,3 @@ input:focus {
 .formbtn:hover {
   background-color: #024ABD;
 }
-
-/* .row {
-  display: flex;
-  gap: 16px;
-} */
-
-/* .main-item {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 3px;
-  margin-right: 3px;
-}
-
-.nameLbl {
-  text-align: left;
-  margin-left: 10px;
-}
-
-.label2 {
-  font-weight: 0 !important;
-  font-size: 1.1em;
-  font-family: 'Cabin', sans-serif;
-  color: #072F6E;
-}
-
-.item {
-  display: flex;
-}
-
-input,
-select {
-  width: 100px;
-  background: #ecf0f3;
-  padding: 10px;
-  padding-left: 20px;
-  height: 50px;
-  font-size: 16px;
-  font-weight: 400;
-  border-radius: 10px;
-  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
-}
-
-input {
-  display: block;
-  border: 2px solid #072F6E;
-}
-
-input:focus,
-select:focus {
-  outline: none !important;
-  border: 3px solid #072F6E;
-}
-
-.formbtn {
-  background-color: #01193E;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-  width: 5%;
-  text-align: center;
-  justify-content: flex-end;
-  border-radius: 30px;
-  font-size: 1.2em;
-  color: #e7e7e7;
-  padding-left: 5px;
-  padding-right: 5px;
-} */
