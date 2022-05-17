@@ -1,15 +1,17 @@
-<div class="downloadBtnDiv">
-  <button class="downloadBtn">Download All</button>
-</div>
+
 <div id="allInfo" class="form-container1" *ngIf="user$ | async as user">
 
-
+  
 
   <div class="container">
 
 
 
     <div class="row">
+
+      <div class="downloadBtnDiv">
+        <button class="downloadBtn">Download All</button>
+      </div>
 
    
         <div class="col-md-12 col-lg-12 col-sm-12" id="print-section">
@@ -18,8 +20,6 @@
 
 
               <tr>
-                <td></td>
-                <td></td>
 
                 <td>
                   <button (click)="PrintPersonalInfo()" class="downloadBtn" style="float: right; ">Download</button>
