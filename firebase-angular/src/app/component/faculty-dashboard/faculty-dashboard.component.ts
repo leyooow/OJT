@@ -60,12 +60,14 @@ export class FacultyDashboardComponent implements OnInit {
     html2canvas(htmlContent).then(canvas => {
       let imgWidth = 210
       let imgHeigth = 250
+      
+      var pdf = new jsPDF('p', 'pt', 'a4')
       const contentDataURL = canvas.toDataURL('image/png', 1.0)
-      let pdf = new jsPDF('p', 'mm', 'a4')
       var position = 10
 
     
-      pdf.addImage(contentDataURL, 'PNG', 30, position, imgWidth, imgHeigth)
+      pdf.addImage(contentDataURL, 'PNG', 20, position, imgWidth, imgHeigth)
+      pdf.addPage('a4','p')
       pdf.save('Personal_Info.pdf')
 
     })
@@ -100,9 +102,14 @@ export class FacultyDashboardComponent implements OnInit {
       let pdf = new jsPDF('p', 'pt', 'a4')
       var position = 10
      
+      
         pdf.addImage(contentDataURL, 'PNG', 20, position, imgWidth, imgHeigth)
+        pdf.addPage('a4','p')
+        
+
+
         pdf.save('Educational_Background.pdf')
-       
+
 
         
       
@@ -117,18 +124,18 @@ export class FacultyDashboardComponent implements OnInit {
 
   PrintCivilInfo() {
     let data3 = document.getElementById('civilService')
-    this.generatePersonalPDF(data3)
+    this.generateCivilPDF(data3)
   }
 
   generateCivilPDF(htmlContent3: any) {
     html2canvas(htmlContent3).then(canvas => {
       let imgWidth = 230
       let imgHeigth = 350
-      const contentDataURL = canvas.toDataURL('image/png3', 1.0)
+      const contentDataURL1 = canvas.toDataURL('image/png3', 1.0)
       let pdf = new jsPDF('p', 'mm', 'a4')
       
       var position = 5
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeigth)
+      pdf.addImage(contentDataURL1, 'PNG', 20, position, imgWidth, imgHeigth)
       pdf.save('Civil_Service_Info.pdf')
 
       
