@@ -114,6 +114,7 @@ import { NgxPrintModule } from 'ngx-print';
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
     NgxPrintModule,
+    
 
     
   

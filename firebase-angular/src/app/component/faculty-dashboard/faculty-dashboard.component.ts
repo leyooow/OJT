@@ -4,7 +4,13 @@ import { UsersService } from 'src/app/services/users.service';
 import * as bootstrap from 'bootstrap';
 import { Modal } from 'bootstrap';
 import html2canvas from 'html2canvas'
-import { jsPDF } from 'jspdf'
+import jsPDF from 'jspdf';
+
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
+const htmlToPdfmake = require("html-to-pdfmake");
+(pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
+
 
 @Component({
   selector: 'app-faculty-dashboard',
@@ -34,26 +40,17 @@ export class FacultyDashboardComponent implements OnInit {
     this.authService.logout()
   }
 
-  PrintEducInfo() {
-    let data = document.getElementById('educationalBackground')
-    this.generateEducPDF(data)
-  }
 
-  generateEducPDF(htmlContent: any) {
-    html2canvas(htmlContent).then(canvas => {
-      let imgWidth = 210
-      let imgHeigth = 250
-      const contentDataURL = canvas.toDataURL('image/png', 1.0)
-      let pdf = new jsPDF('p', 'mm', 'a4')
-      var position = 5
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeigth)
-      pdf.save('Educational_Background.pdf')
-
-    })
+  // public downloadAsPDF() {
+  //   const pdfTable = document.getElementById('educationalBackground')
+  //   var html = htmlToPdfmake(pdfTable!.innerHTML);
+  //   const documentDefinition = { content: html };
+  //   pdfMake.createPdf(documentDefinition).download(); 
+     
+  // }
 
 
-  }
-
+//personal
   PrintPersonalInfo() {
     let data = document.getElementById('personalInfo')
     this.generatePersonalPDF(data)
@@ -61,18 +58,87 @@ export class FacultyDashboardComponent implements OnInit {
 
   generatePersonalPDF(htmlContent: any) {
     html2canvas(htmlContent).then(canvas => {
-      let imgWidth = 230
-      let imgHeigth = 350
+      let imgWidth = 210
+      let imgHeigth = 250
       const contentDataURL = canvas.toDataURL('image/png', 1.0)
       let pdf = new jsPDF('p', 'mm', 'a4')
-      var position = 5
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeigth)
+      var position = 10
+
+    
+      pdf.addImage(contentDataURL, 'PNG', 30, position, imgWidth, imgHeigth)
       pdf.save('Personal_Info.pdf')
 
     })
 
 
   }
+
+
+  // educ
+
+  PrintEducInfo() {
+    let data2 = document.getElementById('educationalBackground')
+    this.generateEducPDF(data2)
+  }
+
+
+
+  generateEducPDF(htmlContent2: any) {
+
+    html2canvas(htmlContent2, {
+     
+  });
+     
+      
+
+    html2canvas(htmlContent2).then(canvas => {
+      let imgWidth = 550
+      let imgHeigth = 800
+      var doc = new jsPDF('p', 'pt');
+      const contentDataURL = canvas.toDataURL('image/png2', 1.0)
+      
+      let pdf = new jsPDF('p', 'pt', 'a4')
+      var position = 10
+     
+        pdf.addImage(contentDataURL, 'PNG', 20, position, imgWidth, imgHeigth)
+        pdf.save('Educational_Background.pdf')
+       
+
+        
+      
+    
+
+    })
+
+
+  }
+
+  // civil
+
+  PrintCivilInfo() {
+    let data3 = document.getElementById('civilService')
+    this.generatePersonalPDF(data3)
+  }
+
+  generateCivilPDF(htmlContent3: any) {
+    html2canvas(htmlContent3).then(canvas => {
+      let imgWidth = 230
+      let imgHeigth = 350
+      const contentDataURL = canvas.toDataURL('image/png3', 1.0)
+      let pdf = new jsPDF('p', 'mm', 'a4')
+      
+      var position = 5
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeigth)
+      pdf.save('Civil_Service_Info.pdf')
+
+      
+
+    })
+
+
+  }
+
+
 
 
 

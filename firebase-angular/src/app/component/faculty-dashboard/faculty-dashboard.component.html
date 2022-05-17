@@ -17,7 +17,7 @@
         <div class="col-md-12 col-lg-12 col-sm-12" id="print-section">
           <table>
             <tbody>
-
+           
 
               <tr>
 
@@ -26,6 +26,7 @@
                 </td>
               </tr>
               <div class="personalInfo">
+                <h3 style="color: #072F6E;">Personal Information</h3>
 
                 <td>
                   <caption>Basic Information </caption>
@@ -480,52 +481,60 @@
     </div>
   </div>
 
-  <div class="container" id="civilService">
+  <div class="container" >
     <div class="row">
       <div class="col-md-12 col-lg-12 col-sm-12">
         <table>
           <tbody>
+
             <tr>
+
               <td>
-                <caption>Civil Service</caption>
-              <td></td>
-              <td>
-                <div class="downloadBtnDiv">
-                  <button class="downloadBtn">Download</button>
-                </div>
+                <button  class="downloadBtn" style="float: right; ">Download</button>
               </td>
             </tr>
-            <tr>
-              <th>Civil Service</th>
-              <td>:</td>
-              <td>{{user.careercivil}}</td>
-            </tr>
-            <tr>
-              <th>Rating</th>
-              <td>:</td>
-              <td>{{user.ratingCivil}}</td>
-            </tr>
-            <tr>
-              <th>Place of examination/Conferment</th>
-              <td>:</td>
-              <td>{{user.placeofExamCivil}}</td>
-            </tr>
-            <tr>
-              <th>Date of examination/Conferment</th>
-              <td>:</td>
-              <td>{{user.dateofExamCivil}}</td>
-            </tr>
-            <caption class="capBot">License</caption>
-            <tr>
-              <th>Number</th>
-              <td>:</td>
-              <td>{{user.numberCivil}}</td>
-            </tr>
-            <tr>
-              <th> Date of Validity</th>
-              <td>:</td>
-              <td>{{user.dateofValidityCivil}}</td>
-            </tr>
+            <div id="civilService">
+
+              <tr>
+                <td>
+                  <caption>Civil Service</caption>
+                <td></td>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Civil Service</th>
+                <td>:</td>
+                <td>{{user.careercivil}}</td>
+              </tr>
+              <tr>
+                <th>Rating</th>
+                <td>:</td>
+                <td>{{user.ratingCivil}}</td>
+              </tr>
+              <tr>
+                <th>Place of examination/Conferment</th>
+                <td>:</td>
+                <td>{{user.placeofExamCivil}}</td>
+              </tr>
+              <tr>
+                <th>Date of examination/Conferment</th>
+                <td>:</td>
+                <td>{{user.dateofExamCivil}}</td>
+              </tr>
+              <caption class="capBot">License</caption>
+              <tr>
+                <th>Number</th>
+                <td>:</td>
+                <td>{{user.numberCivil}}</td>
+              </tr>
+              <tr>
+                <th> Date of Validity</th>
+                <td>:</td>
+                <td>{{user.dateofValidityCivil}}</td>
+              </tr>
+
+            </div>
+           
           </tbody>
         </table>
       </div>
@@ -539,57 +548,72 @@
           <tbody>
 
             <tr>
+
               <td>
-                <caption>Working Experience</caption>
-              <td></td>
-              <td>
-                <div class="downloadBtnDiv">
-                  <button class="downloadBtn">Download</button>
-                </div>
+                <button class="downloadBtn" style="float: right; ">Download</button>
               </td>
             </tr>
-            <tr>
-              <th>Position Title</th>
-              <td>:</td>
-              <td>{{user.positionTitleWorkExp}}</td>
-            </tr>
-            <tr>
-              <th>Inclusive Dates</th>
-              <td>:</td>
-              <td>{{user.fromWorkExp}} <strong>-</strong> {{user.tomWorkExp}}</td>
-            </tr>
-            <tr>
-              <th>Department/Agency/Office/Company</th>
-              <td>:</td>
-              <td>{{user.departmentWorkExp}}</td>
-            </tr>
-            <tr>
-              <th>Salary/Job/Pay Grade</th>
-              <td>:</td>
-              <td>{{user.salaryJobPayWorkExp}}</td>
-            </tr>
-            <tr>
-              <th>Monthly Salary</th>
-              <td>:</td>
-              <td>{{user.monthlySalaryWorkExp}}</td>
-            </tr>
-            <tr>
-              <th>Status of Apointment</th>
-              <td>:</td>
-              <td>{{user.statusOfAppointmentWorkExp}}</td>
-            </tr>
-            <tr>
-              <th>Government Service</th>
-              <td>:</td>
-              <td>{{user.governmentServiceWorkExp}}</td>
-            </tr>
+
+
+
+            <div id="workingExp">
+
+              <tr>
+                <td>
+                  <caption>Working Experience</caption>
+                <td></td>
+                <td></td>
+  
+  
+  
+              </tr>
+              
+              <tr>
+                <th>Position Title</th>
+                <td>:</td>
+                <td>{{user.positionTitleWorkExp}}</td>
+              </tr>
+              <tr>
+                <th>Inclusive Dates</th>
+                <td>:</td>
+                <td>{{user.fromWorkExp}} <strong>-</strong> {{user.tomWorkExp}}</td>
+              </tr>
+              <tr>
+                <th>Department/Agency/Office/Company</th>
+                <td>:</td>
+                <td>{{user.departmentWorkExp}}</td>
+              </tr>
+              <tr>
+                <th>Salary/Job/Pay Grade</th>
+                <td>:</td>
+                <td>{{user.salaryJobPayWorkExp}}</td>
+              </tr>
+              <tr>
+                <th>Monthly Salary</th>
+                <td>:</td>
+                <td>{{user.monthlySalaryWorkExp}}</td>
+              </tr>
+              <tr>
+                <th>Status of Apointment</th>
+                <td>:</td>
+                <td>{{user.statusOfAppointmentWorkExp}}</td>
+              </tr>
+              <tr>
+                <th>Government Service</th>
+                <td>:</td>
+                <td>{{user.governmentServiceWorkExp}}</td>
+              </tr>
+              
+            </div>
+
+           
           </tbody>
         </table>
       </div>
     </div>
   </div>
 
-  <div class="container" id="training">
+  <div class="container">
     <!-- <div class="row">
       <div class="col-md-12 col-lg-12 col-sm-12">
         <section class="fieldset1">
@@ -607,40 +631,51 @@
         <table>
           <tbody>
             <tr>
+
               <td>
-                <caption>Traning Programs</caption>
-              <td></td>
-              <td>
-                <div class="downloadBtnDiv">
-                  <button class="downloadBtn">Download</button>
-                </div>
+                <button  class="downloadBtn" style="float: right; ">Download</button>
               </td>
             </tr>
-            <tr>
-              <th>Title</th>
-              <td>:</td>
-              <td>{{user.TitleOfLearningTraining}}</td>
-            </tr>
-            <tr>
-              <th>Inclusive Dates</th>
-              <td>:</td>
-              <td>{{user.fromTraining}} <strong>-</strong> {{user.toTraining}}</td>
-            </tr>
-            <tr>
-              <th>Conducted/Sponsored By</th>
-              <td>:</td>
-              <td>{{user.conductedTraining}}</td>
-            </tr>
-            <tr>
-              <th>Number of Hours</th>
-              <td>:</td>
-              <td>{{user.numberOfHrsTraining}}</td>
-            </tr>
-            <tr>
-              <th>Types of L&D</th>
-              <td>:</td>
-              <td>{{user.typeOfLdTraining}}</td>
-            </tr>
+
+            
+
+            <div  id="training">
+
+              <tr>
+                <td>
+                  <caption>Civil Service</caption>
+                <td></td>
+                  <td></td>
+              </tr>
+
+              <tr>
+                <th>Title</th>
+                <td>:</td>
+                <td>{{user.TitleOfLearningTraining}}</td>
+              </tr>
+              <tr>
+                <th>Inclusive Dates</th>
+                <td>:</td>
+                <td>{{user.fromTraining}} <strong>-</strong> {{user.toTraining}}</td>
+              </tr>
+              <tr>
+                <th>Conducted/Sponsored By</th>
+                <td>:</td>
+                <td>{{user.conductedTraining}}</td>
+              </tr>
+              <tr>
+                <th>Number of Hours</th>
+                <td>:</td>
+                <td>{{user.numberOfHrsTraining}}</td>
+              </tr>
+              <tr>
+                <th>Types of L&D</th>
+                <td>:</td>
+                <td>{{user.typeOfLdTraining}}</td>
+              </tr>
+
+            </div>
+            
           </tbody>
         </table>
       </div>

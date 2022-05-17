@@ -96,7 +96,7 @@ export class AppComponent {
 
 
     if (userID == 'fM6Ko90ezgSzZJ04sbCdGMmbOYt1') {
-      this.router.navigate(['/admin-dashboard'])
+      return
     } else {
       this.router.navigate(['/faculty-dashboard'])
     }

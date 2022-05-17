@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
         if(userID === 'fM6Ko90ezgSzZJ04sbCdGMmbOYt1' ){
           
          
-        this.router.navigate(['/admin-dashboard']);
+        this.router.navigate(['/faculty-request']);
         await window.location.reload
         
         

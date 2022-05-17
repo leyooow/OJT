@@ -84,7 +84,7 @@ export class PersonalInfoFormComponent implements OnInit {
     provincePermanent: new FormControl('', Validators.required), //required
     zipCodePermanent: new FormControl('', Validators.required), //required
     telephoneNo: new FormControl('',),
-    mobileNo: new FormControl('', Validators.required), //required
+    mobileNo: new FormControl('',), //required
     alternateEmail: new FormControl('',),
   }, {updateOn: 'submit'})
   
@@ -222,7 +222,7 @@ export class PersonalInfoFormComponent implements OnInit {
 
       if(data == '1'){
     
-        this.router.navigate(['/faculty-dashboard'])
+        this.router.navigate(['/personal-info-display'])
       }
     })
 
