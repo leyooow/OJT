@@ -56,6 +56,8 @@ interface User {
 })
 export class FacultyRequestComponent implements OnInit {
 
+  user$ = this.usersService.currentUserProfile$
+
   password: string = '';
   email: string = '';
   employeeId: string = '';
@@ -372,7 +374,7 @@ export class FacultyRequestComponent implements OnInit {
           })
 
           this.authService.logout().subscribe(() => {
-            localStorage.clear();
+            
             
             const id = String(localStorage.getItem('id'))
             //  alert(id)
@@ -380,6 +382,8 @@ export class FacultyRequestComponent implements OnInit {
             const ref = this.db.object('request/' + id).remove()
             
             this.getStarted()
+
+            localStorage.clear();
             
           })
 

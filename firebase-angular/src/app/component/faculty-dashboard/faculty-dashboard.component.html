@@ -1,78 +1,656 @@
-<div class="form-container1" *ngIf="user$ | async as user" >
- 
-      <!-- <div class="col-sm-3 bg-light sidebar pe-0 p-3" *ngIf="user$ | async as user">
-  
-        <a  class="p-3  text-success text-center">
-          <img  height="150" width="150" 
-          [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'"
-          ><br/><br/>
-          <strong *ngIf="user$ | async as user" > {{user.firstName}} {{ user.lastName}}</strong>
-        </a>
-  
-        <hr class="text-success">
-  
-        <a class="p-3" >
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-            class="bi bi-people-fill me-3" viewBox="0 0 16 16">
-            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-            <path fill-rule="evenodd"
-              d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
-            <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
-          </svg>
-          Personal Information
-        </a>
-  
-        <a class="p-3">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-            class="bi bi-card-checklist me-3" viewBox="0 0 16 16">
-            <path
-              d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
-            <path
-              d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
-          </svg>
-          Educational Background
-        </a>
-  
-        <a class="p-3">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-            class="bi bi-bag-check-fill me-3" viewBox="0 0 16 16">
-            <path fill-rule="evenodd"
-              d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zm-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
-          </svg>
-          Civil Service Eligibility
-        </a>
-  
-  
-        <a class="p-3" >
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-            class="bi bi-pc-display-horizontal me-3" viewBox="0 0 16 16">
-            <path
-              d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0h-13Zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5ZM12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25Z" />
-          </svg>
-          Work Experience
-        </a>
-  
-        <a class="p-3" >
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-book-fill me-3"
-            viewBox="0 0 16 16">
-            <path
-              d="M8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
-          </svg>
-          L&D/Training Programs
-        </a>
-  
-        
+<div class="downloadBtnDiv">
+  <button class="downloadBtn">Download All</button>
+</div>
+<div id="allInfo" class="form-container1" *ngIf="user$ | async as user">
+
+
+
+  <div class="container">
+
+
+
+    <div class="row">
+
+   
+        <div class="col-md-12 col-lg-12 col-sm-12" id="print-section">
+          <table>
+            <tbody>
+
+
+              <tr>
+                <td></td>
+                <td></td>
+
+                <td>
+                  <button (click)="PrintPersonalInfo()" class="downloadBtn" style="float: right; ">Download</button>
+                </td>
+              </tr>
+              <div class="personalInfo">
+
+                <td>
+                  <caption>Basic Information </caption>
+                </td>
   
   
   
-      </div> -->
-     <h1>Hello, {{user.firstName}} {{user.lastName}}</h1>
   
   
+  
+                <tr>
+                  <th>First Name</th>
+                  <td>:</td>
+                  <td>{{user.firstName}}</td>
+                </tr>
+                <tr>
+                  <th>Middle Name</th>
+                  <td>:</td>
+                  <td>{{user.middleName}}</td>
+                </tr>
+                <tr>
+                  <th>Last Name</th>
+                  <td>:</td>
+                  <td>{{user.lastName}} {{user.nameExtension}}</td>
+                </tr>
+                <tr>
+                  <th>Name Extension</th>
+                  <td>:</td>
+                  <td>{{user.nameExtension}}</td>
+                </tr>
+                <tr>
+                  <th>Employee ID</th>
+                  <td>:</td>
+                  <td>{{user.employeeId}}</td>
+                </tr>
+                <tr>
+                  <th>Email Address</th>
+                  <td>:</td>
+                  <td>{{user.email}}</td>
+                </tr>
+                <tr>
+                  <th>Date of Birth</th>
+                  <td>:</td>
+                  <td>{{user.dateOfBirth}}</td>
+                </tr>
+                <tr>
+                  <th>Age</th>
+                  <td>:</td>
+                  <td>{{user.age}}</td>
+                </tr>
+                <tr>
+                  <th>Place of Birth</th>
+                  <td>:</td>
+                  <td>{{user.placeOfBirth}}</td>
+                </tr>
+                <tr>
+                  <th>Gender</th>
+                  <td>:</td>
+                  <td>{{user.gender}}</td>
+                </tr>
+                <tr>
+                  <th>Civil Status</th>
+                  <td>:</td>
+                  <td>{{user.civilStatus}}</td>
+                </tr>
+                <tr>
+                  <th>Citizenship</th>
+                  <td>:</td>
+                  <td>{{user.citezenship}}</td>
+                </tr>
+                <tr>
+                  <th>Height</th>
+                  <td>:</td>
+                  <td>{{user.height}}</td>
+                </tr>
+                <tr>
+                  <th>Weight</th>
+                  <td>:</td>
+                  <td>{{user.weight}}</td>
+                </tr>
+                <tr>
+                  <th>Blood Type</th>
+                  <td>:</td>
+                  <td>{{user.bloodType}}</td>
+                </tr>
+                <tr>
+                  <th>GSIS Number</th>
+                  <td>:</td>
+                  <td>{{user.gsis}}</td>
+                </tr>
+                <tr>
+                  <th>PAGIBIG Number</th>
+                  <td>:</td>
+                  <td>{{user.pagibig}}</td>
+                </tr>
+                <tr>
+                  <th>PhilHealth Number</th>
+                  <td>:</td>
+                  <td>{{user.philhealth}}</td>
+                </tr>
+                <tr>
+                  <th>SSS Number</th>
+                  <td>:</td>
+                  <td>{{user.sss}}</td>
+                </tr>
+                <tr>
+                  <th>TIN Number</th>
+                  <td>:</td>
+                  <td>{{user.tin}}</td>
+                </tr>
+
+                <td>
+                  <caption class="capBot">Resident Address</caption>
+                </td>
+              
+                <tr>
+                  <th>House/Block/Lot Number</th>
+                  <td>:</td>
+                  <td>{{user.houseBlockResident}}</td>
+                </tr>
+                <tr>
+                  <th>Street</th>
+                  <td>:</td>
+                  <td>{{user.streetResident}}</td>
+                </tr>
+                <tr>
+                  <th>Subdivision/Village</th>
+                  <td>:</td>
+                  <td>{{user.subdivisionResident}}</td>
+                </tr>
+                <tr>
+                  <th>Barangay</th>
+                  <td>:</td>
+                  <td>{{user.barangayResident}}</td>
+                </tr>
+                <tr>
+                  <th>City/Municipality</th>
+                  <td>:</td>
+                  <td>{{user.municipalityResident}}</td>
+                </tr>
+                <tr>
+                  <th>Province</th>
+                  <td>:</td>
+                  <td>{{user.provinceResident}}</td>
+                </tr>
+                <tr>
+                  <th>Zip Code</th>
+                  <td>:</td>
+                  <td>{{user.zipCodeResident}}</td>
+                </tr>
+
+                <td>
+                  <caption class="capBot">Permanent Address</caption>
+                </td>
+                
+                <tr>
+                  <th>House/Block/Lot Number</th>
+                  <td>:</td>
+                  <td>{{user.houseBlockPermanent}}</td>
+                </tr>
+                <tr>
+                  <th>Street</th>
+                  <td>:</td>
+                  <td>{{user.streetPermanent}}</td>
+                </tr>
+                <tr>
+                  <th>Subdivision/Village</th>
+                  <td>:</td>
+                  <td>{{user.subdivisionPermanent}}</td>
+                </tr>
+                <tr>
+                  <th>Barangay</th>
+                  <td>:</td>
+                  <td>{{user.barangayPermanent}}</td>
+                </tr>
+                <tr>
+                  <th>City/Municipality</th>
+                  <td>:</td>
+                  <td>{{user.municipalityPermanent}}</td>
+                </tr>
+                <tr>
+                  <th>Province</th>
+                  <td>:</td>
+                  <td>{{user.provincePermanent}}</td>
+                </tr>
+                <tr>
+                  <th>Zip Code</th>
+                  <td>:</td>
+                  <td>{{user.zipCodePermanent}}</td>
+                </tr>
+              </div>
+
+             
+            </tbody>
+          </table>
+        </div>
+      
+
+
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-12 col-sm-12"></div>
+      <table>
+        <tbody>
+          <tr>
+
+            <td>
+              <button (click)="PrintEducInfo()" class="downloadBtn" style="float: right; ">Download</button>
+            </td>
+          </tr>
+
+
+          <br/>
+
+         
+
+          <div id="educationalBackground">
+
+            
+
+              <td>
+                <h3 style="color: #072F6E;">Educational Background</h3>
+              </td>
+            
+
+         
+
+            <tr>
+              <caption>Elementary</caption>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <th>Name of School</th>
+              <td>:</td>
+              <td>{{user.nameOfSchoolElem}}</td>
+            </tr>
+            <tr>
+              <th>Basic Education/Degree/Course</th>
+              <td>:</td>
+              <td>{{user.basicEducElem}}</td>
+            </tr>
+            <tr>
+              <th>Period of Attendance</th>
+              <td>:</td>
+              <td>{{user.fromElem}} <strong>-</strong> {{user.toElem}}</td>
+            </tr>
+            <tr>
+              <th>Year Graduated</th>
+              <td>:</td>
+              <td>{{user.yearGraduatedElem}}</td>
+            </tr>
+            <tr>
+              <th>Highest Level/Units Earned</th>
+              <td>:</td>
+              <td>{{user.highestLevelElem}}</td>
+            </tr>
+            <tr>
+              <th>Scholarship/Academic Honors Received</th>
+              <td>:</td>
+              <td>{{user.scholarElem}}</td>
+            </tr>
+            <tr>
+              <caption class="capBot">Junior High School</caption>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <th>Name of School</th>
+              <td>:</td>
+              <td>{{user.nameOfSchoolJunior}}</td>
+            </tr>
+            <tr>
+              <th>Basic Education/Degree/Course</th>
+              <td>:</td>
+              <td>{{user.basicEducJunior}}</td>
+            </tr>
+            <tr>
+              <th>Period of Attendance</th>
+              <td>:</td>
+              <td>{{user.fromJunior}} <strong>-</strong> {{user.toJunior}}</td>
+            </tr>
+            <tr>
+              <th>Year Graduated</th>
+              <td>:</td>
+              <td>{{user.yearGraduatedJunior}}</td>
+            </tr>
+            <tr>
+              <th>Highest Level/Units Earned</th>
+              <td>:</td>
+              <td>{{user.highestLevelJunior}}</td>
+            </tr>
+            <tr>
+              <th>Scholarship/Academic Honors Received</th>
+              <td>:</td>
+              <td>{{user.scholarJunior}}</td>
+            </tr>
+            <tr>
+              <caption class="capBot">Senior High School</caption>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <th>Name of School</th>
+              <td>:</td>
+              <td>{{user.nameOfSchoolSenior}}</td>
+            </tr>
+            <tr>
+              <th>Basic Education/Degree/Course</th>
+              <td>:</td>
+              <td>{{user.basicEducSenior}}</td>
+            </tr>
+            <tr>
+              <th>Period of Attendance</th>
+              <td>:</td>
+              <td>{{user.fromSenior}} <strong>-</strong> {{user.toSenior}}</td>
+            </tr>
+            <tr>
+              <th>Year Graduated</th>
+              <td>:</td>
+              <td>{{user.yearGraduatedSenior}}</td>
+            </tr>
+            <tr>
+              <th>Highest Level/Units Earned</th>
+              <td>:</td>
+              <td>{{user.highestLevelSenior}}</td>
+            </tr>
+            <tr>
+              <th>Scholarship/Academic Honors Received</th>
+              <td>:</td>
+              <td>{{user.scholarSenior}}</td>
+            </tr>
+            <tr>
+              <caption class="capBot">College</caption>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <th>Name of School</th>
+              <td>:</td>
+              <td>{{user.nameOfSchoolCollege}}</td>
+            </tr>
+            <tr>
+              <th>Basic Education/Degree/Course</th>
+              <td>:</td>
+              <td>{{user.basicEducCollege}}</td>
+            </tr>
+            <tr>
+              <th>Period of Attendance</th>
+              <td>:</td>
+              <td>{{user.fromCollege}} <strong>-</strong> {{user.toCollege}}</td>
+            </tr>
+            <tr>
+              <th>Year Graduated</th>
+              <td>:</td>
+              <td>{{user.yearGraduatedCollege}}</td>
+            </tr>
+            <tr>
+              <th>Highest Level/Units Earned</th>
+              <td>:</td>
+              <td>{{user.highestLevelCollege}}</td>
+            </tr>
+            <tr>
+              <th>Scholarship/Academic Honors Received</th>
+              <td>:</td>
+              <td>{{user.scholarCollege}}</td>
+            </tr>
+            <tr>
+              <caption class="capBot">Vocational/Trade Course</caption>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <th>Name of School</th>
+              <td>:</td>
+              <td>{{user.nameOfSchoolVocational}}</td>
+            </tr>
+            <tr>
+              <th>Basic Education/Degree/Course</th>
+              <td>:</td>
+              <td>{{user.basicEducVocational}}</td>
+            </tr>
+            <tr>
+              <th>Period of Attendance</th>
+              <td>:</td>
+              <td>{{user.fromVocational}} <strong>-</strong> {{user.toVocational}}</td>
+            </tr>
+            <tr>
+              <th>Year Graduated</th>
+              <td>:</td>
+              <td>{{user.yearGraduatedVocational}}</td>
+            </tr>
+            <tr>
+              <th>Highest Level/Units Earned</th>
+              <td>:</td>
+              <td>{{user.highestLevelVocational}}</td>
+            </tr>
+            <tr>
+              <th>Scholarship/Academic Honors Received</th>
+              <td>:</td>
+              <td>{{user.scholarVocational}}</td>
+            </tr>
+            <tr>
+              <caption class="capBot">Graduate Studies</caption>
+              <td></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <th>Name of School</th>
+              <td>:</td>
+              <td>{{user.nameOfSchoolStudies}}</td>
+            </tr>
+            <tr>
+              <th>Basic Education/Degree/Course</th>
+              <td>:</td>
+              <td>{{user.basicEducStudies}}</td>
+            </tr>
+            <tr>
+              <th>Period of Attendance</th>
+              <td>:</td>
+              <td>{{user.fromStudies}} <strong>-</strong> {{user.toStudies}}</td>
+            </tr>
+            <tr>
+              <th>Year Graduated</th>
+              <td>:</td>
+              <td>{{user.yearGraduatedStudies}}</td>
+            </tr>
+            <tr>
+              <th>Highest Level/Units Earned</th>
+              <td>:</td>
+              <td>{{user.highestLevelStudies}}</td>
+            </tr>
+            <tr>
+              <th>Scholarship/Academic Honors Received</th>
+              <td>:</td>
+              <td>{{user.scholarStudies}}</td>
+            </tr>
+
+          </div>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="container" id="civilService">
+    <div class="row">
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <caption>Civil Service</caption>
+              <td></td>
+              <td>
+                <div class="downloadBtnDiv">
+                  <button class="downloadBtn">Download</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Civil Service</th>
+              <td>:</td>
+              <td>{{user.careercivil}}</td>
+            </tr>
+            <tr>
+              <th>Rating</th>
+              <td>:</td>
+              <td>{{user.ratingCivil}}</td>
+            </tr>
+            <tr>
+              <th>Place of examination/Conferment</th>
+              <td>:</td>
+              <td>{{user.placeofExamCivil}}</td>
+            </tr>
+            <tr>
+              <th>Date of examination/Conferment</th>
+              <td>:</td>
+              <td>{{user.dateofExamCivil}}</td>
+            </tr>
+            <caption class="capBot">License</caption>
+            <tr>
+              <th>Number</th>
+              <td>:</td>
+              <td>{{user.numberCivil}}</td>
+            </tr>
+            <tr>
+              <th> Date of Validity</th>
+              <td>:</td>
+              <td>{{user.dateofValidityCivil}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="workingExp">
+    <div class="row">
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <table>
+          <tbody>
+
+            <tr>
+              <td>
+                <caption>Working Experience</caption>
+              <td></td>
+              <td>
+                <div class="downloadBtnDiv">
+                  <button class="downloadBtn">Download</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Position Title</th>
+              <td>:</td>
+              <td>{{user.positionTitleWorkExp}}</td>
+            </tr>
+            <tr>
+              <th>Inclusive Dates</th>
+              <td>:</td>
+              <td>{{user.fromWorkExp}} <strong>-</strong> {{user.tomWorkExp}}</td>
+            </tr>
+            <tr>
+              <th>Department/Agency/Office/Company</th>
+              <td>:</td>
+              <td>{{user.departmentWorkExp}}</td>
+            </tr>
+            <tr>
+              <th>Salary/Job/Pay Grade</th>
+              <td>:</td>
+              <td>{{user.salaryJobPayWorkExp}}</td>
+            </tr>
+            <tr>
+              <th>Monthly Salary</th>
+              <td>:</td>
+              <td>{{user.monthlySalaryWorkExp}}</td>
+            </tr>
+            <tr>
+              <th>Status of Apointment</th>
+              <td>:</td>
+              <td>{{user.statusOfAppointmentWorkExp}}</td>
+            </tr>
+            <tr>
+              <th>Government Service</th>
+              <td>:</td>
+              <td>{{user.governmentServiceWorkExp}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="training">
+    <!-- <div class="row">
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <section class="fieldset1">
+          <div class="profile">
+            <h3>Certificate</h3>
+            <img width="350" height="200" [src]="user.photoCertURL ?? 'assets/images/image-placeholder.jpg'">
+            <span id="certTitle">{{user.TitleOfLearningTraining}}</span>
+          </div>
+        </section>
+      </div>
+    </div> -->
+
+    <div class="row">
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <caption>Traning Programs</caption>
+              <td></td>
+              <td>
+                <div class="downloadBtnDiv">
+                  <button class="downloadBtn">Download</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Title</th>
+              <td>:</td>
+              <td>{{user.TitleOfLearningTraining}}</td>
+            </tr>
+            <tr>
+              <th>Inclusive Dates</th>
+              <td>:</td>
+              <td>{{user.fromTraining}} <strong>-</strong> {{user.toTraining}}</td>
+            </tr>
+            <tr>
+              <th>Conducted/Sponsored By</th>
+              <td>:</td>
+              <td>{{user.conductedTraining}}</td>
+            </tr>
+            <tr>
+              <th>Number of Hours</th>
+              <td>:</td>
+              <td>{{user.numberOfHrsTraining}}</td>
+            </tr>
+            <tr>
+              <th>Types of L&D</th>
+              <td>:</td>
+              <td>{{user.typeOfLdTraining}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
 
 
 </div>
-
-  
-  
-  

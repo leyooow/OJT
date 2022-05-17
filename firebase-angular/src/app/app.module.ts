@@ -54,6 +54,7 @@ import { FormsModule } from '@angular/forms';
 
 import { FacultyRequestComponent } from './component/display/faculty-request/faculty-request.component';
 import { FacultyListComponent } from './component/display/faculty-list/faculty-list.component';
+import { NgxPrintModule } from 'ngx-print';
 
 
 
@@ -80,6 +81,7 @@ import { FacultyListComponent } from './component/display/faculty-list/faculty-l
     TrainingDisplayComponent,
     FacultyRequestComponent,
     FacultyListComponent,
+    
     
   ],
   imports: [
@@ -111,6 +113,7 @@ import { FacultyListComponent } from './component/display/faculty-list/faculty-l
     MatProgressSpinnerModule,
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
+    NgxPrintModule,
 
     
   
