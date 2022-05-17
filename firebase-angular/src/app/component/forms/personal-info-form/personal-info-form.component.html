@@ -454,6 +454,50 @@
     </div>
     <hr>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-6 col-sm-12">
+          <span class="title">Contact Information</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-4 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Telephone No. <span class="hint">(Area code + xxxxxxx)</span>
+            </label>
+          </div>
+          <div class="item">
+            <input class="form-control" type="text" formControlName="telephoneNo" placeholder="Telephone Number" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Mobile No. <span class="hint">(09xxxxxxxxx)</span>
+            </label>
+          </div>
+          <div class="item">
+            <input class="form-control" type="text" formControlName="mobileNo" placeholder="Mobile Number"
+              [class.is-invalid]="localForm.submitted && ProfileForm.get('provincePermanent')?.invalid" />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 col-sm-12">
+          <div class="nameLbl">
+            <label class="label2">
+              Alternate Email
+            </label>
+          </div>
+          <div class="item">
+            <input class="form-control" type="text" formControlName="alternateEmail" placeholder="Alternate Email" />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="container" id="submitBtn">
       <div class="row">
         <div class="col-md-6 col-lg-3 col-sm-12">

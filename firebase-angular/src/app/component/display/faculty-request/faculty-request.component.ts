@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Database, get, onValue, ref, set } from '@angular/fire/database';
 import { ProfileUser } from 'src/app/models/user-profile';
-import * as admin from 'firebase-admin';
-import * as serviceAccount from 'firebase-admin'
+// import * as admin from 'firebase-admin';
+// import * as serviceAccount from 'firebase-admin'
 
 
 
@@ -24,7 +24,7 @@ import { HotToastService } from '@ngneat/hot-toast';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import * as firebase from 'firebase/compat';
-import { applicationDefault } from 'firebase-admin/app';
+// import { applicationDefault } from 'firebase-admin/app';
 
 
 
