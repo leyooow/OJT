@@ -1,238 +1,159 @@
-
+<div class="downloadBtnDiv">
+  <button class="downloadBtn">Download All</button>
+</div>
 <div id="allInfo" class="form-container1" *ngIf="user$ | async as user">
 
-  
 
   <div class="container">
-
-
-
     <div class="row">
+      <div></div>
+      <table class="table">
+        <tbody>
+          <tr>
 
-      <div class="downloadBtnDiv">
-        <button class="downloadBtn">Download All</button>
-      </div>
+            <td>
+              <button (click)="PrintPersonalInfo()" class="downloadBtn" style="float: right; ">Download</button>
+            </td>
+          </tr>
 
-   
-        <div class="col-md-12 col-lg-12 col-sm-12" id="print-section">
-          <table>
-            <tbody>
+
+          <br />
+
+
+
+          <div id="personalInfo">
+
+
+            <tr>
+              <td>
+                <h3 style="color: #072F6E;">Personal Information</h3>
+              </td>
+              <td></td>
+              <td></td>
+
+            </tr>
            
 
-              <tr>
+            <tr>
+              <caption class="capBot">Basic Information</caption>
+              <td></td>
+              <td></td>
+            </tr>
 
-                <td>
-                  <button (click)="PrintPersonalInfo()" class="downloadBtn" style="float: right; ">Download</button>
-                </td>
-              </tr>
-              <div class="personalInfo">
-                <h3 style="color: #072F6E;">Personal Information</h3>
-
-                <td>
-                  <caption>Basic Information </caption>
-                </td>
-  
-  
-  
-  
-  
-  
-                <tr>
-                  <th>First Name</th>
-                  <td>:</td>
-                  <td>{{user.firstName}}</td>
-                </tr>
-                <tr>
-                  <th>Middle Name</th>
-                  <td>:</td>
-                  <td>{{user.middleName}}</td>
-                </tr>
-                <tr>
-                  <th>Last Name</th>
-                  <td>:</td>
-                  <td>{{user.lastName}} {{user.nameExtension}}</td>
-                </tr>
-                <tr>
-                  <th>Name Extension</th>
-                  <td>:</td>
-                  <td>{{user.nameExtension}}</td>
-                </tr>
-                <tr>
-                  <th>Employee ID</th>
-                  <td>:</td>
-                  <td>{{user.employeeId}}</td>
-                </tr>
-                <tr>
-                  <th>Email Address</th>
-                  <td>:</td>
-                  <td>{{user.email}}</td>
-                </tr>
-                <tr>
-                  <th>Date of Birth</th>
-                  <td>:</td>
-                  <td>{{user.dateOfBirth}}</td>
-                </tr>
-                <tr>
-                  <th>Age</th>
-                  <td>:</td>
-                  <td>{{user.age}}</td>
-                </tr>
-                <tr>
-                  <th>Place of Birth</th>
-                  <td>:</td>
-                  <td>{{user.placeOfBirth}}</td>
-                </tr>
-                <tr>
-                  <th>Gender</th>
-                  <td>:</td>
-                  <td>{{user.gender}}</td>
-                </tr>
-                <tr>
-                  <th>Civil Status</th>
-                  <td>:</td>
-                  <td>{{user.civilStatus}}</td>
-                </tr>
-                <tr>
-                  <th>Citizenship</th>
-                  <td>:</td>
-                  <td>{{user.citezenship}}</td>
-                </tr>
-                <tr>
-                  <th>Height</th>
-                  <td>:</td>
-                  <td>{{user.height}}</td>
-                </tr>
-                <tr>
-                  <th>Weight</th>
-                  <td>:</td>
-                  <td>{{user.weight}}</td>
-                </tr>
-                <tr>
-                  <th>Blood Type</th>
-                  <td>:</td>
-                  <td>{{user.bloodType}}</td>
-                </tr>
-                <tr>
-                  <th>GSIS Number</th>
-                  <td>:</td>
-                  <td>{{user.gsis}}</td>
-                </tr>
-                <tr>
-                  <th>PAGIBIG Number</th>
-                  <td>:</td>
-                  <td>{{user.pagibig}}</td>
-                </tr>
-                <tr>
-                  <th>PhilHealth Number</th>
-                  <td>:</td>
-                  <td>{{user.philhealth}}</td>
-                </tr>
-                <tr>
-                  <th>SSS Number</th>
-                  <td>:</td>
-                  <td>{{user.sss}}</td>
-                </tr>
-                <tr>
-                  <th>TIN Number</th>
-                  <td>:</td>
-                  <td>{{user.tin}}</td>
-                </tr>
-
-                <td>
-                  <caption class="capBot">Resident Address</caption>
-                </td>
-              
-                <tr>
-                  <th>House/Block/Lot Number</th>
-                  <td>:</td>
-                  <td>{{user.houseBlockResident}}</td>
-                </tr>
-                <tr>
-                  <th>Street</th>
-                  <td>:</td>
-                  <td>{{user.streetResident}}</td>
-                </tr>
-                <tr>
-                  <th>Subdivision/Village</th>
-                  <td>:</td>
-                  <td>{{user.subdivisionResident}}</td>
-                </tr>
-                <tr>
-                  <th>Barangay</th>
-                  <td>:</td>
-                  <td>{{user.barangayResident}}</td>
-                </tr>
-                <tr>
-                  <th>City/Municipality</th>
-                  <td>:</td>
-                  <td>{{user.municipalityResident}}</td>
-                </tr>
-                <tr>
-                  <th>Province</th>
-                  <td>:</td>
-                  <td>{{user.provinceResident}}</td>
-                </tr>
-                <tr>
-                  <th>Zip Code</th>
-                  <td>:</td>
-                  <td>{{user.zipCodeResident}}</td>
-                </tr>
-
-                <td>
-                  <caption class="capBot">Permanent Address</caption>
-                </td>
-                
-                <tr>
-                  <th>House/Block/Lot Number</th>
-                  <td>:</td>
-                  <td>{{user.houseBlockPermanent}}</td>
-                </tr>
-                <tr>
-                  <th>Street</th>
-                  <td>:</td>
-                  <td>{{user.streetPermanent}}</td>
-                </tr>
-                <tr>
-                  <th>Subdivision/Village</th>
-                  <td>:</td>
-                  <td>{{user.subdivisionPermanent}}</td>
-                </tr>
-                <tr>
-                  <th>Barangay</th>
-                  <td>:</td>
-                  <td>{{user.barangayPermanent}}</td>
-                </tr>
-                <tr>
-                  <th>City/Municipality</th>
-                  <td>:</td>
-                  <td>{{user.municipalityPermanent}}</td>
-                </tr>
-                <tr>
-                  <th>Province</th>
-                  <td>:</td>
-                  <td>{{user.provincePermanent}}</td>
-                </tr>
-                <tr>
-                  <th>Zip Code</th>
-                  <td>:</td>
-                  <td>{{user.zipCodePermanent}}</td>
-                </tr>
-              </div>
-
-             
-            </tbody>
-          </table>
-        </div>
-      
+            <tr>
+              <th>First Name</th>
+              <td>:</td>
+              <td>{{user.firstName}}</td>
+            </tr>
+            <tr>
+              <th>Middle Name</th>
+              <td>:</td>
+              <td>{{user.middleName}}</td>
+            </tr>
+            <tr>
+              <th>Last Name</th>
+              <td>:</td>
+              <td>{{user.lastName}} {{user.nameExtension}}</td>
+            </tr>
+            <tr>
+              <th>Name Extension</th>
+              <td>:</td>
+              <td>{{user.nameExtension}}</td>
+            </tr>
+            <tr>
+              <th>Employee ID</th>
+              <td>:</td>
+              <td>{{user.employeeId}}</td>
+            </tr>
+            <tr>
+              <th>Email Address</th>
+              <td>:</td>
+              <td>{{user.email}}</td>
+            </tr>
+            <tr>
+              <th>Date of Birth</th>
+              <td>:</td>
+              <td>{{user.dateOfBirth}}</td>
+            </tr>
+            <tr>
+              <th>Age</th>
+              <td>:</td>
+              <td>{{user.age}}</td>
+            </tr>
+            <tr>
+              <th>Place of Birth</th>
+              <td>:</td>
+              <td>{{user.placeOfBirth}}</td>
+            </tr>
+            <tr>
+              <th>Gender</th>
+              <td>:</td>
+              <td>{{user.gender}}</td>
+            </tr>
+            <tr>
+              <th>Civil Status</th>
+              <td>:</td>
+              <td>{{user.civilStatus}}</td>
+            </tr>
+            <tr>
+              <th>Citizenship</th>
+              <td>:</td>
+              <td>{{user.citezenship}}</td>
+            </tr>
+            <tr>
+              <th>Height</th>
+              <td>:</td>
+              <td>{{user.height}}</td>
+            </tr>
+            <tr>
+              <th>Weight</th>
+              <td>:</td>
+              <td>{{user.weight}}</td>
+            </tr>
+            <tr>
+              <th>Blood Type</th>
+              <td>:</td>
+              <td>{{user.bloodType}}</td>
+            </tr>
+            <tr>
+              <th>GSIS Number</th>
+              <td>:</td>
+              <td>{{user.gsis}}</td>
+            </tr>
+            <tr>
+              <th>PAGIBIG Number</th>
+              <td>:</td>
+              <td>{{user.pagibig}}</td>
+            </tr>
+            <tr>
+              <th>PhilHealth Number</th>
+              <td>:</td>
+              <td>{{user.philhealth}}</td>
+            </tr>
+            <tr>
+              <th>SSS Number</th>
+              <td>:</td>
+              <td>{{user.sss}}</td>
+            </tr>
+            <tr>
+              <th>TIN Number</th>
+              <td>:</td>
+              <td>{{user.tin}}</td>
+            </tr>
 
 
+          </div>
+
+        </tbody>
+      </table>
     </div>
   </div>
+
 
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-lg-12 col-sm-12"></div>
-      <table>
+      <table class="table">
         <tbody>
           <tr>
 
@@ -242,20 +163,20 @@
           </tr>
 
 
-          <br/>
+          <br />
 
-         
+
 
           <div id="educationalBackground">
 
-            
 
-              <td>
-                <h3 style="color: #072F6E;">Educational Background</h3>
-              </td>
-            
 
-         
+            <td>
+              <h3 style="color: #072F6E;">Educational Background</h3>
+            </td>
+
+
+
 
             <tr>
               <caption>Elementary</caption>
@@ -481,16 +402,16 @@
     </div>
   </div>
 
-  <div class="container" >
+  <div class="container">
     <div class="row">
       <div class="col-md-12 col-lg-12 col-sm-12">
-        <table>
+        <table class="table">
           <tbody>
 
             <tr>
 
               <td>
-                <button  (click)="PrintCivilInfo()" class="downloadBtn" style="float: right; ">Download</button>
+                <button (click)="PrintCivilInfo()" class="downloadBtn" style="float: right; ">Download</button>
               </td>
             </tr>
             <div id="civilService">
@@ -499,7 +420,7 @@
                 <td>
                   <caption>Civil Service</caption>
                 <td></td>
-                  <td></td>
+                <td></td>
               </tr>
               <tr>
                 <th>Civil Service</th>
@@ -534,7 +455,7 @@
               </tr>
 
             </div>
-           
+
           </tbody>
         </table>
       </div>
@@ -544,7 +465,7 @@
   <div class="container" id="workingExp">
     <div class="row">
       <div class="col-md-12 col-lg-12 col-sm-12">
-        <table>
+        <table class="table table-responsive">
           <tbody>
 
             <tr>
@@ -563,11 +484,11 @@
                   <caption>Working Experience</caption>
                 <td></td>
                 <td></td>
-  
-  
-  
+
+
+
               </tr>
-              
+
               <tr>
                 <th>Position Title</th>
                 <td>:</td>
@@ -603,11 +524,24 @@
                 <td>:</td>
                 <td>{{user.governmentServiceWorkExp}}</td>
               </tr>
-              
+
             </div>
 
-           
+
           </tbody>
+        </table>
+
+        <table>
+          <tr>
+            <td>Cell 1</td>
+            <td>:</td>
+            <td>Cell 3</td>
+          </tr>
+          <tr>
+            <td>Cell 4</td>
+            <td>:</td>
+            <td>Cell 6</td>
+          </tr>
         </table>
       </div>
     </div>
@@ -628,24 +562,24 @@
 
     <div class="row">
       <div class="col-md-12 col-lg-12 col-sm-12">
-        <table>
+        <table class="table">
           <tbody>
             <tr>
 
               <td>
-                <button  class="downloadBtn" style="float: right; ">Download</button>
+                <button class="downloadBtn" style="float: right; ">Download</button>
               </td>
             </tr>
 
-            
 
-            <div  id="training">
+
+            <div id="training">
 
               <tr>
                 <td>
-                  <caption>Civil Service</caption>
+                  <caption>L&D/Trainings</caption>
                 <td></td>
-                  <td></td>
+                <td></td>
               </tr>
 
               <tr>
@@ -675,7 +609,7 @@
               </tr>
 
             </div>
-            
+
           </tbody>
         </table>
       </div>

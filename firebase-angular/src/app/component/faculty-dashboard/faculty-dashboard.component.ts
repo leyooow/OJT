@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UsersService } from 'src/app/services/users.service';
 import * as bootstrap from 'bootstrap';
@@ -21,6 +21,8 @@ export class FacultyDashboardComponent implements OnInit {
 
   user$ = this.usersService.currentUserProfile$
   testModal: any;
+
+  @ViewChild('htmlData') htmlData!: ElementRef;
 
   constructor(private authService: AuthenticationService,
     private usersService: UsersService,
@@ -51,24 +53,45 @@ export class FacultyDashboardComponent implements OnInit {
 
 
 //personal
-  PrintPersonalInfo() {
-    let data = document.getElementById('personalInfo')
-    this.generatePersonalPDF(data)
+  
+
+   PrintPersonalInfo() {
+    let data2 = document.getElementById('personalInfo')
+    this.generatePersonalPDF(data2)
   }
 
-  generatePersonalPDF(htmlContent: any) {
-    html2canvas(htmlContent).then(canvas => {
-      let imgWidth = 210
-      let imgHeigth = 250
-      
-      var pdf = new jsPDF('p', 'pt', 'a4')
-      const contentDataURL = canvas.toDataURL('image/png', 1.0)
-      var position = 10
 
+
+  generatePersonalPDF(htmlData: any) {
+
+    html2canvas(htmlData, {
+     
+  });
+     
+      
+
+    html2canvas(htmlData).then((canvas) => {
+      let imgWidth = 208
+      let imgHeigth = (canvas.height * imgWidth) / canvas.width;
+      const contentDataURL = canvas.toDataURL('image/png2')
+      
+      let pdf = new jsPDF('p', 'mm', 'a4')
+      var position = 0
+     
+      
+      
+        
+        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeigth)
+      
+        
+
+
+        pdf.save('Personal_Info.pdf')
+
+
+        
+      
     
-      pdf.addImage(contentDataURL, 'PNG', 20, position, imgWidth, imgHeigth)
-      pdf.addPage('a4','p')
-      pdf.save('Personal_Info.pdf')
 
     })
 
@@ -85,26 +108,27 @@ export class FacultyDashboardComponent implements OnInit {
 
 
 
-  generateEducPDF(htmlContent2: any) {
+  generateEducPDF(htmlData: any) {
 
-    html2canvas(htmlContent2, {
+    html2canvas(htmlData, {
      
   });
      
       
 
-    html2canvas(htmlContent2).then(canvas => {
-      let imgWidth = 550
+    html2canvas(htmlData).then(canvas => {
+      let imgWidth = 520
       let imgHeigth = 800
-      var doc = new jsPDF('p', 'pt');
-      const contentDataURL = canvas.toDataURL('image/png2', 1.0)
+      const contentDataURL = canvas.toDataURL('image/png2')
       
       let pdf = new jsPDF('p', 'pt', 'a4')
       var position = 10
      
       
+      
+        
         pdf.addImage(contentDataURL, 'PNG', 20, position, imgWidth, imgHeigth)
-        pdf.addPage('a4','p')
+      
         
 
 
