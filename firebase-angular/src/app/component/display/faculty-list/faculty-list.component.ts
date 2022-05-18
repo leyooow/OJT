@@ -426,7 +426,7 @@ export class FacultyListComponent implements OnInit {
     })
     this.userList = users
 
-    console.log(this.userList)
+    // console.log(this.userList)
   }
 
   async ngOnInit(): Promise<void> {
