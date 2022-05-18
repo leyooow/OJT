@@ -92,7 +92,7 @@ tr:nth-of-type(even) {
   justify-content: space-around;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1500px) {
 
   .container1,
   .form-title {
@@ -104,6 +104,9 @@ tr:nth-of-type(even) {
   tr,
   h2 {
     font-weight: 0.8em;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   td,
@@ -118,17 +121,7 @@ tr:nth-of-type(even) {
     margin-right: auto;
   }
 
-  .profile-image {
-    margin-top: 10px;
-  }
-
-  #rightDiv {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
   h2 {
     width: 348px;
   }
-
 }
