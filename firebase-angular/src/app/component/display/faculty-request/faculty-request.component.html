@@ -1,11 +1,21 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+<!--for titles-->
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+<!--for labels-->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+<!-- for th -->
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+<!--Sub Title-->
 
-<div class="form-container1">
+<div class="form-container1 mat-elevation-z5" *ngIf="user$ | async as user">
 
-  <h2 style="color: #000; text-align:center;"> Registration Request</h2>
+  <h2 class="form-title"> Registration Request</h2>
 
     <table class="table table-striped">
         <thead class="thead-dark">
-        <tr>
+        <tr class="thead-tr">
           <th scope="col">#</th>
           <th scope="col">EmployeeID</th>
           <th scope="col">Email</th>
