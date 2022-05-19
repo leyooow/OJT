@@ -1,160 +1,215 @@
-<div id="allInfo" class="form-container3" *ngIf="user$ | async as user">
-  <div class="container">
-    <div class="row">
-      <div class="downloadBtnDiv">
-        <button class="downloadBtn">Download All</button>
-      </div>
-    </div>
-    <div class="row table-responsive w-100 d-md-table">
-      <div class="col-md-12 col-lg-12 col-sm-12">
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <!-- <button (click)="PrintPersonalInfo()" class="downloadBtn" style="float: right; ">Download</button> -->
-              </td>
-            </tr>
-            <div id="personalInfo">
-              <tr>
-                <td>
-                  <h3 style="color: #072F6E;">Personal Information</h3>
-                </td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <caption class="capBot">Basic Information</caption>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <th>First Name</th>
-                <td>:</td>
-                <td>{{user.firstName}}</td>
-              </tr>
-              <tr>
-                <th>Middle Name</th>
-                <td>:</td>
-                <td>{{user.middleName}}</td>
-              </tr>
-              <tr>
-                <th>Last Name</th>
-                <td>:</td>
-                <td>{{user.lastName}} {{user.nameExtension}}</td>
-              </tr>
-              <tr>
-                <th>Name Extension</th>
-                <td>:</td>
-                <td>{{user.nameExtension}}</td>
-              </tr>
-              <tr>
-                <th>Employee ID</th>
-                <td>:</td>
-                <td>{{user.employeeId}}</td>
-              </tr>
-              <tr>
-                <th>Email Address</th>
-                <td>:</td>
-                <td>{{user.email}}</td>
-              </tr>
-              <tr>
-                <th>Date of Birth</th>
-                <td>:</td>
-                <td>{{user.dateOfBirth}}</td>
-              </tr>
-              <tr>
-                <th>Age</th>
-                <td>:</td>
-                <td>{{user.age}}</td>
-              </tr>
-              <tr>
-                <th>Place of Birth</th>
-                <td>:</td>
-                <td>{{user.placeOfBirth}}</td>
-              </tr>
-              <tr>
-                <th>Gender</th>
-                <td>:</td>
-                <td>{{user.gender}}</td>
-              </tr>
-              <tr>
-                <th>Civil Status</th>
-                <td>:</td>
-                <td>{{user.civilStatus}}</td>
-              </tr>
-              <tr>
-                <th>Citizenship</th>
-                <td>:</td>
-                <td>{{user.citezenship}}</td>
-              </tr>
-              <tr>
-                <th>Height</th>
-                <td>:</td>
-                <td>{{user.height}}</td>
-              </tr>
-              <tr>
-                <th>Weight</th>
-                <td>:</td>
-                <td>{{user.weight}}</td>
-              </tr>
-              <tr>
-                <th>Blood Type</th>
-                <td>:</td>
-                <td>{{user.bloodType}}</td>
-              </tr>
-              <tr>
-                <th>GSIS Number</th>
-                <td>:</td>
-                <td>{{user.gsis}}</td>
-              </tr>
-              <tr>
-                <th>PAGIBIG Number</th>
-                <td>:</td>
-                <td>{{user.pagibig}}</td>
-              </tr>
-              <tr>
-                <th>PhilHealth Number</th>
-                <td>:</td>
-                <td>{{user.philhealth}}</td>
-              </tr>
-              <tr>
-                <th>SSS Number</th>
-                <td>:</td>
-                <td>{{user.sss}}</td>
-              </tr>
-              <tr>
-                <th>TIN Number</th>
-                <td>:</td>
-                <td>{{user.tin}}</td>
-              </tr>
-            </div>
-          </tbody>
-        </table>
-      </div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+<!--for titles-->
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+<!--for labels-->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+<!-- for th -->
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
 
+<div id="allInfo" class="form-container3" *ngIf="user$ | async as user">
+
+  <div class="container1">
+    <div class="profile-image">
+      <img width="200" height="200" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
+    </div>
+
+    <div id="rightDiv">
+      <span id="upper1"><strong>{{user.lastName}}, </strong>{{user.firstName}}</span><br>
+      <div>
+        <span id="upper2">I am a faculty of College of Information and Communications Technology</span>
+      </div>
+      <span class="upper3">
+        <mat-icon>perm_identity</mat-icon>{{user.employeeId}}
+      </span><br>
+      <span class="upper3">
+        <mat-icon> email</mat-icon>{{user.email}}
+      </span>
     </div>
   </div>
 
-
   <div class="container">
     <div class="row">
-      <div class="col-md-12 col-lg-12 col-sm-12"></div>
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <!-- <button (click)="PrintEducInfo()" class="downloadBtn" style="float: right; ">Download</button> -->
-            </td>
-          </tr>
-          <div id="educationalBackground">
-            <td>
-              <h3 style="color: #072F6E;">Educational Background</h3>
-            </td>
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <table>
+          <tbody>
+            <caption class="mainTitle">Personal Information</caption>
+            <caption>Basic Information</caption>
             <tr>
-              <caption>Elementary</caption>
-              <td></td>
-              <td></td>
+              <th>First Name</th>
+              <td>:</td>
+              <td>{{user.firstName}}</td>
             </tr>
+            <tr>
+              <th>Middle Name</th>
+              <td>:</td>
+              <td>{{user.middleName}}</td>
+            </tr>
+            <tr>
+              <th>Last Name</th>
+              <td>:</td>
+              <td>{{user.lastName}} {{user.nameExtension}}</td>
+            </tr>
+            <tr>
+              <th>Name Extension</th>
+              <td>:</td>
+              <td>{{user.nameExtension}}</td>
+            </tr>
+            <tr>
+              <th>Employee ID</th>
+              <td>:</td>
+              <td>{{user.employeeId}}</td>
+            </tr>
+            <tr>
+              <th>Email Address</th>
+              <td>:</td>
+              <td style="text-transform: lowercase;">{{user.email}}</td>
+            </tr>
+            <tr>
+              <th>Date of Birth</th>
+              <td>:</td>
+              <td>{{user.dateOfBirth}}</td>
+            </tr>
+            <tr>
+              <th>Age</th>
+              <td>:</td>
+              <td>{{user.age}}</td>
+            </tr>
+            <tr>
+              <th>Place of Birth</th>
+              <td>:</td>
+              <td>{{user.placeOfBirth}}</td>
+            </tr>
+            <tr>
+              <th>Gender</th>
+              <td>:</td>
+              <td>{{user.gender}}</td>
+            </tr>
+            <tr>
+              <th>Civil Status</th>
+              <td>:</td>
+              <td>{{user.civilStatus}}</td>
+            </tr>
+            <tr>
+              <th>Citizenship</th>
+              <td>:</td>
+              <td>{{user.citezenship}}</td>
+            </tr>
+            <tr>
+              <th>Height</th>
+              <td>:</td>
+              <td>{{user.height}}</td>
+            </tr>
+            <tr>
+              <th>Weight</th>
+              <td>:</td>
+              <td>{{user.weight}}</td>
+            </tr>
+            <tr>
+              <th>Blood Type</th>
+              <td>:</td>
+              <td>{{user.bloodType}}</td>
+            </tr>
+            <tr>
+              <th>GSIS Number</th>
+              <td>:</td>
+              <td>{{user.gsis}}</td>
+            </tr>
+            <tr>
+              <th>PAGIBIG Number</th>
+              <td>:</td>
+              <td>{{user.pagibig}}</td>
+            </tr>
+            <tr>
+              <th>PhilHealth Number</th>
+              <td>:</td>
+              <td>{{user.philhealth}}</td>
+            </tr>
+            <tr>
+              <th>SSS Number</th>
+              <td>:</td>
+              <td>{{user.sss}}</td>
+            </tr>
+            <tr>
+              <th>TIN Number</th>
+              <td>:</td>
+              <td>{{user.tin}}</td>
+            </tr>
+            <caption class="capBot">Resident Address</caption>
+            <tr>
+              <th>House/Block/Lot Number</th>
+              <td>:</td>
+              <td>{{user.houseBlockResident}}</td>
+            </tr>
+            <tr>
+              <th>Street</th>
+              <td>:</td>
+              <td>{{user.streetResident}}</td>
+            </tr>
+            <tr>
+              <th>Subdivision/Village</th>
+              <td>:</td>
+              <td>{{user.subdivisionResident}}</td>
+            </tr>
+            <tr>
+              <th>Barangay</th>
+              <td>:</td>
+              <td>{{user.barangayResident}}</td>
+            </tr>
+            <tr>
+              <th>City/Municipality</th>
+              <td>:</td>
+              <td>{{user.municipalityResident}}</td>
+            </tr>
+            <tr>
+              <th>Province</th>
+              <td>:</td>
+              <td>{{user.provinceResident}}</td>
+            </tr>
+            <tr>
+              <th>Zip Code</th>
+              <td>:</td>
+              <td>{{user.zipCodeResident}}</td>
+            </tr>
+            <caption class="capBot">Permanent Address</caption>
+            <tr>
+              <th>House/Block/Lot Number</th>
+              <td>:</td>
+              <td>{{user.houseBlockPermanent}}</td>
+            </tr>
+            <tr>
+              <th>Street</th>
+              <td>:</td>
+              <td>{{user.streetPermanent}}</td>
+            </tr>
+            <tr>
+              <th>Subdivision/Village</th>
+              <td>:</td>
+              <td>{{user.subdivisionPermanent}}</td>
+            </tr>
+            <tr>
+              <th>Barangay</th>
+              <td>:</td>
+              <td>{{user.barangayPermanent}}</td>
+            </tr>
+            <tr>
+              <th>City/Municipality</th>
+              <td>:</td>
+              <td>{{user.municipalityPermanent}}</td>
+            </tr>
+            <tr>
+              <th>Province</th>
+              <td>:</td>
+              <td>{{user.provincePermanent}}</td>
+            </tr>
+            <tr>
+              <th>Zip Code</th>
+              <td>:</td>
+              <td>{{user.zipCodePermanent}}</td>
+            </tr>
+            <caption class="mainTitle marginMainTitle">Educational Background</caption>
+            <caption>Elementary</caption>
             <tr>
               <th>Name of School</th>
               <td>:</td>
@@ -185,11 +240,7 @@
               <td>:</td>
               <td>{{user.scholarElem}}</td>
             </tr>
-            <tr>
-              <caption class="capBot">Junior High School</caption>
-              <td></td>
-              <td></td>
-            </tr>
+            <caption class="capBot">Junior High School</caption>
             <tr>
               <th>Name of School</th>
               <td>:</td>
@@ -220,11 +271,7 @@
               <td>:</td>
               <td>{{user.scholarJunior}}</td>
             </tr>
-            <tr>
-              <caption class="capBot">Senior High School</caption>
-              <td></td>
-              <td></td>
-            </tr>
+            <caption class="capBot">Senior High School</caption>
             <tr>
               <th>Name of School</th>
               <td>:</td>
@@ -255,12 +302,7 @@
               <td>:</td>
               <td>{{user.scholarSenior}}</td>
             </tr>
-            <tr>
-              <caption class="capBot">College</caption>
-              <td></td>
-              <td></td>
-            </tr>
-
+            <caption class="capBot">College</caption>
             <tr>
               <th>Name of School</th>
               <td>:</td>
@@ -291,11 +333,7 @@
               <td>:</td>
               <td>{{user.scholarCollege}}</td>
             </tr>
-            <tr>
-              <caption class="capBot">Vocational/Trade Course</caption>
-              <td></td>
-              <td></td>
-            </tr>
+            <caption class="capBot">Vocational/Trade Course</caption>
             <tr>
               <th>Name of School</th>
               <td>:</td>
@@ -326,11 +364,7 @@
               <td>:</td>
               <td>{{user.scholarVocational}}</td>
             </tr>
-            <tr>
-              <caption class="capBot">Graduate Studies</caption>
-              <td></td>
-              <td></td>
-            </tr>
+            <caption class="capBot">Graduate Studies</caption>
             <tr>
               <th>Name of School</th>
               <td>:</td>
@@ -361,176 +395,120 @@
               <td>:</td>
               <td>{{user.scholarStudies}}</td>
             </tr>
+            <caption class="mainTitle marginMainTitle">Civil Service Eligibility</caption>
+            <tr>
+              <th>Civil Service</th>
+              <td>:</td>
+              <td>{{user.careercivil}}</td>
+            </tr>
+            <tr>
+              <th>Rating</th>
+              <td>:</td>
+              <td>{{user.ratingCivil}}</td>
+            </tr>
+            <tr>
+              <th>Place of examination/Conferment</th>
+              <td>:</td>
+              <td>{{user.placeofExamCivil}}</td>
+            </tr>
+            <tr>
+              <th>Date of examination/Conferment</th>
+              <td>:</td>
+              <td>{{user.dateofExamCivil}}</td>
+            </tr>
+            <caption class="capBot">License</caption>
+            <tr>
+              <th>Number</th>
+              <td>:</td>
+              <td>{{user.numberCivil}}</td>
+            </tr>
+            <tr>
+              <th> Date of Validity</th>
+              <td>:</td>
+              <td>{{user.dateofValidityCivil}}</td>
+            </tr>
+            <caption class="mainTitle marginMainTitle">Work Experience</caption>
+            <tr>
+              <th>Position Title</th>
+              <td>:</td>
+              <td>{{user.positionTitleWorkExp}}</td>
+            </tr>
+            <tr>
+              <th>Inclusive Dates</th>
+              <td>:</td>
+              <td>{{user.fromWorkExp}} <strong>-</strong> {{user.tomWorkExp}}</td>
+            </tr>
+            <tr>
+              <th>Department/Agency/Office/Company</th>
+              <td>:</td>
+              <td>{{user.departmentWorkExp}}</td>
+            </tr>
+            <tr>
+              <th>Salary/Job/Pay Grade</th>
+              <td>:</td>
+              <td>{{user.salaryJobPayWorkExp}}</td>
+            </tr>
+            <tr>
+              <th>Monthly Salary</th>
+              <td>:</td>
+              <td>{{user.monthlySalaryWorkExp}}</td>
+            </tr>
+            <tr>
+              <th>Status of Apointment</th>
+              <td>:</td>
+              <td>{{user.statusOfAppointmentWorkExp}}</td>
+            </tr>
+            <tr>
+              <th>Government Service</th>
+              <td>:</td>
+              <td>{{user.governmentServiceWorkExp}}</td>
+            </tr>
+            <caption class="mainTitle marginMainTitle">L&D/Training Programs</caption>
+            <tr>
+              <th>Title</th>
+              <td>:</td>
+              <td>{{user.TitleOfLearningTraining}}</td>
+            </tr>
+            <tr>
+              <th>Inclusive Dates</th>
+              <td>:</td>
+              <td>{{user.fromTraining}} <strong>-</strong> {{user.toTraining}}</td>
+            </tr>
+            <tr>
+              <th>Conducted/Sponsored By</th>
+              <td>:</td>
+              <td>{{user.conductedTraining}}</td>
+            </tr>
+            <tr>
+              <th>Number of Hours</th>
+              <td>:</td>
+              <td>{{user.numberOfHrsTraining}}</td>
+            </tr>
+            <tr>
+              <th>Types of L&D</th>
+              <td>:</td>
+              <td>{{user.typeOfLdTraining}}</td>
+            </tr>
+          </tbody>
+          <div class="profile">
+            <h3 class="certificate">Certificate</h3>
+            <img id="imgCert" width="350" height="200"
+              [src]="user.photoCertURL ?? 'assets/images/cert-placeholder.png'">
+            <span id="certTitle">{{user.TitleOfLearningTraining}}</span>
           </div>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-lg-12 col-sm-12">
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <!-- <button (click)="PrintCivilInfo()" class="downloadBtn" style="float: right; ">Download</button> -->
-              </td>
-            </tr>
-
-            <div id="civilService">
-              <tr>
-                <td>
-                  <caption>Civil Service</caption>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <th>Civil Service</th>
-                <td>:</td>
-                <td>{{user.careercivil}}</td>
-              </tr>
-              <tr>
-                <th>Rating</th>
-                <td>:</td>
-                <td>{{user.ratingCivil}}</td>
-              </tr>
-              <tr>
-                <th>Place of examination/Conferment</th>
-                <td>:</td>
-                <td>{{user.placeofExamCivil}}</td>
-              </tr>
-              <tr>
-                <th>Date of examination/Conferment</th>
-                <td>:</td>
-                <td>{{user.dateofExamCivil}}</td>
-              </tr>
-              <caption class="capBot">License</caption>
-              <tr>
-                <th>Number</th>
-                <td>:</td>
-                <td>{{user.numberCivil}}</td>
-              </tr>
-              <tr>
-                <th> Date of Validity</th>
-                <td>:</td>
-                <td>{{user.dateofValidityCivil}}</td>
-              </tr>
-            </div>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="container" id="workingExp">
-    <div class="row">
-      <div class="col-md-12 col-lg-12 col-sm-12">
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <button class="downloadBtn" style="float: right; ">Download</button>
-              </td>
-            </tr>
-
-            <div id="workingExp">
-              <tr>
-                <td>
-                  <caption>Working Experience</caption>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <th>Position Title</th>
-                <td>:</td>
-                <td>{{user.positionTitleWorkExp}}</td>
-              </tr>
-              <tr>
-                <th>Inclusive Dates</th>
-                <td>:</td>
-                <td>{{user.fromWorkExp}} <strong>-</strong> {{user.tomWorkExp}}</td>
-              </tr>
-              <tr>
-                <th>Department/Agency/Office/Company</th>
-                <td>:</td>
-                <td>{{user.departmentWorkExp}}</td>
-              </tr>
-              <tr>
-                <th>Salary/Job/Pay Grade</th>
-                <td>:</td>
-                <td>{{user.salaryJobPayWorkExp}}</td>
-              </tr>
-              <tr>
-                <th>Monthly Salary</th>
-                <td>:</td>
-                <td>{{user.monthlySalaryWorkExp}}</td>
-              </tr>
-              <tr>
-                <th>Status of Apointment</th>
-                <td>:</td>
-                <td>{{user.statusOfAppointmentWorkExp}}</td>
-              </tr>
-              <tr>
-                <th>Government Service</th>
-                <td>:</td>
-                <td>{{user.governmentServiceWorkExp}}</td>
-              </tr>
-            </div>
-          </tbody>
         </table>
       </div>
     </div>
   </div>
 
   <div class="container">
-
     <div class="row">
-      <div class="col-md-12 col-lg-12 col-sm-12">
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <button class="downloadBtn" style="float: right; ">Download</button>
-              </td>
-            </tr>
-
-            <div id="training">
-              <tr>
-                <td>
-                  <caption>L&D/Trainings</caption>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <th>Title</th>
-                <td>:</td>
-                <td>{{user.TitleOfLearningTraining}}</td>
-              </tr>
-              <tr>
-                <th>Inclusive Dates</th>
-                <td>:</td>
-                <td>{{user.fromTraining}} <strong>-</strong> {{user.toTraining}}</td>
-              </tr>
-              <tr>
-                <th>Conducted/Sponsored By</th>
-                <td>:</td>
-                <td>{{user.conductedTraining}}</td>
-              </tr>
-              <tr>
-                <th>Number of Hours</th>
-                <td>:</td>
-                <td>{{user.numberOfHrsTraining}}</td>
-              </tr>
-              <tr>
-                <th>Types of L&D</th>
-                <td>:</td>
-                <td>{{user.typeOfLdTraining}}</td>
-              </tr>
-            </div>
-          </tbody>
-        </table>
+      <div class="col-md-6 col-lg-12 col-sm-12 formbtnDiv">
+        <button routerLink="/faculty-list" class="formbtn" mat-raised-button>
+          Back
+        </button>
       </div>
     </div>
   </div>
+  
 </div>

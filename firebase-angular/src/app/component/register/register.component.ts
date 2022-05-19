@@ -40,6 +40,10 @@ export function passwordsMatchValidator(): ValidatorFn {
 
 }
 
+
+
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -47,6 +51,8 @@ export function passwordsMatchValidator(): ValidatorFn {
 })
 export class RegisterComponent implements OnInit {
 
+
+  empID: any
 
 
   signUpForm = new FormGroup({
@@ -73,7 +79,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  setRealtimeDbData() {
+  private setRealtimeDbData() {
 
     // const userId = getAuth().currentUser?.uid.toString();
     const { employeeId, email, uid, firstname, lastname, password } = this.signUpForm.value;
@@ -83,22 +89,23 @@ export class RegisterComponent implements OnInit {
 
 
     onValue(checkEmpId, (snapshot) => {
-      const empId = snapshot.val();
+      this.empID = snapshot.val();
+
+      if (this.empID !== null) {
+
+
+        // alert('Employee ID already used')
+        document.getElementById('empIdError')!.style.display="block"
 
 
 
-
-      if (empId != null) {
-      
-
-        alert('Employee ID already used')
-
-        
 
       }
 
       else {
-      
+
+        // alert('registered!')
+
 
         set(ref1, {
 
@@ -111,13 +118,22 @@ export class RegisterComponent implements OnInit {
 
         })
 
+
         alert("Registration request sent!")
         this.router.navigate(['/login'])
         localStorage.clear();
 
+
       }
 
+
+
+
     })
+
+
+
+
 
 
 
@@ -144,7 +160,7 @@ export class RegisterComponent implements OnInit {
     //   const data = snapshot.val();
     //   alert(data)
     // })
-  
+
 
 
   }

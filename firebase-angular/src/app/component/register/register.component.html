@@ -57,8 +57,9 @@
       <!-- password matching error -->
       <mat-error class="signuppassText" *ngIf="signUpForm.errors?.['passwordsDontMatch']">Password should match!
       </mat-error>
-      <mat-error class="signuppassText" *ngIf="signUpForm.errors?.['passwordsDontMatch']">Password should match!
-      </mat-error>
+      <div style="display: none;" class="signuppassText" id="empIdError">
+        Employee ID arleady use!
+      </div>     
     </div>
     <div class="row">
       <div class="center margin-top col-md-12 col-lg-12 col-sm-12">

@@ -65,7 +65,7 @@ export class AppComponent {
   ngOnInit(): void {
 
     // this.check()
-
+    document.getElementById('editProfile')!.style.display="none"
     
       
     
@@ -96,7 +96,7 @@ export class AppComponent {
 
 
     if (userID == 'fM6Ko90ezgSzZJ04sbCdGMmbOYt1') {
-      return
+      this.router.navigate(['/faculty-list'])
     } else {
       this.router.navigate(['/faculty-dashboard'])
     }
@@ -109,6 +109,7 @@ export class AppComponent {
     const userID = getAuth().currentUser?.uid
 
     if (userID == 'fM6Ko90ezgSzZJ04sbCdGMmbOYt1') {
+      alert('Admin is not allowed')
       return
     } else {
       this.router.navigate(['/profile'])
@@ -141,9 +142,14 @@ export class AppComponent {
      document.getElementById('civilService')!.style.display="none"  
      document.getElementById('workExp')!.style.display="none" 
      document.getElementById('traning')!.style.display="none" 
+     
 
      document.getElementById('facultyReq')!.style.display="block"
      document.getElementById('FacultyList')!.style.display="block"
+
+    
+    
+
      
 
 
