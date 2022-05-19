@@ -491,17 +491,18 @@
               <td>{{user.typeOfLdTraining}}</td>
             </tr>
           </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+ </div>
           <div class="profile">
             <h3 class="certificate">Certificate</h3>
             <img id="imgCert" width="350" height="200"
               [src]="user.photoCertURL ?? 'assets/images/cert-placeholder.png'">
             <span id="certTitle">{{user.TitleOfLearningTraining}}</span>
           </div>
-        </table>
-      </div>
-    </div>
-  </div>
- </div>
+
  <button (click)="makePDF()" id="generateOverall">Generate Report</button>
 
   <!-- <div class="container">

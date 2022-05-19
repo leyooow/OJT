@@ -14,17 +14,7 @@
   <hr>
  <div id="content" #content>
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-lg-12 col-sm-12">
-        <section class="fieldset1">
-          <div class="profile">
-            <h3>Certificate</h3>
-            <img width="350" height="200" [src]="user.photoCertURL ?? 'assets/images/image-placeholder.jpg'">
-            <span id="certTitle">{{user.TitleOfLearningTraining}}</span>
-          </div>
-        </section>
-      </div>
-    </div>
+
 
     <div class="row">
       <div class="col-md-12 col-lg-12 col-sm-12">
@@ -60,6 +50,19 @@
       </div>
     </div>
   </div>
- </div>
+</div>
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+      <section class="fieldset1">
+        <div class="profile">
+          <h3>Certificate</h3>
+          <img width="350" height="200" [src]="user.photoCertURL ?? 'assets/images/image-placeholder.jpg'">
+          <span id="certTitle">{{user.TitleOfLearningTraining}}</span>
+        </div>
+      </section>
+    </div>
+  </div>
+
+
  <button (click)="makePDF()" id="generateTrainings">Generate Report</button>
 </div>
