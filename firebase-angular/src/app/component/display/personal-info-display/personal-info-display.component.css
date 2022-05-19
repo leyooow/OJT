@@ -12,7 +12,17 @@
   height: fit-content;
   overflow: hidden;
 }
-
+#generatePersonalInfo{
+  position: relative;
+  left: 74%;
+  top: -15px;
+  background-color:#072F6E;
+  color: white;
+  padding: 8px;
+  margin: 10px;
+  border: none;
+  border-radius: 7px;
+}
 .container {
   display: flex;
   flex-direction: row;

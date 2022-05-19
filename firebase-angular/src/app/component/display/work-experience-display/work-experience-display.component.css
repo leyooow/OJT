@@ -11,7 +11,17 @@
   height: fit-content;
   overflow: hidden;
 }
-
+#generateWorkExp{
+  position: relative;
+  left: 67%;
+  top: -15px;
+  background-color:#072F6E;
+  color: white;
+  padding: 8px;
+  margin: 10px;
+  border: none;
+  border-radius: 7px;
+}
 .form-title {
   font-family: 'Koulen', cursive;
   font-size: 2.8em;
