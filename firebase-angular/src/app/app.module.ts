@@ -116,7 +116,7 @@ import { NgxPrintModule } from 'ngx-print';
     MatProgressSpinnerModule,
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
-    NgxPrintModule,
+    // NgxPrintModule,
     
 
     
