@@ -16,6 +16,7 @@ import { UsersService } from 'src/app/services/users.service';
 import { Database, set, ref, update, onValue } from '@angular/fire/database'
 import { getAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 
 
@@ -65,7 +66,8 @@ export class RegisterComponent implements OnInit {
     private toast: HotToastService,
     private usersService: UsersService,
     public database: Database,
-    private afs: AngularFirestore
+    private afs: AngularFirestore,
+    private afAuth: AngularFireAuth,
   ) { }
 
   ngOnInit(): void {
@@ -87,6 +89,7 @@ export class RegisterComponent implements OnInit {
 
 
       if (empId == null) {
+      
 
 
 

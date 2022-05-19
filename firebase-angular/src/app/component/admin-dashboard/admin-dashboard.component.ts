@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getAuth } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -12,7 +13,8 @@ export class AdminDashboardComponent implements OnInit {
 
   user$ = this.usersService.currentUserProfile$
   constructor(private authService: AuthenticationService,
-    private usersService: UsersService) { }
+    private usersService: UsersService,
+    private afAuth: AngularFireAuth,) { }
 
   async ngAfterViewInit() {
 
@@ -22,10 +24,13 @@ export class AdminDashboardComponent implements OnInit {
   }
   ngOnInit(): void {
 
+  }
 
-
-
-
+  passReset(){
+    const email = 'leoespino999@gmail.com'
+    this.afAuth.sendPasswordResetEmail(email).then(() => {
+      alert('Password reset link sent to ' + email)
+    })
   }
 
 }

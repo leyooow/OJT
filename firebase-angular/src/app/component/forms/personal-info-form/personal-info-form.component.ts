@@ -203,17 +203,17 @@ export class PersonalInfoFormComponent implements OnInit {
 
   setRealtimeDbData() {
     const userId = getAuth().currentUser?.uid.toString();
-    const { employeeId, email, uid } = this.ProfileForm.value;
-    const ref1 = ref(this.database, 'users/' + uid)
+    // const { employeeId, email, uid } = this.ProfileForm.value;
+    // const ref1 = ref(this.database, 'users/' + uid)
 
-    const ref2 = ref(this.database, 'users/' + userId + '/email')
+    // const ref2 = ref(this.database, 'users/' + userId + '/email')
 
-    // set(ref1, {
-    //   uid: uid,  
-    //   employeeId: employeeId,
-    //   email: email,
-    //   done: '1',
-    // })
+    // // set(ref1, {
+    // //   uid: uid,  
+    // //   employeeId: employeeId,
+    // //   email: email,
+    // //   done: '1',
+    // // })
 
     const starCountRef = ref(this.database, 'users/' + userId + '/done' );
     onValue(starCountRef, (snapshot) => {
