@@ -75,11 +75,11 @@ export class RegisterComponent implements OnInit {
 
   setRealtimeDbData() {
 
-    const userId = getAuth().currentUser?.uid.toString();
+    // const userId = getAuth().currentUser?.uid.toString();
     const { employeeId, email, uid, firstname, lastname, password } = this.signUpForm.value;
     const ref1 = ref(this.database, 'request/' + employeeId)
     const checkEmpId = ref(this.database, 'users2/' + employeeId + '/employeeId');
-    const checkEmail = ref(this.database, 'users2/' + employeeId + '/email');
+    // const checkEmail = ref(this.database, 'users2/' + employeeId + '/email');
 
 
     onValue(checkEmpId, (snapshot) => {
@@ -88,10 +88,17 @@ export class RegisterComponent implements OnInit {
 
 
 
-      if (empId == null) {
+      if (empId != null) {
       
 
+        alert('Employee ID already used')
 
+        
+
+      }
+
+      else {
+      
 
         set(ref1, {
 
@@ -106,11 +113,7 @@ export class RegisterComponent implements OnInit {
 
         alert("Registration request sent!")
         this.router.navigate(['/login'])
-
-      }
-
-      else {
-        alert('Employee ID already used')
+        localStorage.clear();
 
       }
 
@@ -141,6 +144,7 @@ export class RegisterComponent implements OnInit {
     //   const data = snapshot.val();
     //   alert(data)
     // })
+  
 
 
   }
