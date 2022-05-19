@@ -1,4 +1,9 @@
 <div *ngIf="userList | async as user">
+
+  <div class="container1">
+    <div class="profile-image">
+      <img width="200" height="200" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
+    </div>
   <h1>{{user.age}}</h1>
   <h1>{{user.firstName}}</h1>
 </div>
