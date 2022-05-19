@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PipeTransform } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Database, get, onValue, ref, set } from '@angular/fire/database';
 import { ProfileUser } from 'src/app/models/user-profile';
@@ -33,12 +33,16 @@ interface User {
 }
 
 
+
+
 @Component({
   selector: 'app-faculty-list',
   templateUrl: './faculty-list.component.html',
   styleUrls: ['./faculty-list.component.css']
 })
 export class FacultyListComponent implements OnInit {
+
+ 
 
 
 
@@ -101,6 +105,8 @@ export class FacultyListComponent implements OnInit {
 
 
 
+
+
   facRequestForm = new FormGroup({
     employeeId: new FormControl('',),
 
@@ -124,6 +130,7 @@ export class FacultyListComponent implements OnInit {
 
   ) { }
 
+  
 
   openAlert() {
     // let value = event.target.innerHTML; 
