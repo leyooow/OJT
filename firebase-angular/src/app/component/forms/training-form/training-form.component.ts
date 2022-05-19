@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getAuth } from '@angular/fire/auth';
-import { Database, onValue, ref, set } from '@angular/fire/database';
+import { Database, onValue, ref, set, update } from '@angular/fire/database';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -85,7 +85,7 @@ export class TrainingFormComponent implements OnInit {
     const userId = getAuth().currentUser?.uid.toString();
     const ref1 = ref(this.database, 'users/' + userId)
 
-    set(ref1, {
+    update(ref1, {
       uid: uid,
       done: '1',
     })
