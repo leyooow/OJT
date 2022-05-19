@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {jsPDF} from "jspdf";
 import { getAuth } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -16,6 +17,18 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./admin-generate-report.component.css']
 })
 export class AdminGenerateReportComponent implements OnInit {
+
+  @ViewChild('content',{static: false}) el!: ElementRef;
+
+  makePDF(){
+    let pdf=new jsPDF('p', 'pt', 'a2')
+    pdf.html(this.el.nativeElement,{
+      callback: (pdf)=>{
+        pdf.save("Faculty Information.pdf")
+      }
+    })
+
+  }
 
   public userList!: Observable<ProfileUser>
   data1: any

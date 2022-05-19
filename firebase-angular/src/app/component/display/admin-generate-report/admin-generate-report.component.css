@@ -87,7 +87,24 @@ body.jw-modal-open {
   overflow: hidden;
 } */
 
-
+#generateOverall{
+  background-color: #01193E;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    width: 200px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    margin-right: 5px;
+    justify-content: flex-end;
+    border-radius: 30px;
+    font-size: 1.2em;
+    color: #e7e7e7;
+    padding: 10px;
+    border: none;
+}
+#generateOverall:hover {
+  background-color: #024ABD;
+}
 .form-container3 {
     display: block;
     min-width: 400px;
@@ -101,7 +118,7 @@ body.jw-modal-open {
     height: fit-content;
     overflow: hidden;
   }
-  
+
   .container1 {
     display: flex;
     flex-direction: row;
@@ -112,13 +129,13 @@ body.jw-modal-open {
     padding-top: 10px;
     padding-bottom: 10px;
   }
-  
+
   .profile-image>img {
     border-radius: 2%;
     object-fit: cover;
     object-position: center;
   }
-  
+
   .profile-image {
     display: flex;
     justify-content: left;
@@ -126,30 +143,30 @@ body.jw-modal-open {
     width: fit-content;
     margin-right: 20px;
   }
-  
+
   #upper1 {
     font-size: 1.8em;
     padding-right: 10px;
     padding-bottom: 10px;
   }
-  
+
   #upper2 {
     font-size: 1.1em;
     padding-right: 10px;
     padding-bottom: 10px;
   }
-  
+
   .upper3 {
     font-size: 1.1em;
-  
+
   }
-  
+
   #upper1,
   #upper2,
   .upper3 {
     color: #ffffff;
   }
-  
+
   table {
     display: table;
     border-collapse: collapse;
@@ -160,13 +177,13 @@ body.jw-modal-open {
     margin: auto;
     margin-top: 20px;
   }
-  
+
   tbody {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
   }
-  
+
   tr {
     display: table-row;
     vertical-align: inherit;
@@ -176,33 +193,33 @@ body.jw-modal-open {
     font-weight: 500;
     color: #072F6E;
   }
-  
+
   td {
     font-family: sans-serif;
     font-size: 0.8em;
     text-transform: uppercase;
   }
-  
+
   th {
     font-weight: 600;
     font-size: 0.8em;
   }
-  
+
   td,
   th {
     padding: 8px;
     padding-right: 90px;
     font-family: 'Roboto Slab', serif;
   }
-  
+
   tr:nth-of-type(odd) {
     background-color: #ccc;
   }
-  
+
   .row {
     width: 100%;
   }
-  
+
   caption {
     color: #072F6E;
     width: 230px;
@@ -211,11 +228,11 @@ body.jw-modal-open {
     font-style: italic;
     font-weight: 400;
   }
-  
+
   .capBot {
     margin-top: 20px;
   }
-  
+
   .title {
     text-align: left;
     font-family: 'Cabin', sans-serif;
@@ -224,18 +241,18 @@ body.jw-modal-open {
     font-weight: 700;
     padding-top: 20px;
   }
-  
+
   .mainTitle {
     font-style: normal;
     font-weight: 700;
     font-size: 1.5em;
     width: 300px;
   }
-  
+
   .marginMainTitle {
     margin-top: 30px;
   }
-  
+
   .profile {
     width: 100%;
     display: flex;
@@ -244,18 +261,18 @@ body.jw-modal-open {
     align-items: center;
     padding: 10px;
   }
-  
+
   #certTitle {
     color: #072F6E;
   }
-  
+
   .certificate {
     font-family: 'Roboto Slab', serif;
     font-weight: 600;
     color: #072F6E;
     margin-bottom: -3px;
   }
-  
+
   .formbtn {
     background-color: #01193E;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
@@ -269,68 +286,68 @@ body.jw-modal-open {
     color: #e7e7e7;
     padding: 3px;
   }
-  
+
   .formbtn:hover {
     background-color: #024ABD;
   }
-  
+
   .formbtnDiv {
     display: flex;
     justify-content: right;
     align-items: flex-end;
+
   }
-  
+
   mat-icon {
     vertical-align: middle;
     margin-right: 5px;
   }
-  
+
   @media only screen and (max-width: 1000px) {
-  
+
     .container1,
     .form-title {
       align-items: center;
       justify-content: center;
       text-align: center;
     }
-  
+
     tr,
     h2 {
       font-weight: 0.8em;
     }
-  
+
     td,
     th {
       padding-right: 0px;
       padding-left: 5px;
     }
-  
+
     .form-title {
       line-height: 5vh;
     }
-  
+
     .profile-image {
       margin-top: 10px;
     }
-  
+
     #rightDiv {
       margin-top: 10px;
       margin-bottom: 10px;
     }
-  
+
     #imgCert {
       width: 200px;
       height: 150px;
     }
-  
+
     .mainTitle {
       width: 100px;
     }
-  
+
     .formbtnDiv {
       justify-content: center;
       align-items: center;
     }
-  
+
   }
-  

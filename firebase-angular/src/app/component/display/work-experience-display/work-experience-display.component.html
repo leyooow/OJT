@@ -12,7 +12,7 @@
 <div class="form-container3 mat-elevation-z5" *ngIf="user$ | async as user">
   <h1 class="form-title">Work Experience</h1>
   <hr>
-
+ <div id="content" #content>
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-lg-12 col-sm-12">
@@ -58,4 +58,6 @@
       </div>
     </div>
   </div>
+ </div>
+ <button (click)="makePDF()" id="generateWorkExp">Generate Report</button>
 </div>

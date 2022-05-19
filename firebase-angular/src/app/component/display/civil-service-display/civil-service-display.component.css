@@ -11,6 +11,17 @@
   height: fit-content;
   overflow: hidden;
 }
+#generateCivilService{
+  position: relative;
+  left: 70%;
+  top: -15px;
+  background-color:#072F6E;
+  color: white;
+  padding: 8px;
+  margin: 10px;
+  border: none;
+  border-radius: 7px;
+}
 
 .form-title {
   font-family: 'Koulen', cursive;
