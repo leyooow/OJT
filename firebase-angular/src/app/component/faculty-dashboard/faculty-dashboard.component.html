@@ -1,154 +1,137 @@
-
-<div id="allInfo" class="form-container1" *ngIf="user$ | async as user">
-
- 
+<div id="allInfo" class="form-container3" *ngIf="user$ | async as user">
   <div class="container">
-
-    <div class="downloadBtnDiv">
-      <button class="downloadBtn">Download All</button>
+    <div class="row">
+      <div class="downloadBtnDiv">
+        <button class="downloadBtn">Download All</button>
+      </div>
     </div>
-    
     <div class="row table-responsive w-100 d-md-table">
-      <div></div>
-      <table>
-        <tbody>
-          <tr>
-
-            <td>
-              <button (click)="PrintPersonalInfo()" class="downloadBtn" style="float: right; ">Download</button>
-            </td>
-          </tr>
-
-
-          <br />
-
-
-
-          <div id="personalInfo">
-
-
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <table>
+          <tbody>
             <tr>
               <td>
-                <h3 style="color: #072F6E;">Personal Information</h3>
+                <!-- <button (click)="PrintPersonalInfo()" class="downloadBtn" style="float: right; ">Download</button> -->
               </td>
-              <td></td>
-              <td></td>
+            </tr>
+            <div id="personalInfo">
+              <tr>
+                <td>
+                  <h3 style="color: #072F6E;">Personal Information</h3>
+                </td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <caption class="capBot">Basic Information</caption>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <th>First Name</th>
+                <td>:</td>
+                <td>{{user.firstName}}</td>
+              </tr>
+              <tr>
+                <th>Middle Name</th>
+                <td>:</td>
+                <td>{{user.middleName}}</td>
+              </tr>
+              <tr>
+                <th>Last Name</th>
+                <td>:</td>
+                <td>{{user.lastName}} {{user.nameExtension}}</td>
+              </tr>
+              <tr>
+                <th>Name Extension</th>
+                <td>:</td>
+                <td>{{user.nameExtension}}</td>
+              </tr>
+              <tr>
+                <th>Employee ID</th>
+                <td>:</td>
+                <td>{{user.employeeId}}</td>
+              </tr>
+              <tr>
+                <th>Email Address</th>
+                <td>:</td>
+                <td>{{user.email}}</td>
+              </tr>
+              <tr>
+                <th>Date of Birth</th>
+                <td>:</td>
+                <td>{{user.dateOfBirth}}</td>
+              </tr>
+              <tr>
+                <th>Age</th>
+                <td>:</td>
+                <td>{{user.age}}</td>
+              </tr>
+              <tr>
+                <th>Place of Birth</th>
+                <td>:</td>
+                <td>{{user.placeOfBirth}}</td>
+              </tr>
+              <tr>
+                <th>Gender</th>
+                <td>:</td>
+                <td>{{user.gender}}</td>
+              </tr>
+              <tr>
+                <th>Civil Status</th>
+                <td>:</td>
+                <td>{{user.civilStatus}}</td>
+              </tr>
+              <tr>
+                <th>Citizenship</th>
+                <td>:</td>
+                <td>{{user.citezenship}}</td>
+              </tr>
+              <tr>
+                <th>Height</th>
+                <td>:</td>
+                <td>{{user.height}}</td>
+              </tr>
+              <tr>
+                <th>Weight</th>
+                <td>:</td>
+                <td>{{user.weight}}</td>
+              </tr>
+              <tr>
+                <th>Blood Type</th>
+                <td>:</td>
+                <td>{{user.bloodType}}</td>
+              </tr>
+              <tr>
+                <th>GSIS Number</th>
+                <td>:</td>
+                <td>{{user.gsis}}</td>
+              </tr>
+              <tr>
+                <th>PAGIBIG Number</th>
+                <td>:</td>
+                <td>{{user.pagibig}}</td>
+              </tr>
+              <tr>
+                <th>PhilHealth Number</th>
+                <td>:</td>
+                <td>{{user.philhealth}}</td>
+              </tr>
+              <tr>
+                <th>SSS Number</th>
+                <td>:</td>
+                <td>{{user.sss}}</td>
+              </tr>
+              <tr>
+                <th>TIN Number</th>
+                <td>:</td>
+                <td>{{user.tin}}</td>
+              </tr>
+            </div>
+          </tbody>
+        </table>
+      </div>
 
-            </tr>
-           
-
-            <tr>
-              <caption class="capBot">Basic Information</caption>
-              <td></td>
-              <td></td>
-            </tr>
-
-            <tr>
-              <th>First Name</th>
-              <td>:</td>
-              <td>{{user.firstName}}</td>
-            </tr>
-            <tr>
-              <th>Middle Name</th>
-              <td>:</td>
-              <td>{{user.middleName}}</td>
-            </tr>
-            <tr>
-              <th>Last Name</th>
-              <td>:</td>
-              <td>{{user.lastName}} {{user.nameExtension}}</td>
-            </tr>
-            <tr>
-              <th>Name Extension</th>
-              <td>:</td>
-              <td>{{user.nameExtension}}</td>
-            </tr>
-            <tr>
-              <th>Employee ID</th>
-              <td>:</td>
-              <td>{{user.employeeId}}</td>
-            </tr>
-            <tr>
-              <th>Email Address</th>
-              <td>:</td>
-              <td>{{user.email}}</td>
-            </tr>
-            <tr>
-              <th>Date of Birth</th>
-              <td>:</td>
-              <td>{{user.dateOfBirth}}</td>
-            </tr>
-            <tr>
-              <th>Age</th>
-              <td>:</td>
-              <td>{{user.age}}</td>
-            </tr>
-            <tr>
-              <th>Place of Birth</th>
-              <td>:</td>
-              <td>{{user.placeOfBirth}}</td>
-            </tr>
-            <tr>
-              <th>Gender</th>
-              <td>:</td>
-              <td>{{user.gender}}</td>
-            </tr>
-            <tr>
-              <th>Civil Status</th>
-              <td>:</td>
-              <td>{{user.civilStatus}}</td>
-            </tr>
-            <tr>
-              <th>Citizenship</th>
-              <td>:</td>
-              <td>{{user.citezenship}}</td>
-            </tr>
-            <tr>
-              <th>Height</th>
-              <td>:</td>
-              <td>{{user.height}}</td>
-            </tr>
-            <tr>
-              <th>Weight</th>
-              <td>:</td>
-              <td>{{user.weight}}</td>
-            </tr>
-            <tr>
-              <th>Blood Type</th>
-              <td>:</td>
-              <td>{{user.bloodType}}</td>
-            </tr>
-            <tr>
-              <th>GSIS Number</th>
-              <td>:</td>
-              <td>{{user.gsis}}</td>
-            </tr>
-            <tr>
-              <th>PAGIBIG Number</th>
-              <td>:</td>
-              <td>{{user.pagibig}}</td>
-            </tr>
-            <tr>
-              <th>PhilHealth Number</th>
-              <td>:</td>
-              <td>{{user.philhealth}}</td>
-            </tr>
-            <tr>
-              <th>SSS Number</th>
-              <td>:</td>
-              <td>{{user.sss}}</td>
-            </tr>
-            <tr>
-              <th>TIN Number</th>
-              <td>:</td>
-              <td>{{user.tin}}</td>
-            </tr>
-
-
-          </div>
-
-        </tbody>
-      </table>
     </div>
   </div>
 
@@ -156,37 +139,22 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-lg-12 col-sm-12"></div>
-      <table >
+      <table>
         <tbody>
           <tr>
-
             <td>
-              <button (click)="PrintEducInfo()" class="downloadBtn" style="float: right; ">Download</button>
+              <!-- <button (click)="PrintEducInfo()" class="downloadBtn" style="float: right; ">Download</button> -->
             </td>
           </tr>
-
-
-          <br />
-
-
-
           <div id="educationalBackground">
-
-
-
             <td>
               <h3 style="color: #072F6E;">Educational Background</h3>
             </td>
-
-
-
-
             <tr>
               <caption>Elementary</caption>
               <td></td>
               <td></td>
             </tr>
-
             <tr>
               <th>Name of School</th>
               <td>:</td>
@@ -222,7 +190,6 @@
               <td></td>
               <td></td>
             </tr>
-
             <tr>
               <th>Name of School</th>
               <td>:</td>
@@ -258,7 +225,6 @@
               <td></td>
               <td></td>
             </tr>
-
             <tr>
               <th>Name of School</th>
               <td>:</td>
@@ -330,7 +296,6 @@
               <td></td>
               <td></td>
             </tr>
-
             <tr>
               <th>Name of School</th>
               <td>:</td>
@@ -366,7 +331,6 @@
               <td></td>
               <td></td>
             </tr>
-
             <tr>
               <th>Name of School</th>
               <td>:</td>
@@ -397,9 +361,7 @@
               <td>:</td>
               <td>{{user.scholarStudies}}</td>
             </tr>
-
           </div>
-
         </tbody>
       </table>
     </div>
@@ -410,15 +372,13 @@
       <div class="col-md-12 col-lg-12 col-sm-12">
         <table>
           <tbody>
-
             <tr>
-
               <td>
-                <button (click)="PrintCivilInfo()" class="downloadBtn" style="float: right; ">Download</button>
+                <!-- <button (click)="PrintCivilInfo()" class="downloadBtn" style="float: right; ">Download</button> -->
               </td>
             </tr>
-            <div id="civilService">
 
+            <div id="civilService">
               <tr>
                 <td>
                   <caption>Civil Service</caption>
@@ -456,9 +416,7 @@
                 <td>:</td>
                 <td>{{user.dateofValidityCivil}}</td>
               </tr>
-
             </div>
-
           </tbody>
         </table>
       </div>
@@ -470,28 +428,19 @@
       <div class="col-md-12 col-lg-12 col-sm-12">
         <table>
           <tbody>
-
             <tr>
-
               <td>
                 <button class="downloadBtn" style="float: right; ">Download</button>
               </td>
             </tr>
 
-
-
             <div id="workingExp">
-
               <tr>
                 <td>
                   <caption>Working Experience</caption>
                 <td></td>
                 <td></td>
-
-
-
               </tr>
-
               <tr>
                 <th>Position Title</th>
                 <td>:</td>
@@ -527,53 +476,32 @@
                 <td>:</td>
                 <td>{{user.governmentServiceWorkExp}}</td>
               </tr>
-
             </div>
-
-
           </tbody>
         </table>
-
-        
       </div>
     </div>
   </div>
 
   <div class="container">
-    <!-- <div class="row">
-      <div class="col-md-12 col-lg-12 col-sm-12">
-        <section class="fieldset1">
-          <div class="profile">
-            <h3>Certificate</h3>
-            <img width="350" height="200" [src]="user.photoCertURL ?? 'assets/images/image-placeholder.jpg'">
-            <span id="certTitle">{{user.TitleOfLearningTraining}}</span>
-          </div>
-        </section>
-      </div>
-    </div> -->
 
     <div class="row">
       <div class="col-md-12 col-lg-12 col-sm-12">
         <table>
           <tbody>
             <tr>
-
               <td>
                 <button class="downloadBtn" style="float: right; ">Download</button>
               </td>
             </tr>
 
-
-
             <div id="training">
-
               <tr>
                 <td>
                   <caption>L&D/Trainings</caption>
                 <td></td>
                 <td></td>
               </tr>
-
               <tr>
                 <th>Title</th>
                 <td>:</td>
@@ -599,19 +527,10 @@
                 <td>:</td>
                 <td>{{user.typeOfLdTraining}}</td>
               </tr>
-
             </div>
-
           </tbody>
         </table>
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
 </div>

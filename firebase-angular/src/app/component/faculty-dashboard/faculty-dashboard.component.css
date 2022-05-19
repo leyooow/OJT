@@ -1,11 +1,10 @@
-.form-container3 {
+/* .form-container3 {
   display: block;
   min-width: 400px;
   max-width: 60%;
   margin: auto;
   margin-top: 30px;
   margin-bottom: 30px;
-  /* padding: 30px; */
   border-radius: 16px;
   align-items: center;
   background-color: #D3D5DB;
@@ -35,7 +34,6 @@
 .form-title {
   font-family: 'Koulen', cursive;
   font-size: 2.8em;
-  /* padding: -5px; */
   text-align: center;
   color: #072F6E;
   font-weight: 700;
@@ -97,7 +95,6 @@
 table {
   display: table;
   border-collapse: collapse;
-  /* box-sizing: border-box; */
   text-indent: initial;
   border-spacing: 5px;
   margin-top: 10px;
@@ -121,10 +118,6 @@ tr {
   font-weight: 500;
   color: #072F6E;
 }
-
-/* tr:hover {
-  background-color: #b7b9bd6e;
-} */
 
 
 td {
@@ -194,9 +187,6 @@ mat-icon {
     font-weight: 0.8em;
   }
 
-  /* th {
-    font-weight: 0.5em;
-  } */
 
   td,
   th {
@@ -292,10 +282,6 @@ tr {
   color: #072F6E;
 }
 
-/* tr:hover {
-  background-color: #b7b9bd6e;
-} */
-
 
 td {
   font-family: sans-serif;
@@ -364,10 +350,6 @@ mat-icon {
     font-weight: 0.8em;
   }
 
-  /* th {
-    font-weight: 0.5em;
-  } */
-
   td,
   th {
     padding: 3px;
@@ -392,10 +374,11 @@ mat-icon {
   }
 
 }
+
 .downloadBtnDiv {
 
   float: right;
-  
+
   display: flex;
   justify-content: right;
   align-items: flex-end;
@@ -414,5 +397,18 @@ mat-icon {
   font-size: 1.2em;
   color: #e7e7e7;
   padding: 3px;
-}
+} */
 
+.form-container3 {
+  display: block;
+  min-width: 400px;
+  max-width: 60%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 16px;
+  align-items: center;
+  background-color: #D3D5DB;
+  height: fit-content;
+  overflow: hidden;
+}

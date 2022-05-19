@@ -113,7 +113,8 @@
           </div>
           <div class="item">
             <input class="form-control smallInput" type="text" formControlName="age" placeholder="Age" maxlength="3"
-              [class.is-invalid]="localForm.submitted && ProfileForm.get('age')?.invalid" />
+              [class.is-invalid]="localForm.submitted && ProfileForm.get('age')?.invalid"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
           </div>
         </div>
         <div class="col-md-6 col-lg-6 col-sm-12">
@@ -222,7 +223,8 @@
             </label>
           </div>
           <div class="item">
-            <input class="form-control" type="text" formControlName="gsis" placeholder="GSIS ID No." maxlength="7" />
+            <input class="form-control" type="text" formControlName="gsis" placeholder="GSIS ID No."
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
           </div>
         </div>
         <div class="col-md-6 col-lg-3 col-sm-12">
@@ -233,7 +235,7 @@
           </div>
           <div class="item">
             <input class="form-control" type="text" formControlName="pagibig" placeholder="PAGIBIG ID No."
-              maxlength="7" />
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
           </div>
         </div>
         <div class="col-md-6 col-lg-3 col-sm-12">
@@ -244,7 +246,7 @@
           </div>
           <div class="item">
             <input class="form-control" type="text" formControlName="philhealth" placeholder="PHILHEALTH No."
-              maxlength="12" />
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
           </div>
         </div>
         <div class="col-md-6 col-lg-3 col-sm-12">
@@ -254,7 +256,8 @@
             </label>
           </div>
           <div class="item">
-            <input class="form-control" type="text" formControlName="sss" placeholder="SSS No." maxlength="15" />
+            <input class="form-control" type="text" formControlName="sss" placeholder="SSS No."
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
           </div>
         </div>
         <div class="col-md-6 col-lg-3 col-sm-12">
@@ -264,7 +267,8 @@
             </label>
           </div>
           <div class="item">
-            <input class="form-control" type="text" formControlName="tin" placeholder="TIN No." maxlength="12" />
+            <input class="form-control" type="text" formControlName="tin" placeholder="TIN No."
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
           </div>
         </div>
       </div>
@@ -289,7 +293,8 @@
           </div>
           <div class="item">
             <input class="form-control" type="text" formControlName="houseBlockResident"
-              placeholder="House/Block/Lot No." />
+              placeholder="House/Block/Lot No."
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
           </div>
         </div>
         <div class="col-md-6 col-lg-3 col-sm-12">
@@ -355,7 +360,8 @@
           </div>
           <div class="item">
             <input class="form-control mediumInput" type="text" formControlName="zipCodeResident" placeholder="Zip Code"
-              maxlength="4" [class.is-invalid]="localForm.submitted && ProfileForm.get('zipCodeResident')?.invalid" />
+              maxlength="4" [class.is-invalid]="localForm.submitted && ProfileForm.get('zipCodeResident')?.invalid"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
           </div>
         </div>
       </div>
@@ -380,7 +386,8 @@
           </div>
           <div class="item">
             <input class="form-control" type="text" formControlName="houseBlockPermanent"
-              placeholder="House/Block/Lot No." />
+              placeholder="House/Block/Lot No."
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
           </div>
         </div>
         <div class="col-md-6 col-lg-3 col-sm-12">
@@ -447,7 +454,8 @@
           <div class="item">
             <input class="form-control mediumInput" type="text" formControlName="zipCodePermanent"
               placeholder="Zip Code" maxlength="4"
-              [class.is-invalid]="localForm.submitted && ProfileForm.get('zipCodePermanent')?.invalid" />
+              [class.is-invalid]="localForm.submitted && ProfileForm.get('zipCodePermanent')?.invalid"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
           </div>
         </div>
       </div>
@@ -471,18 +479,22 @@
             </label>
           </div>
           <div class="item">
-            <input class="form-control" type="text" formControlName="telephoneNo" placeholder="Telephone Number" />
+            <input class="form-control" type="text" formControlName="telephoneNo" placeholder="Telephone Number"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" minlength="10"
+              maxlength="10" />
           </div>
         </div>
         <div class="col-md-6 col-lg-4 col-sm-12">
           <div class="nameLbl">
             <label class="label2">
-              Mobile No. <span class="hint">(09xxxxxxxxx)</span>
+              Mobile No. <span class="hint">(09xxxxxxxxx)</span>*
             </label>
           </div>
           <div class="item">
             <input class="form-control" type="text" formControlName="mobileNo" placeholder="Mobile Number"
-              [class.is-invalid]="localForm.submitted && ProfileForm.get('provincePermanent')?.invalid" />
+              minlength="11" maxlength="11"
+              [class.is-invalid]="localForm.submitted && ProfileForm.get('provincePermanent')?.invalid"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
           </div>
         </div>
         <div class="col-md-6 col-lg-4 col-sm-12">

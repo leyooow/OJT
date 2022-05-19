@@ -183,26 +183,6 @@ img {
   color: #ffffff !important;
 }
 
-
-/* .sideBtnDesignNew {
-  color: #072F6E;
-  background: transparent;
-  border: none;
-  margin-left: 20px;
-  width: fit-content;
-}
-
-.sideBtnDesignNew:hover,
-.menu-button:hover {
-  background-color: #092972;
-  color: #ffffff !important;
-}
-
-.sideNavHover:hover {
-  color: #ffffff;
-  background-color: #092972;
-} */
-
 .modal-content {
   color: #ffffff;
   background-color: #072F6E;
