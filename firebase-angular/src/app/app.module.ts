@@ -54,7 +54,7 @@ import { FormsModule } from '@angular/forms';
 
 import { FacultyRequestComponent } from './component/display/faculty-request/faculty-request.component';
 import { FacultyListComponent } from './component/display/faculty-list/faculty-list.component';
-import { NgxPrintModule } from 'ngx-print';
+// import { NgxPrintModule } from 'ngx-print';
 import { ConsentComponent } from './component/display/consent/consent.component';
 
 
@@ -94,7 +94,7 @@ import { ConsentComponent } from './component/display/consent/consent.component'
     MatIconModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule,
+    // MatInputModule,
     ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
@@ -115,7 +115,7 @@ import { ConsentComponent } from './component/display/consent/consent.component'
     MatProgressSpinnerModule,
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,
-    NgxPrintModule,
+    // NgxPrintModule,
     
 
     

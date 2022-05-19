@@ -11,13 +11,13 @@
 
 <div class="form-container1 mat-elevation-z5" *ngIf="user$ | async as user">
 
-    <h2 class="form-title"> Faculty List</h2>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-lg-12 col-sm-12">
-          <table class="table ">
-  
-            <thead class="thead-dark">
+  <h2 class="form-title"> Faculty List</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <table class="table ">
+
+          <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
               <th scope="col">EmployeeID</th>
@@ -26,38 +26,33 @@
               <th scope="col">Last Name</th>
               <th scope="col" style="text-align: center;">Action</th>
             </tr>
-            </thead>
+          </thead>
           <tbody>
-            <tr  *ngFor="let data of userList; index as i"   >
+            <tr *ngFor="let data of userList; index as i">
               <th class="th-number" scope="row">{{ i + 1 }}</th>
-             <td >{{ data.employeeId }}</td> 
+              <td>{{ data.employeeId }}</td>
               <td style="text-transform: lowercase;">{{ data.email }}
-              <td >{{ data.firstName}}</td>
+              <td>{{ data.firstName}}</td>
               <td>{{ data.lastName}}</td>
-            
+
               <td>
-                  <div class="row">
-                    <div class="col hit">
-                      <button (click)="details()" class="btn btn-success">
-                        Details
-                      </button>
-                      <!-- <button #hit id="hit" class="btn btn-danger" (click)="delete()"  >
+                <div class="row">
+                  <div class="col hit">
+                    <button (click)="details()" class="btn btn-success">
+                      Details
+                    </button>
+                    <!-- <button #hit id="hit" class="btn btn-danger" (click)="delete()"  >
                         Delete
                     </button> -->
-                    </div>
                   </div>
+                </div>
               </td>
             </tr>
-            </tbody>
-          </table>
-        </div>
+          </tbody>
+        </table>
       </div>
     </div>
-      
-  
   </div>
-  
 
-  
-   
-  
+
+</div>
