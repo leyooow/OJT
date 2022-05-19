@@ -288,6 +288,8 @@ export class FacultyRequestComponent implements OnInit {
       onValue(LastNameRef, (snapshot) => {
         const lastName = snapshot.val();
         localStorage.setItem('LastName', lastName)
+
+         
       })
 
   
@@ -369,6 +371,9 @@ export class FacultyRequestComponent implements OnInit {
             employeeId: employeeId1,
             email: email1,
             uid: userId,
+            firstName: firstName1,
+            lastName: lastName1,
+            password: password1,
         
 
           })

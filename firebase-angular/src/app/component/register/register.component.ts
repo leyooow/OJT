@@ -13,14 +13,14 @@ import { switchMap } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UsersService } from 'src/app/services/users.service';
 
-import {Database, set, ref, update, onValue} from '@angular/fire/database'
+import { Database, set, ref, update, onValue } from '@angular/fire/database'
 import { getAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 
 
 export function passwordsMatchValidator(): ValidatorFn {
-  
+
   return (control: AbstractControl): ValidationErrors | null => {
 
     const password = control.get('password')?.value
@@ -35,7 +35,7 @@ export function passwordsMatchValidator(): ValidatorFn {
     return null
   }
 
-  
+
 
 }
 
@@ -46,7 +46,7 @@ export function passwordsMatchValidator(): ValidatorFn {
 })
 export class RegisterComponent implements OnInit {
 
-  
+
 
   signUpForm = new FormGroup({
     uid: new FormControl('',),
@@ -64,42 +64,74 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private toast: HotToastService,
     private usersService: UsersService,
-    public database : Database,
-    private afs : AngularFirestore
-    ) { }
+    public database: Database,
+    private afs: AngularFirestore
+  ) { }
 
   ngOnInit(): void {
   }
 
-  setRealtimeDbData(){
-    const userId = getAuth().currentUser?.uid.toString() ;
-    const {employeeId, email,uid, firstname, lastname, password } = this.signUpForm.value;
-    const ref1 = ref(this.database, 'request/' + employeeId)
+  setRealtimeDbData() {
 
-    
-    set(ref1, {
-      
-      employeeId : employeeId,
-      email: email,
-      uid: uid, 
-      firstName: firstname,
-      lastName: lastname,
-      password: password,
+    const userId = getAuth().currentUser?.uid.toString();
+    const { employeeId, email, uid, firstname, lastname, password } = this.signUpForm.value;
+    const ref1 = ref(this.database, 'request/' + employeeId)
+    const checkEmpId = ref(this.database, 'users2/' + employeeId + '/employeeId');
+    const checkEmail = ref(this.database, 'users2/' + employeeId + '/email');
+
+
+    onValue(checkEmpId, (snapshot) => {
+      const empId = snapshot.val();
+
+
+
+
+      if (empId == null) {
+
+
+
+        set(ref1, {
+
+          employeeId: employeeId,
+          email: email,
+          uid: uid,
+          firstName: firstname,
+          lastName: lastname,
+          password: password,
+
+        })
+
+        alert("Registration request sent!")
+        this.router.navigate(['/login'])
+
+      }
+
+      else {
+        alert('Employee ID already used')
+
+      }
 
     })
-   
+
+
+
+
+
+
+
+
+
     // localStorage.setItem('uid', uid)
     // localStorage.setItem('password', password)
     // localStorage.setItem('email', email)
     // localStorage.setItem('employeeId', employeeId)
     // localStorage.setItem('firstName', firstname) 
     // localStorage.setItem('lastName1', lastname)   
-    
 
 
 
-    alert("Registration request sent!")
-    this.router.navigate(['/login'])
+
+
 
     // const starCountRef = ref(this.database, 'users/' + userId + '/email' );
     // onValue(starCountRef, (snapshot) => {
@@ -107,21 +139,21 @@ export class RegisterComponent implements OnInit {
     //   alert(data)
     // })
 
-  
+
   }
 
-  employeeIdValidate(){
-    const userId = getAuth().currentUser?.uid.toString() ;
-    const {employeeId, email,uid} = this.signUpForm.value;
+  employeeIdValidate() {
+    const userId = getAuth().currentUser?.uid.toString();
+    const { employeeId, email, uid } = this.signUpForm.value;
     const ref1 = ref(this.database, 'users/' + employeeId)
 
-     const starCountRef = ref(this.database, 'users/' + employeeId + '/employeeId' );
+    const starCountRef = ref(this.database, 'users/' + employeeId + '/employeeId');
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val();
-   
+
     })
 
-    
+
 
 
 
@@ -135,7 +167,7 @@ export class RegisterComponent implements OnInit {
     if (!this.signUpForm.valid) return
 
     this.setRealtimeDbData()
-    
+
     // alert('Registration request sent')
     // this.router.navigate(['/login'])
 
@@ -150,9 +182,9 @@ export class RegisterComponent implements OnInit {
     //       email, displayName: firstname + ' ' + lastname, done: ''})
     //   ),
 
-      
 
-    
+
+
 
     //   this.toast.observe({
     //     success: 'Successfully Registered',
@@ -167,7 +199,7 @@ export class RegisterComponent implements OnInit {
 
     // this.employeeIdValidate()
 
-    
+
 
 
   }
@@ -196,7 +228,7 @@ export class RegisterComponent implements OnInit {
     return this.signUpForm.get('confirmPassword')
   }
 
-  
+
 }
 
 
