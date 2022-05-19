@@ -57,6 +57,8 @@ import { FacultyListComponent } from './component/display/faculty-list/faculty-l
 // import { NgxPrintModule } from 'ngx-print';
 import { ConsentComponent } from './component/display/consent/consent.component';
 import { NgxPrintModule } from 'ngx-print';
+import { FacultyGenerateReportComponent } from './component/display/faculty-generate-report/faculty-generate-report.component';
+import { AdminGenerateReportComponent } from './component/display/admin-generate-report/admin-generate-report.component';
 
 
 
@@ -84,6 +86,8 @@ import { NgxPrintModule } from 'ngx-print';
     FacultyRequestComponent,
     FacultyListComponent,
     ConsentComponent,
+    FacultyGenerateReportComponent,
+    AdminGenerateReportComponent,
     
     
   ],

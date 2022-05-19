@@ -98,7 +98,7 @@ export class AppComponent {
     if (userID == 'fM6Ko90ezgSzZJ04sbCdGMmbOYt1') {
       this.router.navigate(['/faculty-list'])
     } else {
-      this.router.navigate(['/faculty-dashboard'])
+      this.router.navigate(['/faculty-generate-report'])
     }
     this.sidenav.close()
 

@@ -92,7 +92,7 @@ export class FacultyListComponent implements OnInit {
     //   this.getStarted()
 
     // }, 50);
-    this.router.navigate(['/admin-dashboard'])
+    this.router.navigate(['/admin-generate-report'])
 
   }
 

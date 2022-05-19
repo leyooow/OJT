@@ -103,48 +103,48 @@ export class FacultyDashboardComponent implements OnInit {
 
   // educ
 
-  PrintEducInfo() {
-    let data2 = document.getElementById('educationalBackground')
-    this.generateEducPDF(data2)
-  }
+  // PrintEducInfo() {
+  //   let data2 = document.getElementById('educationalBackground')
+  //   this.generateEducPDF(data2)
+  // }
 
 
 
-  generateEducPDF(htmlData: any) {
+  // generateEducPDF(htmlData: any) {
 
-    html2canvas(htmlData, {
+  //   html2canvas(htmlData, {
      
-  });
+  // });
      
       
 
-    html2canvas(htmlData).then(canvas => {
-      let imgWidth = 520
-      let imgHeigth = 800
-      const contentDataURL = canvas.toDataURL('image/png2')
+  //   html2canvas(htmlData).then(canvas => {
+  //     let imgWidth = 520
+  //     let imgHeigth = 800
+  //     const contentDataURL = canvas.toDataURL('image/png2')
       
-      let pdf = new jsPDF('p', 'pt', 'a4')
-      var position = 10
+  //     let pdf = new jsPDF('p', 'pt', 'a4')
+  //     var position = 10
      
       
       
         
-        pdf.addImage(contentDataURL, 'PNG', 20, position, imgWidth, imgHeigth)
+  //       pdf.addImage(contentDataURL, 'PNG', 20, position, imgWidth, imgHeigth)
       
         
 
 
-        pdf.save('Educational_Background.pdf')
+  //       pdf.save('Educational_Background.pdf')
 
 
         
       
     
 
-     })
+  //    })
 
 
-   }
+  //  }
 
   // civil
 

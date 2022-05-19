@@ -25,6 +25,8 @@ import { TrainingDisplayComponent } from './component/display/training-display/t
 import { FacultyRequestComponent } from './component/display/faculty-request/faculty-request.component';
 import { FacultyListComponent } from './component/display/faculty-list/faculty-list.component';
 import { ConsentComponent } from './component/display/consent/consent.component';
+import { AdminGenerateReportComponent } from './component/display/admin-generate-report/admin-generate-report.component';
+import { FacultyGenerateReportComponent } from './component/display/faculty-generate-report/faculty-generate-report.component';
 
 
 const redirectToLogin = () => redirectUnauthorizedTo(['/login'])
@@ -115,6 +117,14 @@ const routes: Routes = [
 
  {path: 'consent', 
  component: ConsentComponent,
+ ...canActivate(redirectToLogin) },
+
+ {path: 'admin-generate-report', 
+ component: AdminGenerateReportComponent,
+ ...canActivate(redirectToLogin) },
+
+ {path: 'faculty-generate-report', 
+ component: FacultyGenerateReportComponent,
  ...canActivate(redirectToLogin) },
 
 
