@@ -76,7 +76,7 @@ export class LoginComponent implements OnInit {
       }else{
        
         
-        this.router.navigate(['/personal-info-form']);
+        this.router.navigate(['/consent']);
         await window.location.reload
        
         

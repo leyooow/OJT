@@ -106,7 +106,7 @@ export class TrainingFormComponent implements OnInit {
      
       
       
-        this.router.navigate(['/faculty-dashboard'])
+        this.router.navigate(['/personal-info-display'])
     }
     
 

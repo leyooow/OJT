@@ -40,7 +40,8 @@ interface User {
 })
 export class FacultyListComponent implements OnInit {
 
-  
+
+
   user$ = this.usersService.currentUserProfile$
 
   password: string = '';
@@ -61,6 +62,43 @@ export class FacultyListComponent implements OnInit {
     confirmPassword: new FormControl('',),
     done: new FormControl('',),
   })
+
+
+  details() {
+
+
+    this.getUserFromTable()
+    console.log(this.userList)
+    // setTimeout(() => {
+      
+    //   const userId = localStorage.getItem('id')
+    //   const uidRef = ref(this.database, 'users2/' + userId + '/uid');
+    //   onValue(uidRef, (snapshot) => {
+    //     const uid = snapshot.val();
+    //     console.log(uid)
+
+    //     this.afs.collection('users').doc(uid).ref.get().then(function (doc) {
+    //       console.log(doc.data())
+          
+                  
+    //     })
+      
+    //   })
+
+     
+
+    
+     
+    //   this.getStarted()
+
+    // }, 50);
+    this.router.navigate(['/admin-dashboard'])
+
+  }
+
+
+
+
 
 
   facRequestForm = new FormGroup({
@@ -112,76 +150,23 @@ export class FacultyListComponent implements OnInit {
 
   }
 
-  async delete() {
+
+  getUserFromTable() {
+
+    var value: string
+    $(".hit").click(function () {
+      value = $(this).closest('tr').children('td:first').text();
+      console.log(value);
+      localStorage.setItem('id', value)
 
 
-    this.getUserFromTable()
 
-    // let value = ""
-    // // alert(String( user1?.employeeId))
-    // $(".hit").click(function(){
-    //  value=$(this). closest('tr'). children('td:first'). text();
-    //   console.log(value);
-
-    //   });
-
-    // const { employeeId } = this.facRequestForm.value
-
-    // let value = event.target.innerText; 
-    // console.log("value", value[0]);
-
-    // var user1 = this.userList.find(element =>
-    //   element.employeeId == employeeId
-    // )?.employeeId
-
-    // await this.db.object('request/' + value).remove()
-    setTimeout(() => {
-      window.location.reload
-      const id = String(localStorage.getItem('id'))
-      //  alert(id)
-      if (confirm('Are you sure you want to delete this request?') === true) {
-        const ref = this.db.object('request/' + id).remove()
-        alert('deleted')
-        this.getStarted()
-
-      }else{
-        localStorage.clear()
-      }
-
-      //  const emp = this.empID = '123'
-
-    }, 50)
+    });
 
 
 
 
 
-
-
-
-
-    await this.getStarted()
-
-
-
-  }
-
-   getUserFromTable() {
-    
-      var value: string
-      $(".hit").click(function () {
-        value = $(this).closest('tr').children('td:first').text();
-        console.log(value);
-        localStorage.setItem('id', value)
-  
-  
-  
-      });
-  
-
-
-    
-   
 
     // await this.db.object('request/' + id).remove()
     // if(confirm('Are you sure you want to delete this request?') == true){
@@ -215,7 +200,7 @@ export class FacultyListComponent implements OnInit {
 
 
 
-     
+
 
 
 
@@ -231,7 +216,7 @@ export class FacultyListComponent implements OnInit {
 
     setTimeout(() => {
 
-      
+
 
       const id = localStorage.getItem('id');
 
@@ -275,8 +260,8 @@ export class FacultyListComponent implements OnInit {
         localStorage.setItem('LastName', lastName)
       })
 
-  
-     
+
+
 
       const email1 = String(localStorage.getItem('email')!)
       const employeeId1 = String(localStorage.getItem('employeeId')!)
@@ -302,7 +287,7 @@ export class FacultyListComponent implements OnInit {
 
 
 
-      
+
 
 
 
@@ -310,7 +295,7 @@ export class FacultyListComponent implements OnInit {
         .pipe(
 
 
-          
+
           switchMap(({ user: { uid } }) => this.usersService.addUser(
             {
               uid, firstName: firstName1,
@@ -354,32 +339,32 @@ export class FacultyListComponent implements OnInit {
             employeeId: employeeId1,
             email: email1,
             uid: userId,
-        
+
 
           })
 
           this.authService.logout().subscribe(() => {
-            
-            
+
+
             const id = String(localStorage.getItem('id'))
             //  alert(id)
 
             const ref = this.db.object('users/' + id).remove()
-            
+
             this.getStarted()
 
             localStorage.clear();
-            
+
           })
 
 
           // this.getUserFromTable();
-        
-     
+
+
 
           this.authService.login('admin@gmail.com', 'admin123').subscribe()
-          
-      
+
+
 
 
 
@@ -395,7 +380,7 @@ export class FacultyListComponent implements OnInit {
     }, 50)
 
 
-  
+
 
 
 
@@ -410,7 +395,7 @@ export class FacultyListComponent implements OnInit {
   getAllRequest() {
 
     return new Promise((resolve, reject) => {
-      this.db.list('users').valueChanges().subscribe(value => {
+      this.db.list('users/').valueChanges().subscribe(value => {
         resolve(value)
       })
     })

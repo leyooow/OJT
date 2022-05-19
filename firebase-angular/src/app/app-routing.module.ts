@@ -24,6 +24,7 @@ import { WorkExperienceDisplayComponent } from './component/display/work-experie
 import { TrainingDisplayComponent } from './component/display/training-display/training-display.component';
 import { FacultyRequestComponent } from './component/display/faculty-request/faculty-request.component';
 import { FacultyListComponent } from './component/display/faculty-list/faculty-list.component';
+import { ConsentComponent } from './component/display/consent/consent.component';
 
 
 const redirectToLogin = () => redirectUnauthorizedTo(['/login'])
@@ -112,8 +113,14 @@ const routes: Routes = [
  component: FacultyListComponent,
  ...canActivate(redirectToLogin) },
 
+ {path: 'consent', 
+ component: ConsentComponent,
+ ...canActivate(redirectToLogin) },
+
 
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

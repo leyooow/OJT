@@ -27,6 +27,11 @@ export class UsersService {
       })
     )
   }
+
+  getUserData(uid: any){
+    const ref = doc(this.firestore, 'users', uid)
+    return docData(ref) as Observable<ProfileUser>
+  }
   constructor(private firestore: Firestore, 
     private authService: AuthenticationService, 
     private afs: AngularFirestore) { }

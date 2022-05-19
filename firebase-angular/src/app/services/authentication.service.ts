@@ -6,7 +6,7 @@ import { concatMap, from, Observable, of, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class AuthenticationService {
 
   currentUser$ = authState(this.auth)
