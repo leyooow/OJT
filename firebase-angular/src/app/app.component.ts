@@ -112,7 +112,7 @@ export class AppComponent {
       alert('Admin is not allowed')
       return
     } else {
-      this.router.navigate(['/profile'])
+      this.router.navigate(['/personal-info-form'])
     }
     this.sidenav.close()
   }

@@ -5,6 +5,7 @@ import * as bootstrap from 'bootstrap';
 import { Modal } from 'bootstrap';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { Router } from '@angular/router';
 // import html2canvas from 'html2canvas'
 // import jsPDF from 'jspdf';
 
@@ -28,6 +29,7 @@ export class FacultyDashboardComponent implements OnInit {
 
   constructor(private authService: AuthenticationService,
     private usersService: UsersService,
+    private router: Router,
   ) { }
 
   async ngAfterViewInit() {
@@ -38,6 +40,7 @@ export class FacultyDashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.router.navigate(['/faculty-generate-report'])
   }
 
   logout() {

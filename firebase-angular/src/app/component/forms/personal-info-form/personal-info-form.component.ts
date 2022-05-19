@@ -220,10 +220,10 @@ export class PersonalInfoFormComponent implements OnInit {
       const data = snapshot.val();
      
 
-      if(data == '1'){
+      // if(data == '1'){
     
-        this.router.navigate(['/personal-info-display'])
-      }
+      //   this.router.navigate(['/personal-info-display'])
+      // }
     })
 
     
