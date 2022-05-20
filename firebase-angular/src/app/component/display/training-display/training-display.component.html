@@ -28,7 +28,10 @@
             <tr>
               <th>Inclusive Dates</th>
               <td>:</td>
-              <td>{{user.fromTraining}} <strong>-</strong> {{user.toTraining}}</td>
+              <td maxlength="4" min="1900" max="2099" step="1" type="number">
+                {{user.fromTraining}} 
+                <strong>-</strong> 
+                {{user.toTraining}}</td>
             </tr>
             <tr>
               <th>Conducted/Sponsored By</th>
