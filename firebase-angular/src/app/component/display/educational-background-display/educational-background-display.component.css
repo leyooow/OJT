@@ -11,11 +11,12 @@
   height: fit-content;
   overflow: hidden;
 }
-#generateEducBg{
+
+#generateEducBg {
   position: relative;
-  left: 73%;
+  left: 78%;
   top: -15px;
-  background-color:#072F6E;
+  background-color: #072F6E;
   color: white;
   padding: 8px;
   margin: 10px;

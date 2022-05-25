@@ -59,11 +59,12 @@
       </mat-error>
       <div style="display: none;" class="signuppassText" id="empIdError">
         Employee ID arleady use!
-      </div>     
+      </div>
     </div>
     <div class="row">
       <div class="center margin-top col-md-12 col-lg-12 col-sm-12">
-        <button mat-raised-button type="submit" class="signupBtn" (click)="submit()"> Register </button>
+        <button mat-raised-button type="submit" class="signupBtn" (click)="submit()">
+          Register </button>
       </div>
     </div>
     <div class="row" class="col-md-12 col-lg-12 col-sm-12">
@@ -72,3 +73,10 @@
     </div>
   </form>
 </div>
+
+<script>
+  function sweetalert2click() {
+    swal("Good job!", "You clicked the button!", "success");
+  }
+
+</script>

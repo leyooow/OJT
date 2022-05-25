@@ -25,7 +25,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import * as firebase from 'firebase/compat';
 // import { applicationDefault } from 'firebase-admin/app';
-
+import Swal from 'sweetalert2';
 
 
 
@@ -102,9 +102,9 @@ export class FacultyRequestComponent implements OnInit {
   ) { }
 
 
-  openAlert() {
-    // let value = event.target.innerHTML; 
-    // console.log("value", value);
+  // openAlert() {
+  //   // let value = event.target.innerHTML; 
+  //   // console.log("value", value);
 
 
 
@@ -114,18 +114,18 @@ export class FacultyRequestComponent implements OnInit {
 
 
 
-    if (confirm("Are you sure you want to delete this request?") == true) {
+  //   if (confirm("Are you sure you want to delete this request?") == true) {
 
-      // this.getUserFromTable()
-      // this.delete()
+  //     // this.getUserFromTable()
+  //     // this.delete()
 
 
 
-    }
+  //   }
 
-    // alert(this.userList.toString())
+  //   // alert(this.userList.toString())
 
-  }
+  // }
 
   async delete() {
 
@@ -150,35 +150,69 @@ export class FacultyRequestComponent implements OnInit {
     // )?.employeeId
 
     // await this.db.object('request/' + value).remove()
+    
     setTimeout(() => {
       window.location.reload
       const id = String(localStorage.getItem('id'))
-      //  alert(id)
-      if (confirm('Are you sure you want to delete this request?') === true) {
-        const ref = this.db.object('request/' + id).remove()
-        alert('deleted')
-        this.getStarted()
-
-      }else{
-        localStorage.clear()
-      }
-
-      //  const emp = this.empID = '123'
+      
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        // buttonsStyling: true
+      })
+      
+      swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const ref = this.db.object('request/' + id).remove()
+          this.getStarted()
+          swalWithBootstrapButtons.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Your imaginary file is safe :)',
+            'error'
+          )
+        }
+      })
 
     }, 50)
 
+    
 
+    // setTimeout(() => {
+    //   window.location.reload
+    //   const id = String(localStorage.getItem('id'))
+    //   //  alert(id)
+    //   if (confirm('Are you sure you want to delete this request?') === true) {
+    //     const ref = this.db.object('request/' + id).remove()
+    //     alert('deleted')
+    //     this.getStarted()
 
+    //   }else{
+    //     localStorage.clear()
+    //   }
 
+    //   //  const emp = this.empID = '123'
 
-
-
-
-
+    // }, 50)
     await this.getStarted()
-
-
-
   }
 
    getUserFromTable() {

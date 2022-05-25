@@ -17,7 +17,7 @@ import { Database, set, ref, update, onValue } from '@angular/fire/database'
 import { getAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-
+import Swal from 'sweetalert2';
 
 
 export function passwordsMatchValidator(): ValidatorFn {
@@ -119,7 +119,8 @@ export class RegisterComponent implements OnInit {
         })
 
 
-        alert("Registration request sent!")
+        // alert("Registration request sent!")
+        
         this.router.navigate(['/login'])
         localStorage.clear();
 
@@ -190,6 +191,12 @@ export class RegisterComponent implements OnInit {
     if (!this.signUpForm.valid) return
 
     this.setRealtimeDbData()
+
+    Swal.fire(
+      'Registration Sent',
+      'Please wait for the admin to very your registration',
+      'success'
+    )
 
     // alert('Registration request sent')
     // this.router.navigate(['/login'])
