@@ -44,6 +44,13 @@ export class TrainingFormComponent implements OnInit {
     conductedTraining2: new FormControl('',),
     TitleOfLearningTraining2: new FormControl('',),
 
+    toTraining3: new FormControl('',),
+    fromTraining3: new FormControl('',),
+    numberOfHrsTraining3: new FormControl('',),
+    typeOfLdTraining3: new FormControl('',),
+    conductedTraining3: new FormControl('',),
+    TitleOfLearningTraining3: new FormControl('',),
+
 
 
 
@@ -143,5 +150,11 @@ export class TrainingFormComponent implements OnInit {
     document.getElementById('div1')!.style.display = "block"
   }
 
+  add2(){
+
+    document.getElementById('addBtn2')!.style.display = "none"
+    document.getElementById('div2')!.style.display = "block"
+
+  }
 
 }
