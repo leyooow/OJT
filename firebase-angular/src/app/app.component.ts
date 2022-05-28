@@ -25,13 +25,13 @@ export class AppComponent {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav
   sidenav1!: MatSidenav
-  
 
-// civil_service_display: boolean = false;
-// educational_background_display: boolean = false;
-// personal_info_display: boolean = false;
-// training_display: boolean = false;
-// work_exp_display: boolean = false;
+
+  // civil_service_display: boolean = false;
+  // educational_background_display: boolean = false;
+  // personal_info_display: boolean = false;
+  // training_display: boolean = false;
+  // work_exp_display: boolean = false;
 
   user$ = this.usersService.currentUserProfile$
   testModal: Modal | undefined
@@ -48,28 +48,32 @@ export class AppComponent {
 
   ngAfterViewInit() {
 
-   
-    
+
+
     this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
       if (res.matches) {
         this.sidenav.mode = 'over'
         this.sidenav.close()
 
-        // }else{
-        //   this.sidenav.mode = 'side'
-        //   this.sidenav.open()
+      } else {
+        this.sidenav.mode = 'side'
+        this.sidenav.open()
 
       }
     })
   }
 
   ngOnInit(): void {
+    this.openSidenav()
+
+    this.sidenav.mode = 'side'
+    this.sidenav.open()
 
     // this.check()
-    document.getElementById('editProfile')!.style.display="none"
-    
-      
-    
+    document.getElementById('editProfile')!.style.display = "none"
+
+
+
 
   }
 
@@ -129,84 +133,84 @@ export class AppComponent {
   // check() {
   //   const userID = getAuth().currentUser?.uid
   //   if (userID == 'mpVepQYe0xSLA1hA21fwcdIeiyQ2') {
-      
+
   //   }
   // }
 
-  openSidenav(){
-   
+  openSidenav() {
+
     const userId = getAuth().currentUser?.uid
-    this.opened=!this.opened
-    if(userId == "fM6Ko90ezgSzZJ04sbCdGMmbOYt1"){
-     document.getElementById('personalInfo')!.style.display="none"
-     document.getElementById('EducBack')!.style.display="none"  
-     document.getElementById('civilService')!.style.display="none"  
-     document.getElementById('workExp')!.style.display="none" 
-     document.getElementById('traning')!.style.display="none" 
-     
-
-     document.getElementById('facultyReq')!.style.display="block"
-     document.getElementById('FacultyList')!.style.display="block"
-
-    
-    
-
-     
+    this.opened = !this.opened
+    if (userId == "fM6Ko90ezgSzZJ04sbCdGMmbOYt1") {
+      document.getElementById('personalInfo')!.style.display = "none"
+      document.getElementById('EducBack')!.style.display = "none"
+      document.getElementById('civilService')!.style.display = "none"
+      document.getElementById('workExp')!.style.display = "none"
+      document.getElementById('traning')!.style.display = "none"
 
 
-     
-    }else{
+      document.getElementById('facultyReq')!.style.display = "block"
+      document.getElementById('FacultyList')!.style.display = "block"
 
-     document.getElementById('personalInfo')!.style.display="block"
-     document.getElementById('EducBack')!.style.display="block"
-     document.getElementById('civilService')!.style.display="block"
-     document.getElementById('workExp')!.style.display="block"
-     document.getElementById('traning')!.style.display="block"
 
-     document.getElementById('facultyReq')!.style.display="none"  
-     document.getElementById('FacultyList')!.style.display="none" 
+
+
+
+
+
+
+    } else {
+
+      document.getElementById('personalInfo')!.style.display = "block"
+      document.getElementById('EducBack')!.style.display = "block"
+      document.getElementById('civilService')!.style.display = "block"
+      document.getElementById('workExp')!.style.display = "block"
+      document.getElementById('traning')!.style.display = "block"
+
+      document.getElementById('facultyReq')!.style.display = "none"
+      document.getElementById('FacultyList')!.style.display = "none"
 
     }
   }
 
 
-  showPersonalInfo(){
+  showPersonalInfo() {
     this.sidenav.close()
     this.router.navigate(['/personal-info-display'])
   }
 
-  showEducBack(){
+  showEducBack() {
     this.sidenav.close()
     this.router.navigate(['/educational-background-display'])
-  }  
+  }
 
-  showCivilService(){
+  showCivilService() {
     this.sidenav.close()
     this.router.navigate(['/civil-service-display'])
   }
 
-  showWorkExp(){
+  showWorkExp() {
     this.sidenav.close()
     this.router.navigate(['/work-experience-display'])
   }
 
-  showTrainings(){
+  showTrainings() {
     this.sidenav.close()
     this.router.navigate(['/training-display'])
   }
 
-  showFacultyRequest(){
+  showFacultyRequest() {
     this.sidenav.close()
     this.router.navigate(['/faculty-request'])
   }
 
-  showFacultyList(){
+  showFacultyList() {
     this.sidenav.close()
     this.router.navigate(['/faculty-list'])
   }
 
- 
-  
+
+
 
 
 }
