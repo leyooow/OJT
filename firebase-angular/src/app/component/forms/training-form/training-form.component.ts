@@ -25,22 +25,24 @@ import { UsersService } from 'src/app/services/users.service';
 export class TrainingFormComponent implements OnInit {
   user$ = this.usersService.currentUserProfile$
 
+  
+
   ProfileForm = new FormGroup({
-    uid: new FormControl('', ),
-    toTraining: new FormControl('', ),
-    fromTraining: new FormControl('', ),
-    numberOfHrsTraining: new FormControl('', ),
-    typeOfLdTraining: new FormControl('', ),
-    conductedTraining: new FormControl('', ),
-    done: new FormControl('', ),
-    TitleOfLearningTraining: new FormControl('', ),
-    
-    
-   
+    uid: new FormControl('',),
+    toTraining: new FormControl('',),
+    fromTraining: new FormControl('',),
+    numberOfHrsTraining: new FormControl('',),
+    typeOfLdTraining: new FormControl('',),
+    conductedTraining: new FormControl('',),
+    done: new FormControl('',),
+    TitleOfLearningTraining: new FormControl('',),
 
 
-    
-    
+
+
+
+
+
   })
 
   constructor(authService: AuthenticationService,
@@ -48,15 +50,15 @@ export class TrainingFormComponent implements OnInit {
     private toast: HotToastService,
     private usersService: UsersService,
     private router: Router,
-    public database : Database,) { 
+    public database: Database,) {
 
-      
-    }
+
+  }
 
   ngOnInit(): void {
 
 
-   
+
 
     this.usersService.currentUserProfile$.pipe(
       untilDestroyed(this)
@@ -77,10 +79,10 @@ export class TrainingFormComponent implements OnInit {
   }
 
 
-  
+
 
   saveProfile(user: ProfileUser) {
-    const {uid, employeeId,  firstname, lastname, email, password } = this.ProfileForm.value
+    const { uid, employeeId, firstname, lastname, email, password } = this.ProfileForm.value
 
     const userId = getAuth().currentUser?.uid.toString();
     const ref1 = ref(this.database, 'users/' + userId)
@@ -90,44 +92,44 @@ export class TrainingFormComponent implements OnInit {
       done: '1',
     })
 
-    if (!this.ProfileForm.valid){
+    if (!this.ProfileForm.valid) {
       alert('Please fill all required(*) fields!')
-    }else{
+    } else {
       const profileData = this.ProfileForm.value
       this.usersService.updateUser(profileData).pipe(
-      
+
         this.toast.observe({
           success: 'Data saved.',
           loading: 'Saving data... ',
           error: 'There was an error in saving the data.'
         }), concatMap((done) => this.usersService.updateUser({ uid: user.uid, done: '1' }))
       ).subscribe()
-        
-     
-      
-      
-        this.router.navigate(['/personal-info-display'])
-    }
-    
 
-   
+
+
+
+      this.router.navigate(['/personal-info-display'])
+    }
+
+
+
 
 
     // const profileData = this.ProfileForm.value
     // this.usersService.updateUser(profileData).pipe(
-    
+
     //   this.toast.observe({
     //     success: 'Data saved.',
     //     loading: 'Saving data... ',
     //     error: 'Failed to update data.'
     //   }), concatMap((done) => this.usersService.updateUser({ uid: user.uid, done: '1' }))
     // ).subscribe()
-      
 
-   
-    
-    
-   }
-  
+
+
+
+
+  }
+
 
 }
