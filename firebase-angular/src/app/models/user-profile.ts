@@ -148,6 +148,26 @@ export interface ProfileUser {
     yearGraduatedSenior?: string
     scholarSenior?: string
 
+    toTraining2?: string
+    fromTraining2?: string
+    numberOfHrsTraining2?: string
+    typeOfLdTraining2?: string
+    conductedTraining2?: string
+    TitleOfLearningTraining2?: string
+    photoCertURL3?: string
+
+    toTraining3?: string
+    fromTraining3?: string
+    numberOfHrsTraining3?: string
+    typeOfLdTraining3?: string
+    conductedTraining3?: string
+    TitleOfLearningTraining3?: string
+    photoCertURL4?: string
+    
+
+
+
+
 
     
 

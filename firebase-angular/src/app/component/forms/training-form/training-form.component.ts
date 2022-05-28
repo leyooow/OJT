@@ -37,6 +37,14 @@ export class TrainingFormComponent implements OnInit {
     done: new FormControl('',),
     TitleOfLearningTraining: new FormControl('',),
 
+    toTraining2: new FormControl('',),
+    fromTraining2: new FormControl('',),
+    numberOfHrsTraining2: new FormControl('',),
+    typeOfLdTraining2: new FormControl('',),
+    conductedTraining2: new FormControl('',),
+    TitleOfLearningTraining2: new FormControl('',),
+
+
 
 
 
@@ -56,7 +64,6 @@ export class TrainingFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
 
 
 
@@ -129,6 +136,11 @@ export class TrainingFormComponent implements OnInit {
 
 
 
+  }
+
+  add1(){
+    document.getElementById('addBtn1')!.style.display = "none"
+    document.getElementById('div1')!.style.display = "block"
   }
 
 
