@@ -10,6 +10,7 @@ import { UsersService } from './services/users.service';
 import { BreakpointObserver } from '@angular/cdk/layout'
 import { ProfileUser } from './models/user-profile';
 import { MatMenuTrigger } from '@angular/material/menu';
+// import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
