@@ -55,16 +55,16 @@ export class AppComponent {
         this.sidenav.mode = 'over'
         this.sidenav.close()
 
-      } else {
-        this.sidenav.mode = 'side'
-        this.sidenav.open()
+      // } else {
+      //   this.sidenav.mode = 'side'
+      //   this.sidenav.open()
 
       }
     })
   }
 
   ngOnInit(): void {
-    this.openSidenav()
+    // this.openSidenav()
 
     this.sidenav.mode = 'side'
     this.sidenav.open()
@@ -140,7 +140,7 @@ export class AppComponent {
   openSidenav() {
 
     const userId = getAuth().currentUser?.uid
-    this.opened = !this.opened
+   
     if (userId == "fM6Ko90ezgSzZJ04sbCdGMmbOYt1") {
       document.getElementById('personalInfo')!.style.display = "none"
       document.getElementById('EducBack')!.style.display = "none"
@@ -171,6 +171,7 @@ export class AppComponent {
       document.getElementById('FacultyList')!.style.display = "none"
 
     }
+    this.opened = !this.opened
   }
 
 
