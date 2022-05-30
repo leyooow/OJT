@@ -51,6 +51,24 @@ export class TrainingFormComponent implements OnInit {
     conductedTraining3: new FormControl('',),
     TitleOfLearningTraining3: new FormControl('',),
 
+    toTraining4: new FormControl('',),
+    fromTraining4: new FormControl('',),
+    numberOfHrsTraining4: new FormControl('',),
+    typeOfLdTraining4: new FormControl('',),
+    conductedTraining4: new FormControl('',),
+    TitleOfLearningTraining4: new FormControl('',),
+
+
+    toTraining5: new FormControl('',),
+    fromTraining5: new FormControl('',),
+    numberOfHrsTraining5: new FormControl('',),
+    typeOfLdTraining5: new FormControl('',),
+    conductedTraining5: new FormControl('',),
+    TitleOfLearningTraining5: new FormControl('',),
+
+
+
+
 
 
 
@@ -89,6 +107,40 @@ export class TrainingFormComponent implements OnInit {
         error: 'Failed to upload an image.',
 
       }), concatMap((photoCertURL) => this.usersService.updateUser({ uid: user.uid, photoCertURL }))
+    ).subscribe()
+  }
+
+
+  uploadImage2(event: any, user: ProfileUser) {
+    this.imageUploadService.uploadImage(event.target.files[0], `images/certificate2/${user.uid}`).pipe(
+      this.toast.observe({
+        success: 'Image Uploaded',
+        loading: 'Uploading...',
+        error: 'Failed to upload an image.',
+
+      }), concatMap((photoCertURL3) => this.usersService.updateUser({ uid: user.uid, photoCertURL3 }))
+    ).subscribe()
+  }
+
+  uploadImage3(event: any, user: ProfileUser) {
+    this.imageUploadService.uploadImage(event.target.files[0], `images/certificate3/${user.uid}`).pipe(
+      this.toast.observe({
+        success: 'Image Uploaded',
+        loading: 'Uploading...',
+        error: 'Failed to upload an image.',
+
+      }), concatMap((photoCertURL4) => this.usersService.updateUser({ uid: user.uid, photoCertURL4 }))
+    ).subscribe()
+  }
+
+  uploadImage4(event: any, user: ProfileUser) {
+    this.imageUploadService.uploadImage(event.target.files[0], `images/certificate4/${user.uid}`).pipe(
+      this.toast.observe({
+        success: 'Image Uploaded',
+        loading: 'Uploading...',
+        error: 'Failed to upload an image.',
+
+      }), concatMap((photoCertURL5) => this.usersService.updateUser({ uid: user.uid, photoCertURL5 }))
     ).subscribe()
   }
 
@@ -154,7 +206,40 @@ export class TrainingFormComponent implements OnInit {
 
     document.getElementById('addBtn2')!.style.display = "none"
     document.getElementById('div2')!.style.display = "block"
-
+    document.getElementById('cancelBtn1')!.style.display = "none"
   }
+
+  add3(){
+
+    document.getElementById('addBtn3')!.style.display = "none"
+    document.getElementById('div3')!.style.display = "block"
+    document.getElementById('cancelBtn2')!.style.display = "none"
+  }
+
+  add4(){
+
+    document.getElementById('addBtn4')!.style.display = "none"
+    document.getElementById('div4')!.style.display = "block"
+    document.getElementById('cancelBtn3')!.style.display = "none"
+  }
+
+  
+
+
+  cancel1(){
+    document.getElementById('addBtn1')!.style.display = "block"
+    document.getElementById('div1')!.style.display = "none"
+  }
+
+  cancel2(){
+    document.getElementById('addBtn2')!.style.display = "block"
+    document.getElementById('div2')!.style.display = "none"
+  }
+
+  cancel3(){
+    document.getElementById('addBtn3')!.style.display = "block"
+    document.getElementById('div3')!.style.display = "none"
+  }
+
 
 }

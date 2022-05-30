@@ -163,6 +163,24 @@ export interface ProfileUser {
     conductedTraining3?: string
     TitleOfLearningTraining3?: string
     photoCertURL4?: string
+
+    toTraining4?: string
+    fromTraining4?: string
+    numberOfHrsTraining4?: string
+    typeOfLdTraining4?: string
+    conductedTraining4?: string
+    TitleOfLearningTraining4?: string
+    photoCertURL5?: string
+
+    toTraining5?: string
+    fromTraining5?: string
+    numberOfHrsTraining5?: string
+    typeOfLdTraining5?: string
+    conductedTraining5?: string
+    TitleOfLearningTraining5?: string
+    photoCertURL6?: string
+
+
     
 
 
