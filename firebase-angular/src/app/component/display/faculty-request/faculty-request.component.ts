@@ -177,7 +177,7 @@ export class FacultyRequestComponent implements OnInit {
           this.getStarted()
           swalWithBootstrapButtons.fire(
             'Deleted!',
-            'Your file has been deleted.',
+            'Request has been deleted.',
             'success'
           )
         } else if (
@@ -186,7 +186,7 @@ export class FacultyRequestComponent implements OnInit {
         ) {
           swalWithBootstrapButtons.fire(
             'Cancelled',
-            'Your imaginary file is safe :)',
+            '',
             'error'
           )
         }
@@ -356,98 +356,142 @@ export class FacultyRequestComponent implements OnInit {
 
 
 
-      
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: 'btn btn-success',
+          cancelButton: 'btn btn-danger'
+        },
+        // buttonsStyling: true
+      })
 
 
+      swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, accept it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // const ref = this.db.object('request/' + id).remove()
+          // this.getStarted()
 
-      this.authService.signUp(email1, password1)
-        .pipe(
-
-
-          
-          switchMap(({ user: { uid } }) => this.usersService.addUser(
-            {
-              uid, firstName: firstName1,
-              lastName: lastName1, employeeId: employeeId1,
-              email: email1, displayName: firstName1 + ' ' + lastName1,
+          this.authService.signUp(email1, password1)
+          .pipe(
+  
+  
+            
+            switchMap(({ user: { uid } }) => this.usersService.addUser(
+              {
+                uid, firstName: firstName1,
+                lastName: lastName1, employeeId: employeeId1,
+                email: email1, displayName: firstName1 + ' ' + lastName1,
+              })
+            ),
+  
+  
+  
+  
+  
+            this.toast.observe({
+              success: 'Accepted',
+              loading: 'Checking...',
+              error: ({ message }) => `${message}`
             })
-          ),
-
-
-
-
-
-          this.toast.observe({
-            success: 'Accepted',
-            loading: 'Checking...',
-            error: ({ message }) => `${message}`
-          })
-        ).subscribe(() => {
-          //  this.getUserFromTable()
-
-          const userId = getAuth().currentUser?.uid
-
-          const ref1 = ref(this.database, 'users/' + userId)
-          const ref2 = ref(this.database, 'users2/' + employeeId1)
-
-
-
-          set(ref1, {
-
-            employeeId: employeeId1,
-            email: email1,
-            uid: userId,
-            firstName: firstName1,
-            lastName: lastName1,
-            password: password1,
-
-          })
-
-          set(ref2, {
-
-            employeeId: employeeId1,
-            email: email1,
-            uid: userId,
-            firstName: firstName1,
-            lastName: lastName1,
-            password: password1,
-        
-
-          })
-
-          this.authService.logout().subscribe(() => {
-            
-            
-            const id = String(localStorage.getItem('id'))
-            //  alert(id)
-
-            const ref = this.db.object('request/' + id).remove()
-            
-            this.getStarted()
-
-            localStorage.clear();
-            
-          })
-
-
-          // this.getUserFromTable();
-        
-     
-
-          this.authService.login('admin@gmail.com', 'admin123').subscribe()
+          ).subscribe(() => {
+            //  this.getUserFromTable()
+  
+            const userId = getAuth().currentUser?.uid
+  
+            const ref1 = ref(this.database, 'users/' + userId)
+            const ref2 = ref(this.database, 'users2/' + employeeId1)
+  
+  
+  
+            set(ref1, {
+  
+              employeeId: employeeId1,
+              email: email1,
+              uid: userId,
+              firstName: firstName1,
+              lastName: lastName1,
+              password: password1,
+  
+            })
+  
+            set(ref2, {
+  
+              employeeId: employeeId1,
+              email: email1,
+              uid: userId,
+              firstName: firstName1,
+              lastName: lastName1,
+              password: password1,
           
-      
+  
+            })
+  
+            this.authService.logout().subscribe(() => {
+              
+              
+              const id = String(localStorage.getItem('id'))
+              //  alert(id)
+  
+              const ref = this.db.object('request/' + id).remove()
+              
+              this.getStarted()
+  
+              localStorage.clear();
+              
+            })
+  
+  
+            // this.getUserFromTable();
+          
+       
+  
+            this.authService.login('admin@gmail.com', 'admin123').subscribe()
+            
+        
+  
+  
+  
+  
+  
+            //  const emp = this.empID = '1
+  
+  
+  
+  
+          })
 
 
 
 
 
-          //  const emp = this.empID = '1
+          // swalWithBootstrapButtons.fire(
+          //   'Accepted!',
+          //   'Request has been accepted.',
+          //   'success'
+          // )
+        }  if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            '',
+            'error'
+          )
+        }
+      })
 
 
 
 
-        })
+    
 
     }, 50)
 

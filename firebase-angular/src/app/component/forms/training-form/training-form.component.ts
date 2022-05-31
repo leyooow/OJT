@@ -90,6 +90,14 @@ export class TrainingFormComponent implements OnInit {
 
   ngOnInit(): void {
 
+  const  {toTraining2, fromTraining2,
+    toTraining3, fromTraining3,
+    toTraining4, fromTraining4,
+    toTraining5, fromTraining5, } = this.ProfileForm.value
+
+    if (toTraining2 != '' || toTraining2 != null){
+      document.getElementById('div1')!.style.display = "block"
+    }
 
 
     this.usersService.currentUserProfile$.pipe(
@@ -141,6 +149,17 @@ export class TrainingFormComponent implements OnInit {
         error: 'Failed to upload an image.',
 
       }), concatMap((photoCertURL5) => this.usersService.updateUser({ uid: user.uid, photoCertURL5 }))
+    ).subscribe()
+  }
+
+  uploadImage5(event: any, user: ProfileUser) {
+    this.imageUploadService.uploadImage(event.target.files[0], `images/certificate5/${user.uid}`).pipe(
+      this.toast.observe({
+        success: 'Image Uploaded',
+        loading: 'Uploading...',
+        error: 'Failed to upload an image.',
+
+      }), concatMap((photoCertURL6) => this.usersService.updateUser({ uid: user.uid, photoCertURL6 }))
     ).subscribe()
   }
 
@@ -234,11 +253,20 @@ export class TrainingFormComponent implements OnInit {
   cancel2(){
     document.getElementById('addBtn2')!.style.display = "block"
     document.getElementById('div2')!.style.display = "none"
+    document.getElementById('cancelBtn1')!.style.display = "block"
   }
 
   cancel3(){
     document.getElementById('addBtn3')!.style.display = "block"
     document.getElementById('div3')!.style.display = "none"
+    document.getElementById('cancelBtn2')!.style.display = "block"
+  }
+
+  cancel4(){
+    document.getElementById('addBtn4')!.style.display = "block"
+    document.getElementById('div4')!.style.display = "none"
+    document.getElementById('cancelBtn3')!.style.display = "block"
+    
   }
 
 
