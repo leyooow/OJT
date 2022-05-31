@@ -90,14 +90,7 @@ export class TrainingFormComponent implements OnInit {
 
   ngOnInit(): void {
 
-  const  {toTraining2, fromTraining2,
-    toTraining3, fromTraining3,
-    toTraining4, fromTraining4,
-    toTraining5, fromTraining5, } = this.ProfileForm.value
-
-    if (toTraining2 != '' || toTraining2 != null){
-      document.getElementById('div1')!.style.display = "block"
-    }
+  
 
 
     this.usersService.currentUserProfile$.pipe(
@@ -167,10 +160,13 @@ export class TrainingFormComponent implements OnInit {
 
 
   saveProfile(user: ProfileUser) {
+    
     const { uid, employeeId, firstname, lastname, email, password } = this.ProfileForm.value
 
     const userId = getAuth().currentUser?.uid.toString();
     const ref1 = ref(this.database, 'users/' + userId)
+   
+    
 
     update(ref1, {
       uid: uid,
