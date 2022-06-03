@@ -66,11 +66,11 @@ export class AppComponent {
   ngOnInit(): void {
     // this.openSidenav()
 
-    this.sidenav.mode = 'side'
-    this.sidenav.open()
+    // this.sidenav.mode = 'over'
+    // this.sidenav.open()
 
     // this.check()
-    document.getElementById('editProfile')!.style.display = "none"
+    // document.getElementById('editProfile')!.style.display = "none"
 
 
 
