@@ -25,7 +25,7 @@ import { UsersService } from 'src/app/services/users.service';
 export class TrainingFormComponent implements OnInit {
   user$ = this.usersService.currentUserProfile$
 
-  
+
 
   ProfileForm = new FormGroup({
     uid: new FormControl('',),
@@ -90,7 +90,8 @@ export class TrainingFormComponent implements OnInit {
 
   ngOnInit(): void {
 
-  
+    
+    // this.showForm()
 
 
     this.usersService.currentUserProfile$.pipe(
@@ -160,22 +161,34 @@ export class TrainingFormComponent implements OnInit {
 
 
   saveProfile(user: ProfileUser) {
-    
-    const { uid, employeeId, firstname, lastname, email, password } = this.ProfileForm.value
 
-    const userId = getAuth().currentUser?.uid.toString();
-    const ref1 = ref(this.database, 'users/' + userId)
+ 
+
+  
+
+
+
    
-    
-
-    update(ref1, {
-      uid: uid,
-      done: '1',
-    })
-
     if (!this.ProfileForm.valid) {
       alert('Please fill all required(*) fields!')
     } else {
+
+      const { uid, toTraining2, toTraining3, toTraining4, toTraining5, } = this.ProfileForm.value
+
+      const userId = getAuth().currentUser?.uid.toString();
+      const ref2 = ref(this.database, 'users/' + userId)
+
+      update(ref2, {
+        uid: uid,
+        done: '1',
+        toTraining2: toTraining2,
+        toTraining3: toTraining3,
+        toTraining4: toTraining4,
+        toTraining5: toTraining5,
+  
+      })
+  
+
       const profileData = this.ProfileForm.value
       this.usersService.updateUser(profileData).pipe(
 
@@ -212,58 +225,79 @@ export class TrainingFormComponent implements OnInit {
 
   }
 
-  add1(){
+  add1() {
     document.getElementById('addBtn1')!.style.display = "none"
     document.getElementById('div1')!.style.display = "block"
   }
 
-  add2(){
+  add2() {
 
     document.getElementById('addBtn2')!.style.display = "none"
     document.getElementById('div2')!.style.display = "block"
     document.getElementById('cancelBtn1')!.style.display = "none"
   }
 
-  add3(){
+  add3() {
 
     document.getElementById('addBtn3')!.style.display = "none"
     document.getElementById('div3')!.style.display = "block"
     document.getElementById('cancelBtn2')!.style.display = "none"
   }
 
-  add4(){
+  add4() {
 
     document.getElementById('addBtn4')!.style.display = "none"
     document.getElementById('div4')!.style.display = "block"
     document.getElementById('cancelBtn3')!.style.display = "none"
   }
 
-  
 
 
-  cancel1(){
+
+  cancel1() {
     document.getElementById('addBtn1')!.style.display = "block"
     document.getElementById('div1')!.style.display = "none"
   }
 
-  cancel2(){
+  cancel2() {
     document.getElementById('addBtn2')!.style.display = "block"
     document.getElementById('div2')!.style.display = "none"
     document.getElementById('cancelBtn1')!.style.display = "block"
   }
 
-  cancel3(){
+  cancel3() {
     document.getElementById('addBtn3')!.style.display = "block"
     document.getElementById('div3')!.style.display = "none"
     document.getElementById('cancelBtn2')!.style.display = "block"
   }
 
-  cancel4(){
+  cancel4() {
     document.getElementById('addBtn4')!.style.display = "block"
     document.getElementById('div4')!.style.display = "none"
     document.getElementById('cancelBtn3')!.style.display = "block"
-    
+
   }
+
+  showForm() {
+
+    const userId = getAuth().currentUser?.uid.toString();
+
+    const starCountRef = ref(this.database, 'users/' + userId + '/toTraining2');
+    onValue(starCountRef, (snapshot) => {
+      const data2 = snapshot.val();
+      
+
+      if (data2 != "" || data2 != null) {
+        document.getElementById('addBtn1')!.style.display = "none"
+        document.getElementById('div1')!.style.display = "block"
+      }
+
+    })
+
+
+
+  }
+
 
 
 }

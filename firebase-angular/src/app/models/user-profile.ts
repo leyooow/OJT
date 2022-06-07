@@ -181,6 +181,26 @@ export interface ProfileUser {
     photoCertURL6?: string
 
 
+    basicEducCollege2?: string
+    nameOfSchoolCollege2?: string
+    fromCollege2?: string
+    toCollege2?: string
+    highestLevelCollege2?: string
+    yearGraduatedCollege2?: string
+    scholarCollege2?: string
+
+    basicEducCollege3?: string
+    nameOfSchoolCollege3?: string
+    fromCollege3?: string
+    toCollege3?: string
+    highestLevelCollege3?: string
+    yearGraduatedCollege3?: string
+    scholarCollege3?: string
+
+
+
+
+
     
 
 

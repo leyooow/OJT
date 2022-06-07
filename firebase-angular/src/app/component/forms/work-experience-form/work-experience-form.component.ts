@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getAuth } from '@angular/fire/auth';
+import { Database, onValue, ref, update } from '@angular/fire/database';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -33,6 +34,23 @@ export class WorkExperienceFormComponent implements OnInit {
     statusOfAppointmentWorkExp: new FormControl('', ),
     governmentServiceWorkExp: new FormControl('', ),
 
+    fromWorkExp2: new FormControl('', ),
+    tomWorkExp2: new FormControl('', ),
+    positionTitleWorkExp2: new FormControl('', ),
+    departmentWorkExp2: new FormControl('', ),
+    monthlySalaryWorkExp2: new FormControl('', ),
+    salaryJobPayWorkExp2: new FormControl('', ),
+    statusOfAppointmentWorkExp2: new FormControl('', ),
+    governmentServiceWorkExp2: new FormControl('', ),
+    
+    fromWorkExp3: new FormControl('', ),
+    tomWorkExp3: new FormControl('', ),
+    positionTitleWorkExp3: new FormControl('', ),
+    departmentWorkExp3: new FormControl('', ),
+    monthlySalaryWorkExp3: new FormControl('', ),
+    salaryJobPayWorkExp3: new FormControl('', ),
+    statusOfAppointmentWorkExp3: new FormControl('', ),
+    governmentServiceWorkExp3: new FormControl('', ),
 
     
     
@@ -42,9 +60,12 @@ export class WorkExperienceFormComponent implements OnInit {
     private imageUploadService: ImageUploadService,
     private toast: HotToastService,
     private usersService: UsersService,
-    private router: Router,) { }
+    private router: Router,
+    public database: Database,) { }
 
   ngOnInit(): void {
+
+    // this.showForm()
 
     this.usersService.currentUserProfile$.pipe(
       untilDestroyed(this)
@@ -70,7 +91,25 @@ export class WorkExperienceFormComponent implements OnInit {
       alert('Please fill all required(*) fields!')
     }else{
 
-      const {employeeId,  firstname, lastname, email, password } = this.ProfileForm.value
+  
+
+      const { 
+        fromWorkExp2,
+        fromWorkExp3,
+
+
+      } = this.ProfileForm.value
+
+
+      const userId = getAuth().currentUser?.uid.toString();
+      const ref1 = ref(this.database, 'users/' + userId)
+
+      update(ref1, {
+        fromWorkExp2: fromWorkExp2,
+        fromWorkExp3: fromWorkExp3,
+
+      })
+
 
     const profileData = this.ProfileForm.value
     this.usersService.updateUser(profileData).pipe(
@@ -93,5 +132,50 @@ export class WorkExperienceFormComponent implements OnInit {
     
     
    }
+
+   addWork1() {
+    document.getElementById('addWork1')!.style.display = "none"
+    document.getElementById('divWork2')!.style.display = "block"
+    document.getElementById('addWork2')!.style.display = "block"
+    document.getElementById('cancelWork1')!.style.display = "block"
+  }
+
+  addWork2() {
+    document.getElementById('addWork2')!.style.display = "none"
+    document.getElementById('cancelWork1')!.style.display = "none"
+    document.getElementById('divWork3')!.style.display = "block"
+  }
+
+  cancelWork1() {
+    document.getElementById('addWork2')!.style.display = "none"
+    document.getElementById('cancelWork1')!.style.display = "none"
+    document.getElementById('divWork2')!.style.display = "none"
+    document.getElementById('addWork1')!.style.display = "block"
+  }
+
+  cancelWork2() {
+    document.getElementById('divWork3')!.style.display = "none"
+    document.getElementById('addWork2')!.style.display = "block"
+    document.getElementById('cancelWork1')!.style.display = "block"
+  }
+
+  showForm() {
+   
+    const userId = getAuth().currentUser?.uid.toString();
+
+    const starCountRef = ref(this.database, 'users/' + userId + '/fromWorkExp2');
+    onValue(starCountRef, (snapshot) => {
+      const data1 = snapshot.val();
+
+      if (data1 != "" || data1 != null) {
+        document.getElementById('addWork1')!.style.display = "none"
+        document.getElementById('divWork2')!.style.display = "block"
+        document.getElementById('cancelWork1')!.style.display = "none"
+
+
+      }
+
+    })
+  }
 
 }
