@@ -114,7 +114,7 @@
 }
 
 mat-sidenav {
-  width: 300px;
+  width: 280px;
   border-right: none;
   background-color: #b2b4b9;
   padding: 16px;
@@ -129,6 +129,9 @@ mat-sidenav-container {
   height: calc(100vh - 70px);
   background-color: transparent;
   overflow: hidden;
+}
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown {
+  display: none;
 }
 
 mat-icon {

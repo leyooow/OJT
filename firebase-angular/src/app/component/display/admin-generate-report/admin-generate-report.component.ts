@@ -22,7 +22,12 @@ export class AdminGenerateReportComponent implements OnInit {
 
   makePDF(){
     let pdf=new jsPDF('p', 'pt', 'a2')
+    pdf.setFontSize(25);
+    pdf.setFont("Arial", 'bold');
+    pdf.setTextColor('#072F6E');
+    pdf.text('FACULTY INFORMATION', 250,80);
     pdf.html(this.el.nativeElement,{
+      margin: [100,20,120,120],
       callback: (pdf)=>{
         pdf.save("Faculty Information.pdf")
       }

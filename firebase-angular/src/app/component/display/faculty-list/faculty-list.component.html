@@ -21,6 +21,7 @@
   </form> -->
 
   <h2 class="form-title"> Faculty List</h2>
+  <div id="content" #content>
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-lg-12 col-sm-12">
@@ -43,7 +44,6 @@
               <td style="text-transform: lowercase;">{{ data.email }}
               <td>{{ data.firstName}}</td>
               <td>{{ data.lastName}}</td>
-
               <td>
                 <div class="row">
                   <div class="col hit">
@@ -62,6 +62,8 @@
       </div>
     </div>
   </div>
+</div>
+ <button (click)="makePDF()" id="generateFacultylist">Generate Report</button>
 
 
 </div>
