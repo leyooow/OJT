@@ -15,7 +15,7 @@
     height: max-content;*/
     display: block;
     min-width: 400px;
-    max-width: 80%;
+    max-width: 85%;
     margin: auto;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -24,6 +24,20 @@
     background-color: #D3D5DB;
     height: fit-content;
     overflow: hidden;
+  }
+  #generateFacultylist{
+    position: relative;
+    left: 82%;
+    top: -15px;
+    background-color:#072F6E;
+    color: white;
+    padding: 8px;
+    margin: 10px;
+    border: none;
+    border-radius: 7px;
+  }
+  #generateFacultylist:hover{
+    background-color: #024ABD;
   }
 .form-title {
     font-family: 'Koulen', cursive;
@@ -83,7 +97,7 @@ tr:nth-of-type(even) {
   }
 .row{
   width: 100%;
-} 
+}
 .container {
   display: flex;
   flex-direction: row;

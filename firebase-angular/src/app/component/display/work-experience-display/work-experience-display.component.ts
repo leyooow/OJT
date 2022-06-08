@@ -13,7 +13,12 @@ export class WorkExperienceDisplayComponent implements OnInit {
 
   makePDF(){
     let pdf=new jsPDF('p', 'pt', 'a2')
+    pdf.setFontSize(20);
+    pdf.setFont("Arial", 'bold');
+    pdf.setTextColor('#072F6E');
+    pdf.text('WORK EXPERIENCE', 300,70);
     pdf.html(this.el.nativeElement,{
+      margin: [100,20,100,145],
       callback: (pdf)=>{
         pdf.save("Work Experience.pdf")
       }

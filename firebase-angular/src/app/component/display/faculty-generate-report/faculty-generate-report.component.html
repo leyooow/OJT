@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
 
 <div id="allInfo" class="form-container3" *ngIf="user$ | async as user">
-
+<div class="containerAll">
   <div class="container1">
     <div class="profile-image">
       <img width="200" height="200" [src]="user.photoURL ?? 'assets/images/image-placeholder.jpg'">
@@ -515,4 +515,5 @@
     </div>
   </div> -->
 
+</div>
 </div>

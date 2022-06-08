@@ -1,4 +1,5 @@
-import { Component, OnInit, PipeTransform } from '@angular/core';
+import { Component, OnInit, PipeTransform, ViewChild, ElementRef } from '@angular/core';
+import {jsPDF} from "jspdf";
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Database, get, onValue, ref, set } from '@angular/fire/database';
 import { ProfileUser } from 'src/app/models/user-profile';
@@ -42,7 +43,23 @@ interface User {
 })
 export class FacultyListComponent implements OnInit {
 
- 
+
+  @ViewChild('content',{static: false}) el!: ElementRef;
+
+  makePDF(){
+    let pdf=new jsPDF('l', 'pt', 'a2');
+    pdf.setFontSize(30);
+    pdf.setFont("Arial", 'bold');
+    pdf.setTextColor('#072F6E');
+    pdf.text('FACULTY LIST', 220,80);
+    pdf.html(this.el.nativeElement,{
+      margin: [100,20,100,185],
+      callback: (pdf)=>{
+        pdf.save("Faculty List.pdf")
+      }
+    })
+
+  }
 
 
 
@@ -74,7 +91,7 @@ export class FacultyListComponent implements OnInit {
     this.getUserFromTable()
     console.log(this.userList)
     // setTimeout(() => {
-      
+
     //   const userId = localStorage.getItem('id')
     //   const uidRef = ref(this.database, 'users2/' + userId + '/uid');
     //   onValue(uidRef, (snapshot) => {
@@ -83,16 +100,16 @@ export class FacultyListComponent implements OnInit {
 
     //     this.afs.collection('users').doc(uid).ref.get().then(function (doc) {
     //       console.log(doc.data())
-          
-                  
+
+
     //     })
-      
+
     //   })
 
-     
 
-    
-     
+
+
+
     //   this.getStarted()
 
     // }, 50);
@@ -130,10 +147,10 @@ export class FacultyListComponent implements OnInit {
 
   ) { }
 
-  
+
 
   openAlert() {
-    // let value = event.target.innerHTML; 
+    // let value = event.target.innerHTML;
     // console.log("value", value);
 
 
@@ -198,8 +215,8 @@ export class FacultyListComponent implements OnInit {
 
     //  const email1 = ''
     //  const employeeId1 = ''
-    //  const firstName1 = '' 
-    //  const lastName1 = ''  
+    //  const firstName1 = ''
+    //  const lastName1 = ''
 
 
 

@@ -13,7 +13,12 @@ export class PersonalInfoDisplayComponent implements OnInit {
 
   makePDF(){
     let pdf=new jsPDF('p', 'pt', 'a2')
+    pdf.setFontSize(25);
+    pdf.setFont("Arial", 'bold');
+    pdf.setTextColor('#072F6E');
+    pdf.text('PERSONAL INFORMATION', 200,70);
     pdf.html(this.el.nativeElement,{
+      margin: [100,20,100,145],
       callback: (pdf)=>{
         pdf.save("Personal Information.pdf")
       }

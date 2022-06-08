@@ -13,7 +13,12 @@ export class TrainingDisplayComponent implements OnInit {
 
   makePDF(){
     let pdf=new jsPDF('p', 'pt', 'a2')
+    pdf.setFontSize(20);
+    pdf.setFont("Arial", 'bold');
+    pdf.setTextColor('#072F6E');
+    pdf.text('L&D INTERVENTIONS/TRAININGS', 170,70);
     pdf.html(this.el.nativeElement,{
+      margin: [100,20,100,145],
       callback: (pdf)=>{
         pdf.save("L&D Interventions/Training Programs.pdf")
       }

@@ -23,7 +23,12 @@ export class EducationalBackgroundDisplayComponent implements OnInit {
 
   makePDF(){
     let pdf=new jsPDF('p', 'pt', 'a2')
+    pdf.setFontSize(25);
+    pdf.setFont("Arial", 'bold');
+    pdf.setTextColor('#072F6E');
+    pdf.text('EDUCATIONAL BACKGROUND', 270,70);
     pdf.html(this.el.nativeElement,{
+      margin: [100,20,100,145],
       callback: (pdf)=>{
         pdf.save("Educational Background.pdf")
       }
