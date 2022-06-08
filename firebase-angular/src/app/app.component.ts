@@ -50,6 +50,7 @@ export class AppComponent {
 
 
 
+
     this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
       if (res.matches) {
         this.sidenav.mode = 'over'
@@ -64,9 +65,8 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    // this.openSidenav()
+    this.openSidenav()
 
-    // this.sidenav.mode = 'over'
     // this.sidenav.open()
 
     // this.check()
@@ -139,8 +139,9 @@ export class AppComponent {
 
   openSidenav() {
 
+
     const userId = getAuth().currentUser?.uid
-   
+
     if (userId == "fM6Ko90ezgSzZJ04sbCdGMmbOYt1") {
       document.getElementById('personalInfo')!.style.display = "none"
       document.getElementById('EducBack')!.style.display = "none"
@@ -151,11 +152,6 @@ export class AppComponent {
 
       document.getElementById('facultyReq')!.style.display = "block"
       document.getElementById('FacultyList')!.style.display = "block"
-
-
-
-
-
 
 
 
