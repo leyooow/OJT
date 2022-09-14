@@ -2,4 +2,4 @@
 Mga pakyu!
 
 
-" Walang gagalaw ng .ts files (backend) "
+" Walang gagalaw ng .ts files "
