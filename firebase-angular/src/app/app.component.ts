@@ -65,7 +65,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    this.openSidenav()
+    // this.openSidenav()
 
     // this.sidenav.open()
 
